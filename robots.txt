@@ -29,6 +29,11 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Perplexity's second documented agent (perplexity.ai crawler docs):
+# fetches a page when a person's question needs it.
+User-agent: Perplexity-User
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
@@ -44,6 +49,12 @@ Allow: /
 User-agent: Meta-ExternalFetcher
 Allow: /
 
+# Apple's actual search crawler (Spotlight / Siri / Safari) — only the
+# training-only token Applebot-Extended was listed before (Apple Support,
+# "About Applebot").
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
@@ -51,6 +62,19 @@ User-agent: DuckAssistBot
 Allow: /
 
 User-agent: YouBot
+Allow: /
+
+# Amazon's three documented agents (developer.amazon.com crawler docs):
+# Amazonbot (product improvement, may train Amazon AI models),
+# Amzn-SearchBot (search experiences such as Alexa, no AI training) and
+# Amzn-User (live fetches on a user action).
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Amzn-SearchBot
+Allow: /
+
+User-agent: Amzn-User
 Allow: /
 
 # ByteDance's training scraper (not a search engine that cites pages).
