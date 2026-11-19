@@ -393,11 +393,12 @@ strong { font-weight: 700; }
 /* Label cell: icon disc + label text. Teal-dark #083F4A on sand = 10.25:1. */
 .detail-row dt {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* icon vertically centred on its label (fix round 2026-11-19) */
   gap: 14px;
   font-weight: 700;
   color: var(--teal-dark);
   margin: 0;
+  min-width: 0; /* label can shrink; the icon column never does */
 }
 .detail-label { padding-top: 5px; } /* optically centres 1-line labels on the 40px disc */
 
@@ -406,7 +407,7 @@ strong { font-weight: 700; }
    white (14.38:1). Icons are decorative (aria-hidden) so they carry no
    meaning alone — the label text always says what the row is. */
 .detail-icon {
-  flex: none;
+  flex: 0 0 40px; /* fixed 40px icon column: never shrinks, never clips */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -420,6 +421,9 @@ strong { font-weight: 700; }
 .detail-icon svg {
   width: 22px;
   height: 22px;
+  max-width: 22px;
+  max-height: 22px;
+  flex: none;
   display: block;
 }
 .detail-row:hover .detail-icon,
@@ -471,24 +475,33 @@ strong { font-weight: 700; }
    a white card. Text now sits ON a photo, so photo cards flip to light
    text on a dark scrim. The scrim is a real overlay element (.kind-scrim,
    added by the functions.php patch) so the photo stays a photo
-   underneath: the gradient lets 14-26% of the image show through,
+   underneath: the gradient lets 8-14% of the image show through,
    strongest at the bottom of the card.
-   Overlay: linear-gradient(180deg, rgba(7,38,47,0.86) 0%,
-   rgba(7,38,47,0.78) 55%, rgba(7,38,47,0.74) 100%).
+   Overlay: linear-gradient(180deg, rgba(7,38,47,0.92) 0%,
+   rgba(7,38,47,0.88) 55%, rgba(7,38,47,0.86) 100%).
    Text: h3 #ffffff, p #f4f8f8, links #ffd9a8 (the light gold already used
    for links on dark hero backgrounds in this theme).
    Worst-case contrast (overlay blended over a PURE WHITE image pixel —
    brighter than any pixel in any of the 13 masters; computed with
    qa/contrast-kinds.py, WCAG 2.x formula):
-     h3 #ffffff  top 10.30:1 | mid 7.83:1 | bottom 6.83:1
-     p  #f4f8f8  top  9.63:1 | mid 7.32:1 | bottom 6.38:1
-     a  #ffd9a8  top  7.72:1 | mid 5.87:1 | bottom 5.12:1
+     h3 #ffffff  top 12.55:1 | mid 11.02:1 | bottom 10.30:1
+     p  #f4f8f8  top 11.73:1 | mid 10.30:1 | bottom 9.63:1
+     a  #ffd9a8  top  9.41:1 | mid  8.26:1 | bottom 7.72:1
    All >= 4.5:1 at every point of the card. Measured per-card worst case
    (brightest pixel of each master under the weakest, bottom, alpha):
-   link 5.12:1 (10 cards) to 5.98:1 (flood-storm); h3 6.83:1 to 7.97:1;
-   p 6.38:1 to 7.45:1. Full table in qa/FINDINGS-kinds-cards.md.
+   link 7.72:1 (7 cards) to 8.38:1 (flood-storm); h3 10.30:1 to 11.18:1;
+   p 9.63:1 to 10.45:1. Full table in qa/FINDINGS-kinds-cards.md.
    An earlier draft (bottom alpha 0.68) FAILED the link at 4.19:1 and was
    rejected; the bottom alpha was raised to 0.74 to clear 4.5:1.
+   Fix round 2026-11-19: the owner's screenshot showed DARK text on the
+   photos — his browser held the 20X CSS (assets are cached 1 year,
+   immutable; that CSS has NO kinds rules) while the HTML was new.
+   PROOF: qa/screenshots-five-fixes/SIM-OLD-CSS-kinds-desktop.png
+   (current HTML + 20X CSS) reproduces his screenshot exactly. The
+   scrim was strengthened 0.86/0.78/0.74 -> 0.92/0.88/0.86 for margin,
+   AND the stylesheet link in header.php was cache-busted (?v=2) — a
+   CSS-only change cannot reach a cached browser otherwise. Bump the
+   ?v= on EVERY future CSS change.
    ========================================================================== */
 
 /* --- Kind cards --- */
@@ -520,7 +533,7 @@ strong { font-weight: 700; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(180deg, rgba(7, 38, 47, 0.86) 0%, rgba(7, 38, 47, 0.78) 55%, rgba(7, 38, 47, 0.74) 100%);
+  background: linear-gradient(180deg, rgba(7, 38, 47, 0.92) 0%, rgba(7, 38, 47, 0.88) 55%, rgba(7, 38, 47, 0.86) 100%);
   pointer-events: none;
 }
 /* Text sits above the scrim. */
@@ -795,7 +808,9 @@ tbody tr:nth-child(even) { background: var(--sand); }
 /* --- Footer: most important for ranking + crawling --- */
 .site-footer { background: var(--deep); color: #d7e4e7; }
 .footer-grid {
-  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;
+  /* Fix round 2026-11-19: 3 columns now — brand + Services + Explore.
+     The "Areas We Serve" column was removed (Areas is header-only). */
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
   padding-top: 64px; padding-bottom: 56px;
 }
 /* 10x fix D-11: on the 7 map-less location pages the brand column is much
@@ -1039,31 +1054,48 @@ ol.steps,
        this hover rule never apply at the same time.
    ========================================================================== */
 
-/* --- 1. BASE H2 — river teal, with a river-into-sunset bar -------------
-   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: teal #0B5563 on white,
-   8.42:1 (7.48:1 on sand, 6.85:1 on sand-2) — still far above the 4.5:1
-   bar for normal text and 3:1 for large text, and now visually distinct
-   from the H3 below it. The old H2 and H3 were the SAME colour, so the
-   page had no heading hierarchy at all.
-   The bar: solid coral -> gradient teal-to-coral, same 72px x 6px, so
-   the bar now reads as the river flowing into the sunset. ---------- */
+/* --- 1. BASE H2 — deep river, with a river-into-sunset bar -------------
+   Fix round 2026-11-19 (owner: "H2 H3 ka colour badlo, piyara kro"):
+   H2 was teal #0B5563 (hero round, 8.42:1 white) — now deep #0A2E38,
+   14.38:1 on white, 12.77:1 on sand, 11.69:1 on sand-2. Deep is the
+   darkest ink in the theme, so the H2 now reads as the page's anchor
+   and the teal moves down to H3 — the hierarchy is deep > teal, with
+   the gold rule as the accent, instead of teal > coral-dark.
+   The bar: gradient teal-to-coral, same 72px x 6px, UNCHANGED — the bar
+   is the accent, the text is the ink. ---------- */
 .page-body h2:not(.details-card h2) {
-  color: var(--teal);
+  color: var(--deep);
 }
 .page-body h2:not(.details-card h2)::before {
   background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
 }
 
-/* --- 2. BASE H3 — sunset coral-dark ----------------------------------
-   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: coral-dark #9A3412 on
-   white, 7.31:1 (6.49:1 on sand, 5.94:1 on sand-2). Coral-dark was
+/* --- 2. BASE H3 — river teal, with a gold rule -----------------------
+   Fix round 2026-11-19 (owner: "H2 H3 ka colour badlo, piyara kro"):
+   H3 was coral-dark #9A3412 (hero round, 7.31:1 white) — now teal
+   #0B5563, 8.42:1 on white, 7.48:1 on sand, 6.85:1 on sand-2. Teal was
    chosen over plain coral #C2410C (5.18:1 white / 4.60:1 sand — a pass,
-   but a thin one on sand) because the darker end of the sunset keeps a
-   comfortable margin on every background an H3 can sit on, including
-   the steps list (white) and any sand-tinted section. H2 teal + H3
-   coral-dark = river + sunset, the two theme accents, one per level. */
+   but a thin one on sand) because it keeps a comfortable margin on
+   every background an H3 can sit on, including the steps list (white)
+   and any sand-tinted section. H2 deep + H3 teal = the river at two
+   depths, one per level; the gold ::after rule (below) is the sunset
+   accent that makes the heading stylish. */
 .page-body h3:not(.kind-card h3) {
-  color: var(--coral-dark);
+  color: var(--teal);
+}
+/* Stylish accent (fix round 2026-11-19): a short gold rule under every
+   H3, echoing the details-card eyebrow bar. Decorative only — the H3
+   text itself is teal on white/sand (8.42:1 / 7.48:1), so the rule never
+   carries meaning alone. Excluded from kind-card h3 (white on photo)
+   and footer h3 (own rule) by the same :not() + scope. */
+.page-body h3:not(.kind-card h3)::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-top: 12px;
 }
 
 /* --- 3. BODY LINKS — underline + visited distinction ------------------

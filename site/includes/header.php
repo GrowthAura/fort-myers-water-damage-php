@@ -40,7 +40,12 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/archivoblack-400.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
-<link rel="stylesheet" href="/assets/css/styles.css">
+<!-- Stylesheet cache-bust: assets are served Cache-Control 1 year
+     immutable (out/_headers), so a CSS-only change NEVER reaches a
+     browser that already cached the file, the 2026-11-19 kinds-text
+     and details-icon defects were exactly this (new HTML + old CSS).
+     Bump the ?v= number on EVERY CSS change, or the fix stays local. -->
+<link rel="stylesheet" href="/assets/css/styles.css?v=2">
 <?php if (!empty($HEAD['ld_given'])): ?>
 <script type="application/ld+json"><?= $HEAD['ld_given'] ?></script>
 <?php endif; ?>

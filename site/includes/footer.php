@@ -1,4 +1,4 @@
-<?php global $NAV_SERVICES, $FOOTER_EXPLORE, $FOOTER_AREAS, $SITE; ?>
+<?php global $NAV_SERVICES_MENU, $FOOTER_EXPLORE, $SITE; ?>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -13,7 +13,7 @@
     </div>
     <nav class="footer-col" aria-label="Services">
       <h3>Services</h3>
-      <?php foreach ($NAV_SERVICES as $s): ?>
+      <?php foreach ($NAV_SERVICES_MENU as $s): ?>
       <?php if ($currentSlug === $s['href']): ?>
       <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
       <?php else: ?>
@@ -31,17 +31,9 @@
       <?php endif; ?>
       <?php endforeach; ?>
     </nav>
-    <nav class="footer-col" aria-label="Areas we serve">
-      <h3>Areas We Serve</h3>
-      <?php foreach ($FOOTER_AREAS as $s): ?>
-      <?php if ($currentSlug === $s['href']): ?>
-      <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
-      <?php else: ?>
-      <a href="<?= esc($s['href']) ?>"><?= esc($s['label']) ?></a>
-      <?php endif; ?>
-      <?php endforeach; ?>
-      <p class="footer-zips">Fort Myers ZIPs 33901 to 33967 &middot; North Fort Myers 33903, 33917</p>
-    </nav>
+    <!-- No Areas column: Areas is header-only (fix round 2026-11-19,
+         owner order). The old "Areas We Serve" column (6 area links +
+         the hub link + the footer-zips line) was removed here. -->
   </div>
   <div class="footer-base">
     <div class="container footer-base-inner">

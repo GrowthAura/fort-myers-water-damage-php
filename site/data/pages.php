@@ -61,11 +61,14 @@ $LOCATION_PAGES = [
     '/fort-myers-beach/', '/estero/', '/bonita-springs/', '/areas/',
 ];
 
-// Full service list (17) — footer Services column iterates this, so the
-// footer carries EVERY service page. Five of these (cast-iron-pipe,
-// vacant-home, appliance-leak, floors, cabinets) previously had no nav
-// entry at all; their labels below are proposed from each page's own
-// title/H1 (owner may correct). Existing 12 entries unchanged, same order.
+// Full service list (17) — the complete service set. Fix round
+// 2026-11-19 (owner order): the footer Services column now iterates
+// $NAV_SERVICES_MENU (the same 7 as the header), NOT this list. Five
+// of these (cast-iron-pipe, vacant-home, appliance-leak, floors,
+// cabinets) previously had no nav entry at all; their labels below are
+// proposed from each page's own title/H1 (owner may correct). Existing
+// 12 entries unchanged, same order. Still used for the header's
+// $inServices check.
 $NAV_SERVICES = [
     ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
     ['label' => 'Structural Drying', 'href' => '/drying/'],
@@ -88,8 +91,9 @@ $NAV_SERVICES = [
 
 // Header menu services (7) — the ONLY services in the header Services
 // dropdown (desktop) and the mobile-menu Services list. Owner order
-// 2026-11-19: menu = 7 services, the rest go in the footer. These are the
-// first 7 of $NAV_SERVICES, in the same order; footer still lists all 17.
+// 2026-11-19: menu = 7 services. Fix round 2026-11-19: the footer
+// Services column lists these SAME 7 (footer no longer lists all 17).
+// These are the first 7 of $NAV_SERVICES, in the same order.
 $NAV_SERVICES_MENU = [
     ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
     ['label' => 'Structural Drying', 'href' => '/drying/'],
@@ -100,17 +104,20 @@ $NAV_SERVICES_MENU = [
     ['label' => 'Burst Pipe Water Damage', 'href' => '/burst-pipe/'],
 ];
 
-// Header Areas dropdown (7) — mirrors the published site's nav, minus the
-// old "Fort Myers" -> "/" entry: it duplicated the brand link (fix round:
-// header carries important items only).
+// Header Areas dropdown (7) — "Areas" hub link FIRST, then the 6 area
+// pages. Fix round 2026-11-19 (owner: "areas ko link kr menu se, aur
+// menu se see all areas hata de"): the old trailing "All Service Areas"
+// item is GONE — the hub is reached as "Areas" at the top. Desktop
+// dropdown + mobile menu both iterate this one array, so both update
+// together. The footer has NO Areas column at all (Areas is header-only).
 $NAV_AREAS = [
+    ['label' => 'Areas', 'href' => '/areas/'],
     ['label' => 'Cape Coral', 'href' => '/cape-coral/'],
     ['label' => 'Lehigh Acres', 'href' => '/lehigh-acres/'],
     ['label' => 'North Fort Myers', 'href' => '/north-fort-myers/'],
     ['label' => 'Fort Myers Beach', 'href' => '/fort-myers-beach/'],
     ['label' => 'Estero', 'href' => '/estero/'],
     ['label' => 'Bonita Springs', 'href' => '/bonita-springs/'],
-    ['label' => 'All Service Areas', 'href' => '/areas/'],
 ];
 
 // Footer Explore links (includes pages the header omits: Insurance, About,
@@ -128,17 +135,8 @@ $FOOTER_EXPLORE = [
     ['label' => 'Disclaimer', 'href' => '/disclaimer/'],
 ];
 
-// Footer Areas column (plain text + links to the area pages).
-// "Fort Myers" -> "/" removed in the fix round: it duplicated the brand link.
-$FOOTER_AREAS = [
-    ['label' => 'Cape Coral', 'href' => '/cape-coral/'],
-    ['label' => 'Lehigh Acres', 'href' => '/lehigh-acres/'],
-    ['label' => 'North Fort Myers', 'href' => '/north-fort-myers/'],
-    ['label' => 'Fort Myers Beach', 'href' => '/fort-myers-beach/'],
-    ['label' => 'Estero', 'href' => '/estero/'],
-    ['label' => 'Bonita Springs', 'href' => '/bonita-springs/'],
-    ['label' => 'All Service Areas', 'href' => '/areas/'],
-];
+// (No $FOOTER_AREAS: the footer "Areas We Serve" column was removed in
+// the 2026-11-19 fix round — Areas is header-only by owner order.)
 
 function build_pages()
 {
