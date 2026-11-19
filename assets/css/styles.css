@@ -1,1 +1,1677 @@
-@font-face{font-family:"Archivo Black";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/archivoblack-400.woff2") format("woff2")}@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url("../fonts/inter-var.woff2") format("woff2")}:root{--deep:#0a2e38;--deep-2:#0d3a46;--teal:#0b5563;--teal-dark:#083f4a;--teal-bright:#0e7c8c;--coral:#c2410c;--coral-bright:#e8590c;--coral-dark:#9a3412;--sand:#f6f1e7;--sand-2:#efe7d6;--gold:#c99b3f;--ink:#12262e;--muted:#46585f;--line:#dcd5c6;--white:#ffffff;--shadow:0 10px 30px rgba(10,46,56,0.14);--font-display:"Archivo Black","Arial Black","Helvetica Neue",sans-serif;--font-body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;font-family:var(--font-body);font-size:20px;line-height:1.7;color:var(--ink);background:var(--white)}img{max-width:100%;height:auto}a{color:var(--teal)}a:hover{color:var(--coral)}p{margin:0 0 1.25em}ul,ol{margin:0 0 1.25em;padding-left:1.4em}li{margin-bottom:0.55em}li::marker{color:var(--coral);font-weight:700}h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.12;letter-spacing:-0.01em;color:var(--deep);margin:0 0 0.5em}h1{font-size:58px}h2{font-size:42px}h3{font-size:26px;line-height:1.25}strong{font-weight:700}.container{max-width:1240px;margin:0 auto;padding:0 24px}.skip-link{position:absolute;left:-9999px;top:0;background:var(--coral);color:#fff;padding:12px 20px;z-index:200;font-weight:700;text-decoration:underline;text-underline-offset:3px}.skip-link:focus,.skip-link:focus-visible{left:12px;top:12px;color:#fff;outline:3px solid var(--gold);outline-offset:2px}.btn{display:inline-flex;align-items:center;gap:10px;font-size:20px;font-weight:700;line-height:1.2;padding:16px 28px;min-height:56px;border-radius:10px;text-decoration:none;cursor:pointer;border:2px solid transparent}.btn svg{flex:none}.btn-call{background:var(--coral);color:#fff;box-shadow:0 6px 18px rgba(194,65,12,0.35)}.btn-call:hover{background:var(--coral-dark);color:#fff}.btn-ghost{background:rgba(255,255,255,0.08);color:#fff;border-color:#fff}.btn-ghost:hover{background:rgba(255,255,255,0.2);color:#fff}.btn-ghost-dark{background:transparent;color:var(--teal);border-color:var(--teal)}.btn-ghost-dark:hover{background:var(--teal);color:#fff}.btn-call{background:linear-gradient(180deg,var(--coral) 0%,#a83a10 55%,var(--coral-dark) 100%);box-shadow:0 6px 18px rgba(194,65,12,0.38),inset 0 -3px 0 var(--gold)}.btn-call:hover{background:linear-gradient(180deg,var(--coral-dark) 0%,#7c2d12 100%);color:#fff;box-shadow:0 8px 22px rgba(154,52,18,0.45),inset 0 -3px 0 var(--gold)}.btn-ghost{background:rgba(201,155,63,0.16);border-color:var(--gold);color:#fff}.btn-ghost:hover{background:var(--gold);border-color:var(--gold);color:var(--deep)}.btn-ghost-dark{background:rgba(11,85,99,0.06);color:var(--teal);border-color:var(--teal)}.btn-ghost-dark:hover{background:linear-gradient(180deg,var(--teal) 0%,var(--teal-dark) 100%);border-color:var(--teal-dark);color:#fff;box-shadow:inset 0 -3px 0 var(--gold)}.call-bar{background:linear-gradient(180deg,var(--coral) 0%,var(--coral-dark) 100%)}.call-bar:hover{background:linear-gradient(180deg,var(--coral-dark) 0%,#7c2d12 100%);color:#fff}.btn:focus-visible,.call-bar:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px var(--coral)}.site-header{position:sticky;top:0;z-index:100;background:var(--deep);box-shadow:0 2px 14px rgba(0,0,0,0.35)}.header-inner{display:flex;align-items:center;gap:28px;min-height:80px;padding-top:8px;padding-bottom:8px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;flex:none;min-height:44px}.brand:hover{color:#fff}.brand-mark{display:flex}.brand-text{display:flex;flex-direction:column;line-height:1.15}.brand-name{font-family:var(--font-display);font-size:21px;color:#fff}.brand-name .brand-city{color:var(--gold)}.brand-tag{font-size:14px;color:#b8d2d8;letter-spacing:0.04em}.site-nav{display:flex;align-items:center;gap:6px;margin-left:auto}.site-nav>a,.site-nav>span.nav-current-top,.site-nav summary{color:#fff;text-decoration:none;font-size:18px;font-weight:600;padding:12px 14px;border-radius:8px;cursor:pointer;list-style:none;white-space:nowrap;flex:none}.site-nav>a:hover,.site-nav summary:hover{background:rgba(255,255,255,0.12);color:#fff}.site-nav details{position:relative}.site-nav summary::-webkit-details-marker{display:none}.site-nav summary::after{content:" \25BE";font-size:13px;color:var(--gold)}.nav-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:320px;background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:10px;display:flex;flex-direction:column;z-index:120}.nav-dropdown a{color:var(--deep);text-decoration:none;font-size:18px;font-weight:500;padding:11px 14px;border-radius:8px}.nav-dropdown a:hover{background:var(--sand);color:var(--coral)}.site-nav>span.nav-current-top{background:rgba(201,155,63,0.22);box-shadow:inset 0 -3px 0 var(--gold);color:#fff}.site-nav details.nav-section-current>summary{background:rgba(201,155,63,0.22);box-shadow:inset 0 -3px 0 var(--gold);color:#fff}.nav-dropdown span.nav-current{display:block;font-size:18px;font-weight:700;color:var(--coral);background:var(--sand-2);padding:11px 14px;border-radius:8px;cursor:default}.mobile-menu-panel span.nav-current{display:block;color:#fff;text-decoration:none;font-size:20px;font-weight:700;padding:13px 4px 13px 12px;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.14);border-left:4px solid var(--gold);cursor:default}.footer-col span.nav-current{display:block;color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px;font-size:18px;line-height:1.45;padding:9px 0;cursor:default}.brand[aria-current="page"] .brand-name{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}.nav-group{font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:14px 14px 6px}.header-call{flex:none;min-height:52px;padding:12px 20px}.header-call .call-short{display:none}.mobile-menu{display:none}.hero{position:relative;overflow:hidden;background:var(--deep);color:#fff}.hero-no-media{background:linear-gradient(115deg,var(--deep) 0%,var(--teal-dark) 55%,var(--teal) 100%)}.hero-no-media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(55% 75% at 88% 8%,rgba(14,124,140,0.30),rgba(14,124,140,0) 70%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='120' viewBox='0 0 720 120' preserveAspectRatio='none'%3E%3Cpath d='M0,78 C120,42 240,102 360,72 C480,42 600,96 720,66 L720,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3Cpath d='M0,96 C140,66 260,114 400,88 C520,66 620,108 720,90 L720,120 L0,120 Z' fill='%23c99b3f' fill-opacity='0.08'/%3E%3C/svg%3E") left bottom / 720px 120px repeat-x}.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,32,40,0.93) 0%,rgba(6,32,40,0.8) 46%,rgba(6,32,40,0.70) 100%)}.hero-inner{position:relative;z-index:2;padding-top:84px;padding-bottom:84px;max-width:1240px}.hero-inner h1{color:#fff;max-width:960px;margin-bottom:0.45em}.hero-intro{font-size:22px;line-height:1.6;max-width:860px;color:#eef4f5}.hero-intro a{color:#ffd9a8}.hero a{text-decoration:none}.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin:32px 0 24px}.hero-ctas .btn{font-size:21px}.hero-areas{font-size:18px;letter-spacing:0.02em;color:#cfe0e4;margin:0}.hero-areas a{color:#fff}.hero-inner-page .hero-inner{padding-top:64px;padding-bottom:64px}.hero-inner-page h1{margin-bottom:0.35em}.breadcrumb{padding-top:22px}.breadcrumb ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;font-size:18px}.breadcrumb li{margin:0}.breadcrumb a{color:var(--teal);text-decoration:none}.breadcrumb a:hover{color:var(--coral);text-decoration:underline}.breadcrumb .crumb-sep{color:var(--gold)}.page-body{padding-top:8px;padding-bottom:96px}.page-body>h2{margin-top:72px}.page-body>h2:first-child{margin-top:40px}.page-body h2::before{content:"";display:block;width:72px;height:6px;background:var(--coral);border-radius:3px;margin-bottom:18px}.page-body h3{margin-top:44px}.page-body>p,.page-body>ul,.page-body>ol{max-width:1100px}.page-body section{margin:56px 0}.details-card{--details-tint:#E0EBED;background:var(--sand);border:1px solid var(--line);border-left:6px solid var(--deep);border-radius:16px;padding:40px 44px;margin:48px 0;box-shadow:0 10px 30px rgba(10,46,56,0.10);display:flex;flex-direction:column}.details-card h2{margin-top:0;margin-bottom:0;color:var(--deep)}.details-card h2::before{display:none}.details-sub{order:-1;display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-dark);margin:0 0 12px}.details-sub::before{content:"";flex:none;width:44px;height:4px;background:var(--gold);border-radius:2px}.details-grid{display:flex;flex-direction:column;margin:28px 0 0;border-top:1px solid var(--line)}.detail-row{display:grid;grid-template-columns:250px 1fr;gap:12px 28px;padding:16px 14px;margin:0 -14px;border-bottom:1px solid var(--line);border-radius:10px;transition:background-color 0.15s ease}.detail-row:hover,.detail-row:focus-within{background:#fff}.detail-row dt{display:flex;align-items:center;gap:14px;font-weight:700;color:var(--teal-dark);margin:0;min-width:0}.detail-label{padding-top:5px}.detail-icon{flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:var(--details-tint);color:var(--teal);display:inline-flex;align-items:center;justify-content:center;transition:background-color 0.15s ease,color 0.15s ease}.detail-icon svg{width:22px;height:22px;max-width:22px;max-height:22px;flex:none;display:block}.detail-row:hover .detail-icon,.detail-row:focus-within .detail-icon{background:var(--deep);color:#fff}.detail-row dd{margin:0;padding-top:5px;color:var(--ink)}.details-card a{color:var(--teal)}.details-card a:hover{color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}.details-card a:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}@media (prefers-reduced-motion:reduce){.detail-row,.detail-icon{transition:none}}.kinds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0 8px}.kind-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-top:5px solid var(--coral);border-radius:12px;padding:28px;box-shadow:0 4px 16px rgba(10,46,56,0.06)}.kind-card h3{margin-top:0;font-size:23px}.kind-card p{margin-bottom:0}.kind-card p:last-child{margin-bottom:0}.kind-card.has-photo{background-color:var(--deep);background-size:cover;background-position:center;background-repeat:no-repeat;color:#f4f8f8}.kind-card.has-photo .kind-scrim{position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(7,38,47,0.92) 0%,rgba(7,38,47,0.88) 55%,rgba(7,38,47,0.86) 100%);pointer-events:none}.kind-card.has-photo h3,.kind-card.has-photo p{position:relative;z-index:1}.kind-card.has-photo h3{color:#ffffff}.kind-card.has-photo p{color:#f4f8f8}.kind-card.has-photo a{color:#ffd9a8;text-decoration:underline}.kind-card.has-photo a:hover{color:#ffe9c9}.kind-card.has-photo a:focus-visible{outline:2px solid #ffd9a8;outline-offset:2px}@media (max-width:820px){.kind-card{padding:24px 22px}.kind-card.has-photo{background-position:center}.kind-card h3{font-size:22px}}@media print{.kind-card.has-photo{background-image:none!important;background-color:#ffffff;color:var(--ink)}.kind-card.has-photo .kind-scrim{display:none}.kind-card.has-photo h3{color:var(--deep)}.kind-card.has-photo p{color:var(--ink)}.kind-card.has-photo a{color:var(--teal)}}.help-card{overflow:hidden}.help-card-img{display:block;width:calc(100% + 56px);max-width:none;height:auto;aspect-ratio:16 / 9;object-fit:cover;margin:-28px -28px 20px;border-radius:0}.help-card p{margin-bottom:0}.about-buttons .btn{margin:4px 8px 4px 0;vertical-align:middle}.about-buttons .btn:last-child{margin-right:0}.call-zip-line .btn{margin:4px 8px;vertical-align:middle}.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0 8px}.area-card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--coral);border-radius:12px;padding:0 0 28px;box-shadow:0 4px 16px rgba(10,46,56,0.06);overflow:hidden}.area-card-img{display:block;width:100%;aspect-ratio:3 / 2;object-fit:cover;border-radius:0;margin:0}.area-card h3{margin:20px 0 0;padding:0 28px;font-size:23px}.area-card p{margin:12px 0 0;padding:0 28px}.area-card p:last-child{margin-bottom:0}.table-wrap{overflow-x:auto;margin:28px 0;border:1px solid var(--line);border-radius:12px;box-shadow:inset -24px 0 16px -16px rgba(10,46,56,0.28)}.table-wrap.prices td:last-child{text-align:right}a[href^="tel:"]:not(.btn){white-space:nowrap}table{width:100%;border-collapse:collapse;font-size:19px;line-height:1.55;margin:0}th{background:var(--teal);color:#fff;text-align:left;font-size:18px;font-weight:700;padding:16px 18px}td{padding:15px 18px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:var(--sand)}.table-wrap th{background:var(--deep);color:#fff;box-shadow:inset 0 -3px 0 var(--gold)}.table-wrap th + th,.table-wrap td + td{border-left:1px solid #e7dfcf}.table-wrap tbody tr:nth-child(even){background:var(--sand-2)}.table-wrap td:first-child{font-weight:700;color:var(--teal-dark)}.table-wrap tbody tr:hover{background:#ede5d3}.table-wrap.prices td:last-child{font-weight:700;color:var(--teal-dark);background:#fdf8ec}.table-wrap.prices tbody tr:nth-child(even) td:last-child{background:#f4ead2}.table-wrap.prices tbody tr:hover td:last-child{background:#efe0b9}.table-wrap.prices th:last-child{color:var(--gold)}.steps{list-style:none;padding:0;margin:32px 0;counter-reset:step}.steps>li{position:relative;padding:8px 0 28px 84px;margin:0;border-bottom:1px solid var(--line)}.steps>li:last-child{border-bottom:0}.step-num{position:absolute;left:0;top:4px;width:60px;height:60px;border-radius:50%;background:var(--coral);color:#fff;font-family:var(--font-display);font-size:28px;display:flex;align-items:center;justify-content:center}.steps h3{margin-top:6px;margin-bottom:8px}.steps p{margin-bottom:0}.steps-inline>li{padding-bottom:20px}.steps-inline .step-num{top:0;width:52px;height:52px;font-size:24px}.steps-inline>li{padding-left:72px}.faq-list{margin:40px 0;scroll-margin-top:96px}.faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:16px;background:#fff;overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}.faq-item summary{font-size:21px;font-weight:700;line-height:1.4;color:var(--deep);padding:22px 76px 22px 26px;cursor:pointer;list-style:none;position:relative}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:2px solid var(--coral);color:var(--coral);font-size:26px;font-weight:400;line-height:34px;text-align:center;transition:background .18s ease,color .18s ease,transform .18s ease}.faq-item[open] summary::after{content:"\2212";background:var(--coral);color:#fff}.faq-item summary:hover{color:var(--coral);background:var(--sand)}.faq-item summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}.faq-item p{padding:0 26px 24px;margin:0;border-top:1px solid var(--line);padding-top:18px}.faq-item p a{text-decoration:underline;text-underline-offset:3px}.faq-item[open]{border-color:var(--teal);border-left:5px solid var(--gold);box-shadow:var(--shadow)}.faq-item[open] summary{color:var(--teal)}.map-section{margin:64px 0}.map-caption{font-size:30px}.map-embed{width:100%;height:560px;border-radius:14px;display:block;border:2px solid var(--gold);box-shadow:var(--shadow)}.map-link{display:inline-block;margin-top:12px;font-size:18px;text-decoration:underline;text-underline-offset:3px}.footer-brand .map-link{color:#ffd9a8;padding:10px 0;min-height:44px}.cta-line{margin:40px 0 8px}.last-updated{color:var(--muted);margin:0 0 4px}.cta-line .btn{font-size:22px}.not-found{padding-top:80px}.not-found h1{margin-bottom:16px}.site-footer{background:var(--deep);color:#d7e4e7}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-top:64px;padding-bottom:56px}.footer-brand{align-self:center}.footer-brand-name{font-family:var(--font-display);font-size:24px;color:#fff;margin:0 0 8px;line-height:1.25}.footer-brand-name span{color:var(--gold)}.footer-brand p{margin-bottom:12px}.footer-hours{font-size:18px}.footer-brand .btn{margin:12px 0 20px}.footer-map{display:block;width:100%;height:280px;border-radius:12px;border:2px solid rgba(255,255,255,0.28)}.footer-col h3{color:#fff;font-size:19px;margin:0 0 16px;letter-spacing:0.02em}.footer-col a{display:block;color:#d7e4e7;text-decoration:none;font-size:18px;line-height:1.45;padding:9px 0}.footer-col a:hover{color:#fff;text-decoration:underline}.footer-zips{font-size:17px;color:#a9c3c9;margin-top:18px}.footer-base{border-top:1px solid rgba(255,255,255,0.16)}.footer-base-inner{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;padding-top:20px;padding-bottom:20px;font-size:17px}.footer-base a{color:#fff;display:inline-block;padding:8px 0}.back-to-top{display:inline-block;color:#fff;font-size:17px;padding:10px 4px;min-height:44px;text-decoration:underline;text-underline-offset:4px}.back-to-top:hover{color:var(--gold)}.call-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:110;background:var(--coral);color:#fff;text-decoration:none;font-size:20px;font-weight:700;text-align:center;padding:16px 12px calc(16px + env(safe-area-inset-bottom))}.call-bar:hover{color:#fff}@media (min-width:621px){.table-wrap.prices td:last-child{white-space:nowrap}}@media (max-width:1020px){.kinds-grid{grid-template-columns:repeat(2,1fr)}.area-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.header-inner{gap:16px}.site-nav>a,.site-nav summary{padding:12px 10px;font-size:17px}}@media (max-width:820px){.site-nav{display:none}.mobile-menu{display:block;margin-left:auto}.mobile-menu summary{list-style:none;cursor:pointer;color:#fff;font-size:18px;font-weight:600;padding:12px 10px;border-radius:8px}.mobile-menu summary::-webkit-details-marker{display:none}.mobile-menu-panel{position:absolute;top:80px;left:0;right:0;background:var(--deep);padding:12px 24px 24px;display:flex;flex-direction:column;z-index:120;border-top:1px solid rgba(255,255,255,0.16);max-height:calc(100vh - 80px);overflow-y:auto}.mobile-menu-panel a{color:#fff;text-decoration:none;font-size:20px;font-weight:500;padding:13px 4px;border-bottom:1px solid rgba(255,255,255,0.1)}.mobile-menu-panel .nav-group{color:#a9c3c9}.mobile-menu-panel .btn{margin-top:16px;justify-content:center;border-bottom:0}.mobile-menu:not([open]) .mobile-menu-panel{display:none}.brand{flex:1 1 auto;min-width:0}.header-call .call-full{display:none}.header-call .call-short{display:inline;font-weight:700}.brand-name{font-size:18px}.brand-tag{display:none}}@media (max-width:620px){body{font-size:20px}h1{font-size:40px}h2{font-size:31px}h3{font-size:23px}.container{padding:0 20px}.mobile-menu-panel{max-height:calc(100vh - 80px - 66px);max-height:calc(100dvh - 80px - 66px)}.hero-inner{padding-top:40px;padding-bottom:40px;display:flex;flex-direction:column}.hero-ctas{order:1}.hero-intro{order:2;font-size:20px;line-height:1.5}.hero-areas{order:3}.hero-ctas .btn{width:100%;justify-content:center}.hero-inner-page .hero-inner{padding-top:32px;padding-bottom:32px}.page-body{padding-bottom:120px}.page-body>h2{margin-top:56px}.details-card{padding:28px 22px;border-left-width:5px;border-radius:14px}.details-sub{font-size:14px;letter-spacing:0.16em;margin-bottom:10px}.details-sub::before{width:36px}.details-grid{margin-top:22px}.detail-row{grid-template-columns:1fr;gap:6px;padding:14px 10px;margin:0 -10px}.detail-row dd{padding-top:0;padding-left:54px}.kinds-grid{grid-template-columns:1fr}.area-grid{grid-template-columns:1fr}.table-wrap{margin-left:-20px;margin-right:-20px;border-radius:0;border-left:0;border-right:0}table{font-size:18px}th,td{padding:13px 14px}.steps>li{padding-left:70px}.step-num{width:52px;height:52px;font-size:24px}.faq-item summary{font-size:20px;padding:18px 66px 18px 18px}.faq-item summary::after{width:34px;height:34px;line-height:30px;font-size:24px;right:14px}.faq-item p{padding:0 18px 18px;padding-top:14px}.map-embed{height:420px}.footer-grid{grid-template-columns:1fr;gap:36px;padding-top:48px}.footer-map{width:100%;height:240px}.header-call{display:none}.call-bar{display:block}.site-footer{padding-bottom:64px}}@media (max-width:380px){h1{font-size:36px}.brand-name{font-size:16px}.header-call{padding:10px 12px}}.faq-list,ol.steps,.table-wrap,.kinds-grid,.area-grid{content-visibility:auto;contain-intrinsic-size:auto 600px}@media print{.faq-list,ol.steps,.table-wrap,.kinds-grid,.area-grid{content-visibility:visible}}.page-body h2:not(.details-card h2){color:var(--deep)}.page-body h2:not(.details-card h2)::before{background:linear-gradient(90deg,var(--teal) 0%,var(--coral) 100%)}.page-body h3:not(.kind-card h3){color:var(--teal)}.page-body h3:not(.kind-card h3)::after{content:"";display:block;width:44px;height:4px;background:var(--gold);border-radius:2px;margin-top:12px}.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a){color:var(--teal);text-decoration:underline;text-underline-offset:3px}.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):hover{color:var(--coral-dark)}.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):visited{color:#0c6b7a}.breadcrumb .crumb-sep{color:#8a6d1f}.site-header{box-shadow:0 2px 14px rgba(0,0,0,0.35),inset 0 -3px 0 var(--gold)}.nav-dropdown span.nav-current{color:var(--coral-dark)}.nav-dropdown a:hover{color:var(--coral-dark)}.mobile-menu summary:hover{background:rgba(255,255,255,0.12)}.site-footer{box-shadow:inset 0 3px 0 var(--gold)}.faq-item:not([open]) summary:hover{color:var(--coral-dark);background:var(--sand)}.faq-item[open] summary{background:var(--sand)}.step-num{background:linear-gradient(180deg,var(--coral) 0%,var(--coral-dark) 100%)}.not-found h1{color:var(--teal)}::selection{background:var(--gold);color:var(--deep)}:focus-visible{outline:3px solid var(--gold);outline-offset:2px;box-shadow:0 0 0 6px #8a6d1f}
+/* ==========================================================================
+   Fort Myers Water Damage Restoration Pros - "Caloosahatchee" theme
+   Deep river teal + sunset coral + sand. Fresh code, written for this site.
+   Body text 20px. Wide lines (1240px container). Wide display headings.
+   Fonts are self-hosted (OFL: Archivo Black + Inter variable) so no
+   third-party stylesheet blocks first paint - font-display: swap keeps
+   text visible while the files load.
+   ========================================================================== */
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/archivoblack-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/inter-var.woff2") format("woff2");
+}
+:root {
+  --deep: #0a2e38;
+  --deep-2: #0d3a46;
+  --teal: #0b5563;
+  --teal-dark: #083f4a;
+  --teal-bright: #0e7c8c;
+  --coral: #c2410c;
+  --coral-bright: #e8590c;
+  --coral-dark: #9a3412;
+  --sand: #f6f1e7;
+  --sand-2: #efe7d6;
+  --gold: #c99b3f;
+  --gold-light: #e8c87a;
+  --lagoon: #0b3d4e;
+  --terra: #93380e;
+  --ink: #12262e;
+  --muted: #46585f;
+  --line: #dcd5c6;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(10, 46, 56, 0.14);
+  --font-display: "Archivo Black", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--white);
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--teal); }
+a:hover { color: var(--coral); }
+p { margin: 0 0 1.25em; }
+ul, ol { margin: 0 0 1.25em; padding-left: 1.4em; }
+li { margin-bottom: 0.55em; }
+li::marker { color: var(--coral); font-weight: 700; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--deep);
+  margin: 0 0 0.5em;
+}
+h1 { font-size: 58px; text-wrap: balance; }
+h2 { font-size: 42px; }
+h3 { font-size: 26px; line-height: 1.25; }
+strong { font-weight: 700; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--coral); color: #fff; padding: 12px 20px; z-index: 200;
+  font-weight: 700; text-decoration: underline; text-underline-offset: 3px;
+}
+/* 20x D2: visible + unmistakable the moment it takes focus (Tab). */
+.skip-link:focus, .skip-link:focus-visible { left: 12px; top: 12px; color: #fff; outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* --- Buttons: best-ever CTR, phone number always visible --- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 20px; font-weight: 700; line-height: 1.2;
+  padding: 16px 28px; min-height: 56px; border-radius: 10px;
+  text-decoration: none; cursor: pointer; border: 2px solid transparent;
+}
+.btn svg { flex: none; }
+.btn-call { background: var(--coral); color: #fff; box-shadow: 0 6px 18px rgba(194, 65, 12, 0.35); }
+.btn-call:hover { background: var(--coral-dark); color: #fff; }
+.btn-ghost { background: rgba(255, 255, 255, 0.08); color: #fff; border-color: #fff; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
+
+/* Primary call button: FLAT coral (10x DESIGN L-8) — the gradient +
+   gold inset edge are gone (the inset read as a stray underline).
+   White on #C2410C = 5.18:1; hover #9A3412 = 7.31:1 + lift. */
+.btn-call {
+  background: var(--coral);
+  border-radius: 12px;
+  padding: 18px 32px;
+  box-shadow: 0 8px 24px rgba(194, 65, 12, 0.30);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-call:hover {
+  background: var(--coral-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(154, 52, 18, 0.38);
+}
+
+/* Ghost button on dark hero/header (10x DESIGN L-8): 1.5px white border
+   over a dark-teal wash + blur; hover is a white wash, never a gold fill.
+   White on the composite wash over deep = 11.26:1. */
+.btn-ghost {
+  background: rgba(10, 46, 56, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #fff;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
+}
+/* 10x-fix-p3 V-P3-5: the delinked ghost on /contact/ is a span, not a
+   link — no pointer cursor. Resting visuals are identical. */
+.btn-ghost[aria-disabled="true"] { cursor: default; }
+
+/* Ghost button on light backgrounds: transparent -> faint teal wash,
+   same teal text/border. Teal on the composite wash = 7.66:1
+   (8.42:1 on plain white). Hover fills with a teal gradient + the same
+   3px gold baseline as .btn-call. White on teal = 8.42:1, on
+   teal-dark = 11.54:1. */
+.btn-ghost-dark {
+  background: rgba(11, 85, 99, 0.06);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.btn-ghost-dark:hover {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border-color: var(--teal-dark);
+  color: #fff;
+}
+
+/* Sticky mobile call bar: same sunset gradient as .btn-call, so the
+   bar and the buttons read as one CTA system. White on lightest
+   point = 5.18:1. */
+.call-bar {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+.call-bar:hover {
+  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  color: #fff;
+}
+
+/* Focus-visible (NEW — no .btn focus style existed before): a white
+   ring + a coral outer ring, so the focus indicator is unmistakable on
+   BOTH light pages (coral ring on white = 5.18:1) and the dark hero /
+   header (white ring on deep = 14.38:1). Replaces the soft shadow
+   while focused; the shadow returns on blur. */
+.btn:focus-visible,
+.call-bar:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--coral);
+}
+
+/* --- Header: most important for ranking + crawling --- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: linear-gradient(180deg, #0a2e38, #0c3340);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.header-inner {
+  display: flex; align-items: center; gap: 28px;
+  min-height: 80px; padding-top: 8px; padding-bottom: 8px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex: none; min-height: 44px; /* 20x A1: was 40px tall on desktop, below the 44px tap-target bar. */ }
+.brand:hover { color: #fff; }
+.brand-mark { display: flex; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--font-display); font-size: 20px; color: #fff; white-space: nowrap; }
+.brand-name .brand-city { color: var(--gold); }
+.brand-tag { font-size: 18px; color: #b8d2d8; letter-spacing: 0.04em; }
+.site-nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.site-nav > a, .site-nav > span.nav-current-top, .site-nav summary {
+  color: #fff; text-decoration: none; font-size: 17px; font-weight: 600; letter-spacing: 0.01em;
+  padding: 12px 14px; border-radius: 8px; cursor: pointer; list-style: none;
+  /* 10x fix D-02: never wrap the label away from its caret ("Services ▾"
+     rendered label-over-caret and pushed the header to 101px). */
+  white-space: nowrap; flex: none;
+}
+.site-nav > a:hover, .site-nav summary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.site-nav details { position: relative; }
+.site-nav summary::-webkit-details-marker { display: none; }
+.site-nav summary::after { content: " \25BE"; font-size: 13px; color: var(--gold); }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 10px); left: 0; min-width: 320px;
+  background: #fff; border-radius: 12px; box-shadow: var(--shadow);
+  padding: 10px; display: flex; flex-direction: column; z-index: 120;
+}
+.nav-dropdown a {
+  color: var(--deep); text-decoration: none; font-size: 18px; font-weight: 500;
+  padding: 11px 14px; border-radius: 8px;
+}
+.nav-dropdown a:hover { background: var(--sand); color: var(--coral); }
+/* 20x D3 + 20x-fixes D-V2: the current page must be unmistakable in the
+   nav — aria-current + distinct styling, desktop + mobile + footer. Every
+   current item is a non-link span (.nav-current / .nav-current-top), never
+   a link to the current page. The closed Services/Areas summary carries
+   the same gold treatment (.nav-section-current) when a child page of
+   that dropdown is current. */
+.site-nav > span.nav-current-top { background: rgba(201, 155, 63, 0.22); box-shadow: inset 0 -3px 0 var(--gold); color: #fff; }
+.site-nav details.nav-section-current > summary { background: rgba(201, 155, 63, 0.22); box-shadow: inset 0 -3px 0 var(--gold); color: #fff; }
+.nav-dropdown span.nav-current {
+  display: block; font-size: 18px; font-weight: 700; color: var(--coral);
+  background: var(--sand-2); padding: 11px 14px; border-radius: 8px; cursor: default;
+}
+.mobile-menu-panel span.nav-current {
+  display: block; color: #fff; text-decoration: none; font-size: 20px; font-weight: 700;
+  padding: 13px 4px 13px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14); border-left: 4px solid var(--gold); cursor: default;
+}
+.footer-col span.nav-current {
+  display: block; color: #fff; font-weight: 700; text-decoration: underline;
+  text-decoration-color: var(--gold); text-underline-offset: 4px;
+  font-size: 18px; line-height: 1.45; padding: 9px 0; cursor: default;
+}
+.brand[aria-current="page"] .brand-name { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.nav-group {
+  font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); padding: 14px 14px 6px;
+}
+.header-call { flex: none; min-height: 52px; padding: 12px 20px; }
+.header-call .call-short { display: none; }
+.mobile-menu { display: none; }
+
+/* --- Hero --- */
+.hero { position: relative; overflow: hidden; background: var(--deep); color: #fff; }
+.hero-no-media { background: linear-gradient(115deg, var(--deep) 0%, var(--teal-dark) 55%, var(--teal) 100%); }
+/* 20x D1: subtle CSS-only river motif — a soft teal glow top-right + two
+   low-opacity wave bands along the bottom (white + gold, brand palette).
+   No photo, no new words. The ::after sits above the scrim and below the
+   text (hero-inner is z-index 2), so contrast is untouched. */
+.hero-no-media::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(55% 75% at 88% 8%, rgba(14, 124, 140, 0.30), rgba(14, 124, 140, 0) 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='120' viewBox='0 0 720 120' preserveAspectRatio='none'%3E%3Cpath d='M0,78 C120,42 240,102 360,72 C480,42 600,96 720,66 L720,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3Cpath d='M0,96 C140,66 260,114 400,88 C520,66 620,108 720,90 L720,120 L0,120 Z' fill='%23c99b3f' fill-opacity='0.08'/%3E%3C/svg%3E") left bottom / 720px 120px repeat-x;
+}
+.hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  filter: saturate(1.12) contrast(1.04);
+}
+.hero-scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(0deg, rgba(6, 32, 40, 0.55) 0%, rgba(6, 32, 40, 0) 32%),
+    linear-gradient(100deg, rgba(6, 32, 40, 0.92) 0%, rgba(6, 32, 40, 0.78) 38%, rgba(6, 32, 40, 0.38) 68%, rgba(6, 32, 40, 0.22) 100%);
+}
+.hero-inner { position: relative; z-index: 2; padding-top: 84px; padding-bottom: 84px; max-width: 1240px; }
+.hero-inner h1 { color: #fff; max-width: 820px; margin-bottom: 0.45em; }
+.hero-intro { font-size: 22px; line-height: 1.6; max-width: 860px; color: #eef4f5; }
+.hero-intro a { color: #ffd9a8; }
+/* 20x-fixes (hero underline): the inline phone link in the hero intro
+   showed the browser-default underline under the number, which read as a
+   stray dash. Hero links carry no underline — scoped to .hero only, so
+   body links keep theirs. Color untouched (#ffd9a8). */
+.hero a { text-decoration: none; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 24px; }
+.hero-ctas .btn { font-size: 21px; }
+.hero-areas { font-size: 18px; letter-spacing: 0.02em; color: #cfe0e4; margin: 0; }
+.hero-areas a { color: #fff; }
+.hero-inner-page .hero-inner { padding-top: 64px; padding-bottom: 64px; }
+.hero-inner-page h1 { margin-bottom: 0.35em; }
+
+/* --- Breadcrumb (visible == schema) --- */
+.breadcrumb { padding-top: 22px; }
+.breadcrumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 18px; }
+.breadcrumb li { margin: 0; }
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { color: var(--coral); text-decoration: underline; }
+.breadcrumb .crumb-sep { color: var(--gold); }
+
+/* --- Page body: wide lines, generous rhythm --- */
+.page-body { padding-top: 8px; padding-bottom: 96px; }
+.page-body > h2 { margin-top: 72px; }
+.page-body > h2:first-child { margin-top: 40px; }
+.page-body h2::before {
+  content: ""; display: block; width: 72px; height: 6px;
+  background: var(--coral); border-radius: 3px; margin-bottom: 18px;
+}
+.page-body h3 { margin-top: 44px; }
+.page-body > p, .page-body > ul, .page-body > ol { max-width: 1100px; }
+.page-body section { margin: 56px 0; }
+
+/* ==========================================================================
+   DETAILS CARD REDESIGN — Task 2 (Fort Myers PHP site)
+   --------------------------------------------------------------------------
+   APPLY (coordinator): delete the old "Details card" block in
+   site/assets/css/styles.css (base rules ~lines 226-240) AND the old
+   mobile details rules inside @media (max-width: 620px) (~lines 463-464),
+   then paste this whole file in their place:
+     - the base block goes where the old base block was (AFTER the
+       .page-body h2 rules, so .details-card h2::before still beats the
+       the old accent .page-body h2::before rule — same cascade position as before);
+     - the @media (max-width: 620px) block goes inside the existing
+       @media (max-width: 620px) block, AFTER the other rules there.
+   No other file, selector or variable is touched. Every variable used
+   (--sand, --line, --deep, --teal, --teal-dark, --ink, --gold) already
+   exists in :root. The only new colour is --details-tint, scoped to
+   .details-card itself so :root needs no edit.
+   No sunset-accent colour is used anywhere in this file: neither the
+   old accent variable nor its hex values appear below, rules or
+   comments alike. Verified by grep (see FINDINGS-details-card.md).
+   ========================================================================== */
+
+/* --- Details card (base) --- */
+.details-card {
+  --details-tint: #E0EBED; /* pale river-teal tint for the icon discs */
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--deep); /* was the 6px sunset accent — now deep river teal */
+  border-radius: 16px;
+  padding: 40px 44px;
+  margin: 48px 0;
+  box-shadow: 0 10px 30px rgba(10, 46, 56, 0.10);
+  display: flex;
+  flex-direction: column;
+}
+
+/* H2 — best stylish, design freedom used: deep river teal, Archivo Black
+   (inherited), with the DETAILS eyebrow lifted above it and a short gold
+   rule as the only gold accent. Contrast deep #0A2E38 on sand = 12.77:1. */
+.details-card h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--deep);
+}
+.details-card h2::before { display: none; } /* kills the old accent bar from .page-body h2::before */
+
+/* Eyebrow — visually FIRST (flex order), DOM stays h2-then-sub so screen
+   readers and SEO still meet the heading first. Teal-dark #083F4A on
+   sand = 10.25:1. The gold bar is decorative only (gold on sand is 2.26:1
+   and is never used for text). */
+.details-sub {
+  order: -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin: 0 0 12px;
+}
+.details-sub::before {
+  content: "";
+  flex: none;
+  width: 44px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Row list — hairline above, one hairline under each row. */
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 12px 28px;
+  padding: 16px 14px;
+  margin: 0 -14px; /* hover wash runs edge-to-edge inside the card padding */
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.detail-row:hover,
+.detail-row:focus-within { background: #fff; }
+
+/* Label cell: icon disc + label text. Teal-dark #083F4A on sand = 10.25:1. */
+.detail-row dt {
+  display: flex;
+  align-items: center; /* icon vertically centred on its label (fix round 2026-11-19) */
+  gap: 14px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin: 0;
+  min-width: 0; /* label can shrink; the icon column never does */
+}
+.detail-label { padding-top: 5px; } /* optically centres 1-line labels on the 40px disc */
+
+/* Icon disc: pale teal circle, teal stroke icon. Teal #0B5563 on the
+   tint = 6.93:1; on hover the disc fills deep teal and the icon turns
+   white (14.38:1). Icons are decorative (aria-hidden) so they carry no
+   meaning alone — the label text always says what the row is. */
+.detail-icon {
+  flex: 0 0 40px; /* fixed 40px icon column: never shrinks, never clips */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--details-tint);
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.detail-icon svg {
+  width: 22px;
+  height: 22px;
+  max-width: 22px;
+  max-height: 22px;
+  flex: none;
+  display: block;
+}
+.detail-row:hover .detail-icon,
+.detail-row:focus-within .detail-icon {
+  background: var(--deep);
+  color: #fff;
+}
+
+/* Value cell: ink #12262E on sand = 13.90:1. */
+.detail-row dd {
+  margin: 0;
+  padding-top: 5px; /* value text aligns with label text */
+  color: var(--ink);
+}
+
+/* Links inside the card (the Phone rows render tel: links): teal, and the
+   hover colour is teal-dark — this override is REQUIRED because the base
+   `a:hover` rule is the sunset accent sitewide. Focus ring is teal, never gold
+   (gold on sand is only 2.26:1 and would be a weak focus indicator). */
+.details-card a { color: var(--teal); }
+.details-card a:hover {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.details-card a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-row,
+  .detail-icon { transition: none; }
+}
+
+/* ==========================================================================
+   TASK 5 — kinds-grid card backgrounds (homepage only)
+   Proposal only: the coordinator merges this into site/assets/css/styles.css,
+   replacing the existing .kind-card rules (styles.css ~239-246). Nothing
+   else in the stylesheet changes. The kinds grid renders ONLY on the
+   homepage; these rules affect no other page.
+   --------------------------------------------------------------------------
+   STRUCTURE: the functions.php patch adds class "has-photo" ONLY to cards
+   that have a manifest image. Photo rules live under .kind-card.has-photo;
+   a card with no photo keeps the old white card exactly (dark text on
+   white), so a missing image can never strand light text on a dark card.
+   READABILITY — the old card was dark text (#12262e ink / #0a2e38 deep) on
+   a white card. Text now sits ON a photo, so photo cards flip to light
+   text on a dark scrim. The scrim is a real overlay element (.kind-scrim,
+   added by the functions.php patch) so the photo stays a photo
+   underneath: the gradient lets 8-14% of the image show through,
+   strongest at the bottom of the card.
+   Overlay: linear-gradient(180deg, rgba(7,38,47,0.92) 0%,
+   rgba(7,38,47,0.88) 55%, rgba(7,38,47,0.86) 100%).
+   Text: h3 #ffffff, p #f4f8f8, links #ffd9a8 (the light gold already used
+   for links on dark hero backgrounds in this theme).
+   Worst-case contrast (overlay blended over a PURE WHITE image pixel —
+   brighter than any pixel in any of the 13 masters; computed with
+   qa/contrast-kinds.py, WCAG 2.x formula):
+     h3 #ffffff  top 12.55:1 | mid 11.02:1 | bottom 10.30:1
+     p  #f4f8f8  top 11.73:1 | mid 10.30:1 | bottom 9.63:1
+     a  #ffd9a8  top  9.41:1 | mid  8.26:1 | bottom 7.72:1
+   All >= 4.5:1 at every point of the card. Measured per-card worst case
+   (brightest pixel of each master under the weakest, bottom, alpha):
+   link 7.72:1 (7 cards) to 8.38:1 (flood-storm); h3 10.30:1 to 11.18:1;
+   p 9.63:1 to 10.45:1. Full table in qa/FINDINGS-kinds-cards.md.
+   An earlier draft (bottom alpha 0.68) FAILED the link at 4.19:1 and was
+   rejected; the bottom alpha was raised to 0.74 to clear 4.5:1.
+   Fix round 2026-11-19: the owner's screenshot showed DARK text on the
+   photos — his browser held the 20X CSS (assets are cached 1 year,
+   immutable; that CSS has NO kinds rules) while the HTML was new.
+   PROOF: qa/screenshots-five-fixes/SIM-OLD-CSS-kinds-desktop.png
+   (current HTML + 20X CSS) reproduces his screenshot exactly. The
+   scrim was strengthened 0.86/0.78/0.74 -> 0.92/0.88/0.86 for margin,
+   AND the stylesheet link in header.php was cache-busted (?v=2) — a
+   CSS-only change cannot reach a cached browser otherwise. Bump the
+   ?v= on EVERY future CSS change.
+   ========================================================================== */
+
+/* --- Kind cards --- */
+.kinds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
+.kind-card {
+  position: relative;
+  overflow: hidden; /* keeps the scrim inside the rounded corners */
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--coral);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+}
+.kind-card h3 { margin-top: 0; font-size: 23px; }
+.kind-card p { margin-bottom: 0; }
+.kind-card p:last-child { margin-bottom: 0; }
+
+/* --- Photo cards only (class added by the functions.php patch) --- */
+.kind-card.has-photo {
+  background-color: var(--deep); /* fallback while the photo loads */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f4f8f8;
+}
+/* Scrim: dark teal gradient over the photo, under the text. */
+.kind-card.has-photo .kind-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(7, 38, 47, 0.92) 0%, rgba(7, 38, 47, 0.88) 55%, rgba(7, 38, 47, 0.86) 100%);
+  pointer-events: none;
+}
+/* Text sits above the scrim. */
+.kind-card.has-photo h3,
+.kind-card.has-photo p { position: relative; z-index: 1; }
+.kind-card.has-photo h3 { color: #ffffff; }
+.kind-card.has-photo p { color: #f4f8f8; }
+/* Links: light gold on the dark scrim (worst case 5.12:1), underlined so
+   they read as links against the near-white body text. Hover #ffe9c9 is
+   lighter than #ffd9a8, so its ratio is higher than 5.12:1. */
+.kind-card.has-photo a { color: #ffd9a8; text-decoration: underline; }
+.kind-card.has-photo a:hover { color: #ffe9c9; }
+.kind-card.has-photo a:focus-visible { outline: 2px solid #ffd9a8; outline-offset: 2px; }
+
+/* --- Mobile (390px): grid is 1 column at <=820px (existing rule kept) --- */
+@media (max-width: 820px) {
+  .kind-card { padding: 24px 22px; }
+  .kind-card.has-photo {
+    /* Taller slot (350x466) crops the sides of the 760x864 master under
+       cover; centre keeps the subject. No other change needed. */
+    background-position: center;
+  }
+  .kind-card h3 { font-size: 22px; }
+}
+
+/* --- Print: photos do not print; photo cards revert to the plain card --- */
+@media print {
+  .kind-card.has-photo {
+    background-image: none !important;
+    background-color: #ffffff;
+    color: var(--ink);
+  }
+  .kind-card.has-photo .kind-scrim { display: none; }
+  .kind-card.has-photo h3 { color: var(--deep); }
+  .kind-card.has-photo p { color: var(--ink); }
+  .kind-card.has-photo a { color: var(--teal); }
+}
+
+/* "What we help with" cards — homepage only (Task 3).
+   The render branch outputs <div class="kinds-grid help-grid"> with
+   <article class="kind-card help-card"> per item, so the grid, the card
+   chrome (coral top border, radius, shadow) and the 3/2/1-column
+   breakpoints are inherited from the existing .kinds-grid / .kind-card
+   rules. This snippet adds ONLY the card-top image treatment.
+   Slot (measured from styles.css): container 1240px, padding 24px;
+   3 cols gap 24 -> card 381px; 2 cols (<=1020px) -> card 474px (largest
+   slot); 1 col (<=620px, container padding 20px) -> card 350px at 390px
+   viewport, 280px at 320px. Image file is 474x267 (16:9) — exact for
+   the largest slot; downscaled by the browser at the smaller slots. */
+
+/* Image first in the card, full-bleed across the top of the card.
+   .kind-card padding is 28px, so the image breaks out of the padding
+   with negative margins; the coral top border stays above it. */
+.help-card { overflow: hidden; }
+.help-card-img {
+  display: block;
+  width: calc(100% + 56px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: -28px -28px 20px;
+  border-radius: 0;
+}
+.help-card p { margin-bottom: 0; }
+
+/* 390px single column (inherited 1fr from .kinds-grid at <=620px):
+   card 350px wide, image renders 350x197 — layout holds, no overflow.
+   At 320px: card 280px, image 280x158. No extra rule needed. */
+
+/* About / How-it-works buttons — homepage only (Task 4).
+   The two links render as <a class="btn btn-ghost-dark">, i.e. the
+   existing .btn + .btn-ghost-dark rules already in styles.css.
+   TAP-TARGET MEASUREMENT (from styles.css, no new rule needed):
+   .btn { font-size: 20px; line-height: 1.2 (= 24px); padding: 16px 28px;
+   min-height: 56px; } -> rendered height = max(56px, 24 + 32) = 56px,
+   which is >= the 44px bar. .btn-ghost-dark adds only colours
+   (transparent bg, teal text/border; teal bg + white text on hover).
+   NO height fix is required. This snippet adds only the spacing that
+   keeps the buttons breathing inside the paragraph line when they wrap
+   on mobile. */
+
+/* The <p> keeps its normal block flow; the buttons are inline-flex
+   inside it, so on narrow screens they wrap below the lead text. */
+.about-buttons .btn {
+  margin: 4px 8px 4px 0;
+  vertical-align: middle;
+}
+.about-buttons .btn:last-child { margin-right: 0; }
+
+/* The <p> keeps normal block flow; the button sits inline in the sentence. */
+.call-zip-line .btn { margin: 4px 8px; vertical-align: middle; }
+
+/* Task 7 — area-card grid for /areas/ (qa/css-snippet-areas.css, proposal).
+   Append to site/assets/css/styles.css. Mirrors the .kinds-grid / .kind-card
+   treatment (white card, coral top border, 12px radius, same shadow, same
+   breakpoints) with a full-bleed photo header on each card.
+   Slot math (container max 1240px, padding 24px -> content 1192px; grid gap 24px):
+     desktop 3-col : column (1192-48)/3 = 381px -> image 381x254 @3:2
+     2-col @1020px: column (972-24)/2  = 474px -> image 474x316 @3:2  (LARGEST slot)
+     mobile 390px : single column, content 350px -> image 350x233 @3:2
+   Files are served at exactly the largest slot, 474x316; the browser
+   downscales at desktop/mobile. aspect-ratio + object-fit: cover keep the
+   box exact at every width so no layout shift occurs. */
+
+/* --- Area cards --- */
+.area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
+.area-card {
+  background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--coral);
+  border-radius: 12px; padding: 0 0 28px; box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  overflow: hidden;
+}
+.area-card-img {
+  display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 0; margin: 0;
+}
+.area-card h3 { margin: 20px 0 0; padding: 0 28px; font-size: 23px; }
+.area-card p { margin: 12px 0 0; padding: 0 28px; }
+.area-card p:last-child { margin-bottom: 0; }
+
+/* --- Tables --- */
+/* 10x fix D-07: right-edge fade so a horizontally scrolling table signals
+   there is more to the right (mobile 4-col tables hide a whole column). */
+.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: 12px; box-shadow: inset -24px 0 16px -16px rgba(10, 46, 56, 0.28); }
+/* 10x fix D-12: on price tables only (class added at render time when the
+   last header is "Rough area range"), prices scan as a right-aligned column.
+   Prose last-columns on other tables are untouched.
+   20x fix D-V1 (verifier ruling, NOT READY): the nowrap below is
+   DESKTOP-ONLY. On mobile it forced the longest price onto one line
+   (table 1: 550px, table 3: 616px in a 390px wrap) and hid the entire
+   price column at first paint. Base keeps right-alignment only; nowrap
+   lives in the min-width:621px block in the responsive section. */
+.table-wrap.prices td:last-child { text-align: right; }
+/* 10x fix D-13: phone numbers never break across lines. Scoped :not(.btn):
+   the .cta-line Call button ("Call 239-356-3708, answered 24/7", 467px) is
+   itself a tel: link and must keep wrapping its label on mobile — nowrap on
+   it forced 97px horizontal overflow on every page with a cta-line. */
+a[href^="tel:"]:not(.btn) { white-space: nowrap; }
+table { width: 100%; border-collapse: collapse; font-size: 20px; line-height: 1.55; margin: 0; }
+th {
+  background: var(--teal); color: #fff; text-align: left;
+  font-size: 20px; font-weight: 700; padding: 16px 18px;
+}
+td { padding: 15px 18px; border-top: 1px solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) { background: var(--sand); }
+/* --- Tables: deep-river header, stronger zebra, gold price column --- */
+
+/* Header row: teal -> deep river teal, with a gold baseline (inset
+   box-shadow, so zero height change). White on deep = 14.38:1. */
+.table-wrap th {
+  background: var(--deep);
+  color: #fff;
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+/* Vertical column separators (F1): hairline sand line between columns,
+   so the eye can scan a row across without losing its place. */
+.table-wrap th + th,
+.table-wrap td + td {
+  border-left: 1px solid #e7dfcf;
+}
+
+/* Zebra: even rows sand -> deeper sand-2, so the stripe is actually
+   visible against white odd rows. Ink on sand-2 = 12.72:1. */
+.table-wrap tbody tr:nth-child(even) {
+  background: var(--sand-2);
+}
+
+/* First (label) column (F2): bold deep-teal labels, so each row reads as
+   label -> detail. Teal-dark on white = 11.54:1, on zebra = 9.38:1. */
+.table-wrap td:first-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+
+/* Row hover: warm sand wash, so the row under the pointer lifts out.
+   Ink on hover = 12.48:1. */
+.table-wrap tbody tr:hover {
+  background: #ede5d3;
+}
+
+/* --- Price column (.table-wrap.prices td:last-child): the money column
+   gets its own pale-gold tint + bold deep-teal figures, so prices scan
+   as a column instead of disappearing into the prose. Right-alignment
+   and the desktop-only nowrap rule are NOT touched here. --- */
+.table-wrap.prices td:last-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+  background: #fdf8ec;           /* odd rows: pale gold sand */
+}
+.table-wrap.prices tbody tr:nth-child(even) td:last-child {
+  background: #f4ead2;           /* even rows: deeper gold sand */
+}
+.table-wrap.prices tbody tr:hover td:last-child {
+  background: #efe0b9;           /* hovered row: richest gold sand */
+}
+/* Price-column header: gold text on the deep header, so the money
+   column is signalled before the first figure. Gold on deep = 5.64:1. */
+.table-wrap.prices th:last-child {
+  color: var(--gold);
+}
+
+/* --- Steps --- */
+.steps { list-style: none; padding: 0; margin: 32px 0; counter-reset: step; }
+.steps > li {
+  position: relative; padding: 8px 0 28px 84px; margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.steps > li:last-child { border-bottom: 0; }
+.step-num {
+  position: absolute; left: 0; top: 4px;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--coral); color: #fff;
+  font-family: var(--font-display); font-size: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.steps h3 { margin-top: 6px; margin-bottom: 8px; }
+.steps p { margin-bottom: 0; }
+.steps-inline > li { padding-bottom: 20px; }
+.steps-inline .step-num { top: 0; width: 52px; height: 52px; font-size: 24px; }
+.steps-inline > li { padding-left: 72px; }
+
+/* --- FAQ accordions: 10x (fix round) --- */
+.faq-list { margin: 40px 0; scroll-margin-top: 96px; }
+.faq-item {
+  border: 1px solid var(--line); border-radius: 14px;
+  margin-bottom: 16px; background: #fff; overflow: hidden;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.faq-item summary {
+  font-size: 21px; font-weight: 700; line-height: 1.4; color: var(--deep);
+  padding: 22px 76px 22px 26px; cursor: pointer; list-style: none; position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--coral);
+  color: var(--coral); font-size: 26px; font-weight: 400; line-height: 34px; text-align: center;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+.faq-item[open ] summary::after { content: "\2212"; background: var(--coral); color: #fff; }
+.faq-item summary:hover { color: var(--coral); background: var(--sand); }
+.faq-item summary:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+.faq-item p { padding: 0 26px 24px; margin: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+/* 20x D5: links inside FAQ answers are explicitly underlined (teal on
+   white, 8.42:1) — not left to the UA default — with a clear offset. */
+.faq-item p a { text-decoration: underline; text-underline-offset: 3px; }
+.faq-item[open ] { border-color: var(--teal); border-left: 5px solid var(--gold); box-shadow: var(--shadow); }
+.faq-item[open ] summary { color: var(--teal); }
+
+/* --- Map: heavy presence, city-level pin on Fort Myers --- */
+.map-section { margin: 64px 0; }
+.map-caption { font-size: 30px; }
+.map-embed { width: 100%; height: 560px; border-radius: 14px; display: block; border: 2px solid var(--gold); box-shadow: var(--shadow); }
+/* 20x M1: "View larger map" fallback under each map iframe (same pin URL,
+   opens Google Maps) for blocked-iframe robustness. Section maps are
+   inside <main> where any added word breaks the word-diff-0 contract, so
+   the link ships under the FOOTER maps only — home + contact carry a
+   footer map too, so every page with a section map still has the fallback. */
+.map-link { display: inline-block; margin-top: 12px; font-size: 18px; text-decoration: underline; text-underline-offset: 3px; }
+.footer-brand .map-link { color: #ffd9a8; padding: 10px 0; min-height: 44px; }
+
+/* --- CTA line --- */
+.cta-line { margin: 40px 0 8px; }
+.last-updated { color: var(--muted); margin: 0 0 4px; }
+.cta-line .btn { font-size: 22px; }
+
+/* --- 404 --- */
+.not-found { padding-top: 80px; }
+.not-found h1 { margin-bottom: 16px; }
+
+/* --- Footer: most important for ranking + crawling --- */
+.site-footer { background: var(--deep); color: #d7e4e7; }
+.footer-grid {
+  /* Fix round 2026-11-19: 3 columns now — brand + Services + Explore.
+     The "Areas We Serve" column was removed (Areas is header-only). */
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px;
+  padding-top: 64px; padding-bottom: 56px;
+}
+/* 10x fix D-11: on the 7 map-less location pages the brand column is much
+   shorter than Services, pooling a ~300px void at the bottom. Centring the
+   brand block in its grid track splits the void top/bottom instead. On the
+   27 pages with a map the brand column is the tallest, so this is a no-op. */
+.footer-brand { align-self: center; }
+.footer-brand-name { font-family: var(--font-display); font-size: 24px; color: #fff; margin: 0 0 8px; line-height: 1.25; }
+.footer-brand-name span { color: var(--gold); }
+.footer-brand p { margin-bottom: 12px; }
+.footer-hours { font-size: 18px; }
+.footer-brand .btn { margin: 12px 0 20px; }
+.footer-map { display: block; width: 100%; height: 280px; border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.28); }
+.footer-col h3 { color: #fff; font-size: 19px; margin: 0 0 16px; letter-spacing: 0.02em; }
+.footer-col a {
+  display: block; color: #d7e4e7; text-decoration: none;
+  /* 10x fix F-1: 7px padding measured 40px tall; 9px reaches the 44px
+     tap-target bar (18px x 1.45 = 26px + 18px padding = 44px). */
+  font-size: 18px; line-height: 1.45; padding: 9px 0;
+}
+.footer-col a:hover { color: #fff; text-decoration: underline; }
+.footer-zips { font-size: 17px; color: #a9c3c9; margin-top: 18px; }
+.footer-base { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+.footer-base-inner {
+  display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center;
+  padding-top: 20px; padding-bottom: 20px; font-size: 17px;
+}
+.footer-base a { color: #fff; display: inline-block; padding: 8px 0; /* 10x fix F-1: the footer phone text link measured 29px; padding takes it to ~45px. */ }
+/* 20x D4: "Back to top" lives in the footer only — never floated, so it
+   cannot collide with the sticky mobile call bar. */
+.back-to-top { display: inline-block; color: #fff; font-size: 17px; padding: 10px 4px; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.back-to-top:hover { color: var(--gold); }
+
+/* --- Mobile call bar (<=620px only) --- */
+.call-bar {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 110;
+  background: var(--coral); color: #fff; text-decoration: none;
+  font-size: 20px; font-weight: 700; text-align: center;
+  padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+}
+.call-bar:hover { color: #fff; }
+
+/* ==========================================================================
+   Responsive overrides - AFTER the base rules (cascade: same specificity,
+   later wins). Never place a @media block before its base rule.
+   ========================================================================== */
+/* 20x D-V1: cost-price nowrap is DESKTOP-ONLY (min-width 621px). Below it
+   prices wrap as before the 10x round, so /cost/ tables fit 390px and
+   prices are visible at first paint on mobile. */
+@media (min-width: 621px) {
+  .table-wrap.prices td:last-child { white-space: nowrap; }
+}
+@media (max-width: 1020px) {
+  .kinds-grid { grid-template-columns: repeat(2, 1fr); }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .header-inner { gap: 16px; }
+  .site-nav > a, .site-nav summary { padding: 12px 10px; font-size: 17px; }
+}
+@media (max-width: 820px) {
+  .site-nav { display: none; }
+  .mobile-menu { display: block; margin-left: auto; }
+  .mobile-menu summary {
+    list-style: none; cursor: pointer; color: #fff;
+    font-size: 18px; font-weight: 600; padding: 12px 14px; border-radius: 8px;
+    /* 10x-fix V-P2-3: icon-only at <=620px measured 36px wide, below the
+       44px tap-target floor. min-width + box-sizing guarantee >=44px at
+       every mobile width; the flex brand absorbs the +8px (390px row:
+       brand 214 + icon 38 + menu 44 + 2x16px gaps = 328 of 350px). */
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-width: 44px; min-height: 44px; box-sizing: border-box;
+  }
+  .mobile-menu summary::-webkit-details-marker { display: none; }
+  .mobile-menu-panel {
+    position: absolute; top: 80px; left: 0; right: 0;
+    background: var(--deep); padding: 12px 24px 24px;
+    display: flex; flex-direction: column; z-index: 120;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    max-height: calc(100vh - 80px); overflow-y: auto;
+  }
+  .mobile-menu-panel a {
+    color: #fff; text-decoration: none; font-size: 20px; font-weight: 500;
+    padding: 13px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  /* 10x fix D-09: .nav-group in --muted (#46585f) on deep teal measured
+     1.93:1. #a9c3c9 (same as .footer-zips) measures 7.76:1 — passes AA. */
+  .mobile-menu-panel .nav-group { color: #a9c3c9; }
+  .mobile-menu-panel .btn { margin-top: 16px; justify-content: center; border-bottom: 0; }
+  /* Closed <details> hides its panel: the author's display:flex above beats
+     the UA's closed-details hiding, so without this the closed panel renders
+     off-viewport and drives horizontal overflow on every mobile page. */
+  .mobile-menu:not([open]) .mobile-menu-panel { display: none; }
+  /* Let the brand shrink and wrap instead of forcing a ~360px single line
+     that pushes the call button + menu button off-viewport. */
+  .brand { flex: 1 1 auto; min-width: 0; }
+  .header-call .call-full { display: none; }
+  .header-call .call-short { display: inline; font-weight: 700; }
+  .brand-name { font-size: 17px; }
+  .brand-tag { display: none; }
+}
+@media (max-width: 620px) {
+  body { font-size: 20px; }
+  h1 { font-size: 38px; line-height: 1.08; }
+  h2 { font-size: 31px; }
+  h3 { font-size: 22px; }
+  .container { padding: 0 20px; }
+  /* 10x fix D-03: the panel lives inside the header stacking context
+     (z-index 100) while the fixed call bar is z-index 110, so the bar
+     painted over the panel's bottom 66px and its own Call button. Cap the
+     panel above the bar (80px header + 66px call bar). */
+  .mobile-menu-panel { max-height: calc(100vh - 80px - 66px); max-height: calc(100dvh - 80px - 66px); }
+  .hero-inner { padding-top: 32px; padding-bottom: 96px; display: flex; flex-direction: column; }
+  /* 10x fix D-08: mobile heroes ran 699-1195px tall, so the Call button sat
+     below the first viewport on every page class. CTA-first on mobile only:
+     H1, then the buttons, then intro, then the areas line. Desktop hero
+     order is untouched. */
+  .hero-ctas { order: 1; }
+  .hero-intro { order: 2; font-size: 20px; line-height: 1.5; }
+  .hero-areas { order: 3; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .hero-inner-page .hero-inner { padding-top: 32px; padding-bottom: 96px; }
+  .page-body { padding-bottom: 120px; }
+  .page-body > h2 { margin-top: 56px; }
+  .details-card { padding: 28px 22px; border-left-width: 5px; border-radius: 14px; }
+  .details-sub { font-size: 14px; letter-spacing: 0.16em; margin-bottom: 10px; }
+  .details-sub::before { width: 36px; }
+  .details-grid { margin-top: 22px; }
+  /* Single column: icon + label on top, value below, value text aligned
+     with the label text (54px = 40px disc + 14px gap), never under the icon. */
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 10px;
+    margin: 0 -10px;
+  }
+  .detail-row dd { padding-top: 0; padding-left: 54px; }
+  .kinds-grid { grid-template-columns: 1fr; }
+  .area-grid { grid-template-columns: 1fr; }
+  .table-wrap { margin-left: -20px; margin-right: -20px; border-radius: 0; border-left: 0; border-right: 0; }
+  table { font-size: 20px; }
+  th, td { padding: 13px 14px; }
+  .steps > li { padding-left: 70px; }
+  .step-num { width: 52px; height: 52px; font-size: 24px; }
+  .faq-item summary { font-size: 20px; padding: 18px 66px 18px 18px; }
+  .faq-item summary::after { width: 34px; height: 34px; line-height: 30px; font-size: 24px; right: 14px; }
+  .faq-item p { padding: 0 18px 18px; padding-top: 14px; }
+  .map-embed { height: 420px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
+  .footer-map { width: 100%; height: 240px; }
+  /* The sticky bottom call bar already serves <=620px; the header call
+     button would otherwise crowd the brand + menu off-viewport. */
+  .header-call { display: none; }
+  .call-bar { display: block; }
+  .site-footer { padding-bottom: 64px; }
+}
+@media (max-width: 380px) {
+  h1 { font-size: 36px; }
+  .brand-name { font-size: 16px; }
+  .header-call { padding: 10px 12px; }
+}
+
+/* Speed: skip layout/paint of heavy below-fold blocks until scrolled to.
+   contain-intrinsic-size keeps the scrollbar stable before first render;
+   `auto` remembers each block's real size after it renders once. */
+.faq-list,
+ol.steps,
+.table-wrap,
+.kinds-grid,
+.area-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+/* Print must show everything: no deferred rendering on paper. */
+@media print {
+  .faq-list,
+  ol.steps,
+  .table-wrap,
+  .kinds-grid,
+  .area-grid {
+    content-visibility: visible;
+  }
+}
+
+/* ==========================================================================
+   TASK — SITEWIDE COLOUR, BASE HEADINGS + UNOWNED SECTIONS (proposal only)
+   Fort Myers NEW PHP site — "Caloosahatchee" theme
+   (deep river teal #0A2E38, sunset coral CTA #C2410C, sand #F6F1E7,
+   gold #C99B3F, teal #0B5563, teal-dark #083F4A, coral-dark #9A3412)
+
+   STATUS: proposal snippet. NOT applied. Do not paste into styles.css
+   without the coordinator's apply + re-screenshot step. No shared file
+   was edited to produce this file.
+
+   HOW TO APPLY (coordinator): append this whole block to
+   site/assets/css/styles.css AFTER all existing base rules and AFTER the
+   other workers' snippets (D details, I tables/buttons, F kinds,
+   E help, G area cards). Every rule below is scoped so it cannot leak
+   into another worker's section; the specificity notes say how.
+
+   WHAT THIS SNIPPET DOES NOT TOUCH (deliberately):
+   - .details-card and everything inside it (worker D) — excluded with
+     :not() wherever a base rule could otherwise reach it.
+   - .kind-card and everything inside it (worker F) — excluded with :not().
+   - .table-wrap / th / td (worker I) — excluded with :not() from the
+     body-link rule; no table rule appears below.
+   - Help cards / area cards (workers E / G) — no .help-card / .area-card
+     selector exists in the current build (verified 2026-11-19 against
+     out/*.html + styles.css), so there is nothing to exclude; if E/G
+     introduce those classes, their rules (class selectors) beat the
+     base h2/h3 rules below only if they come later — see note S3.
+   - .btn / .btn-call / .btn-ghost / .btn-ghost-dark / .call-bar
+     (worker I) — excluded with :not(.btn) from the body-link rule; the
+     only button-adjacent rule below is :focus-visible, where I's
+     .btn:focus-visible (0,2,0) beats this file's :focus-visible (0,1,0).
+   - Hero images / .hero-img / .hero-no-media::after (Task 1 workers) —
+     the hero rules at the end of this file are COMMENTED-OUT audit
+     proposals only. Do NOT uncomment them here; hand them to Task 1.
+   - No text-size rule appears anywhere in this file (grep for the
+     property name returns 0). Body text stays 20px; h1/h2/h3 sizes are
+     untouched — only colours change.
+
+   SPECIFICITY NOTES
+   S1. Base h2 in styles.css is `h2` (0,0,1) and `.page-body h2::before`
+       (0,1,1). This file's `.page-body h2:not(.details-card h2)` is
+       (0,2,1) and its ::before is (0,2,1) + pseudo-element, so both win
+       without !important. The :not() means the rule NEVER matches a
+       details-card h2 — there is no fight with worker D, in either
+       order.
+   S2. Same pattern for h3: `.page-body h3:not(.kind-card h3)` (0,2,1)
+       beats base `h3` (0,0,1) and never matches a kind-card h3, so no
+       fight with worker F. `.footer-col h3` is outside .page-body and
+       is untouched by this rule (footer rules below keep it white).
+   S3. If workers E/G later add .help-card h3 / .area-card h3 rules at
+       (0,1,1), this file's (0,2,1) base h3 would still win IF it also
+       matched — it does not: help/area cards are not in the current
+       build, and if they are built as siblings of .page-body content
+       they should carry their own h3 colour. Coordinator: when E/G
+       land, add their selectors to this file's :not() lists.
+   S4. `.page-body a:not(.btn):not(.table-wrap a):not(.details-card a)`
+       — the chained :not() keeps the underline/visited treatment off
+       worker I's table links and worker D's details links. FAQ answer
+       links ARE matched on purpose (FAQ is owned here; the values
+       agree with the existing 20x D5 rule).
+   S5. `.faq-item:not([open]) summary:hover` — scoped to CLOSED items
+       so the 20x open-state identity (open summary stays teal) is
+       preserved; the base `.faq-item[open] summary` rule (0,2,1) and
+       this hover rule never apply at the same time.
+   ========================================================================== */
+
+/* --- 1. BASE H2 — deep river, with a river-into-sunset bar -------------
+   10x DESIGN (2026-11-19): H2 was deep #0A2E38, now lagoon #0B3D4E
+   (11.72:1 white, 10.41:1 sand, 9.53:1 sand-2) — a bluer, brighter
+   river depth, still the darkest ink in the theme. The bar stays the
+   accent (teal-to-coral gradient); feature H2s get the 72px bar,
+   standard H2s 48px (see the appended 10x DESIGN block for sizes). */
+.page-body h2:not(.details-card h2) {
+  color: var(--lagoon);
+}
+.page-body h2:not(.details-card h2)::before {
+  background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
+}
+
+/* --- 2. BASE H3 — sunset terracotta, with a gold rule ---------------
+   10x DESIGN (2026-11-19): H3 was teal #0B5563, now terracotta
+   #93380E (7.47:1 white, 6.63:1 sand, 6.07:1 sand-2) — the sunset
+   half of the palette, so H2 (river) and H3 (sunset) read as two
+   depths of one theme instead of two teals. Gold underline only on
+   feature H3s (appended 10x DESIGN block); the base rule here keeps
+   the colour only. */
+.page-body h3:not(.kind-card h3) {
+  color: var(--terra);
+}
+/* Stylish accent (10x DESIGN L-6): the short gold rule under H3s now
+   lives ONLY on feature H3s (first H2-section) and on photo kind-card
+   H3s — see the appended 10x DESIGN block. The base rule here is
+   deliberately empty so a standard H3 carries no rule. */
+.page-body h3:not(.kind-card h3)::after {
+  content: none;
+  display: none;
+}
+
+/* --- 3. BODY LINKS — underline + visited distinction ------------------
+   BEFORE: teal #0B5563, 8.42:1, colour-only. A link next to ink body
+   text #12262E measures only 1.86:1 against its surroundings, so a
+   reader who cannot tell teal from ink has no cue at all (WCAG 1.4.1
+   wants 3:1 or a non-colour cue). AFTER: the same teal, now always
+   underlined (3px offset, matching the 20x D5 FAQ rule), so links are
+   recognisable without colour. Hover deepens to coral-dark #9A3412
+   (7.31:1, up from coral's 5.18:1) and keeps the underline. Visited
+   links get their own slightly brighter river teal #0C6B7A (6.18:1 on
+   white, 5.49:1 on sand) so a reader can tell what they already opened.
+   Buttons, table links and details links are excluded (workers I / D).
+   No :visited rule existed before: visited links used to look exactly
+   like unvisited ones. ----------------------------------------------- */
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a) {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):hover {
+  color: var(--coral-dark);
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):visited {
+  color: #0c6b7a;
+}
+/* List markers stay sunset coral (decorative, non-text). No change. */
+
+/* --- 4. BREADCRUMB ------------------------------------------------------
+   BEFORE: links teal 8.42:1 (good), current crumb ink 15.64:1 (good),
+   separator gold #C99B3F on white 2.55:1 (weak — the "»" almost
+   disappears on white). AFTER: separator darkened to #8A6D1F, 4.90:1 —
+   still gold, now actually visible. Links and current crumb unchanged.
+   Hover underline already existed; unchanged. ----------------------- */
+.breadcrumb .crumb-sep {
+  color: #8a6d1f;
+}
+
+/* --- 5. HEADER / NAV ----------------------------------------------------
+   5a. Gold baseline under the sticky header. BEFORE: flat deep header
+   with only a drop shadow. AFTER: the same shadow plus a 3px gold rule
+   (inset box-shadow, so ZERO height/layout change). It ties the header
+   to the footer gold rule below and to the gold current-page underline.
+   5b. Dropdown current item. BEFORE: coral #C2410C on sand-2 #EFE7D6,
+   4.21:1 — the ONE measured WCAG failure in the header (18px bold is
+   normal text, needs 4.5:1). AFTER: coral-dark #9A3412 on sand-2,
+   5.94:1. Background, weight and padding untouched.
+   5c. Dropdown link hover. BEFORE: coral on sand, 4.60:1 (a pass, but
+   the thinnest on the site). AFTER: coral-dark on sand, 6.49:1.
+   5d. Mobile menu toggle hover. BEFORE: no hover state. AFTER: the same
+   12% white wash the desktop nav uses, so the toggle answers the tap.
+   Everything else in the header already passes with margin and is
+   UNCHANGED: brand white 14.38:1, brand-tag #B8D2D8 9.07:1, nav links
+   white 14.38:1, current-page gold wash (white 10.08:1 on the true
+   composite #34463A) + gold underline, mobile group labels #A9C3C9
+   7.76:1, mobile links white 14.38:1, mobile current white 9.37:1 on
+   its composite. ----------------------------------------------------- */
+.site-header {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35), inset 0 -3px 0 var(--gold);
+}
+.nav-dropdown span.nav-current {
+  color: var(--coral-dark);
+}
+.nav-dropdown a:hover {
+  color: var(--coral-dark);
+}
+.mobile-menu summary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- 6. FOOTER ----------------------------------------------------------
+   10x DESIGN L-17: footer top border 3px gold -> 6px gradient
+   teal -> gold -> coral (border-image, zero layout change). */
+.site-footer {
+  border-top: 6px solid var(--gold);
+  border-image: linear-gradient(90deg, var(--teal), var(--gold) 50%, var(--coral)) 1;
+}
+
+/* --- 7. FAQ --------------------------------------------------------------
+   7a. Closed summary: teal #0B5563, 8.42:1 — UNCHANGED (already best).
+   7b. Closed summary hover. BEFORE: coral #C2410C on sand, 4.60:1.
+   AFTER: coral-dark #9A3412 on sand, 6.49:1 (scoped to closed items
+   only — see S5 — so an open summary keeps its teal identity).
+   7c. Open summary: gains a sand background wash so an open answer is
+   unmistakable even without reading the +/- glyph. Teal on sand
+   7.48:1. Border-left gold + teal border (20x) unchanged.
+   7d. The +/- glyph: white on coral 5.18:1 closed, coral glyph on
+   white 5.18:1 — UNCHANGED (passes with margin at 26px/24px).
+   7e. Answer links: teal underlined 8.42:1 (20x D5) — UNCHANGED by any
+   rule here; the generic body-link rule in §3 agrees with it and adds
+   the visited #0C6B7A treatment. ------------------------------------ */
+.faq-item:not([open]) summary:hover {
+  color: var(--coral-dark);
+  background: var(--sand);
+}
+.faq-item[open] summary {
+  background: var(--sand);
+}
+
+/* --- 8. STEPS ------------------------------------------------------------
+   BEFORE: number badge flat coral, white on coral 5.18:1 (28px/24px
+   display numerals — large text, passes 3:1 with margin). AFTER: the
+   same sunset gradient worker I uses on .btn-call (coral -> coral-dark),
+   so badges and buttons read as one CTA system. White on the lightest
+   point 5.18:1, on the darkest 7.31:1. Step titles are covered by the
+   base H3 rule in §2 (coral-dark), so badge + title are now one family.
+   The hairline between steps (#DCD5C6) is unchanged. ----------------- */
+.step-num {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+
+/* --- 9. MAP SECTION ------------------------------------------------------
+   The caption is an H2 and is covered by §1 (teal + gradient bar;
+   30px display, 8.42:1). The iframe's 2px gold border is unchanged.
+   The footer "View larger map" link (gold-cream #FFD9A8 on deep,
+   10.78:1) is unchanged. No rule needed here beyond §1 — recorded so
+   the coordinator can see the map was considered, not missed. -------- */
+
+/* --- 10. CTA LINES + LAST-UPDATED ---------------------------------------
+   .cta-line holds only worker I's buttons (excluded). .last-updated is
+   muted #46585F on white, 7.44:1 — passes with margin. No rule needed;
+   recorded so the coordinator can see it was measured, not missed. --- */
+
+/* --- 11. 404 PAGE --------------------------------------------------------
+   The 404 H1 is the ONLY deep-colour H1 on the site (every other H1
+   sits white on the hero). BEFORE: deep #0A2E38 on white, 14.38:1.
+   AFTER: river teal #0B5563, 8.42:1 — the error page now reads as part
+   of the H2 system instead of an unstyled default, while staying far
+   above the large-text bar. Its paragraph links are covered by §3 and
+   its buttons belong to worker I. ------------------------------------- */
+.not-found h1 {
+  color: var(--teal);
+}
+
+/* --- 12. SELECTION + FOCUS ----------------------------------------------
+   NEW: no ::selection rule existed. Gold selection with deep text
+   (5.64:1) keeps selected text readable in the brand palette.
+   NEW: a single global focus ring — 3px gold, 2px offset — for every
+   keyboard-focusable element that has no ring of its own. Gold on
+   white 2.55:1 as a colour is weak, but a 3px outline is a non-text
+   indicator (WCAG 2.4.11 needs 3:1 against adjacent colours; gold vs
+   white is 2.55:1 — see the note below). The elements that matter most
+   already carry stronger rings and WIN on specificity: .btn:focus-visible
+   (worker I, 0,2,0 — white ring + coral outer ring), .skip-link:focus
+   (0,2,0 — coral bg + gold outline), .faq-item summary:focus-visible
+   (0,2,1 — gold outline on white card). This global rule is the safety
+   net for plain links, whose only focus cue today is the browser
+   default. NOTE for the coordinator: if a stricter reading of 2.4.11
+   is wanted, swap var(--gold) for #8A6D1F (4.90:1 on white) in this
+   one rule — the trade-off is a less golden ring. ------------------- */
+::selection {
+  background: var(--gold);
+  color: var(--deep);
+}
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #8a6d1f;
+}
+/* Coordinator note: the outer dark-gold ring (#8A6D1F, 4.90:1 on white) is
+   the WCAG 2.4.11-compliant indicator on light backgrounds; the gold
+   outline carries it on dark backgrounds. Stronger rings on .btn,
+   .skip-link, FAQ summaries, details links and photo-card links win on
+   specificity and are untouched. */
+
+/* ==========================================================================
+   10x DESIGN ROUND — 2026-11-19 (Worker 1, DESIGN)
+   Headline: H2 lagoon #0B3D4E, H3 terracotta #93380E (measured, see
+   qa/FINDINGS-10x-design.md). All rules below are appended AFTER every
+   existing rule so they win on equal specificity; nothing above was
+   deleted except the in-place edits listed in the findings file.
+   New colours (WCAG 2.x, measured with qa/contrast math):
+     H2 #0B3D4E — white 11.72, sand #F6F1E7 10.41, sand-2 #EFE7D6 9.53
+     H3 #93380E — white 7.47, sand 6.63, sand-2 6.07
+     Eyebrow gold-light #E8C87A on deep #0A2E38 — 8.88 (hero scrim)
+     Trust #CFE0E4 on deep — 10.57; intro #EEF4F5 on deep — 12.93
+     Kicker teal #0B5563 — white 8.42, sand 7.48
+     Utility muted #46585F — white 7.44
+   L-5 (780px prose cap) is NOT implemented — owner order is wide lines.
+   ========================================================================== */
+
+/* --- L-3: H1 balance + nowrap place phrase --- */
+.h1-nowrap { white-space: nowrap; }
+/* 10x-fix V-P3-2: the /contact/ + /about/ "Restoration Pros" pair is
+   324px wide at the 36px H1 (341px at 38px) but the content box is only
+   280px at 320px viewport, so the unbreakable pair clipped under the
+   hero's overflow:hidden (measured: "Pros" right edge x=344). Below
+   382px — the widest viewport where the pair still overflows — those
+   two H1s only (marked by the h1-nowrap-fit span) drop to 30px, where
+   the pair measures ~270px and fits with room to spare. No other page's
+   H1 is touched. */
+@media (max-width: 381px) {
+  .hero h1:has(> .h1-nowrap-fit) { font-size: 30px; }
+}
+
+/* --- L-1: area heroes drop the right scrim stop to 0.12 (class
+   .hero-area is added by render_page() on the 7 location pages). --- */
+.hero-area .hero-scrim {
+  background:
+    linear-gradient(0deg, rgba(6, 32, 40, 0.55) 0%, rgba(6, 32, 40, 0) 32%),
+    linear-gradient(100deg, rgba(6, 32, 40, 0.92) 0%, rgba(6, 32, 40, 0.78) 38%, rgba(6, 32, 40, 0.38) 68%, rgba(6, 32, 40, 0.12) 100%);
+}
+
+/* --- L-2: hero eyebrow + trust row --- */
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin: 0 0 18px;
+}
+.hero-eyebrow::before {
+  content: ""; flex: none; width: 32px; height: 3px;
+  background: var(--gold); border-radius: 2px;
+}
+.hero-trust {
+  font-size: 15px; font-weight: 600; line-height: 1.5;
+  color: #cfe0e4; margin: 24px 0 0;
+}
+.hero-trust .trust-sep { color: var(--gold); }
+.hero-intro-more { display: none; }
+
+/* --- L-4: section banding. Sections are grouped in render_page()
+   (functions.php). Full-bleed via negative viewport margins; inner
+   content aligns with the 1240px container via max() padding. --- */
+.page-body { padding-bottom: 0; }
+.page-body .body-section {
+  margin: 0 calc(50% - 50vw);
+  padding: 88px max(24px, calc(50vw - 596px));
+}
+.page-body .body-section-intro { padding-top: 40px; padding-bottom: 64px; }
+.page-body .body-section.band-sand { background: var(--sand); }
+.page-body .body-section > h2 { margin-top: 0; }
+.page-body .body-section > p,
+.page-body .body-section > ul,
+.page-body .body-section > ol { max-width: 1100px; }
+.page-body .body-section .map-section { margin: 0; }
+.page-body .body-section .details-card { margin: 0; }
+/* H2 hairline under each H2 area (L-17): 1px sand-2 rule. */
+.page-body h2:not(.details-card h2) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--sand-2);
+}
+/* Deep band: the section holding the final CTA (L-14). Wave SVG at the
+   top edge in gold at 14% opacity, over the deep gradient. */
+.page-body .body-section.band-deep {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='28' viewBox='0 0 720 28' preserveAspectRatio='none'%3E%3Cpath d='M0,18 C120,8 240,26 360,16 C480,6 600,24 720,14 L720,28 L0,28 Z' fill='%23c99b3f' fill-opacity='0.14'/%3E%3C/svg%3E") top left / 720px 28px repeat-x,
+    linear-gradient(115deg, #0a2e38 0%, #0d3a46 55%, #0b5563 100%);
+  color: #fff;
+}
+.page-body .body-section.band-deep h2 { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.18); }
+.page-body .body-section.band-deep h2::before { background: var(--gold); }
+.page-body .body-section.band-deep .sec-kicker { color: var(--gold-light); }
+.page-body .body-section.band-deep h3 { color: var(--gold-light); }
+.page-body .body-section.band-deep p { color: #eef4f5; font-size: 22px; }
+.page-body .body-section.band-deep p.closing-trust { font-size: 16px; color: #cfe0e4; }
+.page-body .body-section.band-deep a:not(.btn) { color: #ffd9a8; }
+.page-body .body-section.band-deep .cta-line { margin: 32px 0 16px; }
+.page-body .body-section.band-deep .cta-line .btn { margin: 0 12px 12px 0; }
+
+/* --- L-6: H2 kickers + feature/standard scale; H3 size + feature rule --- */
+.sec-kicker {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.20em;
+  text-transform: uppercase; color: var(--teal);
+  margin: 0 0 12px;
+}
+.page-body .body-section h2.h2-feature { font-size: 46px; line-height: 1.08; }
+.page-body .body-section h2.h2-standard { font-size: 40px; line-height: 1.12; }
+.page-body .body-section h2.h2-feature::before { width: 72px; }
+.page-body .body-section h2.h2-standard::before { width: 48px; }
+.page-body .body-section h3 { font-size: 24px; letter-spacing: -0.01em; }
+.page-body .body-section.feature h3:not(.kind-card h3)::after {
+  content: ""; display: block; width: 44px; height: 4px;
+  background: var(--gold); border-radius: 2px; margin-top: 12px;
+}
+/* C-06: the 13 photo kind-card H3s DO get the 44px gold rule under the
+   new H3 system (gold on the dark scrim, decorative). */
+.page-body .kind-card.has-photo h3::after {
+  content: ""; display: block; width: 44px; height: 4px;
+  background: var(--gold); border-radius: 2px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+
+/* --- L-7: kind/help/area cards --- */
+.kind-card, .help-card, .area-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.kind-card { padding: 32px; border-radius: 16px; }
+.kind-card h3 { font-size: 23px; }
+/* 10x-fix-p3 V-P3-3: card body was 18px/1.55 (L-7 brief order), below the
+   20px floor. Now 20px/1.6; covers .kind-card and .help-card (same class). */
+.kind-card p { font-size: 20px; line-height: 1.6; }
+.kind-card:hover, .help-card:hover, .area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10, 46, 56, 0.18);
+}
+.kind-card.has-photo:hover { background-size: 105% auto; }
+.help-card-img { transition: transform 0.25s ease; }
+.help-card:hover .help-card-img { transform: scale(1.04); }
+.area-card { border-radius: 16px; }
+.area-card h3 { font-size: 23px; }
+/* "Learn more" link styling inside cards: teal, bold, no underline
+   until hover. (An earlier draft added a gold "→" via ::after, but the
+   card links sit mid-sentence — "Emergency water removal →:" and
+   "businesses →." — so the arrow was removed; the bold + hover
+   underline is the learn-more treatment.) Photo cards keep their
+   light-gold links. */
+.kind-card a:not(.btn), .help-card a:not(.btn), .area-card a:not(.btn) {
+  font-weight: 700; text-decoration: none;
+}
+.kind-card:not(.has-photo) a:not(.btn):hover,
+.help-card a:not(.btn):hover, .area-card a:not(.btn):hover {
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* --- L-9: header --- */
+.brand[aria-current="page"] .brand-name { text-decoration: none; }
+.header-call-icon { display: none; }
+
+/* --- L-11: mobile hero intro cap + "Read the intro" anchor --- */
+@media (max-width: 620px) {
+  .hero-intro {
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent);
+    mask-image: linear-gradient(180deg, #000 78%, transparent);
+  }
+  .hero-intro:target {
+    display: block; -webkit-line-clamp: unset;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .hero-intro-more {
+    display: inline-flex; align-items: center; order: 3; align-self: flex-start;
+    color: #ffd9a8; font-size: 18px; font-weight: 700;
+    margin-top: 16px; text-decoration: underline; text-underline-offset: 3px;
+    /* 10x-fix V-P2-4: measured 142 x 30.6px, height below the 44px floor.
+       Padding lifts the tap area to >=44px tall; colours, size and the
+       subtle text-link look are unchanged. */
+    padding: 12px 16px; min-height: 44px; box-sizing: border-box;
+  }
+  .hero-trust { order: 1; }
+  .hero-eyebrow { order: 0; }
+}
+
+/* --- L-12: slim post-hero utility line (replaces the first cta-line) --- */
+.utility-line {
+  font-size: 18px; line-height: 1.5; color: var(--muted);
+  margin: 4px 0 8px; text-align: left;
+}
+.utility-line a { color: var(--teal); font-weight: 700; text-decoration: none; }
+.utility-line a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.utility-line .utility-glyph { color: var(--teal); }
+.utility-line .utility-glyph svg { width: 16px; height: 16px; vertical-align: -3px; }
+
+/* --- L-13: steps spine + duration chips --- */
+.steps { position: relative; }
+.steps > li::before {
+  content: ""; position: absolute; left: 29px; top: 64px; bottom: -4px;
+  width: 2px; background: linear-gradient(180deg, var(--gold), var(--teal));
+}
+.steps > li:last-child::before { display: none; }
+.steps-inline > li::before { left: 25px; top: 56px; }
+.step-duration {
+  display: inline-block; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--sand); color: var(--teal);
+  border-radius: 6px; padding: 6px 10px; margin: 0 0 10px;
+}
+.page-body .body-section .steps h3 { font-size: 28px; }
+
+/* --- L-14: closing conversion band (see .band-deep above) --- */
+.closing-cta-line .btn-ghost { margin-left: 0; }
+.closing-trust { margin: 0 0 8px; }
+
+/* --- L-15: cost page highlight row + range bar --- */
+.table-wrap tr.cost-row-highlight td { background: #fdf8ec; }
+.table-wrap tr.cost-row-highlight td:first-child { border-left: 5px solid var(--coral); }
+.table-wrap.prices tr.cost-row-highlight td:last-child { background: #fdf8ec; }
+.most-common-chip {
+  display: inline-block; font-size: 12px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--coral); color: #fff; border-radius: 4px;
+  padding: 4px 8px; margin-left: 10px; vertical-align: middle;
+  white-space: nowrap;
+}
+.cost-range { margin: 24px 0 8px; max-width: 1100px; }
+.cost-range-track {
+  position: relative; height: 8px; border-radius: 4px; background: var(--sand-2);
+}
+.cost-range-fill {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+  background: var(--coral); border-radius: 4px;
+}
+.cost-range-marker {
+  position: absolute; left: 4.8%; width: 15.9%; top: -4px; height: 16px;
+  background: var(--gold); border-radius: 4px;
+}
+.cost-range-axis {
+  display: flex; justify-content: space-between;
+  font-size: 16px; color: var(--muted); margin-top: 10px;
+}
+.cost-range-label { font-size: 16px; color: var(--muted); margin: 8px 0 0; }
+
+/* --- L-17: gold hairline is on .page-body h2 above; footer gradient
+   border is in the footer section. Sand-2 #EFE7D6 was already --sand-2. --- */
+
+/* --- L-18: map poster fallback (section + footer maps) --- */
+.map-figure, .footer-map-figure {
+  position: relative; margin: 0; border-radius: 14px; overflow: hidden;
+  background: linear-gradient(135deg, var(--teal), var(--deep));
+  border: 2px solid var(--gold);
+}
+.map-poster {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+  color: var(--gold-light); font-size: 20px; font-weight: 700; line-height: 1.4;
+}
+.map-figure .map-embed, .footer-map-figure .footer-map {
+  position: relative; z-index: 1; background: transparent;
+  border: 0; border-radius: 0; box-shadow: none; margin: 0;
+}
+.footer-map-figure { border-radius: 12px; }
+.footer-map-figure .footer-map { height: 280px; }
+
+/* --- C-03: hero + CLOSING CTA buttons never wrap the phone at <=380px.
+   Scoped to .hero-ctas and .closing-cta-line ONLY: a middle .cta-line
+   button carries the long label "Call 239-356-3708, answered 24/7",
+   and nowrap on it forced a 400px button (97px overflow) — it keeps
+   wrapping, as before. The closing button's label is the short
+   "Call 239-356-3708", so nowrap fits. --- */
+@media (max-width: 380px) {
+  .hero-ctas .btn, .closing-cta-line .btn { white-space: nowrap; font-size: 19px; padding: 16px 20px; }
+  .hero-ctas .btn-ghost { white-space: nowrap; }
+  .closing-cta-line .btn-ghost { font-size: 16px; padding: 16px 14px; }
+}
+
+/* --- C-05: chrome/label text raised to the 20px floor where layout holds.
+   Flagged exceptions (see findings): nav 17px (L-9 order), brand-tag 18px,
+   details-sub 20px desktop / 18px mobile, nav-group 18px, hero trust 15px,
+   eyebrow/kicker 13px, closing trust 16px, utility line 18px, step chips
+   13px, cost chip 12px, range labels 16px — all are labels/chips per the
+   brief, not prose. --- */
+.breadcrumb ol { font-size: 20px; }
+.hero-areas { font-size: 20px; }
+.map-link { font-size: 20px; }
+.details-sub { font-size: 20px; letter-spacing: 0.12em; }
+.footer-col h3 { font-size: 20px; }
+.footer-col a { font-size: 20px; padding: 10px 0; }
+.footer-zips { font-size: 20px; }
+.footer-hours { font-size: 20px; }
+.footer-base-inner { font-size: 20px; }
+.back-to-top { font-size: 20px; }
+.mobile-menu-panel .nav-group { font-size: 18px; }
+
+/* --- C-07/C-08: slim mobile footer — 2-col link grid, shorter map --- */
+@media (max-width: 620px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; padding-top: 40px; padding-bottom: 40px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-map-figure .footer-map { height: 200px; }
+  .details-sub { font-size: 18px; }
+}
+
+/* --- L-9 mobile header: 44x44 phone-icon button (<=620px only; above
+   620px the header-call button is visible).
+   MEASURED (390px, Playwright): brand 230 + icon 44 + menu 44 + 2x16px
+   gaps = 350 of 350px — exactly fits, no overlap, brand unclipped
+   (brand-name scrollWidth == clientWidth, 214). At <=380px the icon
+   STAYS visible (10x-fix-p3 V-P3-1: it used to hide and leave the fixed
+   call bar as the only affordance); the row fits by shrinking the brand
+   to 12px + header gap 8px: brand 176 + icon 44 + menu 44 + 2x8px gaps
+   = 280 of 280px, menu right edge exactly at the 20px container
+   padding. Brand 12px stays legible; brand-name scrollWidth ==
+   clientWidth (168) at 320px. --- */
+@media (max-width: 620px) {
+  .header-call-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    /* 10x-fix-p3 V-P3-1: was 38px, below the 44px tap-target floor. */
+    flex: none; width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    margin-left: auto; border-radius: 10px;
+    background: var(--coral); color: #fff;
+  }
+  .header-call-icon svg { width: 20px; height: 20px; }
+  .header-call-icon:hover { background: var(--coral-dark); color: #fff; }
+  .mobile-menu { margin-left: 0; }
+  .brand-name { white-space: nowrap; font-size: 15px; }
+  .brand-mark { display: none; }
+  .mobile-menu summary .menu-label { display: none; }
+}
+@media (max-width: 380px) {
+  /* 10x-fix-p3 V-P3-1: the phone icon stays visible at 320px (44px, same
+     as at 390px) instead of hiding — the fixed call bar is no longer the
+     only affordance. The row fits by shrinking the brand + header gap
+     (brand 176 + icon 44 + menu 44 + 2x8px gaps = 280 of 280px). */
+  .header-inner { gap: 8px; }
+  .brand-name { font-size: 12px; }
+  .hero-ctas .btn-ghost { font-size: 17px; padding: 16px 18px; }
+}
+
+/* --- 10x A-2 follow-up (Worker 3's open item, closed here): /areas/
+   card titles are H2s (outline fix) but must LOOK like the old
+   .area-card h3 titles. Worker 3's spec was 23px, and the base
+   .area-card h3 rule is 23px; the 10x CLOSER (2026-11-20) corrected
+   this rule from 24px to the specified 23px, with the H2 gradient
+   bar and hairline suppressed on them. --- */
+.page-body .area-card h2.area-card-title {
+  margin: 20px 0 0; padding: 0 28px;
+  font-size: 23px; line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--terra); padding-bottom: 0; border-bottom: 0;
+}
+.page-body h2.area-card-title::before { display: none; }
+
+/* --- C-02/C-04: stacked tables at <=620px. The table becomes a stack
+   of labelled cards (data-label = the table's own header words); the
+   thead is visually hidden but stays in the DOM for screen readers.
+   This guarantees 0 overflow at 390/320 at the 20px floor, where
+   narrowing alone could not fit 4 columns. Desktop tables unchanged. --- */
+@media (max-width: 620px) {
+  .table-wrap {
+    margin-left: 0; margin-right: 0; border: 0; border-radius: 0;
+    box-shadow: none; background: transparent; overflow: visible;
+  }
+  .table-wrap table { display: block; }
+  .table-wrap thead {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .table-wrap tbody, .table-wrap tr { display: block; }
+  .table-wrap tbody tr {
+    border: 1px solid var(--line); border-radius: 12px;
+    margin-bottom: 16px; background: #fff; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  }
+  .table-wrap tbody tr:nth-child(even) { background: #fff; }
+  .table-wrap tbody tr:hover { background: #fff; }
+  .table-wrap td {
+    display: block; border-top: 1px solid var(--line);
+    border-left: 0; padding: 12px 16px; font-size: 20px;
+  }
+  .table-wrap td:first-child {
+    border-top: 0; background: var(--sand);
+  }
+  .table-wrap td::before {
+    content: attr(data-label); display: block;
+    font-size: 18px; font-weight: 700; color: var(--teal-dark);
+    letter-spacing: 0.06em; margin-bottom: 4px;
+  }
+  .table-wrap td:first-child::before { color: var(--terra); }
+  .table-wrap.prices td:last-child { text-align: left; background: #fdf8ec; }
+  .table-wrap.prices tbody tr:nth-child(even) td:last-child { background: #fdf8ec; }
+  .table-wrap.prices tbody tr:hover td:last-child { background: #fdf8ec; }
+  .table-wrap tr.cost-row-highlight td { background: #fff; }
+  .table-wrap tr.cost-row-highlight td:first-child { background: #fdf8ec; border-left: 0; border-top: 5px solid var(--coral); }
+  .table-wrap tr.cost-row-highlight td:last-child { background: #fdf8ec; }
+  .page-body .body-section h2.h2-feature { font-size: 34px; }
+  .page-body .body-section h2.h2-standard { font-size: 31px; }
+  .page-body .body-section .steps h3 { font-size: 26px; }
+  .page-body .body-section { padding: 64px 20px; }
+  .page-body .body-section-intro { padding-top: 32px; padding-bottom: 48px; }
+}
+
+/* --- L-4 mobile: section padding 64px (above). Desktop 88px (above). --- */
+
+/* --- 10x CLOSER (2026-11-20) — L-10 area map strips + A-2 card-title size.
+   A-2 exact rule (qa/FINDINGS-10x-design.md): card titles 23px with the
+   H2 bar suppressed. The Worker-1 rule above was corrected 24px -> 23px
+   in place so this rule is not overridden by its higher specificity. --- */
+.area-card h2.area-card-title { margin: 20px 0 0; padding: 0 28px; font-size: 23px; }
+.page-body h2.area-card-title::before { display: none; }
+
+/* --- L-10 area map strip (cape-coral + fort-myers-beach): static OSM map
+   with a 2px gold border and 14px radius; caption 20px ink on white;
+   attribution 16px muted (7.44:1); facts as sand chips 16px/700
+   teal-dark on sand-2 (9.38:1). --- */
+.area-map-strip { margin: 40px 0; }
+.area-map-img { display: block; width: 100%; height: auto; border: 2px solid var(--gold); border-radius: 14px; }
+.area-map-caption { font-size: 20px; color: var(--ink); margin: 16px 0 0; line-height: 1.5; }
+.area-map-attr { font-size: 16px; color: var(--muted); margin: 6px 0 0; }
+.area-map-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; padding: 0; }
+.area-map-facts li { background: var(--sand-2); color: var(--teal-dark); font-size: 16px; font-weight: 700; line-height: 1.4; padding: 8px 16px; border-radius: 999px; }
+@media (max-width: 620px) {
+  .area-map-strip { margin: 32px 0; }
+}
