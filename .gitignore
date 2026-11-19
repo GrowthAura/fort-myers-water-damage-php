@@ -1,0 +1,10 @@
+# Build output (rebuilt by python3 qa/export_cloudflare.py out; the
+# cloudflare-pages branch carries the export, not main).
+out/
+# QA screenshots (large; findings logs in qa/*.md are committed).
+qa/screenshots/
+qa/tmp-chrome/
+# Local scratch.
+*.log
+.DS_Store
+__pycache__/

@@ -1,0 +1,387 @@
+finazlie hoempaeg Homepage: fortmyerswaterdamagerestoration.us
+Nov 19, 2026 · @JOHN
+FINAL: Homepage SEO fields
+Field
+Value
+URL
+https://fortmyerswaterdamagerestoration.us/
+Meta title (60 chars)
+Water Damage Restoration Fort Myers FL 33901 | Answered 24/7
+Meta description (150 chars)
+Water in your Fort Myers home? Call 239-356-3708, answered 24/7, for water removal, drying, sewage and flood cleanup in 33901 to 33967 and Lee County.
+H1
+Water Damage Restoration in Fort Myers, FL
+Primary keyword
+water damage restoration Fort Myers
+ZIP keywords
+water damage restoration 33901, water damage restoration 33907, water damage 33908, water damage 33912, water damage 33913, water damage 33916, water damage 33919, water damage 33966, water damage 33967, water damage 33905
+Secondary keywords
+water damage company Fort Myers, water damage repair Fort Myers, water damage cleanup Fort Myers, 24 hour water damage Fort Myers, water damage restoration Lee County, water damage restoration near me Fort Myers
+Schema (JSON-LD)
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Fort Myers Water Damage Restoration Pros",
+  "url": "https://fortmyerswaterdamagerestoration.us/",
+  "telephone": "+1-239-356-3708",
+  "description": "24/7 water removal, structural drying, sewage backup and flood cleanup for homes, condos and businesses in Fort Myers and Lee County, Florida.",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "areaServed": [
+    "Fort Myers, FL 33901, 33905, 33907, 33908, 33912, 33913, 33916, 33919, 33966, 33967",
+    "North Fort Myers, FL 33903, 33917",
+    "Cape Coral, FL",
+    "Lehigh Acres, FL",
+    "Fort Myers Beach, FL",
+    "Estero, FL",
+    "Bonita Springs, FL"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Water damage services in Lee County",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Emergency water removal"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Structural drying"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sewage backup cleanup"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flood and storm cleanup"}}
+    ]
+  }
+}
+FINAL: Homepage page copy
+Water Damage Restoration in Fort Myers, FL
+Water coming through the ceiling, creeping under the tile or backing up from a drain? Shut off the water if you can, keep everyone away from wet outlets, and call 239-356-3708. The line is answered 24/7. Fort Myers Water Damage Restoration Pros helps homeowners, condo owners and businesses remove the water, dry the structure to measured readings and work out what can be saved, from the River District and McGregor to Cape Coral, Lehigh Acres, Estero and Bonita Springs.
+Call 239-356-3708 · Describe your water problem
+Fort Myers · Cape Coral · Lehigh Acres · North Fort Myers · Fort Myers Beach · Estero · Bonita Springs
+Fort Myers water damage help
+Details
+Phone
+239-356-3708, answered 24/7, including holidays and the days after a storm
+Service area
+Fort Myers ZIP codes 33901 to 33967, North Fort Myers, Cape Coral, Lehigh Acres, Fort Myers Beach, Estero and Bonita Springs
+Services
+Water removal, structural drying, sewage backup cleanup, flood and storm cleanup, AC, pipe, water heater, appliance and slab leak damage
+Properties
+Single-family homes, condos, mobile homes, vacation rentals and businesses
+Typical drying time
+About 3 to 5 days for clean water; longer for slabs, hardwood and sewage
+What you keep
+Photos, moisture logs and a written scope before work beyond emergency water removal
+24/7 Water Damage Help for Fort Myers Homes and Businesses
+Water damage rarely happens at a good time. It shows up at 2 a.m. when the AC drain clogs, on a Sunday when a toilet supply line splits, or the week after a storm when half of Lee County is calling for help. Every call to 239-356-3708 is answered 24/7, including nights, weekends, holidays and the days after a hurricane.
+What we help with
+• Emergency water removal (/water-removal/): standing water, soaked carpet and pad, and wet contents moved out of harm's way.
+• Structural drying (/drying/): dehumidifiers and air movers sized to the space, with moisture readings taken and logged until materials are back to normal.
+• Sewage backup cleanup (/sewage-cleanup/): toilet, tub, floor-drain and cast iron drain backups handled as contaminated water.
+• Flood and storm cleanup (/flood-cleanup/): rising water, storm surge and wind-driven rain.
+• Leaks of every kind: AC leaks (/ac-leak/), burst pipes (/burst-pipe/), water heaters (/water-heater-leak/), appliances (/appliance-leak/) and slab leaks (/slab-leak/).
+• Every kind of property: single-family homes, condos (/condo-leak/), mobile homes (/mobile-home/), vacation rentals and businesses (/commercial/).
+How we work with you
+• You get a plain explanation of what is wet, what can be dried in place and what likely has to come out.
+• Before any work beyond emergency water removal, you get the scope in writing.
+• Your insurance policy, your adjuster and your choice of repair contractor stay yours.
+What Happens When You Call 239-356-3708 in Fort Myers
+Every call is answered, day or night. You describe where the water is coming from and what is wet, and you get clear steps for making the area safe while help is on the way. You know the timing before anyone heads out.
+On site, the damage is photographed and measured with moisture meters before anything is removed. Those photos and moisture logs are yours to keep for your records and your insurer, and they show exactly why each wall, floor or cabinet was dried in place or taken out.
+More about who we are: About us (/about/) · How it works (/how-it-works/)
+Water in Your Fort Myers Home Right Now? Do This First
+• Make it safe. If water is near outlets, cords, a light fixture or a sagging ceiling, switch off that circuit at the breaker and keep people and pets out. Never stand in water to reach the electrical panel.
+• Stop the source. Close the valve behind the toilet, sink or washer, or shut the main valve, usually near the meter or where the line enters the house, often in the garage. For an AC leak, turn the system off at the thermostat.
+• Photograph everything. Take photos and video of the water, the source, wet walls, ceilings, floors and damaged belongings before anything is moved or thrown out.
+• Move what you can. Lift rugs, electronics, papers, photos and boxes off wet floors, and set furniture legs on foil, plastic lids or wood blocks.
+• Let air move. If it is safe and the water is clean, open interior doors and run the AC to pull humidity out. Keep the AC off if sewage or floodwater is involved.
+• Start drying the same day. Wet drywall, carpet pad and baseboards rarely dry on their own in Fort Myers humidity, and mold can begin growing within 24 to 48 hours.
+What not to do
+• Don't use a household vacuum on standing water.
+• Don't turn on ceiling fans or lights in a room with a wet or bulging ceiling.
+• Don't walk through sewage or floodwater without boots and gloves.
+• Don't throw away damaged items before they are photographed.
+• Don't paint over a water stain until you know the wall behind it is dry.
+Need every step? Use the first-hour water damage checklist (/first-hour-checklist/).
+What Kind of Water Damage Is in Your Fort Myers Home?
+Pick what matches what you are seeing. Each page explains the usual cause, what gets dried or removed and what to ask your insurer.
+AC leaking from the air handler or through the ceiling
+A clogged condensate drain line is one of the most common causes of indoor water damage in Southwest Florida. The AC tech clears the line, but the wet drywall, insulation and flooring around it still need drying. See AC leak water damage (/ac-leak/).
+Water dripping from the ceiling or a stain that keeps spreading
+Usually an attic air handler, a roof leak after a storm or a bathroom above. Turn off power to that room before you look closer. See ceiling leak water damage (/ceiling-leak/).
+Water coming in from the condo above
+In Florida condos, responsibility is split between the association and the unit owners. Photograph your unit before anything is removed and notify the association in writing. See condo water damage (/condo-leak/).
+Sewage or a drain backing up
+Toilet, tub and floor-drain backups are Category 3 water. Carpet, pad and drywall it touches usually have to be removed, not dried. See sewage backup cleanup (/sewage-cleanup/).
+Sewer smell or slow drains in an older home
+Many Lee County homes built before about 1975 have cast iron drain lines that crack and corrode under the slab. See cast iron pipe water damage (/cast-iron-pipe/).
+Burst pipe or split supply line
+Braided toilet, sink and ice maker lines can fail without warning and keep running until someone shuts the valve. See burst pipe water damage (/burst-pipe/).
+Water heater leaking in the garage or closet
+Older tanks rust through at the bottom and soak the garage, the laundry room or the hallway carpet. See water heater leak cleanup (/water-heater-leak/).
+Dishwasher, washer, fridge or ice maker leak
+Appliance leaks often run slowly under cabinets and flooring for days before anyone sees them. See appliance leak water damage (/appliance-leak/).
+Warm spots on the floor, wet baseboards or a jump in the water bill
+These are common signs of a leak under the slab. A plumber finds and repairs the pipe; the floors and walls around it still need drying. See slab leak water damage (/slab-leak/).
+Came back to a wet or musty seasonal home
+A failed AC, a leaking water heater or a split supply line can run for weeks while nobody is home. See water damage in vacant homes (/vacant-home/).
+Soft or wet floor in a mobile home
+Particle board subfloors and belly wrap hold water out of sight, so manufactured homes need a different drying approach than a slab house. See mobile home water damage (/mobile-home/).
+Floodwater or storm surge
+Rising water is Category 3. It usually means flood cuts in the drywall and a claim under a separate flood policy. See flood and storm cleanup (/flood-cleanup/).
+Wet floors or swollen kitchen cabinets
+Laminate and vinyl plank trap water underneath, and particle board cabinet bases swell fast. Some can be saved if they are dried early. See water damaged floors (/floors/) and water damaged kitchen cabinets (/cabinets/).
+Signs of Hidden Water Damage in Fort Myers Slab Homes
+Water rarely stays where you first see it. On a slab home it spreads sideways under flooring and behind baseboards. Watch for these signs, especially after an AC leak or a storm:
+• Baseboards that are swollen, pulling away from the wall or soft at the bottom.
+• Grout lines that stay dark long after mopping, or tiles that sound hollow when tapped.
+• Laminate or vinyl plank that is cupping, lifting at the seams or feels spongy.
+• Paint that bubbles or peels, or drywall that feels cool and soft to the touch.
+• A musty smell that gets stronger when the AC runs or the house is closed up.
+• Brown rings or spots on the ceiling near the air handler, a bathroom or an outside wall.
+• Interior doors that suddenly stick, or carpet that feels damp near a wall.
+• A water bill that is higher than usual with no change in how you use water.
+If you notice two or more of these, the water has probably traveled further than it looks. Moisture meters and a thermal camera show exactly where it went.
+How Fort Myers Homes Are Built, and Why It Changes the Drying
+Most homes in Fort Myers are not built like homes up north. Block walls, slabs, condo stacks and manufactured homes each hide water in a different place, so each one is dried a different way.
+How the home is built
+Where the water hides
+How it gets dried
+Concrete block walls with stucco
+Interior drywall usually sits on wood furring strips over the block, so water wicks into the gap behind the drywall and stays against the block
+Baseboards come off and the bottom of the wall is opened so air reaches the cavity; block and furring strips are read separately
+Slab-on-grade with tile or vinyl plank
+Water runs under the flooring along the slab and shows up rooms away from the leak
+The whole slab is moisture-mapped; tile usually stays in place, plank often comes up
+Wood-frame second floors and additions
+Water drops through the ceiling and runs down inside wall cavities
+Ceilings and walls are opened only where readings show water
+Condo mid-rises and towers
+A leak in one unit travels down plumbing and AC chases into the units below
+Units above and below are checked, and the association is brought in early
+Manufactured homes
+Particle board subfloor soaks up water, and water pools inside the belly wrap
+The belly is opened and dried from below; soft subfloor is replaced
+This is why two leaks of the same size can take very different drying plans. The readings, not the look of the room, decide what stays and what goes.
+How Water Damage Restoration Works in Fort Myers, Step by Step
+1. You call and describe what you see
+Tell us where the water came from, which rooms are affected and whether it is clean water, a drain backup or floodwater. We walk you through making the area safe and confirm timing with you before anyone heads out.
+2. Inspection and moisture mapping
+Moisture meters and thermal imaging trace how far the water traveled behind baseboards, under tile and up inside walls. The readings are recorded and become the starting point for the drying plan.
+3. Water removal
+Standing water is extracted, and soaked carpet pad and anything that cannot be saved are removed. With contaminated water, affected materials come out under containment. See emergency water removal (/water-removal/).
+4. Drying and daily monitoring
+Dehumidifiers and air movers run around the clock. Moisture readings are taken and logged as the job goes on, and equipment is adjusted until materials reach normal dry readings, not just until surfaces feel dry. See how structural drying works (/drying/).
+5. Cleaning, records and repair planning
+Affected areas are cleaned and treated, and you get the photos and moisture logs. Then you decide who rebuilds the drywall, baseboards, flooring and cabinets.
+Most clean-water jobs take about 3 to 5 days to dry. Concrete slabs, hardwood, tile on slab and sewage jobs usually take longer. See what happens after you call (/how-it-works/).
+Call 239-356-3708
+What Fort Myers Homes Can Dry in Place and What Has to Go
+Whether a material can be saved depends on the type of water, how long it sat and what the material is made of. This is the general rule of thumb:
+Material
+Clean water, caught early
+Sewage or floodwater
+Drywall
+Often dried in place if it is not swollen or crumbling
+Usually cut out above the wet line (a flood cut)
+Baseboards
+Often removed carefully so the wall behind can dry, then reused
+Usually replaced
+Carpet
+Sometimes dried and cleaned
+Removed
+Carpet pad
+Usually replaced because it soaks up water like a sponge
+Removed
+Tile on slab
+Usually dried in place; the slab under it takes time
+Cleaned and sanitized; grout may need attention
+Laminate and vinyl plank
+Often has to be lifted so water underneath can dry
+Removed
+Hardwood
+Can sometimes be dried with specialty mats if started early
+Usually removed
+Cabinets
+Toe kicks pulled so the base can dry; swollen particle board is replaced
+Lower cabinets usually removed
+Insulation
+Wet batt insulation is usually replaced
+Removed
+Speed is the biggest factor you control. The sooner drying starts, the more of your home stays in place.
+Clean Water, Gray Water or Sewage in Your Fort Myers Home?
+The water category decides what can be saved, how the work is done and how careful you need to be around it.
+Category
+What it means
+Fort Myers examples
+What usually happens
+1, Clean
+Water from a clean source
+Supply line, water heater, AC condensate, rain before it touches the ground
+Often dried in place if handled quickly
+2, Gray
+Some contamination
+Washing machine, dishwasher, toilet overflow without waste
+Carpet pad and some drywall usually removed; antimicrobial applied
+3, Black
+Heavy contamination
+Sewage backup, cracked cast iron drain, floodwater, storm surge
+Porous materials removed; protective gear; children and pets kept away
+Clean water does not stay clean. After a day or two in contact with flooring, dust and building materials it can become Category 2, which is one more reason not to wait.
+Sewer Backup in Fort Myers: Your Line or the Utility's?
+When sewage comes up through a tub or floor drain, the first question is where the blockage is. That decides who clears it.
+• The lateral is yours. The pipe that runs from your house to the sewer main is generally the property owner's to clear and repair, including roots and grease buildup.
+• The main is the utility's. The main in the street belongs to the City of Fort Myers or Lee County Utilities, depending on your address.
+• Check the neighbors. If homes on both sides are backing up too, the problem is probably the main. Call your utility first.
+• Check the cleanout. The cleanout is a capped pipe in the yard near the house. If it is full of sewage, the blockage is past it, toward the street. If it is empty, the clog is inside the house plumbing. Let a plumber open it if you are not sure; a cleanout under pressure can spray.
+• Stop using water. No flushing, showers, laundry or dishwasher until the line is cleared. Every gallon you send down comes back up somewhere.
+Once the line is open, everything the sewage touched is treated as Category 3. See sewage backup cleanup (/sewage-cleanup/) and cast iron pipe water damage (/cast-iron-pipe/).
+Why Water Damage Spreads Faster in Fort Myers and Lee County
+• Humidity. Fort Myers air stays humid most of the year, so wet materials barely dry on their own and mold gets ideal conditions.
+• The AC almost never stops. Months of constant cooling produce a lot of condensate, and every clogged drain line is a chance for it to overflow into a closet, ceiling or hallway.
+• Slab-on-grade construction. Water spreads under tile, vinyl plank and baseboards instead of draining away, so the wet area is usually bigger than it looks.
+• Aging drain lines. Older homes in parts of Fort Myers and Cape Coral still have cast iron drains that crack under the slab.
+Water Damage Through the Year in Fort Myers
+The calls change with the seasons here. Knowing what each part of the year brings tells you what to check.
+Time of year
+What Fort Myers homes see most
+What to check
+Winter and spring (dry season)
+Seasonal residents come back to leaks that ran while the house was empty; water heaters and supply lines fail
+Walk the house before unpacking: ceilings, the AC closet, under every sink and the water heater pan
+Summer rainy season (about June to September)
+Afternoon downpours, roof and window leaks, and AC units running hardest with clogged drain lines
+The AC drain line and float switch, ceiling stains near the air handler, windows on the storm side of the house
+Hurricane season (June 1 to November 30)
+Storm surge, wind-driven rain through stucco and windows, and power loss that stops the AC and pumps
+A flood policy in place, photos of the home before a storm, and a plan to shut off water and power
+Rebuilding in a Fort Myers Flood Zone: The 50% Rule
+If your home or business sits in a FEMA flood zone that starts with A or V, there is one more step before the rebuild. Building departments in Lee County check repair permits against the "50% rule", also called substantial damage.
+• What it means. If the repairs needed to bring the building back to its pre-damage condition add up to 50% or more of the building's market value, the building has to be brought into full compliance with current flood rules, which can mean raising it.
+• Any kind of damage counts. Lee County applies the rule to damage of any origin, so wind, fire and large leaks count, not only floodwater.
+• Your own work counts. The rule applies even if you do the work yourself or others donate the labor and materials.
+• Repairs add up. Lee County evaluates repair permits from the same damage event together, not one at a time.
+• An elevation certificate can settle it. A building that already meets current flood rules can be repaired without the 50% limit, and Lee County may already have the certificate on file.
+• Who decides. The building department that issues your permit (the City of Fort Myers, Lee County or your town) makes the call. Ask them before you plan the rebuild.
+The photos, moisture logs and written scope from the water damage job become part of the paper trail for both the permit and any claim, so keep them together.
+Not sure which flood zone you are in? Look up your address on FEMA's Flood Map Service Center (msc.fema.gov) or ask your building department for the elevation certificate on file.
+Do You Need a Restoration Company in Fort Myers, or Can You Handle It Yourself?
+Not every leak needs professional equipment. You can usually handle it yourself if:
+• A small amount of clean water landed on tile or another hard surface and was wiped up within minutes.
+• Nothing soaked into carpet, walls, cabinets or the floor underneath.
+• There is no musty smell over the next few days.
+It is time to call for help if:
+• Water got under flooring, behind baseboards or into drywall or cabinets.
+• A ceiling is stained, wet or sagging.
+• The water came from a toilet, drain, sewer line or flood.
+• More than one room is affected, or you are not sure where the water came from.
+• The house sat closed up with water in it for a day or more.
+• Someone in the home has asthma, allergies or a weakened immune system.
+If you are not sure, call 239-356-3708 and describe what you see. If fans and a wet vac will handle it, we will tell you that.
+Condo Water Damage in Fort Myers: Who Handles What
+Water from the unit above is one of the most common condo calls in Fort Myers, and it involves more people than a house leak. Take these steps in order:
+1.  Stop the source. Knock on the unit above. If no one is home, call the association or building manager to shut off the water to that unit.
+2.  Photograph before cleanup. Take photos and video of the ceiling, walls, floors and anything damaged in your unit.
+3.  Notify the association in writing. Note the date, the time and where the water came in.
+4.  Call your HO-6 insurer or agent. Under Florida Statute 718.111(11), the association's master policy generally covers the building as originally installed, while floor, wall and ceiling coverings, built-in cabinets and countertops, appliances, water heaters and electrical fixtures inside your unit are generally the unit owner's to insure.
+5.  Dry every affected unit. Water often reaches the unit below yours and the walls shared with neighbors. Drying only one unit leaves wet material behind the shared walls.
+See condo water damage (/condo-leak/) for the full walkthrough.
+Water Damage in Fort Myers Businesses and Vacation Rentals
+A business or a rental has two problems at once: the water, and the days the space can't be used.
+• Businesses. Restaurants, medical and dental offices, retail stores and warehouses get drying plans built around opening hours, with equipment placed so parts of the space can stay open where it is safe. See commercial water damage (/commercial/).
+• Vacation rentals. A leak found at checkout means guests arriving in a day or two. You get photos and moisture readings you can share with the owner, the property manager and the insurer, plus a clear answer on when the unit can be booked again.
+• Property managers. One call covers the unit with the leak and the units around it, with readings for each so nothing gets missed behind shared walls.
+Water Damage and Insurance in Fort Myers: What Florida Homeowners Should Know
+This is general information, not advice about your policy. Many policies cover water damage that is sudden and accidental, like a burst supply line or an AC overflow. Every policy is different, so read yours and talk to your agent or insurer.
+• Sudden vs. gradual. Damage from long-term seepage or a leak that went on for months is often excluded. Report the date you found the damage truthfully.
+• Flood is separate. Rising water and storm surge are covered by a flood policy (NFIP or private), not standard homeowners coverage. NFIP policies generally have a 30-day waiting period, so buy before hurricane season, not during it.
+• Condos split coverage. Florida Statute 718.111(11) divides responsibility between the association's master policy and the unit owner's HO-6 policy.
+• Assignment of benefits is gone. For policies issued on or after January 1, 2023, Florida no longer allows post-loss assignment of benefits, so the agreement for the work stays between you and the company you hire.
+• Deadlines apply. You generally have one year from the date of loss to give your insurer notice of a new claim, and insurers generally must pay or deny within 60 days of notice.
+• Mold is limited. Mold coverage is often capped, and Florida has its own rules for who can perform mold assessment and remediation.
+• Prevent further damage. Most policies expect you to take reasonable steps to stop the damage from getting worse, so start drying and keep your receipts.
+• Check for a water damage cap. Some Florida policies limit plumbing-leak water damage to a fixed amount per loss through a limited water damage endorsement. Look for it on your declarations page or ask your agent.
+More detail: how insurance handles water damage in Florida (/insurance/).
+Questions to Ask a Fort Myers Water Damage Company Before Work Starts
+Whoever you hire, these questions protect you:
+• Will you take moisture readings and share the logs with me?
+• How will you decide what gets dried in place and what gets removed?
+• Will I get a written scope before work beyond emergency water removal?
+• Will you photograph the damage before anything is torn out?
+• What do you need me to sign, and does any of it involve my insurance payment?
+• Who handles the rebuild, and am I free to choose someone else?
+A good company answers all of these without hesitation. Ask us the same questions when you call.
+How to Prevent the Next Leak in Your Fort Myers Home
+Most of the water damage we see in Lee County starts with something small that could have been caught early.
+• AC drain line. Have the condensate line cleared at every AC service, and make sure the unit has a float switch that shuts it off when the drain pan fills.
+• Supply lines. Check the braided lines under sinks and toilets and behind the washer and fridge. Replace any that bulge, rust or kink.
+• Water heater. Look for rust or moisture at the base. Tank water heaters usually wear out somewhere around 8 to 12 years.
+• Leak sensors and shut-off valves. Small sensors under sinks, the water heater and the AC closet send an alert to your phone. An automatic shut-off valve closes the main when it senses a leak.
+• Before you leave for the season. Shut off the main water valve and the water heater, leave the AC on to control humidity, and have someone walk the house regularly while you are away.
+• Before hurricane season. Photograph every room and your belongings, find your main shut-off valve, and check that your flood coverage is in place.
+Which Fort Myers ZIP Codes Do You Cover?
+Every residential ZIP code in Fort Myers, plus North Fort Myers across the river:
+ZIP code
+Area
+33901
+Downtown, the River District and Edison Park
+33905
+East Fort Myers and Tice
+33907
+Central Fort Myers and Pine Manor
+33908
+Iona and South Fort Myers toward the Sanibel Causeway
+33912
+South Fort Myers
+33913
+Gateway and the area around the airport
+33916
+Dunbar and east-central Fort Myers
+33919
+Whiskey Creek and the McGregor corridor
+33966
+Six Mile Cypress area
+33967
+San Carlos Park and Three Oaks
+33903, 33917
+North Fort Myers (/north-fort-myers/)
+Not sure your street is covered? Call 239-356-3708 with your ZIP code.
+Water Damage Help Across Lee County
+Fort Myers: the River District, Edison Park, McGregor, Whiskey Creek, Iona, Gateway, the Villas and San Carlos Park. AC leaks, older drain lines near the Caloosahatchee and condo leaks are the calls we hear about most.
+Cape Coral: slab homes, canal-front flooding and cast iron drains in some 1970s and 1980s neighborhoods. See water damage restoration in Cape Coral (/cape-coral/).
+Lehigh Acres: AC closet leaks, well and septic problems and heavy summer rain on flat lots. See water damage help in Lehigh Acres (/lehigh-acres/).
+North Fort Myers: manufactured-home communities and riverfront homes. See North Fort Myers (/north-fort-myers/).
+Fort Myers Beach: storm surge, sewage problems after storms and vacation rentals that sit empty. See Fort Myers Beach (/fort-myers-beach/).
+Estero and Bonita Springs: condo leaks from the unit above and seasonal homes found wet after time away. See Estero (/estero/) and Bonita Springs (/bonita-springs/).
+See every city and ZIP code we cover in our Lee County service areas (/areas/).
+Map: Fort Myers and the Lee County service area
+Questions Fort Myers Homeowners Ask
+Who do I call first when water is coming into my house?
+Stop the water at the fixture or main shut-off first. Then call 239-356-3708 to remove the water and dry the structure, a plumber to repair the pipe or fixture, and your insurer or agent to report the damage.
+What does water damage restoration include?
+Everything from the first call to a dry, clean structure: emergency water removal (/water-removal/), moisture mapping with meters and a thermal camera, structural drying (/drying/) with daily readings, cleaning and antimicrobial treatment where needed, and photos and moisture logs for your records and your insurer. The rebuild of drywall, flooring and cabinets comes after, and who does it is your choice.
+Should I turn off my AC after a leak?
+If the AC itself is leaking, yes, turn it off at the thermostat until the drain line is cleared. If the leak came from somewhere else and the water is clean, running the AC helps pull moisture out of the air. After sewage or floodwater, keep it off so contaminated air is not spread through the ducts.
+How long does it take to dry out a house after a leak?
+Most clean-water jobs take about 3 to 5 days with dehumidifiers and air movers running around the clock. Concrete slabs, hardwood and sewage jobs take longer. A house is dry when moisture readings are back to normal, not when surfaces feel dry.
+How can I tell if my walls are still wet inside?
+You often can't by touch alone. Drywall can feel dry on the surface while the bottom few inches and the framing behind it are still wet. A moisture meter or a thermal camera is the reliable way to check.
+How do I choose a water damage company in Fort Myers?
+Ask whether the technicians are IICRC-trained, whether they take moisture readings and share the logs, and whether you get a written scope before any work beyond emergency water removal. A good company photographs the damage before anything is torn out and leaves the choice of repair contractor with you. Be wary of anyone who asks you to sign over your insurance benefits: for Florida policies issued on or after January 1, 2023, post-loss assignment of benefits isn't allowed.
+What causes most water damage in Fort Myers homes?
+Clogged AC condensate lines are one of the most common causes, followed by split supply lines under sinks and toilets, failing water heaters, roof and window leaks in summer storms, appliance leaks and, in older homes, cracked cast iron drains under the slab. See AC leak water damage (/ac-leak/), ceiling leaks (/ceiling-leak/) and cast iron pipe damage (/cast-iron-pipe/).
+What should I do with wet carpet?
+Pull it back from the wall if you can and get air under it. Carpet pad soaks up water and is usually replaced. Carpet touched by sewage or floodwater should be removed, not dried.
+Do I have to use the company my insurer recommends?
+Usually not. You can generally choose your own restoration company unless your policy includes a managed repair program you agreed to. Check your policy before you sign anything.
+Does the 50% rule apply to my Fort Myers home?
+Only if the building is in a flood zone that starts with A or V. Your building department compares the repair total with the building's market value when you apply for permits.
+How fast can someone get to my Fort Myers home?
+The call is answered 24/7, and you're told the timing before anyone heads out. Arrival depends on where you are in Lee County, the time of day and how many calls are coming in, which climbs after a big storm. While you wait, you get clear steps to make the area safe and keep the damage from spreading.
+Do you handle condos, mobile homes and businesses?
+Yes. Condos and townhomes (/condo-leak/), manufactured homes (/mobile-home/), vacation rentals, seasonal homes (/vacant-home/) and businesses (/commercial/) each hide water in different places, so each one gets a drying plan built around how it is put together.
+What should I do before leaving my Fort Myers home for the summer?
+Shut off the main water valve and the water heater, leave the AC running to control humidity, and have someone walk the house regularly while you're away. A leak in an empty home can run for weeks before anyone sees it. See the full checklist for seasonal homes (/vacant-home/).
+Is there 24-hour water damage help near me in Fort Myers?
+Yes. 239-356-3708 is answered 24/7, including nights, weekends and holidays, for Fort Myers, Cape Coral, Lehigh Acres, North Fort Myers, Fort Myers Beach, Estero and Bonita Springs.
+Water Damage in Your Fort Myers Home Right Now?
+Every hour that drywall, flooring and cabinets stay wet makes the repair bigger. Call, tell us what you see, and get a plan for drying it out.
+Call 239-356-3708, answered 24/7
