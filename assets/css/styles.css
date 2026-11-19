@@ -1,0 +1,402 @@
+/* ==========================================================================
+   Fort Myers Water Damage Restoration Pros - "Caloosahatchee" theme
+   Deep river teal + sunset coral + sand. Fresh code, written for this site.
+   Body text 20px. Wide lines (1240px container). Wide display headings.
+   Fonts are self-hosted (OFL: Archivo Black + Inter variable) so no
+   third-party stylesheet blocks first paint - font-display: swap keeps
+   text visible while the files load.
+   ========================================================================== */
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/archivoblack-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/inter-var.woff2") format("woff2");
+}
+:root {
+  --deep: #0a2e38;
+  --deep-2: #0d3a46;
+  --teal: #0b5563;
+  --teal-dark: #083f4a;
+  --teal-bright: #0e7c8c;
+  --coral: #c2410c;
+  --coral-bright: #e8590c;
+  --coral-dark: #9a3412;
+  --sand: #f6f1e7;
+  --sand-2: #efe7d6;
+  --gold: #c99b3f;
+  --ink: #12262e;
+  --muted: #46585f;
+  --line: #dcd5c6;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(10, 46, 56, 0.14);
+  --font-display: "Archivo Black", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--white);
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--teal); }
+a:hover { color: var(--coral); }
+p { margin: 0 0 1.25em; }
+ul, ol { margin: 0 0 1.25em; padding-left: 1.4em; }
+li { margin-bottom: 0.55em; }
+li::marker { color: var(--coral); font-weight: 700; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--deep);
+  margin: 0 0 0.5em;
+}
+h1 { font-size: 58px; }
+h2 { font-size: 42px; }
+h3 { font-size: 26px; line-height: 1.25; }
+strong { font-weight: 700; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--coral); color: #fff; padding: 12px 20px; z-index: 200;
+}
+.skip-link:focus { left: 12px; top: 12px; color: #fff; }
+
+/* --- Buttons: best-ever CTR, phone number always visible --- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 20px; font-weight: 700; line-height: 1.2;
+  padding: 16px 28px; min-height: 56px; border-radius: 10px;
+  text-decoration: none; cursor: pointer; border: 2px solid transparent;
+}
+.btn svg { flex: none; }
+.btn-call { background: var(--coral); color: #fff; box-shadow: 0 6px 18px rgba(194, 65, 12, 0.35); }
+.btn-call:hover { background: var(--coral-dark); color: #fff; }
+.btn-ghost { background: rgba(255, 255, 255, 0.08); color: #fff; border-color: #fff; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
+.btn-ghost-dark { background: transparent; color: var(--teal); border-color: var(--teal); }
+.btn-ghost-dark:hover { background: var(--teal); color: #fff; }
+
+/* --- Header: most important for ranking + crawling --- */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--deep);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+.header-inner {
+  display: flex; align-items: center; gap: 28px;
+  min-height: 80px; padding-top: 8px; padding-bottom: 8px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex: none; }
+.brand:hover { color: #fff; }
+.brand-mark { display: flex; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--font-display); font-size: 21px; color: #fff; }
+.brand-name .brand-city { color: var(--gold); }
+.brand-tag { font-size: 14px; color: #b8d2d8; letter-spacing: 0.04em; }
+.site-nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.site-nav > a, .site-nav summary {
+  color: #fff; text-decoration: none; font-size: 18px; font-weight: 600;
+  padding: 12px 14px; border-radius: 8px; cursor: pointer; list-style: none;
+}
+.site-nav > a:hover, .site-nav summary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+.site-nav details { position: relative; }
+.site-nav summary::-webkit-details-marker { display: none; }
+.site-nav summary::after { content: " \25BE"; font-size: 13px; color: var(--gold); }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 10px); left: 0; min-width: 320px;
+  background: #fff; border-radius: 12px; box-shadow: var(--shadow);
+  padding: 10px; display: flex; flex-direction: column; z-index: 120;
+}
+.nav-dropdown a {
+  color: var(--deep); text-decoration: none; font-size: 18px; font-weight: 500;
+  padding: 11px 14px; border-radius: 8px;
+}
+.nav-dropdown a:hover { background: var(--sand); color: var(--coral); }
+.nav-group {
+  font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); padding: 14px 14px 6px;
+}
+.header-call { flex: none; min-height: 52px; padding: 12px 20px; }
+.header-call .call-short { display: none; }
+.mobile-menu { display: none; }
+
+/* --- Hero --- */
+.hero { position: relative; overflow: hidden; background: var(--deep); color: #fff; }
+.hero-no-media { background: linear-gradient(115deg, var(--deep) 0%, var(--teal-dark) 55%, var(--teal) 100%); }
+.hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.hero-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.8) 46%, rgba(6, 32, 40, 0.38) 100%);
+}
+.hero-inner { position: relative; z-index: 2; padding-top: 84px; padding-bottom: 84px; max-width: 1240px; }
+.hero-inner h1 { color: #fff; max-width: 960px; margin-bottom: 0.45em; }
+.hero-intro { font-size: 22px; line-height: 1.6; max-width: 860px; color: #eef4f5; }
+.hero-intro a { color: #ffd9a8; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 24px; }
+.hero-ctas .btn { font-size: 21px; }
+.hero-areas { font-size: 18px; letter-spacing: 0.02em; color: #cfe0e4; margin: 0; }
+.hero-areas a { color: #fff; }
+.hero-inner-page .hero-inner { padding-top: 64px; padding-bottom: 64px; }
+.hero-inner-page h1 { margin-bottom: 0.35em; }
+
+/* --- Breadcrumb (visible == schema) --- */
+.breadcrumb { padding-top: 22px; }
+.breadcrumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font-size: 18px; }
+.breadcrumb li { margin: 0; }
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { color: var(--coral); text-decoration: underline; }
+.breadcrumb .crumb-sep { color: var(--gold); }
+
+/* --- Page body: wide lines, generous rhythm --- */
+.page-body { padding-top: 8px; padding-bottom: 96px; }
+.page-body > h2 { margin-top: 72px; }
+.page-body > h2:first-child { margin-top: 40px; }
+.page-body h2::before {
+  content: ""; display: block; width: 72px; height: 6px;
+  background: var(--coral); border-radius: 3px; margin-bottom: 18px;
+}
+.page-body h3 { margin-top: 44px; }
+.page-body > p, .page-body > ul, .page-body > ol { max-width: 1100px; }
+.page-body section { margin: 56px 0; }
+
+/* --- Details card --- */
+.details-card {
+  background: var(--sand); border: 1px solid var(--line); border-left: 6px solid var(--coral);
+  border-radius: 14px; padding: 36px 40px; margin: 48px 0;
+}
+.details-card h2 { margin-top: 0; }
+.details-card h2::before { display: none; }
+.details-sub { font-size: 16px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.details-grid { display: grid; grid-template-columns: 240px 1fr; gap: 18px 28px; margin: 0; }
+.detail-row { display: contents; }
+.detail-row dt { font-weight: 700; color: var(--teal-dark); }
+.detail-row dd { margin: 0; }
+
+/* --- Kind cards --- */
+.kinds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
+.kind-card {
+  background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--coral);
+  border-radius: 12px; padding: 28px; box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+}
+.kind-card h3 { margin-top: 0; font-size: 23px; }
+.kind-card p { margin-bottom: 0; }
+.kind-card p:last-child { margin-bottom: 0; }
+
+/* --- Tables --- */
+.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 19px; line-height: 1.55; margin: 0; }
+th {
+  background: var(--teal); color: #fff; text-align: left;
+  font-size: 18px; font-weight: 700; padding: 16px 18px;
+}
+td { padding: 15px 18px; border-top: 1px solid var(--line); vertical-align: top; }
+tbody tr:nth-child(even) { background: var(--sand); }
+
+/* --- Steps --- */
+.steps { list-style: none; padding: 0; margin: 32px 0; counter-reset: step; }
+.steps > li {
+  position: relative; padding: 8px 0 28px 84px; margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.steps > li:last-child { border-bottom: 0; }
+.step-num {
+  position: absolute; left: 0; top: 4px;
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--coral); color: #fff;
+  font-family: var(--font-display); font-size: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.steps h3 { margin-top: 6px; margin-bottom: 8px; }
+.steps p { margin-bottom: 0; }
+.steps-inline > li { padding-bottom: 20px; }
+.steps-inline .step-num { top: 0; width: 52px; height: 52px; font-size: 24px; }
+.steps-inline > li { padding-left: 72px; }
+
+/* --- FAQ accordions --- */
+.faq-list { margin: 32px 0; }
+.faq-item {
+  border: 1px solid var(--line); border-radius: 12px;
+  margin-bottom: 14px; background: #fff; overflow: hidden;
+}
+.faq-item summary {
+  font-size: 21px; font-weight: 700; line-height: 1.4; color: var(--deep);
+  padding: 20px 56px 20px 24px; cursor: pointer; list-style: none; position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; position: absolute; right: 22px; top: 16px;
+  font-size: 30px; font-weight: 400; color: var(--coral); line-height: 1;
+}
+.faq-item[open ] summary::after { content: "\2212"; }
+.faq-item summary:hover { color: var(--coral); }
+.faq-item p { padding: 0 24px 22px; margin: 0; }
+.faq-item[open ] { border-color: var(--teal); box-shadow: var(--shadow); }
+
+/* --- Map --- */
+.map-section { margin: 56px 0; }
+.map-caption { font-size: 26px; }
+.map-embed { width: 100%; height: 450px; border-radius: 12px; display: block; }
+
+/* --- CTA line --- */
+.cta-line { margin: 40px 0 8px; }
+.last-updated { color: var(--muted); margin: 0 0 4px; }
+.cta-line .btn { font-size: 22px; }
+
+/* --- 404 --- */
+.not-found { padding-top: 80px; }
+.not-found h1 { margin-bottom: 16px; }
+
+/* --- Footer: most important for ranking + crawling --- */
+.site-footer { background: var(--deep); color: #d7e4e7; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;
+  padding-top: 64px; padding-bottom: 56px;
+}
+.footer-brand-name { font-family: var(--font-display); font-size: 24px; color: #fff; margin: 0 0 8px; line-height: 1.25; }
+.footer-brand-name span { color: var(--gold); }
+.footer-brand p { margin-bottom: 12px; }
+.footer-hours { font-size: 18px; }
+.footer-brand .btn { margin: 12px 0 20px; }
+.footer-map { display: block; width: 310px; max-width: 100%; height: 170px; border-radius: 10px; }
+.footer-col h3 { color: #fff; font-size: 19px; margin: 0 0 16px; letter-spacing: 0.02em; }
+.footer-col a {
+  display: block; color: #d7e4e7; text-decoration: none;
+  font-size: 18px; line-height: 1.45; padding: 7px 0;
+}
+.footer-col a:hover { color: #fff; text-decoration: underline; }
+.footer-zips { font-size: 17px; color: #a9c3c9; margin-top: 18px; }
+.footer-base { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+.footer-base-inner {
+  display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center;
+  padding-top: 20px; padding-bottom: 20px; font-size: 17px;
+}
+.footer-base a { color: #fff; }
+
+/* --- Mobile call bar (<=620px only) --- */
+.call-bar {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 110;
+  background: var(--coral); color: #fff; text-decoration: none;
+  font-size: 20px; font-weight: 700; text-align: center;
+  padding: 16px 12px calc(16px + env(safe-area-inset-bottom));
+}
+.call-bar:hover { color: #fff; }
+
+/* ==========================================================================
+   Responsive overrides - AFTER the base rules (cascade: same specificity,
+   later wins). Never place a @media block before its base rule.
+   ========================================================================== */
+@media (max-width: 1020px) {
+  .kinds-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .header-inner { gap: 16px; }
+  .site-nav > a, .site-nav summary { padding: 12px 10px; font-size: 17px; }
+}
+@media (max-width: 820px) {
+  .site-nav { display: none; }
+  .mobile-menu { display: block; margin-left: auto; }
+  .mobile-menu summary {
+    list-style: none; cursor: pointer; color: #fff;
+    font-size: 18px; font-weight: 600; padding: 12px 10px; border-radius: 8px;
+  }
+  .mobile-menu summary::-webkit-details-marker { display: none; }
+  .mobile-menu-panel {
+    position: absolute; top: 80px; left: 0; right: 0;
+    background: var(--deep); padding: 12px 24px 24px;
+    display: flex; flex-direction: column; z-index: 120;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    max-height: calc(100vh - 80px); overflow-y: auto;
+  }
+  .mobile-menu-panel a {
+    color: #fff; text-decoration: none; font-size: 20px; font-weight: 500;
+    padding: 13px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .mobile-menu-panel .btn { margin-top: 16px; justify-content: center; border-bottom: 0; }
+  /* Closed <details> hides its panel: the author's display:flex above beats
+     the UA's closed-details hiding, so without this the closed panel renders
+     off-viewport and drives horizontal overflow on every mobile page. */
+  .mobile-menu:not([open]) .mobile-menu-panel { display: none; }
+  /* Let the brand shrink and wrap instead of forcing a ~360px single line
+     that pushes the call button + menu button off-viewport. */
+  .brand { flex: 1 1 auto; min-width: 0; }
+  .header-call .call-full { display: none; }
+  .header-call .call-short { display: inline; font-weight: 700; }
+  .brand-name { font-size: 18px; }
+  .brand-tag { display: none; }
+}
+@media (max-width: 620px) {
+  body { font-size: 20px; }
+  h1 { font-size: 40px; }
+  h2 { font-size: 31px; }
+  h3 { font-size: 23px; }
+  .container { padding: 0 20px; }
+  .hero-inner { padding-top: 56px; padding-bottom: 56px; }
+  .hero-intro { font-size: 20px; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .hero-inner-page .hero-inner { padding-top: 44px; padding-bottom: 44px; }
+  .page-body { padding-bottom: 120px; }
+  .page-body > h2 { margin-top: 56px; }
+  .details-card { padding: 28px 22px; }
+  .details-grid { grid-template-columns: 1fr; gap: 6px; }
+  .detail-row dt { margin-top: 12px; }
+  .kinds-grid { grid-template-columns: 1fr; }
+  .table-wrap { margin-left: -20px; margin-right: -20px; border-radius: 0; border-left: 0; border-right: 0; }
+  table { font-size: 18px; }
+  th, td { padding: 13px 14px; }
+  .steps > li { padding-left: 70px; }
+  .step-num { width: 52px; height: 52px; font-size: 24px; }
+  .faq-item summary { font-size: 20px; padding: 18px 48px 18px 18px; }
+  .faq-item p { padding: 0 18px 18px; }
+  .map-embed { height: 340px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
+  .footer-map { width: 100%; height: 200px; }
+  /* The sticky bottom call bar already serves <=620px; the header call
+     button would otherwise crowd the brand + menu off-viewport. */
+  .header-call { display: none; }
+  .call-bar { display: block; }
+  .site-footer { padding-bottom: 64px; }
+}
+@media (max-width: 380px) {
+  h1 { font-size: 36px; }
+  .brand-name { font-size: 16px; }
+  .header-call { padding: 10px 12px; }
+}
+
+/* Speed: skip layout/paint of heavy below-fold blocks until scrolled to.
+   contain-intrinsic-size keeps the scrollbar stable before first render;
+   `auto` remembers each block's real size after it renders once. */
+.faq-list,
+ol.steps,
+.table-wrap,
+.kinds-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+/* Print must show everything: no deferred rendering on paper. */
+@media print {
+  .faq-list,
+  ol.steps,
+  .table-wrap,
+  .kinds-grid {
+    content-visibility: visible;
+  }
+}
