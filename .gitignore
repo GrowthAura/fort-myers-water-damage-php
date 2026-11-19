@@ -8,3 +8,4 @@ qa/tmp-chrome/
 *.log
 .DS_Store
 __pycache__/
+.wrangler/
