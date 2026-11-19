@@ -75,8 +75,10 @@ strong { font-weight: 700; }
 .skip-link {
   position: absolute; left: -9999px; top: 0;
   background: var(--coral); color: #fff; padding: 12px 20px; z-index: 200;
+  font-weight: 700; text-decoration: underline; text-underline-offset: 3px;
 }
-.skip-link:focus { left: 12px; top: 12px; color: #fff; }
+/* 20x D2: visible + unmistakable the moment it takes focus (Tab). */
+.skip-link:focus, .skip-link:focus-visible { left: 12px; top: 12px; color: #fff; outline: 3px solid var(--gold); outline-offset: 2px; }
 
 /* --- Buttons: best-ever CTR, phone number always visible --- */
 .btn {
@@ -103,7 +105,7 @@ strong { font-weight: 700; }
   display: flex; align-items: center; gap: 28px;
   min-height: 80px; padding-top: 8px; padding-bottom: 8px;
 }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex: none; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; flex: none; min-height: 44px; /* 20x A1: was 40px tall on desktop, below the 44px tap-target bar. */ }
 .brand:hover { color: #fff; }
 .brand-mark { display: flex; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
@@ -111,9 +113,12 @@ strong { font-weight: 700; }
 .brand-name .brand-city { color: var(--gold); }
 .brand-tag { font-size: 14px; color: #b8d2d8; letter-spacing: 0.04em; }
 .site-nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
-.site-nav > a, .site-nav summary {
+.site-nav > a, .site-nav > span.nav-current-top, .site-nav summary {
   color: #fff; text-decoration: none; font-size: 18px; font-weight: 600;
   padding: 12px 14px; border-radius: 8px; cursor: pointer; list-style: none;
+  /* 10x fix D-02: never wrap the label away from its caret ("Services ▾"
+     rendered label-over-caret and pushed the header to 101px). */
+  white-space: nowrap; flex: none;
 }
 .site-nav > a:hover, .site-nav summary:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
 .site-nav details { position: relative; }
@@ -129,6 +134,29 @@ strong { font-weight: 700; }
   padding: 11px 14px; border-radius: 8px;
 }
 .nav-dropdown a:hover { background: var(--sand); color: var(--coral); }
+/* 20x D3 + 20x-fixes D-V2: the current page must be unmistakable in the
+   nav — aria-current + distinct styling, desktop + mobile + footer. Every
+   current item is a non-link span (.nav-current / .nav-current-top), never
+   a link to the current page. The closed Services/Areas summary carries
+   the same gold treatment (.nav-section-current) when a child page of
+   that dropdown is current. */
+.site-nav > span.nav-current-top { background: rgba(201, 155, 63, 0.22); box-shadow: inset 0 -3px 0 var(--gold); color: #fff; }
+.site-nav details.nav-section-current > summary { background: rgba(201, 155, 63, 0.22); box-shadow: inset 0 -3px 0 var(--gold); color: #fff; }
+.nav-dropdown span.nav-current {
+  display: block; font-size: 18px; font-weight: 700; color: var(--coral);
+  background: var(--sand-2); padding: 11px 14px; border-radius: 8px; cursor: default;
+}
+.mobile-menu-panel span.nav-current {
+  display: block; color: #fff; text-decoration: none; font-size: 20px; font-weight: 700;
+  padding: 13px 4px 13px 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14); border-left: 4px solid var(--gold); cursor: default;
+}
+.footer-col span.nav-current {
+  display: block; color: #fff; font-weight: 700; text-decoration: underline;
+  text-decoration-color: var(--gold); text-underline-offset: 4px;
+  font-size: 18px; line-height: 1.45; padding: 9px 0; cursor: default;
+}
+.brand[aria-current="page"] .brand-name { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
 .nav-group {
   font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--muted); padding: 14px 14px 6px;
@@ -140,6 +168,16 @@ strong { font-weight: 700; }
 /* --- Hero --- */
 .hero { position: relative; overflow: hidden; background: var(--deep); color: #fff; }
 .hero-no-media { background: linear-gradient(115deg, var(--deep) 0%, var(--teal-dark) 55%, var(--teal) 100%); }
+/* 20x D1: subtle CSS-only river motif — a soft teal glow top-right + two
+   low-opacity wave bands along the bottom (white + gold, brand palette).
+   No photo, no new words. The ::after sits above the scrim and below the
+   text (hero-inner is z-index 2), so contrast is untouched. */
+.hero-no-media::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(55% 75% at 88% 8%, rgba(14, 124, 140, 0.30), rgba(14, 124, 140, 0) 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='120' viewBox='0 0 720 120' preserveAspectRatio='none'%3E%3Cpath d='M0,78 C120,42 240,102 360,72 C480,42 600,96 720,66 L720,120 L0,120 Z' fill='%23ffffff' fill-opacity='0.05'/%3E%3Cpath d='M0,96 C140,66 260,114 400,88 C520,66 620,108 720,90 L720,120 L0,120 Z' fill='%23c99b3f' fill-opacity='0.08'/%3E%3C/svg%3E") left bottom / 720px 120px repeat-x;
+}
 .hero-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center;
@@ -152,6 +190,11 @@ strong { font-weight: 700; }
 .hero-inner h1 { color: #fff; max-width: 960px; margin-bottom: 0.45em; }
 .hero-intro { font-size: 22px; line-height: 1.6; max-width: 860px; color: #eef4f5; }
 .hero-intro a { color: #ffd9a8; }
+/* 20x-fixes (hero underline): the inline phone link in the hero intro
+   showed the browser-default underline under the number, which read as a
+   stray dash. Hero links carry no underline — scoped to .hero only, so
+   body links keep theirs. Color untouched (#ffd9a8). */
+.hero a { text-decoration: none; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 24px; }
 .hero-ctas .btn { font-size: 21px; }
 .hero-areas { font-size: 18px; letter-spacing: 0.02em; color: #cfe0e4; margin: 0; }
@@ -203,7 +246,23 @@ strong { font-weight: 700; }
 .kind-card p:last-child { margin-bottom: 0; }
 
 /* --- Tables --- */
-.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: 12px; }
+/* 10x fix D-07: right-edge fade so a horizontally scrolling table signals
+   there is more to the right (mobile 4-col tables hide a whole column). */
+.table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--line); border-radius: 12px; box-shadow: inset -24px 0 16px -16px rgba(10, 46, 56, 0.28); }
+/* 10x fix D-12: on price tables only (class added at render time when the
+   last header is "Rough area range"), prices scan as a right-aligned column.
+   Prose last-columns on other tables are untouched.
+   20x fix D-V1 (verifier ruling, NOT READY): the nowrap below is
+   DESKTOP-ONLY. On mobile it forced the longest price onto one line
+   (table 1: 550px, table 3: 616px in a 390px wrap) and hid the entire
+   price column at first paint. Base keeps right-alignment only; nowrap
+   lives in the min-width:621px block in the responsive section. */
+.table-wrap.prices td:last-child { text-align: right; }
+/* 10x fix D-13: phone numbers never break across lines. Scoped :not(.btn):
+   the .cta-line Call button ("Call 239-356-3708, answered 24/7", 467px) is
+   itself a tel: link and must keep wrapping its label on mobile — nowrap on
+   it forced 97px horizontal overflow on every page with a cta-line. */
+a[href^="tel:"]:not(.btn) { white-space: nowrap; }
 table { width: 100%; border-collapse: collapse; font-size: 19px; line-height: 1.55; margin: 0; }
 th {
   background: var(--teal); color: #fff; text-align: left;
@@ -254,6 +313,9 @@ tbody tr:nth-child(even) { background: var(--sand); }
 .faq-item summary:hover { color: var(--coral); background: var(--sand); }
 .faq-item summary:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
 .faq-item p { padding: 0 26px 24px; margin: 0; border-top: 1px solid var(--line); padding-top: 18px; }
+/* 20x D5: links inside FAQ answers are explicitly underlined (teal on
+   white, 8.42:1) — not left to the UA default — with a clear offset. */
+.faq-item p a { text-decoration: underline; text-underline-offset: 3px; }
 .faq-item[open ] { border-color: var(--teal); border-left: 5px solid var(--gold); box-shadow: var(--shadow); }
 .faq-item[open ] summary { color: var(--teal); }
 
@@ -261,6 +323,13 @@ tbody tr:nth-child(even) { background: var(--sand); }
 .map-section { margin: 64px 0; }
 .map-caption { font-size: 30px; }
 .map-embed { width: 100%; height: 560px; border-radius: 14px; display: block; border: 2px solid var(--gold); box-shadow: var(--shadow); }
+/* 20x M1: "View larger map" fallback under each map iframe (same pin URL,
+   opens Google Maps) for blocked-iframe robustness. Section maps are
+   inside <main> where any added word breaks the word-diff-0 contract, so
+   the link ships under the FOOTER maps only — home + contact carry a
+   footer map too, so every page with a section map still has the fallback. */
+.map-link { display: inline-block; margin-top: 12px; font-size: 18px; text-decoration: underline; text-underline-offset: 3px; }
+.footer-brand .map-link { color: #ffd9a8; padding: 10px 0; min-height: 44px; }
 
 /* --- CTA line --- */
 .cta-line { margin: 40px 0 8px; }
@@ -277,6 +346,11 @@ tbody tr:nth-child(even) { background: var(--sand); }
   display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px;
   padding-top: 64px; padding-bottom: 56px;
 }
+/* 10x fix D-11: on the 7 map-less location pages the brand column is much
+   shorter than Services, pooling a ~300px void at the bottom. Centring the
+   brand block in its grid track splits the void top/bottom instead. On the
+   27 pages with a map the brand column is the tallest, so this is a no-op. */
+.footer-brand { align-self: center; }
 .footer-brand-name { font-family: var(--font-display); font-size: 24px; color: #fff; margin: 0 0 8px; line-height: 1.25; }
 .footer-brand-name span { color: var(--gold); }
 .footer-brand p { margin-bottom: 12px; }
@@ -286,7 +360,9 @@ tbody tr:nth-child(even) { background: var(--sand); }
 .footer-col h3 { color: #fff; font-size: 19px; margin: 0 0 16px; letter-spacing: 0.02em; }
 .footer-col a {
   display: block; color: #d7e4e7; text-decoration: none;
-  font-size: 18px; line-height: 1.45; padding: 7px 0;
+  /* 10x fix F-1: 7px padding measured 40px tall; 9px reaches the 44px
+     tap-target bar (18px x 1.45 = 26px + 18px padding = 44px). */
+  font-size: 18px; line-height: 1.45; padding: 9px 0;
 }
 .footer-col a:hover { color: #fff; text-decoration: underline; }
 .footer-zips { font-size: 17px; color: #a9c3c9; margin-top: 18px; }
@@ -295,7 +371,11 @@ tbody tr:nth-child(even) { background: var(--sand); }
   display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center;
   padding-top: 20px; padding-bottom: 20px; font-size: 17px;
 }
-.footer-base a { color: #fff; }
+.footer-base a { color: #fff; display: inline-block; padding: 8px 0; /* 10x fix F-1: the footer phone text link measured 29px; padding takes it to ~45px. */ }
+/* 20x D4: "Back to top" lives in the footer only — never floated, so it
+   cannot collide with the sticky mobile call bar. */
+.back-to-top { display: inline-block; color: #fff; font-size: 17px; padding: 10px 4px; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.back-to-top:hover { color: var(--gold); }
 
 /* --- Mobile call bar (<=620px only) --- */
 .call-bar {
@@ -310,6 +390,12 @@ tbody tr:nth-child(even) { background: var(--sand); }
    Responsive overrides - AFTER the base rules (cascade: same specificity,
    later wins). Never place a @media block before its base rule.
    ========================================================================== */
+/* 20x D-V1: cost-price nowrap is DESKTOP-ONLY (min-width 621px). Below it
+   prices wrap as before the 10x round, so /cost/ tables fit 390px and
+   prices are visible at first paint on mobile. */
+@media (min-width: 621px) {
+  .table-wrap.prices td:last-child { white-space: nowrap; }
+}
 @media (max-width: 1020px) {
   .kinds-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -335,6 +421,9 @@ tbody tr:nth-child(even) { background: var(--sand); }
     color: #fff; text-decoration: none; font-size: 20px; font-weight: 500;
     padding: 13px 4px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+  /* 10x fix D-09: .nav-group in --muted (#46585f) on deep teal measured
+     1.93:1. #a9c3c9 (same as .footer-zips) measures 7.76:1 — passes AA. */
+  .mobile-menu-panel .nav-group { color: #a9c3c9; }
   .mobile-menu-panel .btn { margin-top: 16px; justify-content: center; border-bottom: 0; }
   /* Closed <details> hides its panel: the author's display:flex above beats
      the UA's closed-details hiding, so without this the closed panel renders
@@ -354,10 +443,21 @@ tbody tr:nth-child(even) { background: var(--sand); }
   h2 { font-size: 31px; }
   h3 { font-size: 23px; }
   .container { padding: 0 20px; }
-  .hero-inner { padding-top: 56px; padding-bottom: 56px; }
-  .hero-intro { font-size: 20px; }
+  /* 10x fix D-03: the panel lives inside the header stacking context
+     (z-index 100) while the fixed call bar is z-index 110, so the bar
+     painted over the panel's bottom 66px and its own Call button. Cap the
+     panel above the bar (80px header + 66px call bar). */
+  .mobile-menu-panel { max-height: calc(100vh - 80px - 66px); max-height: calc(100dvh - 80px - 66px); }
+  .hero-inner { padding-top: 40px; padding-bottom: 40px; display: flex; flex-direction: column; }
+  /* 10x fix D-08: mobile heroes ran 699-1195px tall, so the Call button sat
+     below the first viewport on every page class. CTA-first on mobile only:
+     H1, then the buttons, then intro, then the areas line. Desktop hero
+     order is untouched. */
+  .hero-ctas { order: 1; }
+  .hero-intro { order: 2; font-size: 20px; line-height: 1.5; }
+  .hero-areas { order: 3; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
-  .hero-inner-page .hero-inner { padding-top: 44px; padding-bottom: 44px; }
+  .hero-inner-page .hero-inner { padding-top: 32px; padding-bottom: 32px; }
   .page-body { padding-bottom: 120px; }
   .page-body > h2 { margin-top: 56px; }
   .details-card { padding: 28px 22px; }

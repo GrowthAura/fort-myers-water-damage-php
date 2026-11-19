@@ -289,6 +289,18 @@ function render_block($b, $page)
             foreach ($b['head'] as $c) {
                 $head .= '<th scope="col">' . render_segments($c) . '</th>';
             }
+            // 10x fix D-12: only tables whose last header is a price header
+            // ("Rough area range") get the prices class — right-aligned,
+            // nowrap price column. Tables whose last column is prose
+            // ("Effect on the price", "What to check", ...) are untouched.
+            $lastHead = '';
+            $lastCell = end($b['head']);
+            if (is_array($lastCell)) {
+                foreach ($lastCell as $seg) {
+                    $lastHead .= $seg['t'] ?? '';
+                }
+            }
+            $wrapClass = str_contains($lastHead, 'Rough area range') ? 'table-wrap prices' : 'table-wrap';
             $rows = '';
             foreach ($b['rows'] as $row) {
                 $cells = '';
@@ -297,7 +309,7 @@ function render_block($b, $page)
                 }
                 $rows .= '<tr>' . $cells . '</tr>';
             }
-            return '<div class="table-wrap"><table><thead><tr>' . $head . '</tr></thead><tbody>' . $rows . '</tbody></table></div>';
+            return '<div class="' . $wrapClass . '"><table><thead><tr>' . $head . '</tr></thead><tbody>' . $rows . '</tbody></table></div>';
         }
         case 'steps': {
             $items = '';
@@ -388,7 +400,7 @@ function render_page($slug, $page)
     $currentSlug = $slug;
     $isLocation = in_array($slug, $GLOBALS['LOCATION_PAGES'], true);
     require __DIR__ . '/header.php';
-    echo '<main id="main">';
+    echo '<main id="main" tabindex="-1">';
     // Inner pages: hero (H1 + intro + Call) first, then breadcrumb, then body.
     // (Matches the published site's intro-shift pattern: H1 -> intro -> Call
     // -> breadcrumb.) The first block of an inner page is 'hero-intro' and is
@@ -434,6 +446,14 @@ function render_page($slug, $page)
             }
         }
         echo '</ol></nav>';
+    }
+    // 10x fix D-04: the homepage hero was the only inset hero on the site —
+    // it rendered inside <div class="container page-body">, floating with
+    // white gutters on all four sides. Render it as a direct child of
+    // <main> like every other page's hero (same markup, no words change).
+    if ($isHome && !empty($blocks) && $blocks[0]['type'] === 'hero') {
+        $homeHero = array_shift($blocks);
+        echo render_block($homeHero, $page);
     }
     echo '<div class="container page-body">';
     // "Last updated" date line (legal pages only, user-supplied date —

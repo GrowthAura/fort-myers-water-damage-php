@@ -8,24 +8,37 @@
       <a class="btn btn-call" href="tel:+12393563708"><?= phone_svg() ?> Call 239-356-3708</a>
       <?php if (!$isLocation): ?>
       <iframe class="footer-map" title="Map: Fort Myers and the Lee County service area" src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" width="560" height="280" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <a class="map-link" href="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" target="_blank" rel="noopener">View larger map</a>
       <?php endif; ?>
     </div>
     <nav class="footer-col" aria-label="Services">
       <h3>Services</h3>
       <?php foreach ($NAV_SERVICES as $s): ?>
-      <a href="<?= esc($s['href']) ?>"<?= ($currentSlug === $s['href']) ? ' aria-current="page"' : '' ?>><?= esc($s['label']) ?></a>
+      <?php if ($currentSlug === $s['href']): ?>
+      <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
+      <?php else: ?>
+      <a href="<?= esc($s['href']) ?>"><?= esc($s['label']) ?></a>
+      <?php endif; ?>
       <?php endforeach; ?>
     </nav>
     <nav class="footer-col" aria-label="Explore">
       <h3>Explore</h3>
       <?php foreach ($FOOTER_EXPLORE as $s): ?>
-      <a href="<?= esc($s['href']) ?>"<?= ($currentSlug === $s['href']) ? ' aria-current="page"' : '' ?>><?= esc($s['label']) ?></a>
+      <?php if ($currentSlug === $s['href']): ?>
+      <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
+      <?php else: ?>
+      <a href="<?= esc($s['href']) ?>"><?= esc($s['label']) ?></a>
+      <?php endif; ?>
       <?php endforeach; ?>
     </nav>
     <nav class="footer-col" aria-label="Areas we serve">
       <h3>Areas We Serve</h3>
       <?php foreach ($FOOTER_AREAS as $s): ?>
-      <a href="<?= esc($s['href']) ?>"<?= ($currentSlug === $s['href']) ? ' aria-current="page"' : '' ?>><?= esc($s['label']) ?></a>
+      <?php if ($currentSlug === $s['href']): ?>
+      <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
+      <?php else: ?>
+      <a href="<?= esc($s['href']) ?>"><?= esc($s['label']) ?></a>
+      <?php endif; ?>
       <?php endforeach; ?>
       <p class="footer-zips">Fort Myers ZIPs 33901 to 33967 &middot; North Fort Myers 33903, 33917</p>
     </nav>
@@ -35,6 +48,7 @@
       <span>&copy; <?= date('Y') ?> Fort Myers Water Damage Restoration Pros</span>
       <span>24/7 Emergency Response &middot; Lee County, FL</span>
       <a href="tel:+12393563708">239-356-3708</a>
+      <a class="back-to-top" href="#top">Back to top</a>
     </div>
   </div>
 </footer>

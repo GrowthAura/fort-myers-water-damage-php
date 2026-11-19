@@ -112,6 +112,10 @@ $HEAD = [
     'title' => 'Page Not Found | Fort Myers Water Damage Restoration Pros',
     'description' => 'The page you asked for is not here. Call 239-356-3708 for 24/7 emergency water damage help in Fort Myers, FL.',
     'canonical' => null,
+    // 20x-fixes: 404 carries no canonical (it must not claim a real page),
+    // but og:url still needs the requested URL — supplied separately so the
+    // header emits og:url without a <link rel="canonical">.
+    'og_url' => $SITE['url'] . $path,
     'robots' => 'noindex, follow',
     'og_type' => 'website',
     'og_image' => null,
@@ -122,7 +126,7 @@ $HEAD = [
 $currentSlug = $path;
 $isLocation = false;
 require $ROOT . '/includes/header.php';
-echo '<main id="main"><div class="container page-body not-found">'
+echo '<main id="main" tabindex="-1"><div class="container page-body not-found">'
     . '<h1>Page Not Found</h1>'
     . '<p>The page you asked for is not here. If water is coming into your home right now, call <a href="tel:+12393563708">239-356-3708</a>, the line is answered 24/7.</p>'
     . '<p><a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' Call 239-356-3708</a> '
