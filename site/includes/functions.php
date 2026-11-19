@@ -155,16 +155,53 @@ function ld_faq_node($faqs, $canon)
 function ld_breadcrumb_node($crumbs, $canon)
 {
     // $crumbs: [['name' => 'Home', 'item' => url], ['name' => 'Services', 'item' => null], ...]
-    // Middle items are name-only (no URL invented — no /services/ route exists).
+    // GOOGLE RULE (BreadcrumbList): every ListItem needs `position`, `name`
+    // and `item` — `item` may be omitted ONLY on the last item. A middle
+    // crumb with no URL ("Services" / "Areas" — no such route exists, and no
+    // URL may be invented) triggers GSC "Missing field 'item'
+    // (in 'itemListElement')" — the old site's error, found live on the new
+    // site too. FIX: the JSON-LD drops item-less crumbs and renumbers
+    // positions 1..n. The VISIBLE breadcrumb keeps the full trail
+    // (Home » Services » H1) exactly as before — only the schema changes.
     $items = [];
-    foreach ($crumbs as $k => $c) {
-        $item = ['@type' => 'ListItem', 'position' => $k + 1, 'name' => $c['name']];
-        if (!empty($c['item'])) {
-            $item['item'] = $c['item'];
+    $pos = 0;
+    foreach ($crumbs as $c) {
+        if (empty($c['item'])) {
+            continue;
         }
-        $items[] = $item;
+        $pos++;
+        $items[] = ['@type' => 'ListItem', 'position' => $pos, 'name' => $c['name'], 'item' => $c['item']];
     }
     return ['@type' => 'BreadcrumbList', '@id' => $canon . '#breadcrumb', 'itemListElement' => $items];
+}
+
+// Normalize the paste's schema at RENDER time (data files stay verbatim):
+// Google requires `address` on a LocalBusiness and `datePublished` on an
+// Article. Both values come from the user's own pastes — the PostalAddress
+// is exactly the About page's (Fort Myers, FL 33901, US; no street address
+// exists, none invented), and datePublished equals the paste's own
+// dateModified (first publication of this content on this site).
+// Without these, GSC reports "Missing field" errors of the same class as
+// the old site's "Missing field 'item'" error.
+function ld_normalize_given($schema)
+{
+    if (!is_array($schema)) {
+        return $schema;
+    }
+    $type = $schema['@type'] ?? '';
+    if (in_array($type, ['HomeAndConstructionBusiness', 'LocalBusiness'], true) && empty($schema['address'])) {
+        $schema['address'] = [
+            '@type' => 'PostalAddress',
+            'addressLocality' => 'Fort Myers',
+            'addressRegion' => 'FL',
+            'postalCode' => '33901',
+            'addressCountry' => 'US',
+        ];
+    }
+    if ($type === 'Article' && empty($schema['datePublished']) && !empty($schema['dateModified'])) {
+        $schema['datePublished'] = $schema['dateModified'];
+    }
+    return $schema;
 }
 
 // Breadcrumb crumbs for an inner page, by group.
@@ -296,10 +333,14 @@ function render_block($b, $page)
         case 'cta-line':
             return '<p class="cta-line"><a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' ' . esc($b['text']) . '</a></p>';
         case 'map':
+            // Heavy map with a VISIBLE PIN on Fort Myers (city-level only:
+            // Fort Myers, FL 33901 — no street address exists, none invented).
+            // q=place renders Google's place pin; z=12 keeps the pin and the
+            // Caloosahatchee riverfront in frame.
             return '<section class="map-section"><h2 class="map-caption">' . esc($b['caption']) . '</h2>'
                 . '<iframe class="map-embed" title="Map: Fort Myers and the Lee County service area" '
-                . 'src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL&z=11&output=embed" '
-                . 'width="1240" height="450" style="border:0" loading="lazy" '
+                . 'src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" '
+                . 'width="1240" height="560" loading="lazy" '
                 . 'referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></section>';
         case 'faq': {
             $items = '';
@@ -331,10 +372,12 @@ function render_page($slug, $page)
         'robots' => $isLegal ? 'noindex, follow' : 'index, follow',
         'og_type' => 'website',
         'og_image' => $heroUrl,
-        // The paste's schema, emitted verbatim (first script). Legal pages
+        // The paste's schema, emitted verbatim EXCEPT the render-time
+        // normalization in ld_normalize_given() (Google-required fields
+        // filled from the user's own data — see that function). Legal pages
         // carry NO schema (none given) — ld_given stays null and the
         // header skips the script entirely.
-        'ld_given' => !empty($page['seo']['schema']) ? ld_json_object($page['seo']['schema']) : null,
+        'ld_given' => !empty($page['seo']['schema']) ? ld_json_object(ld_normalize_given($page['seo']['schema'])) : null,
         // FAQPage, built from the visible FAQs (second script) — the paste
         // gives no FAQPage node, but "FAQ visible == schema" requires one.
         'ld_faq' => $faqs ? ld_json([ld_faq_node($faqs, $canon)]) : null,

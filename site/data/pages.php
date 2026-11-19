@@ -77,7 +77,9 @@ $NAV_SERVICES = [
     ['label' => 'Commercial Water Damage', 'href' => '/commercial/'],
 ];
 
-// Header Areas dropdown (8) — mirrors the published site's nav.
+// Header Areas dropdown (7) — mirrors the published site's nav, minus the
+// old "Fort Myers" -> "/" entry: it duplicated the brand link (fix round:
+// header carries important items only).
 $NAV_AREAS = [
     ['label' => 'Cape Coral', 'href' => '/cape-coral/'],
     ['label' => 'Lehigh Acres', 'href' => '/lehigh-acres/'],
@@ -86,13 +88,12 @@ $NAV_AREAS = [
     ['label' => 'Estero', 'href' => '/estero/'],
     ['label' => 'Bonita Springs', 'href' => '/bonita-springs/'],
     ['label' => 'All Service Areas', 'href' => '/areas/'],
-    ['label' => 'Fort Myers', 'href' => '/'],
 ];
 
 // Footer Explore links (includes pages the header omits: Insurance, About,
-// How it works, Cost, First-hour checklist, legal).
+// How it works, Cost, First-hour checklist, legal). "Home" removed in the
+// fix round: it duplicated the brand link (footer carries important items only).
 $FOOTER_EXPLORE = [
-    ['label' => 'Home', 'href' => '/'],
     ['label' => 'How It Works', 'href' => '/how-it-works/'],
     ['label' => 'About Us', 'href' => '/about/'],
     ['label' => 'Cost of Water Damage Restoration', 'href' => '/cost/'],
@@ -105,8 +106,8 @@ $FOOTER_EXPLORE = [
 ];
 
 // Footer Areas column (plain text + links to the area pages).
+// "Fort Myers" -> "/" removed in the fix round: it duplicated the brand link.
 $FOOTER_AREAS = [
-    ['label' => 'Fort Myers', 'href' => '/'],
     ['label' => 'Cape Coral', 'href' => '/cape-coral/'],
     ['label' => 'Lehigh Acres', 'href' => '/lehigh-acres/'],
     ['label' => 'North Fort Myers', 'href' => '/north-fort-myers/'],

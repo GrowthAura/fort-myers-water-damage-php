@@ -3,10 +3,15 @@
 
 Checks per page (31 content + 3 legal):
   - H1 count == 1, H1/title/meta byte-match the paste
-  - given schema JSON-LD parses and equals the paste schema exactly
-    (content pages only — legal pages carry NO JSON-LD at all)
+  - given schema JSON-LD parses and equals the paste schema exactly,
+    allowing ONLY the two render-time normalizations in normalize_schema()
+    (LocalBusiness address; Article datePublished) — content pages only,
+    legal pages carry NO JSON-LD at all
   - FAQPage script: mainEntity count == visible FAQ count, Q names match
-  - BreadcrumbList script (inner content only): names match the visible breadcrumb
+  - BreadcrumbList script (inner content only): names are Home + H1 only
+    (the item-less middle crumb is dropped from the SCHEMA per Google's
+    `item` rule; the visible breadcrumb keeps the full trail); every
+    ListItem must carry `item`
   - legal pages: robots noindex, follow; absent from sitemap + llms;
     visible breadcrumb reads Home » H1; "Last updated" line where ordered
   - <main> ordered word list == paste copy words (+ known chrome insertions)
@@ -40,6 +45,28 @@ NOTES = []
 def words(s):
     s = re.sub(r"[^\w\s]", " ", s)
     return [w for w in s.split() if w]
+
+
+def normalize_schema(schema):
+    """Mirror of site/includes/functions.php ld_normalize_given(): the two
+    render-time additions (LocalBusiness address from the user's About paste;
+    Article datePublished = paste's dateModified). Any OTHER difference
+    between rendered and paste schema is still a FAIL."""
+    if not isinstance(schema, dict):
+        return schema
+    s = dict(schema)
+    t = s.get("@type")
+    if t in ("HomeAndConstructionBusiness", "LocalBusiness") and not s.get("address"):
+        s["address"] = {
+            "@type": "PostalAddress",
+            "addressLocality": "Fort Myers",
+            "addressRegion": "FL",
+            "postalCode": "33901",
+            "addressCountry": "US",
+        }
+    if t == "Article" and not s.get("datePublished") and s.get("dateModified"):
+        s["datePublished"] = s["dateModified"]
+    return s
 
 
 def fail(msg):
@@ -80,9 +107,13 @@ def check_page(slug, title, meta, h1, schema, blocks, want_words, faq_n, extra_w
     doc = open(os.path.join(OUT, path)).read()
     legal = slug in LEGAL_SLUGS
     print(f"== {slug} ==")
-    # dashes
+    # dashes — literal characters AND the entities (fix round: the footer
+    # ZIPs line hardcoded &ndash;, which renders as an en dash but dodged
+    # the literal-only check on every page)
     if "—" in doc or "–" in doc:
         fail(f"{slug}: em/en dash present in rendered HTML")
+    if re.search(r"&(ndash|mdash|#8212|#8211);", doc):
+        fail(f"{slug}: em/en dash entity (&ndash;/&mdash;/&#8211;/&#8212;) present in rendered HTML")
     # H1
     h1s = re.findall(r"<h1[^>]*>(.*?)</h1>", doc, re.S)
     if len(h1s) != 1:
@@ -126,11 +157,12 @@ def check_page(slug, title, meta, h1, schema, blocks, want_words, faq_n, extra_w
         except Exception as e:
             fail(f"{slug}: given schema does not parse: {e}")
             given = None
-        if given is not None and given != schema:
-            fail(f"{slug}: given schema != paste schema")
-            for k in set(list(given.keys()) + list(schema.keys())):
-                if given.get(k) != schema.get(k):
-                    print(f"    schema key {k!r}: rendered {given.get(k)!r} vs paste {schema.get(k)!r}")
+        if given is not None and given != normalize_schema(schema):
+            fail(f"{slug}: given schema != paste schema (after the two authorized normalizations)")
+            nschema = normalize_schema(schema)
+            for k in set(list(given.keys()) + list(nschema.keys())):
+                if given.get(k) != nschema.get(k):
+                    print(f"    schema key {k!r}: rendered {given.get(k)!r} vs paste {nschema.get(k)!r}")
         # FAQPage
         faqs = [b for b in blocks if b["type"] == "faq"]
         faq_items = faqs[0]["items"] if faqs else []
@@ -155,10 +187,18 @@ def check_page(slug, title, meta, h1, schema, blocks, want_words, faq_n, extra_w
             else:
                 items = crumb_scripts[0].get("@graph", [crumb_scripts[0]])[0].get("itemListElement", [])
                 names = [i.get("name") for i in items]
-                grp = group_for(slug)
-                expect_names = ["Home"] + (["Services"] if grp == "service" else ["Areas"] if grp == "area" else []) + [h1]
+                # FIX ROUND: the JSON-LD drops the item-less middle crumb
+                # ("Services"/"Areas" — no such route, no URL may be invented)
+                # because Google requires `item` on every ListItem except the
+                # last; the VISIBLE breadcrumb keeps the full trail (checked
+                # by the word-diff below). Schema names are Home + H1 only.
+                expect_names = ["Home", h1]
                 if names != expect_names:
                     fail(f"{slug}: breadcrumb names {names} != {expect_names}")
+                # every schema ListItem must carry `item` (the GSC rule)
+                for i in items:
+                    if not i.get("item"):
+                        fail(f"{slug}: BreadcrumbList item {i.get('name')!r} has no 'item'")
     # <main> ordered word-diff vs paste (+ chrome insertions)
     actual = words(main_text(doc))
     if slug == "/":

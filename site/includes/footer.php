@@ -7,7 +7,7 @@
       <p class="footer-hours">Answered 24/7, including holidays and the days after a storm.</p>
       <a class="btn btn-call" href="tel:+12393563708"><?= phone_svg() ?> Call 239-356-3708</a>
       <?php if (!$isLocation): ?>
-      <iframe class="footer-map" title="Map: Fort Myers and the Lee County service area" src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL&z=11&output=embed" width="310" height="170" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <iframe class="footer-map" title="Map: Fort Myers and the Lee County service area" src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" width="560" height="280" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
       <?php endif; ?>
     </div>
     <nav class="footer-col" aria-label="Services">
@@ -27,7 +27,7 @@
       <?php foreach ($FOOTER_AREAS as $s): ?>
       <a href="<?= esc($s['href']) ?>"<?= ($currentSlug === $s['href']) ? ' aria-current="page"' : '' ?>><?= esc($s['label']) ?></a>
       <?php endforeach; ?>
-      <p class="footer-zips">Fort Myers ZIPs 33901&ndash;33967 &middot; North Fort Myers 33903, 33917</p>
+      <p class="footer-zips">Fort Myers ZIPs 33901 to 33967 &middot; North Fort Myers 33903, 33917</p>
     </nav>
   </div>
   <div class="footer-base">
