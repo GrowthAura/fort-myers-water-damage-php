@@ -276,7 +276,11 @@ function ld_breadcrumb_node($crumbs, $canon)
 // dateModified (first publication of this content on this site).
 // Without these, GSC reports "Missing field" errors of the same class as
 // the old site's "Missing field 'item'" error.
-function ld_normalize_given($schema)
+// 10x DESIGN (B-P3-1): an Article also gets `image` = the absolute URL of
+// the page's own hero image (render-time only; the hero is real and
+// renders on the page). $heroUrl is passed by render_page(); without it
+// the schema is left exactly as the paste gave it.
+function ld_normalize_given($schema, $heroUrl = null)
 {
     if (!is_array($schema)) {
         return $schema;
@@ -293,6 +297,9 @@ function ld_normalize_given($schema)
     }
     if ($type === 'Article' && empty($schema['datePublished']) && !empty($schema['dateModified'])) {
         $schema['datePublished'] = $schema['dateModified'];
+    }
+    if ($type === 'Article' && empty($schema['image']) && !empty($heroUrl)) {
+        $schema['image'] = $heroUrl;
     }
     return $schema;
 }
@@ -318,6 +325,158 @@ function page_h1($page)
     return $page['seo']['h1'];
 }
 
+// --- 10x DESIGN helpers (presentation only; no new words) -----------------
+// Every string below is assembled ONLY from words already on the page
+// (its H1, its copy, its nav/breadcrumb labels, or the footer, which
+// renders on every page). Nothing is invented.
+
+// Plain text of a page's blocks, for "is this phrase already on the page?"
+// checks. Recurses into nested segment arrays.
+function page_plain_text($page)
+{
+    $t = $page['seo']['h1'] . ' ' . $page['seo']['title'] . ' ';
+    $walk = function ($v) use (&$walk) {
+        $out = '';
+        if (is_string($v)) {
+            return $v . ' ';
+        }
+        if (!is_array($v)) {
+            return '';
+        }
+        foreach ($v as $k => $item) {
+            if ($k === 'href') {
+                continue;
+            }
+            $out .= $walk($item);
+        }
+        return $out;
+    };
+    foreach ($page['blocks'] as $b) {
+        $t .= $walk($b);
+    }
+    return $t;
+}
+
+// Hero eyebrow (L-2). Area pages use their own nav label + Lee County;
+// service/guide pages use the "Emergency Service · Answered 24/7" form
+// given in the brief; everything else uses the footer place line.
+function hero_eyebrow($page, $isHome)
+{
+    global $NAV_AREAS;
+    if ($isHome) {
+        return 'Fort Myers · Lee County, FL';
+    }
+    foreach ($NAV_AREAS as $a) {
+        if ($page['slug'] === $a['href'] && $a['href'] !== '/areas/') {
+            return $a['label'] . ' · Lee County, FL';
+        }
+    }
+    if ($page['slug'] === '/areas/') {
+        return 'Lee County, FL';
+    }
+    $group = $page['group'] ?? 'service';
+    if ($group === 'service' || $group === 'guide') {
+        return 'Emergency Service · Answered 24/7';
+    }
+    return 'Fort Myers · Lee County, FL';
+}
+
+// Hero trust row (L-2): up to 3 items, each only if its words are already
+// on the page. "Answered 24/7" is on every page (footer + CTA text).
+// "Moisture readings logged" needs "readings logged" in the copy;
+// "Written scope before rebuild" needs "written scope" in the copy
+// ("rebuild" is the how-it-works step title).
+// 10x-fix-p3 V-P3-4: the old fallback put the footer place line
+// ("Fort Myers · Lee County, FL") in as a third item on pages without
+// "written scope" / "moisture log" — location info, not a trust signal.
+// No fallback any more: those pages show only the sourced items (two),
+// never an invented third item.
+function hero_trust_items($page)
+{
+    $text = page_plain_text($page);
+    $items = ['Answered 24/7'];
+    if (stripos($text, 'readings logged') !== false) {
+        $items[] = 'Moisture readings logged';
+    } elseif (stripos($text, 'moisture readings') !== false) {
+        $items[] = 'Moisture readings taken';
+    }
+    if (stripos($text, 'written scope') !== false) {
+        $items[] = 'Written scope before rebuild';
+    } elseif (stripos($text, 'moisture log') !== false) {
+        $items[] = 'Photos and moisture logs';
+    }
+    return array_slice($items, 0, 3);
+}
+
+function hero_trust_html($page)
+{
+    $items = hero_trust_items($page);
+    $parts = [];
+    foreach ($items as $it) {
+        $parts[] = '<span>' . esc($it) . '</span>';
+    }
+    return '<p class="hero-trust">' . implode('<span class="trust-sep" aria-hidden="true"> · </span>', $parts) . '</p>';
+}
+
+// Section kicker (L-6): the page's own group label, already on the page
+// as the breadcrumb / nav label. No new words.
+function page_kicker($page)
+{
+    $group = $page['group'] ?? 'service';
+    if ($group === 'area') {
+        return 'Areas';
+    }
+    if ($group === 'guide') {
+        return 'Guide';
+    }
+    if ($group === 'legal') {
+        return 'Fort Myers';
+    }
+    if ($group === 'about') {
+        return 'About';
+    }
+    return 'Services';
+}
+
+// H1 HTML with the two worst orphan wraps hand-tuned (L-3): the place
+// phrase stays on one line via a non-breaking span. Words unchanged.
+function h1_html($h1, $slug)
+{
+    $h = esc($h1);
+    if ($slug === '/drying/') {
+        $h = str_replace('Fort Myers, FL', '<span class="h1-nowrap">Fort&nbsp;Myers,&nbsp;FL</span>', $h);
+    } elseif ($slug === '/cost/') {
+        $h = str_replace('Fort Myers?', '<span class="h1-nowrap">Fort&nbsp;Myers?</span>', $h);
+    } elseif ($slug === '/contact/' || $slug === '/about/') {
+        // 10x-fix V-P3-2: at 320px the H1 ended on a 1-word line ("Pros").
+        // "Restoration Pros" stays together, so the last line is 2 words.
+        // Presentation only; the H1 data string is unchanged. The extra
+        // h1-nowrap-fit class marks these two H1s for the small-width
+        // shrink in styles.css (the pair is 324px at 36px, wider than the
+        // 280px content box at 320px, so the whole H1 drops to 30px
+        // below 382px instead of clipping under the hero's overflow:hidden).
+        $h = str_replace('Restoration Pros', '<span class="h1-nowrap h1-nowrap-fit">Restoration&nbsp;Pros</span>', $h);
+    }
+    return $h;
+}
+
+// Step duration chips (L-13, how-it-works steps-rich only). Each chip is
+// the page's own "How Long Each Stage Takes" table row, verbatim, matched
+// to the step title. Steps with no stage-time row get no chip (never
+// invented): "While you wait", "Final readings and paperwork", "Repairs".
+function step_duration($title)
+{
+    $map = [
+        'You call' => 'One short phone call',
+        'The inspection' => 'Usually at the first visit',
+        'The written scope' => 'Usually at the first visit',
+        'Water removal' => 'Usually the first day',
+        "Removing what can't be saved" => 'Usually the first day',
+        'Drying' => 'About 3 to 5 days',
+    ];
+    return $map[$title] ?? null;
+}
+
 // --- Block rendering ------------------------------------------------------
 function render_block($b, $page)
 {
@@ -339,13 +498,16 @@ function render_block($b, $page)
                 . $img
                 . '<div class="hero-scrim"></div>'
                 . '<div class="container hero-inner">'
-                . '<h1>' . esc($b['h1']) . '</h1>'
-                . '<p class="hero-intro">' . $intro . '</p>'
+                . '<p class="hero-eyebrow">' . esc(hero_eyebrow($page, true)) . '</p>'
+                . '<h1>' . h1_html($b['h1'], $page['slug']) . '</h1>'
+                . '<p class="hero-intro" id="hero-intro">' . $intro . '</p>'
                 . '<p class="hero-ctas">'
                 . '<a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' Call 239-356-3708</a>'
                 . '<a class="btn btn-ghost" href="/contact/">Describe your water problem</a>'
                 . '</p>'
+                . hero_trust_html($page)
                 . '<p class="hero-areas">' . $areas . '</p>'
+                . '<a class="hero-intro-more" href="#hero-intro">Read the intro ↓</a>'
                 . '</div></section>';
         }
         case 'details':
@@ -357,7 +519,18 @@ function render_block($b, $page)
                 . '<p class="details-sub">' . esc($b['sub']) . '</p>'
                 . '<dl class="details-grid">' . $rows . '</dl></section>';
         case 'h2':
-            return '<h2>' . esc($b['text']) . '</h2>';
+            // L-6: kicker (page's own group label) + feature/standard class.
+            // $GLOBALS['NEXT_H2_FEATURE'] is set by render_page per section:
+            // the first H2 section on the page is the feature H2.
+            $feat = !empty($GLOBALS['NEXT_H2_FEATURE']);
+            $GLOBALS['NEXT_H2_FEATURE'] = false;
+            $cls = $feat ? 'h2-feature' : 'h2-standard';
+            // 10x A-2: optional 'class' on the h2 block appends to the
+            // L-6 feature/standard class (e.g. 'h2-as-h3' if the design
+            // wants a promoted heading at the H3 look). Unused today: the
+            // 5 promoted /areas/ headings render at full H2 size.
+            if (!empty($b['class'])) { $cls .= ' ' . $b['class']; }
+            return '<p class="sec-kicker">' . esc(page_kicker($page)) . '</p><h2 class="' . esc($cls) . '">' . esc($b['text']) . '</h2>';
         case 'h3':
             return '<h3>' . esc($b['text']) . '</h3>';
         case 'p':
@@ -408,13 +581,17 @@ function render_block($b, $page)
             return '<p>' . render_segments($b['segs']) . '</p>';
         case 'ul': {
             if (($b['variant'] ?? '') === 'help-cards') {
-                // "What we help with" (homepage only): the 6 items as cards,
-                // image first in each card. Images come from the manifest
-                // ($MEDIA['help']['home'], indexed in list order); a missing
-                // slot renders NO <img> (honestly empty, never a forced photo).
-                // Item text renders through render_segments() exactly as the
-                // plain <ul> did -- same anchors, same hrefs, zero word changes.
-                $imgs = $GLOBALS['MEDIA']['help']['home'] ?? [];
+                // "What we help with" (homepage + /about/): the items as
+                // cards, image first in each card. Images come from the
+                // manifest, slug-gated (10x CLOSER): $MEDIA['help']['about']
+                // on /about/ (7 cards, About order, incl. the
+                // floors/cabinets photo), $MEDIA['help']['home'] elsewhere
+                // (homepage order, unchanged). Indexed in list order; a
+                // missing slot renders NO <img> (honestly empty, never a
+                // forced photo). Item text renders through
+                // render_segments() exactly as the plain <ul> did -- same
+                // anchors, same hrefs, zero word changes.
+                $imgs = $GLOBALS['MEDIA']['help'][$page['slug'] === '/about/' ? 'about' : 'home'] ?? [];
                 $cards = '';
                 foreach ($b['items'] as $k => $it) {
                     $img = '';
@@ -464,6 +641,16 @@ function render_block($b, $page)
             return '<div class="kinds-grid">' . $cards . '</div>';
         }
         case 'area-cards': {
+            // 10x A-2: on /areas/ ONLY, card titles are H2 (the hub outline
+            // must be H1 -> H2s with no level skip). Other pages have no
+            // area-cards blocks today, and the gate keeps their titles H3
+            // if one is ever added. The H2 carries class="area-card-title":
+            // a bare H2 would inherit 42px + the .page-body h2::before coral
+            // bar inside a 474px card, so the CSS worker must size
+            // .area-card h2.area-card-title like the old .area-card h3
+            // (23px, 20px top margin, 28px side padding) and suppress the
+            // ::before bar on it.
+            $isAreasHub = ($page['slug'] ?? '') === '/areas/';
             $cards = '';
             foreach ($b['items'] as $a) {
                 $m = media_for('areas', $a['slug']);
@@ -473,16 +660,24 @@ function render_block($b, $page)
                         . ' alt="' . esc($m['alt']) . '" width="' . (int) $m['width'] . '" height="' . (int) $m['height'] . '"'
                         . ' loading="lazy" decoding="async">';
                 }
+                $tag = $isAreasHub ? 'h2' : 'h3';
+                $tcls = $isAreasHub ? ' class="area-card-title"' : '';
                 $cards .= '<article class="area-card">' . $img
-                    . '<h3>' . esc($a['title']) . '</h3>'
+                    . '<' . $tag . $tcls . '>' . esc($a['title']) . '</' . $tag . '>'
                     . '<p>' . render_segments($a['body']) . '</p></article>';
             }
             return '<div class="area-grid">' . $cards . '</div>';
         }
         case 'table': {
             $head = '';
+            $headTexts = [];
             foreach ($b['head'] as $c) {
                 $head .= '<th scope="col">' . render_segments($c) . '</th>';
+                $ht = '';
+                foreach ($c as $seg) {
+                    $ht .= $seg['t'] ?? '';
+                }
+                $headTexts[] = plain_text($ht);
             }
             // 10x fix D-12: only tables whose last header is a price header
             // ("Rough area range") get the prices class — right-aligned,
@@ -497,14 +692,47 @@ function render_block($b, $page)
             }
             $wrapClass = str_contains($lastHead, 'Rough area range') ? 'table-wrap prices' : 'table-wrap';
             $rows = '';
+            // L-15: on /cost/, the first table (job size) highlights the
+            // "One room" row and gets the price-range bar underneath it.
+            $isCostFirst = ($page['slug'] === '/cost/' && ($GLOBALS['COST_TABLE_INDEX'] ?? 0) === 0
+                && str_contains($lastHead, 'Rough area range')
+                && ($headTexts[0] ?? '') === 'Size of the job');
+            $GLOBALS['COST_TABLE_INDEX'] = ($GLOBALS['COST_TABLE_INDEX'] ?? 0) + 1;
             foreach ($b['rows'] as $row) {
                 $cells = '';
-                foreach ($row as $c) {
-                    $cells .= '<td>' . render_segments($c) . '</td>';
+                $firstText = '';
+                foreach ($row as $ci => $c) {
+                    $ct = '';
+                    foreach ($c as $seg) {
+                        $ct .= $seg['t'] ?? '';
+                    }
+                    if ($ci === 0) {
+                        $firstText = plain_text($ct);
+                    }
+                    // C-02/C-04: data-label feeds the stacked mobile layout
+                    // (CSS ::before); the label words are the table's own
+                    // header words, repeated for presentation only.
+                    $label = $headTexts[$ci] ?? '';
+                    $chip = '';
+                    if ($isCostFirst && $ci === 0 && $firstText === 'One room') {
+                        $chip = ' <span class="most-common-chip">Most common</span>';
+                    }
+                    $cells .= '<td data-label="' . esc($label) . '">' . render_segments($c) . $chip . '</td>';
                 }
-                $rows .= '<tr>' . $cells . '</tr>';
+                $rowCls = ($isCostFirst && $firstText === 'One room') ? ' class="cost-row-highlight"' : '';
+                $rows .= '<tr' . $rowCls . '>' . $cells . '</tr>';
             }
-            return '<div class="' . $wrapClass . '"><table><thead><tr>' . $head . '</tr></thead><tbody>' . $rows . '</tbody></table></div>';
+            $out = '<div class="' . $wrapClass . '"><table><thead><tr>' . $head . '</tr></thead><tbody>' . $rows . '</tbody></table></div>';
+            if ($isCostFirst) {
+                // L-15 range bar: track = $500 to $15,000 (the table's own
+                // range); gold marker = $1,200 to $3,500 on that scale:
+                // (1200-500)/14500 = 4.8%, (3500-500)/14500 = 20.7%.
+                $out .= '<div class="cost-range"><div class="cost-range-track"><div class="cost-range-fill"></div>'
+                    . '<div class="cost-range-marker"></div></div>'
+                    . '<div class="cost-range-axis"><span>$500</span><span>$15,000</span></div>'
+                    . '<p class="cost-range-label">Most Fort Myers jobs land here</p></div>';
+            }
+            return $out;
         }
         case 'steps': {
             $items = '';
@@ -526,29 +754,83 @@ function render_block($b, $page)
         case 'steps-rich': {
             // How-it-works: each step is a title + any mix of paras and
             // bullet lists, rendered inside the numbered <li>.
+            // L-13: duration chip from the page's own stage-time table
+            // (see step_duration()); steps with no row get no chip.
             $items = '';
             foreach ($b['items'] as $k => $s) {
                 $inner = '';
                 foreach ($s['parts'] as $part) {
                     $inner .= render_block($part, $page);
                 }
+                $dur = step_duration($s['title']);
+                $chip = $dur !== null ? '<span class="step-duration">' . esc($dur) . '</span>' : '';
                 $items .= '<li><span class="step-num" aria-hidden="true">' . ($k + 1) . '</span>'
+                    . $chip
                     . '<h3>' . esc($s['title']) . '</h3>' . $inner . '</li>';
             }
             return '<ol class="steps">' . $items . '</ol>';
         }
         case 'cta-line':
+            // L-12 / L-14: render_page sets $GLOBALS['CTA_ROLE'] per block:
+            // first cta-line on the page = slim utility line (post-hero);
+            // last cta-line = closing band (button + ghost + trust line);
+            // any middle cta-line keeps the original coral button.
+            $role = $GLOBALS['CTA_ROLE'] ?? 'standard';
+            if ($role === 'utility') {
+                return '<p class="utility-line"><span class="utility-glyph" aria-hidden="true">' . phone_svg() . '</span> Answered 24/7 · Call <a href="tel:+12393563708">239-356-3708</a></p>';
+            }
+            if ($role === 'closing') {
+                // 10x-fix-p3 V-P3-5: on /contact/ the ghost button would
+                // link to /contact/ itself. Render it there as a non-link
+                // span with the same classes (identical visuals, no href,
+                // no self-link). Every other page keeps the link.
+                $ghost = '<a class="btn btn-ghost" href="/contact/">Describe your water problem</a>';
+                if (($page['slug'] ?? '') === '/contact/') {
+                    $ghost = '<span class="btn btn-ghost" aria-disabled="true">Describe your water problem</span>';
+                }
+                return '<p class="cta-line closing-cta-line"><a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' Call 239-356-3708</a>'
+                    . $ghost . '</p>'
+                    . '<p class="closing-trust">Answered 24/7, including holidays and the days after a storm</p>';
+            }
             return '<p class="cta-line"><a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' ' . esc($b['text']) . '</a></p>';
         case 'map':
             // Heavy map with a VISIBLE PIN on Fort Myers (city-level only:
             // Fort Myers, FL 33901 — no street address exists, none invented).
             // q=place renders Google's place pin; z=12 keeps the pin and the
             // Caloosahatchee riverfront in frame.
+            // L-18: CSS-only poster fallback — the figure carries a sand/teal
+            // gradient + centred caption; the iframe is transparent, so it
+            // covers the poster once loaded. No fake map image is invented.
             return '<section class="map-section"><h2 class="map-caption">' . esc($b['caption']) . '</h2>'
+                . '<figure class="map-figure"><figcaption class="map-poster">Map loading · Fort Myers &amp; Lee County</figcaption>'
                 . '<iframe class="map-embed" title="Map: Fort Myers and the Lee County service area" '
                 . 'src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" '
                 . 'width="1240" height="560" loading="lazy" '
-                . 'referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></section>';
+                . 'referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></figure></section>';
+        case 'area-map': {
+            // L-10 (10x CLOSER): static area map strip — real OSM map image
+            // + caption + "View larger map" link + 3-chip facts band.
+            // Image from $MEDIA['maps'] (key in $b['map']); caption, facts
+            // and link come from the data block (the spec's own words).
+            // No heading: the page outline is unchanged. A missing slot
+            // renders nothing (honestly empty, never a forced photo).
+            $m = media_for('maps', $b['map']);
+            if (!$m) {
+                return '';
+            }
+            $chips = '';
+            foreach (($b['facts'] ?? []) as $f) {
+                $chips .= '<li>' . esc($f) . '</li>';
+            }
+            return '<figure class="area-map-strip">'
+                . '<img class="area-map-img" src="' . esc($m['src']) . '"'
+                . ' alt="' . esc($m['alt']) . '" width="' . (int) $m['width'] . '" height="' . (int) $m['height'] . '"'
+                . ' loading="lazy" decoding="async">'
+                . '<figcaption class="area-map-caption">' . esc($b['caption']) . ' <a class="area-map-link" href="' . esc($b['map_url']) . '" target="_blank" rel="noopener">View larger map ↗</a></figcaption>'
+                . '<p class="area-map-attr">© OpenStreetMap contributors</p>'
+                . '<ul class="area-map-facts">' . $chips . '</ul>'
+                . '</figure>';
+        }
         case 'faq': {
             $items = '';
             foreach ($b['items'] as $f) {
@@ -584,7 +866,7 @@ function render_page($slug, $page)
         // filled from the user's own data — see that function). Legal pages
         // carry NO schema (none given) — ld_given stays null and the
         // header skips the script entirely.
-        'ld_given' => !empty($page['seo']['schema']) ? ld_json_object(ld_normalize_given($page['seo']['schema'])) : null,
+        'ld_given' => !empty($page['seo']['schema']) ? ld_json_object(ld_normalize_given($page['seo']['schema'], $heroUrl)) : null,
         // FAQPage, built from the visible FAQs (second script) — the paste
         // gives no FAQPage node, but "FAQ visible == schema" requires one.
         'ld_faq' => $faqs ? ld_json([ld_faq_node($faqs, $canon)]) : null,
@@ -615,12 +897,15 @@ function render_page($slug, $page)
                 . ' alt="' . esc($hero['alt']) . '" width="' . (int) $hero['width'] . '" height="' . (int) $hero['height'] . '"'
                 . ' fetchpriority="high" decoding="async">';
         }
-        echo '<section class="hero hero-inner-page' . ($hero ? '' : ' hero-no-media') . '">'
+        echo '<section class="hero hero-inner-page' . ($hero ? '' : ' hero-no-media') . ($isLocation ? ' hero-area' : '') . '">'
             . $img . '<div class="hero-scrim"></div>'
             . '<div class="container hero-inner">'
-            . '<h1>' . esc($page['seo']['h1']) . '</h1>'
-            . ($heroIntro ? '<p class="hero-intro">' . render_segments($heroIntro['segs']) . '</p>' : '')
+            . '<p class="hero-eyebrow">' . esc(hero_eyebrow($page, false)) . '</p>'
+            . '<h1>' . h1_html($page['seo']['h1'], $slug) . '</h1>'
+            . ($heroIntro ? '<p class="hero-intro" id="hero-intro">' . render_segments($heroIntro['segs']) . '</p>' : '')
             . '<p class="hero-ctas"><a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' Call 239-356-3708</a></p>'
+            . hero_trust_html($page)
+            . '<a class="hero-intro-more" href="#hero-intro">Read the intro ↓</a>'
             . '</div></section>';
         // Visible breadcrumb (middle item name-only, no URL invented;
         // the last crumb is the current page: a <span>, never a link to
@@ -658,9 +943,73 @@ function render_page($slug, $page)
     if (!empty($page['last_updated'])) {
         echo '<p class="last-updated">Last updated: ' . esc($page['last_updated']) . '</p>';
     }
-    foreach ($blocks as $b) {
-        echo render_block($b, $page);
+    // 10x DESIGN (L-4): group the flat blocks into H2-led sections so
+    // the body can be banded (alternating sand, one deep-teal band).
+    // A section starts at each 'h2' block; blocks before the first H2
+    // (details card, opening paragraphs, the first cta-line) form the
+    // intro section. Words, order and heading levels are unchanged —
+    // only a <section> wrapper is added around each group.
+    $GLOBALS['COST_TABLE_INDEX'] = 0;
+    $ctaIdx = [];
+    foreach ($blocks as $bi => $b) {
+        if ($b['type'] === 'cta-line') {
+            $ctaIdx[] = $bi;
+        }
     }
+    $firstCta = $ctaIdx ? $ctaIdx[0] : null;
+    $lastCta = $ctaIdx ? $ctaIdx[count($ctaIdx) - 1] : null;
+    $sections = [];
+    $cur = [];
+    foreach ($blocks as $bi => $b) {
+        if ($b['type'] === 'h2' && $cur) {
+            $sections[] = $cur;
+            $cur = [];
+        }
+        $cur[] = ['idx' => $bi, 'block' => $b];
+    }
+    if ($cur) {
+        $sections[] = $cur;
+    }
+    $featureDone = false;
+    foreach ($sections as $si => $sec) {
+        $hasH2 = ($sec[0]['block']['type'] === 'h2');
+        $isFeature = $hasH2 && !$featureDone;
+        if ($isFeature) {
+            $featureDone = true;
+        }
+        $isDeep = false;
+        foreach ($sec as $item) {
+            if ($item['idx'] === $lastCta) {
+                $isDeep = true;
+            }
+        }
+        $cls = 'body-section';
+        if ($si === 0) {
+            $cls .= ' body-section-intro';
+        }
+        if ($isFeature) {
+            $cls .= ' feature';
+        }
+        if ($isDeep) {
+            $cls .= ' band-deep';
+        } elseif ($si % 2 === 1) {
+            $cls .= ' band-sand';
+        }
+        echo '<section class="' . $cls . '">';
+        foreach ($sec as $item) {
+            $b = $item['block'];
+            if ($b['type'] === 'h2') {
+                $GLOBALS['NEXT_H2_FEATURE'] = $isFeature;
+            }
+            if ($b['type'] === 'cta-line') {
+                $GLOBALS['CTA_ROLE'] = ($item['idx'] === $firstCta) ? 'utility'
+                    : (($item['idx'] === $lastCta) ? 'closing' : 'standard');
+            }
+            echo render_block($b, $page);
+        }
+        echo '</section>';
+    }
+    $GLOBALS['CTA_ROLE'] = 'standard';
     echo '</div></main>';
     require __DIR__ . '/footer.php';
 }

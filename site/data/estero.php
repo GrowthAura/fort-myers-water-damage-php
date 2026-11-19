@@ -738,14 +738,14 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Read '
+                    't' => 'If a claim is involved, read '
                 ],
                 [
                     't' => 'how insurance handles water damage in Florida',
                     'href' => '/insurance/'
                 ],
                 [
-                    't' => '. General pricing information: '
+                    't' => '. For ballpark costs, see the '
                 ],
                 [
                     't' => 'water damage pricing guide',

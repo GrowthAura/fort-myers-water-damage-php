@@ -671,7 +671,7 @@ return [
                     'title' => 'Dry the floor system from above and below',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the subfloor and belly wrap from above and below, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',

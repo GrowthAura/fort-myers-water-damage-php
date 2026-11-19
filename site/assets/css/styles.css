@@ -32,6 +32,9 @@
   --sand: #f6f1e7;
   --sand-2: #efe7d6;
   --gold: #c99b3f;
+  --gold-light: #e8c87a;
+  --lagoon: #0b3d4e;
+  --terra: #93380e;
   --ink: #12262e;
   --muted: #46585f;
   --line: #dcd5c6;
@@ -66,7 +69,7 @@ h1, h2, h3 {
   color: var(--deep);
   margin: 0 0 0.5em;
 }
-h1 { font-size: 58px; }
+h1 { font-size: 58px; text-wrap: balance; }
 h2 { font-size: 42px; }
 h3 { font-size: 26px; line-height: 1.25; }
 strong { font-weight: 700; }
@@ -92,45 +95,42 @@ strong { font-weight: 700; }
 .btn-call:hover { background: var(--coral-dark); color: #fff; }
 .btn-ghost { background: rgba(255, 255, 255, 0.08); color: #fff; border-color: #fff; }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
-.btn-ghost-dark { background: transparent; color: var(--teal); border-color: var(--teal); }
-.btn-ghost-dark:hover { background: var(--teal); color: #fff; }
-/* --- Buttons: richer sunset coral + gold, same theme, same sizes --- */
 
-/* Primary call button: flat coral -> sunset gradient (coral at top,
-   coral-dark at the base) + a 3px gold baseline (inset shadow, zero
-   layout change) + a slightly warmer glow. White text on the lightest
-   point of the gradient (#C2410C) = 5.18:1; on the darkest (#9A3412)
-   = 7.31:1. */
+/* Primary call button: FLAT coral (10x DESIGN L-8) — the gradient +
+   gold inset edge are gone (the inset read as a stray underline).
+   White on #C2410C = 5.18:1; hover #9A3412 = 7.31:1 + lift. */
 .btn-call {
-  background: linear-gradient(180deg, var(--coral) 0%, #a83a10 55%, var(--coral-dark) 100%);
-  box-shadow:
-    0 6px 18px rgba(194, 65, 12, 0.38),
-    inset 0 -3px 0 var(--gold);
+  background: var(--coral);
+  border-radius: 12px;
+  padding: 18px 32px;
+  box-shadow: 0 8px 24px rgba(194, 65, 12, 0.30);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 .btn-call:hover {
-  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  background: var(--coral-dark);
   color: #fff;
-  box-shadow:
-    0 8px 22px rgba(154, 52, 18, 0.45),
-    inset 0 -3px 0 var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(154, 52, 18, 0.38);
 }
-/* White on hover darkest point (#7C2D12) = 9.37:1. */
 
-/* Ghost button on dark hero/header: white border -> gold border over a
-   gold wash, so it reads as the secondary sunset action instead of a
-   plain outline. White on the composite wash over deep = 11.26:1.
-   Hover flips to solid gold with deep text (5.64:1) — the button
-   "lights up" instead of just getting paler. */
+/* Ghost button on dark hero/header (10x DESIGN L-8): 1.5px white border
+   over a dark-teal wash + blur; hover is a white wash, never a gold fill.
+   White on the composite wash over deep = 11.26:1. */
 .btn-ghost {
-  background: rgba(201, 155, 63, 0.16);
-  border-color: var(--gold);
+  background: rgba(10, 46, 56, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: #fff;
 }
 .btn-ghost:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--deep);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.85);
+  color: #fff;
 }
+/* 10x-fix-p3 V-P3-5: the delinked ghost on /contact/ is a span, not a
+   link — no pointer cursor. Resting visuals are identical. */
+.btn-ghost[aria-disabled="true"] { cursor: default; }
 
 /* Ghost button on light backgrounds: transparent -> faint teal wash,
    same teal text/border. Teal on the composite wash = 7.66:1
@@ -146,7 +146,6 @@ strong { font-weight: 700; }
   background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
   border-color: var(--teal-dark);
   color: #fff;
-  box-shadow: inset 0 -3px 0 var(--gold);
 }
 
 /* Sticky mobile call bar: same sunset gradient as .btn-call, so the
@@ -175,7 +174,7 @@ strong { font-weight: 700; }
 /* --- Header: most important for ranking + crawling --- */
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: var(--deep);
+  background: linear-gradient(180deg, #0a2e38, #0c3340);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 .header-inner {
@@ -186,12 +185,12 @@ strong { font-weight: 700; }
 .brand:hover { color: #fff; }
 .brand-mark { display: flex; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-.brand-name { font-family: var(--font-display); font-size: 21px; color: #fff; }
+.brand-name { font-family: var(--font-display); font-size: 20px; color: #fff; white-space: nowrap; }
 .brand-name .brand-city { color: var(--gold); }
-.brand-tag { font-size: 14px; color: #b8d2d8; letter-spacing: 0.04em; }
+.brand-tag { font-size: 18px; color: #b8d2d8; letter-spacing: 0.04em; }
 .site-nav { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .site-nav > a, .site-nav > span.nav-current-top, .site-nav summary {
-  color: #fff; text-decoration: none; font-size: 18px; font-weight: 600;
+  color: #fff; text-decoration: none; font-size: 17px; font-weight: 600; letter-spacing: 0.01em;
   padding: 12px 14px; border-radius: 8px; cursor: pointer; list-style: none;
   /* 10x fix D-02: never wrap the label away from its caret ("Services ▾"
      rendered label-over-caret and pushed the header to 101px). */
@@ -258,13 +257,16 @@ strong { font-weight: 700; }
 .hero-img {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center;
+  filter: saturate(1.12) contrast(1.04);
 }
 .hero-scrim {
   position: absolute; inset: 0;
-  background: linear-gradient(100deg, rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.8) 46%, rgba(6, 32, 40, 0.70) 100%);
+  background:
+    linear-gradient(0deg, rgba(6, 32, 40, 0.55) 0%, rgba(6, 32, 40, 0) 32%),
+    linear-gradient(100deg, rgba(6, 32, 40, 0.92) 0%, rgba(6, 32, 40, 0.78) 38%, rgba(6, 32, 40, 0.38) 68%, rgba(6, 32, 40, 0.22) 100%);
 }
 .hero-inner { position: relative; z-index: 2; padding-top: 84px; padding-bottom: 84px; max-width: 1240px; }
-.hero-inner h1 { color: #fff; max-width: 960px; margin-bottom: 0.45em; }
+.hero-inner h1 { color: #fff; max-width: 820px; margin-bottom: 0.45em; }
 .hero-intro { font-size: 22px; line-height: 1.6; max-width: 860px; color: #eef4f5; }
 .hero-intro a { color: #ffd9a8; }
 /* 20x-fixes (hero underline): the inline phone link in the hero intro
@@ -672,10 +674,10 @@ strong { font-weight: 700; }
    itself a tel: link and must keep wrapping its label on mobile — nowrap on
    it forced 97px horizontal overflow on every page with a cta-line. */
 a[href^="tel:"]:not(.btn) { white-space: nowrap; }
-table { width: 100%; border-collapse: collapse; font-size: 19px; line-height: 1.55; margin: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 20px; line-height: 1.55; margin: 0; }
 th {
   background: var(--teal); color: #fff; text-align: left;
-  font-size: 18px; font-weight: 700; padding: 16px 18px;
+  font-size: 20px; font-weight: 700; padding: 16px 18px;
 }
 td { padding: 15px 18px; border-top: 1px solid var(--line); vertical-align: top; }
 tbody tr:nth-child(even) { background: var(--sand); }
@@ -875,7 +877,13 @@ tbody tr:nth-child(even) { background: var(--sand); }
   .mobile-menu { display: block; margin-left: auto; }
   .mobile-menu summary {
     list-style: none; cursor: pointer; color: #fff;
-    font-size: 18px; font-weight: 600; padding: 12px 10px; border-radius: 8px;
+    font-size: 18px; font-weight: 600; padding: 12px 14px; border-radius: 8px;
+    /* 10x-fix V-P2-3: icon-only at <=620px measured 36px wide, below the
+       44px tap-target floor. min-width + box-sizing guarantee >=44px at
+       every mobile width; the flex brand absorbs the +8px (390px row:
+       brand 214 + icon 38 + menu 44 + 2x16px gaps = 328 of 350px). */
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-width: 44px; min-height: 44px; box-sizing: border-box;
   }
   .mobile-menu summary::-webkit-details-marker { display: none; }
   .mobile-menu-panel {
@@ -902,21 +910,21 @@ tbody tr:nth-child(even) { background: var(--sand); }
   .brand { flex: 1 1 auto; min-width: 0; }
   .header-call .call-full { display: none; }
   .header-call .call-short { display: inline; font-weight: 700; }
-  .brand-name { font-size: 18px; }
+  .brand-name { font-size: 17px; }
   .brand-tag { display: none; }
 }
 @media (max-width: 620px) {
   body { font-size: 20px; }
-  h1 { font-size: 40px; }
+  h1 { font-size: 38px; line-height: 1.08; }
   h2 { font-size: 31px; }
-  h3 { font-size: 23px; }
+  h3 { font-size: 22px; }
   .container { padding: 0 20px; }
   /* 10x fix D-03: the panel lives inside the header stacking context
      (z-index 100) while the fixed call bar is z-index 110, so the bar
      painted over the panel's bottom 66px and its own Call button. Cap the
      panel above the bar (80px header + 66px call bar). */
   .mobile-menu-panel { max-height: calc(100vh - 80px - 66px); max-height: calc(100dvh - 80px - 66px); }
-  .hero-inner { padding-top: 40px; padding-bottom: 40px; display: flex; flex-direction: column; }
+  .hero-inner { padding-top: 32px; padding-bottom: 96px; display: flex; flex-direction: column; }
   /* 10x fix D-08: mobile heroes ran 699-1195px tall, so the Call button sat
      below the first viewport on every page class. CTA-first on mobile only:
      H1, then the buttons, then intro, then the areas line. Desktop hero
@@ -925,7 +933,7 @@ tbody tr:nth-child(even) { background: var(--sand); }
   .hero-intro { order: 2; font-size: 20px; line-height: 1.5; }
   .hero-areas { order: 3; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
-  .hero-inner-page .hero-inner { padding-top: 32px; padding-bottom: 32px; }
+  .hero-inner-page .hero-inner { padding-top: 32px; padding-bottom: 96px; }
   .page-body { padding-bottom: 120px; }
   .page-body > h2 { margin-top: 56px; }
   .details-card { padding: 28px 22px; border-left-width: 5px; border-radius: 14px; }
@@ -944,7 +952,7 @@ tbody tr:nth-child(even) { background: var(--sand); }
   .kinds-grid { grid-template-columns: 1fr; }
   .area-grid { grid-template-columns: 1fr; }
   .table-wrap { margin-left: -20px; margin-right: -20px; border-radius: 0; border-left: 0; border-right: 0; }
-  table { font-size: 18px; }
+  table { font-size: 20px; }
   th, td { padding: 13px 14px; }
   .steps > li { padding-left: 70px; }
   .step-num { width: 52px; height: 52px; font-size: 24px; }
@@ -1055,47 +1063,35 @@ ol.steps,
    ========================================================================== */
 
 /* --- 1. BASE H2 — deep river, with a river-into-sunset bar -------------
-   Fix round 2026-11-19 (owner: "H2 H3 ka colour badlo, piyara kro"):
-   H2 was teal #0B5563 (hero round, 8.42:1 white) — now deep #0A2E38,
-   14.38:1 on white, 12.77:1 on sand, 11.69:1 on sand-2. Deep is the
-   darkest ink in the theme, so the H2 now reads as the page's anchor
-   and the teal moves down to H3 — the hierarchy is deep > teal, with
-   the gold rule as the accent, instead of teal > coral-dark.
-   The bar: gradient teal-to-coral, same 72px x 6px, UNCHANGED — the bar
-   is the accent, the text is the ink. ---------- */
+   10x DESIGN (2026-11-19): H2 was deep #0A2E38, now lagoon #0B3D4E
+   (11.72:1 white, 10.41:1 sand, 9.53:1 sand-2) — a bluer, brighter
+   river depth, still the darkest ink in the theme. The bar stays the
+   accent (teal-to-coral gradient); feature H2s get the 72px bar,
+   standard H2s 48px (see the appended 10x DESIGN block for sizes). */
 .page-body h2:not(.details-card h2) {
-  color: var(--deep);
+  color: var(--lagoon);
 }
 .page-body h2:not(.details-card h2)::before {
   background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
 }
 
-/* --- 2. BASE H3 — river teal, with a gold rule -----------------------
-   Fix round 2026-11-19 (owner: "H2 H3 ka colour badlo, piyara kro"):
-   H3 was coral-dark #9A3412 (hero round, 7.31:1 white) — now teal
-   #0B5563, 8.42:1 on white, 7.48:1 on sand, 6.85:1 on sand-2. Teal was
-   chosen over plain coral #C2410C (5.18:1 white / 4.60:1 sand — a pass,
-   but a thin one on sand) because it keeps a comfortable margin on
-   every background an H3 can sit on, including the steps list (white)
-   and any sand-tinted section. H2 deep + H3 teal = the river at two
-   depths, one per level; the gold ::after rule (below) is the sunset
-   accent that makes the heading stylish. */
+/* --- 2. BASE H3 — sunset terracotta, with a gold rule ---------------
+   10x DESIGN (2026-11-19): H3 was teal #0B5563, now terracotta
+   #93380E (7.47:1 white, 6.63:1 sand, 6.07:1 sand-2) — the sunset
+   half of the palette, so H2 (river) and H3 (sunset) read as two
+   depths of one theme instead of two teals. Gold underline only on
+   feature H3s (appended 10x DESIGN block); the base rule here keeps
+   the colour only. */
 .page-body h3:not(.kind-card h3) {
-  color: var(--teal);
+  color: var(--terra);
 }
-/* Stylish accent (fix round 2026-11-19): a short gold rule under every
-   H3, echoing the details-card eyebrow bar. Decorative only — the H3
-   text itself is teal on white/sand (8.42:1 / 7.48:1), so the rule never
-   carries meaning alone. Excluded from kind-card h3 (white on photo)
-   and footer h3 (own rule) by the same :not() + scope. */
+/* Stylish accent (10x DESIGN L-6): the short gold rule under H3s now
+   lives ONLY on feature H3s (first H2-section) and on photo kind-card
+   H3s — see the appended 10x DESIGN block. The base rule here is
+   deliberately empty so a standard H3 carries no rule. */
 .page-body h3:not(.kind-card h3)::after {
-  content: "";
-  display: block;
-  width: 44px;
-  height: 4px;
-  background: var(--gold);
-  border-radius: 2px;
-  margin-top: 12px;
+  content: none;
+  display: none;
 }
 
 /* --- 3. BODY LINKS — underline + visited distinction ------------------
@@ -1167,22 +1163,11 @@ ol.steps,
 }
 
 /* --- 6. FOOTER ----------------------------------------------------------
-   6a. Gold rule above the footer. BEFORE: flat deep footer meeting the
-   white page with no edge. AFTER: a 3px gold rule (inset box-shadow,
-   ZERO layout change), mirroring the header baseline — the page is now
-   framed in gold top and bottom.
-   6b. Everything else measured already passes with margin and is
-   UNCHANGED: column headings white 14.38:1 (gold was considered and
-   rejected — three gold column headings would shout; gold already
-   speaks in the brand-name span and the current-page underline),
-   column links #D7E4E7 11.05:1, hover white + underline, current item
-   white 14.38:1 + gold underline, ZIPs #A9C3C9 7.76:1, base text
-   #D7E4E7 11.05:1, base phone white 14.38:1, brand-name white +
-   gold span (gold on deep 5.64:1, large display text), footer map
-   link gold-cream #FFD9A8 10.78:1, back-to-top white 14.38:1 with gold
-   hover 5.64:1. ------------------------------------------------------ */
+   10x DESIGN L-17: footer top border 3px gold -> 6px gradient
+   teal -> gold -> coral (border-image, zero layout change). */
 .site-footer {
-  box-shadow: inset 0 3px 0 var(--gold);
+  border-top: 6px solid var(--gold);
+  border-image: linear-gradient(90deg, var(--teal), var(--gold) 50%, var(--coral)) 1;
 }
 
 /* --- 7. FAQ --------------------------------------------------------------
@@ -1271,3 +1256,422 @@ ol.steps,
    outline carries it on dark backgrounds. Stronger rings on .btn,
    .skip-link, FAQ summaries, details links and photo-card links win on
    specificity and are untouched. */
+
+/* ==========================================================================
+   10x DESIGN ROUND — 2026-11-19 (Worker 1, DESIGN)
+   Headline: H2 lagoon #0B3D4E, H3 terracotta #93380E (measured, see
+   qa/FINDINGS-10x-design.md). All rules below are appended AFTER every
+   existing rule so they win on equal specificity; nothing above was
+   deleted except the in-place edits listed in the findings file.
+   New colours (WCAG 2.x, measured with qa/contrast math):
+     H2 #0B3D4E — white 11.72, sand #F6F1E7 10.41, sand-2 #EFE7D6 9.53
+     H3 #93380E — white 7.47, sand 6.63, sand-2 6.07
+     Eyebrow gold-light #E8C87A on deep #0A2E38 — 8.88 (hero scrim)
+     Trust #CFE0E4 on deep — 10.57; intro #EEF4F5 on deep — 12.93
+     Kicker teal #0B5563 — white 8.42, sand 7.48
+     Utility muted #46585F — white 7.44
+   L-5 (780px prose cap) is NOT implemented — owner order is wide lines.
+   ========================================================================== */
+
+/* --- L-3: H1 balance + nowrap place phrase --- */
+.h1-nowrap { white-space: nowrap; }
+/* 10x-fix V-P3-2: the /contact/ + /about/ "Restoration Pros" pair is
+   324px wide at the 36px H1 (341px at 38px) but the content box is only
+   280px at 320px viewport, so the unbreakable pair clipped under the
+   hero's overflow:hidden (measured: "Pros" right edge x=344). Below
+   382px — the widest viewport where the pair still overflows — those
+   two H1s only (marked by the h1-nowrap-fit span) drop to 30px, where
+   the pair measures ~270px and fits with room to spare. No other page's
+   H1 is touched. */
+@media (max-width: 381px) {
+  .hero h1:has(> .h1-nowrap-fit) { font-size: 30px; }
+}
+
+/* --- L-1: area heroes drop the right scrim stop to 0.12 (class
+   .hero-area is added by render_page() on the 7 location pages). --- */
+.hero-area .hero-scrim {
+  background:
+    linear-gradient(0deg, rgba(6, 32, 40, 0.55) 0%, rgba(6, 32, 40, 0) 32%),
+    linear-gradient(100deg, rgba(6, 32, 40, 0.92) 0%, rgba(6, 32, 40, 0.78) 38%, rgba(6, 32, 40, 0.38) 68%, rgba(6, 32, 40, 0.12) 100%);
+}
+
+/* --- L-2: hero eyebrow + trust row --- */
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 800; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin: 0 0 18px;
+}
+.hero-eyebrow::before {
+  content: ""; flex: none; width: 32px; height: 3px;
+  background: var(--gold); border-radius: 2px;
+}
+.hero-trust {
+  font-size: 15px; font-weight: 600; line-height: 1.5;
+  color: #cfe0e4; margin: 24px 0 0;
+}
+.hero-trust .trust-sep { color: var(--gold); }
+.hero-intro-more { display: none; }
+
+/* --- L-4: section banding. Sections are grouped in render_page()
+   (functions.php). Full-bleed via negative viewport margins; inner
+   content aligns with the 1240px container via max() padding. --- */
+.page-body { padding-bottom: 0; }
+.page-body .body-section {
+  margin: 0 calc(50% - 50vw);
+  padding: 88px max(24px, calc(50vw - 596px));
+}
+.page-body .body-section-intro { padding-top: 40px; padding-bottom: 64px; }
+.page-body .body-section.band-sand { background: var(--sand); }
+.page-body .body-section > h2 { margin-top: 0; }
+.page-body .body-section > p,
+.page-body .body-section > ul,
+.page-body .body-section > ol { max-width: 1100px; }
+.page-body .body-section .map-section { margin: 0; }
+.page-body .body-section .details-card { margin: 0; }
+/* H2 hairline under each H2 area (L-17): 1px sand-2 rule. */
+.page-body h2:not(.details-card h2) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--sand-2);
+}
+/* Deep band: the section holding the final CTA (L-14). Wave SVG at the
+   top edge in gold at 14% opacity, over the deep gradient. */
+.page-body .body-section.band-deep {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='28' viewBox='0 0 720 28' preserveAspectRatio='none'%3E%3Cpath d='M0,18 C120,8 240,26 360,16 C480,6 600,24 720,14 L720,28 L0,28 Z' fill='%23c99b3f' fill-opacity='0.14'/%3E%3C/svg%3E") top left / 720px 28px repeat-x,
+    linear-gradient(115deg, #0a2e38 0%, #0d3a46 55%, #0b5563 100%);
+  color: #fff;
+}
+.page-body .body-section.band-deep h2 { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.18); }
+.page-body .body-section.band-deep h2::before { background: var(--gold); }
+.page-body .body-section.band-deep .sec-kicker { color: var(--gold-light); }
+.page-body .body-section.band-deep h3 { color: var(--gold-light); }
+.page-body .body-section.band-deep p { color: #eef4f5; font-size: 22px; }
+.page-body .body-section.band-deep p.closing-trust { font-size: 16px; color: #cfe0e4; }
+.page-body .body-section.band-deep a:not(.btn) { color: #ffd9a8; }
+.page-body .body-section.band-deep .cta-line { margin: 32px 0 16px; }
+.page-body .body-section.band-deep .cta-line .btn { margin: 0 12px 12px 0; }
+
+/* --- L-6: H2 kickers + feature/standard scale; H3 size + feature rule --- */
+.sec-kicker {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.20em;
+  text-transform: uppercase; color: var(--teal);
+  margin: 0 0 12px;
+}
+.page-body .body-section h2.h2-feature { font-size: 46px; line-height: 1.08; }
+.page-body .body-section h2.h2-standard { font-size: 40px; line-height: 1.12; }
+.page-body .body-section h2.h2-feature::before { width: 72px; }
+.page-body .body-section h2.h2-standard::before { width: 48px; }
+.page-body .body-section h3 { font-size: 24px; letter-spacing: -0.01em; }
+.page-body .body-section.feature h3:not(.kind-card h3)::after {
+  content: ""; display: block; width: 44px; height: 4px;
+  background: var(--gold); border-radius: 2px; margin-top: 12px;
+}
+/* C-06: the 13 photo kind-card H3s DO get the 44px gold rule under the
+   new H3 system (gold on the dark scrim, decorative). */
+.page-body .kind-card.has-photo h3::after {
+  content: ""; display: block; width: 44px; height: 4px;
+  background: var(--gold); border-radius: 2px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+
+/* --- L-7: kind/help/area cards --- */
+.kind-card, .help-card, .area-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.kind-card { padding: 32px; border-radius: 16px; }
+.kind-card h3 { font-size: 23px; }
+/* 10x-fix-p3 V-P3-3: card body was 18px/1.55 (L-7 brief order), below the
+   20px floor. Now 20px/1.6; covers .kind-card and .help-card (same class). */
+.kind-card p { font-size: 20px; line-height: 1.6; }
+.kind-card:hover, .help-card:hover, .area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10, 46, 56, 0.18);
+}
+.kind-card.has-photo:hover { background-size: 105% auto; }
+.help-card-img { transition: transform 0.25s ease; }
+.help-card:hover .help-card-img { transform: scale(1.04); }
+.area-card { border-radius: 16px; }
+.area-card h3 { font-size: 23px; }
+/* "Learn more" link styling inside cards: teal, bold, no underline
+   until hover. (An earlier draft added a gold "→" via ::after, but the
+   card links sit mid-sentence — "Emergency water removal →:" and
+   "businesses →." — so the arrow was removed; the bold + hover
+   underline is the learn-more treatment.) Photo cards keep their
+   light-gold links. */
+.kind-card a:not(.btn), .help-card a:not(.btn), .area-card a:not(.btn) {
+  font-weight: 700; text-decoration: none;
+}
+.kind-card:not(.has-photo) a:not(.btn):hover,
+.help-card a:not(.btn):hover, .area-card a:not(.btn):hover {
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* --- L-9: header --- */
+.brand[aria-current="page"] .brand-name { text-decoration: none; }
+.header-call-icon { display: none; }
+
+/* --- L-11: mobile hero intro cap + "Read the intro" anchor --- */
+@media (max-width: 620px) {
+  .hero-intro {
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent);
+    mask-image: linear-gradient(180deg, #000 78%, transparent);
+  }
+  .hero-intro:target {
+    display: block; -webkit-line-clamp: unset;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .hero-intro-more {
+    display: inline-flex; align-items: center; order: 3; align-self: flex-start;
+    color: #ffd9a8; font-size: 18px; font-weight: 700;
+    margin-top: 16px; text-decoration: underline; text-underline-offset: 3px;
+    /* 10x-fix V-P2-4: measured 142 x 30.6px, height below the 44px floor.
+       Padding lifts the tap area to >=44px tall; colours, size and the
+       subtle text-link look are unchanged. */
+    padding: 12px 16px; min-height: 44px; box-sizing: border-box;
+  }
+  .hero-trust { order: 1; }
+  .hero-eyebrow { order: 0; }
+}
+
+/* --- L-12: slim post-hero utility line (replaces the first cta-line) --- */
+.utility-line {
+  font-size: 18px; line-height: 1.5; color: var(--muted);
+  margin: 4px 0 8px; text-align: left;
+}
+.utility-line a { color: var(--teal); font-weight: 700; text-decoration: none; }
+.utility-line a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.utility-line .utility-glyph { color: var(--teal); }
+.utility-line .utility-glyph svg { width: 16px; height: 16px; vertical-align: -3px; }
+
+/* --- L-13: steps spine + duration chips --- */
+.steps { position: relative; }
+.steps > li::before {
+  content: ""; position: absolute; left: 29px; top: 64px; bottom: -4px;
+  width: 2px; background: linear-gradient(180deg, var(--gold), var(--teal));
+}
+.steps > li:last-child::before { display: none; }
+.steps-inline > li::before { left: 25px; top: 56px; }
+.step-duration {
+  display: inline-block; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--sand); color: var(--teal);
+  border-radius: 6px; padding: 6px 10px; margin: 0 0 10px;
+}
+.page-body .body-section .steps h3 { font-size: 28px; }
+
+/* --- L-14: closing conversion band (see .band-deep above) --- */
+.closing-cta-line .btn-ghost { margin-left: 0; }
+.closing-trust { margin: 0 0 8px; }
+
+/* --- L-15: cost page highlight row + range bar --- */
+.table-wrap tr.cost-row-highlight td { background: #fdf8ec; }
+.table-wrap tr.cost-row-highlight td:first-child { border-left: 5px solid var(--coral); }
+.table-wrap.prices tr.cost-row-highlight td:last-child { background: #fdf8ec; }
+.most-common-chip {
+  display: inline-block; font-size: 12px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--coral); color: #fff; border-radius: 4px;
+  padding: 4px 8px; margin-left: 10px; vertical-align: middle;
+  white-space: nowrap;
+}
+.cost-range { margin: 24px 0 8px; max-width: 1100px; }
+.cost-range-track {
+  position: relative; height: 8px; border-radius: 4px; background: var(--sand-2);
+}
+.cost-range-fill {
+  position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+  background: var(--coral); border-radius: 4px;
+}
+.cost-range-marker {
+  position: absolute; left: 4.8%; width: 15.9%; top: -4px; height: 16px;
+  background: var(--gold); border-radius: 4px;
+}
+.cost-range-axis {
+  display: flex; justify-content: space-between;
+  font-size: 16px; color: var(--muted); margin-top: 10px;
+}
+.cost-range-label { font-size: 16px; color: var(--muted); margin: 8px 0 0; }
+
+/* --- L-17: gold hairline is on .page-body h2 above; footer gradient
+   border is in the footer section. Sand-2 #EFE7D6 was already --sand-2. --- */
+
+/* --- L-18: map poster fallback (section + footer maps) --- */
+.map-figure, .footer-map-figure {
+  position: relative; margin: 0; border-radius: 14px; overflow: hidden;
+  background: linear-gradient(135deg, var(--teal), var(--deep));
+  border: 2px solid var(--gold);
+}
+.map-poster {
+  position: absolute; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 20px;
+  color: var(--gold-light); font-size: 20px; font-weight: 700; line-height: 1.4;
+}
+.map-figure .map-embed, .footer-map-figure .footer-map {
+  position: relative; z-index: 1; background: transparent;
+  border: 0; border-radius: 0; box-shadow: none; margin: 0;
+}
+.footer-map-figure { border-radius: 12px; }
+.footer-map-figure .footer-map { height: 280px; }
+
+/* --- C-03: hero + CLOSING CTA buttons never wrap the phone at <=380px.
+   Scoped to .hero-ctas and .closing-cta-line ONLY: a middle .cta-line
+   button carries the long label "Call 239-356-3708, answered 24/7",
+   and nowrap on it forced a 400px button (97px overflow) — it keeps
+   wrapping, as before. The closing button's label is the short
+   "Call 239-356-3708", so nowrap fits. --- */
+@media (max-width: 380px) {
+  .hero-ctas .btn, .closing-cta-line .btn { white-space: nowrap; font-size: 19px; padding: 16px 20px; }
+  .hero-ctas .btn-ghost { white-space: nowrap; }
+  .closing-cta-line .btn-ghost { font-size: 16px; padding: 16px 14px; }
+}
+
+/* --- C-05: chrome/label text raised to the 20px floor where layout holds.
+   Flagged exceptions (see findings): nav 17px (L-9 order), brand-tag 18px,
+   details-sub 20px desktop / 18px mobile, nav-group 18px, hero trust 15px,
+   eyebrow/kicker 13px, closing trust 16px, utility line 18px, step chips
+   13px, cost chip 12px, range labels 16px — all are labels/chips per the
+   brief, not prose. --- */
+.breadcrumb ol { font-size: 20px; }
+.hero-areas { font-size: 20px; }
+.map-link { font-size: 20px; }
+.details-sub { font-size: 20px; letter-spacing: 0.12em; }
+.footer-col h3 { font-size: 20px; }
+.footer-col a { font-size: 20px; padding: 10px 0; }
+.footer-zips { font-size: 20px; }
+.footer-hours { font-size: 20px; }
+.footer-base-inner { font-size: 20px; }
+.back-to-top { font-size: 20px; }
+.mobile-menu-panel .nav-group { font-size: 18px; }
+
+/* --- C-07/C-08: slim mobile footer — 2-col link grid, shorter map --- */
+@media (max-width: 620px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; padding-top: 40px; padding-bottom: 40px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-map-figure .footer-map { height: 200px; }
+  .details-sub { font-size: 18px; }
+}
+
+/* --- L-9 mobile header: 44x44 phone-icon button (<=620px only; above
+   620px the header-call button is visible).
+   MEASURED (390px, Playwright): brand 230 + icon 44 + menu 44 + 2x16px
+   gaps = 350 of 350px — exactly fits, no overlap, brand unclipped
+   (brand-name scrollWidth == clientWidth, 214). At <=380px the icon
+   STAYS visible (10x-fix-p3 V-P3-1: it used to hide and leave the fixed
+   call bar as the only affordance); the row fits by shrinking the brand
+   to 12px + header gap 8px: brand 176 + icon 44 + menu 44 + 2x8px gaps
+   = 280 of 280px, menu right edge exactly at the 20px container
+   padding. Brand 12px stays legible; brand-name scrollWidth ==
+   clientWidth (168) at 320px. --- */
+@media (max-width: 620px) {
+  .header-call-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    /* 10x-fix-p3 V-P3-1: was 38px, below the 44px tap-target floor. */
+    flex: none; width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    margin-left: auto; border-radius: 10px;
+    background: var(--coral); color: #fff;
+  }
+  .header-call-icon svg { width: 20px; height: 20px; }
+  .header-call-icon:hover { background: var(--coral-dark); color: #fff; }
+  .mobile-menu { margin-left: 0; }
+  .brand-name { white-space: nowrap; font-size: 15px; }
+  .brand-mark { display: none; }
+  .mobile-menu summary .menu-label { display: none; }
+}
+@media (max-width: 380px) {
+  /* 10x-fix-p3 V-P3-1: the phone icon stays visible at 320px (44px, same
+     as at 390px) instead of hiding — the fixed call bar is no longer the
+     only affordance. The row fits by shrinking the brand + header gap
+     (brand 176 + icon 44 + menu 44 + 2x8px gaps = 280 of 280px). */
+  .header-inner { gap: 8px; }
+  .brand-name { font-size: 12px; }
+  .hero-ctas .btn-ghost { font-size: 17px; padding: 16px 18px; }
+}
+
+/* --- 10x A-2 follow-up (Worker 3's open item, closed here): /areas/
+   card titles are H2s (outline fix) but must LOOK like the old
+   .area-card h3 titles. Worker 3's spec was 23px, and the base
+   .area-card h3 rule is 23px; the 10x CLOSER (2026-11-20) corrected
+   this rule from 24px to the specified 23px, with the H2 gradient
+   bar and hairline suppressed on them. --- */
+.page-body .area-card h2.area-card-title {
+  margin: 20px 0 0; padding: 0 28px;
+  font-size: 23px; line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--terra); padding-bottom: 0; border-bottom: 0;
+}
+.page-body h2.area-card-title::before { display: none; }
+
+/* --- C-02/C-04: stacked tables at <=620px. The table becomes a stack
+   of labelled cards (data-label = the table's own header words); the
+   thead is visually hidden but stays in the DOM for screen readers.
+   This guarantees 0 overflow at 390/320 at the 20px floor, where
+   narrowing alone could not fit 4 columns. Desktop tables unchanged. --- */
+@media (max-width: 620px) {
+  .table-wrap {
+    margin-left: 0; margin-right: 0; border: 0; border-radius: 0;
+    box-shadow: none; background: transparent; overflow: visible;
+  }
+  .table-wrap table { display: block; }
+  .table-wrap thead {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .table-wrap tbody, .table-wrap tr { display: block; }
+  .table-wrap tbody tr {
+    border: 1px solid var(--line); border-radius: 12px;
+    margin-bottom: 16px; background: #fff; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  }
+  .table-wrap tbody tr:nth-child(even) { background: #fff; }
+  .table-wrap tbody tr:hover { background: #fff; }
+  .table-wrap td {
+    display: block; border-top: 1px solid var(--line);
+    border-left: 0; padding: 12px 16px; font-size: 20px;
+  }
+  .table-wrap td:first-child {
+    border-top: 0; background: var(--sand);
+  }
+  .table-wrap td::before {
+    content: attr(data-label); display: block;
+    font-size: 18px; font-weight: 700; color: var(--teal-dark);
+    letter-spacing: 0.06em; margin-bottom: 4px;
+  }
+  .table-wrap td:first-child::before { color: var(--terra); }
+  .table-wrap.prices td:last-child { text-align: left; background: #fdf8ec; }
+  .table-wrap.prices tbody tr:nth-child(even) td:last-child { background: #fdf8ec; }
+  .table-wrap.prices tbody tr:hover td:last-child { background: #fdf8ec; }
+  .table-wrap tr.cost-row-highlight td { background: #fff; }
+  .table-wrap tr.cost-row-highlight td:first-child { background: #fdf8ec; border-left: 0; border-top: 5px solid var(--coral); }
+  .table-wrap tr.cost-row-highlight td:last-child { background: #fdf8ec; }
+  .page-body .body-section h2.h2-feature { font-size: 34px; }
+  .page-body .body-section h2.h2-standard { font-size: 31px; }
+  .page-body .body-section .steps h3 { font-size: 26px; }
+  .page-body .body-section { padding: 64px 20px; }
+  .page-body .body-section-intro { padding-top: 32px; padding-bottom: 48px; }
+}
+
+/* --- L-4 mobile: section padding 64px (above). Desktop 88px (above). --- */
+
+/* --- 10x CLOSER (2026-11-20) — L-10 area map strips + A-2 card-title size.
+   A-2 exact rule (qa/FINDINGS-10x-design.md): card titles 23px with the
+   H2 bar suppressed. The Worker-1 rule above was corrected 24px -> 23px
+   in place so this rule is not overridden by its higher specificity. --- */
+.area-card h2.area-card-title { margin: 20px 0 0; padding: 0 28px; font-size: 23px; }
+.page-body h2.area-card-title::before { display: none; }
+
+/* --- L-10 area map strip (cape-coral + fort-myers-beach): static OSM map
+   with a 2px gold border and 14px radius; caption 20px ink on white;
+   attribution 16px muted (7.44:1); facts as sand chips 16px/700
+   teal-dark on sand-2 (9.38:1). --- */
+.area-map-strip { margin: 40px 0; }
+.area-map-img { display: block; width: 100%; height: auto; border: 2px solid var(--gold); border-radius: 14px; }
+.area-map-caption { font-size: 20px; color: var(--ink); margin: 16px 0 0; line-height: 1.5; }
+.area-map-attr { font-size: 16px; color: var(--muted); margin: 6px 0 0; }
+.area-map-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; padding: 0; }
+.area-map-facts li { background: var(--sand-2); color: var(--teal-dark); font-size: 16px; font-weight: 700; line-height: 1.4; padding: 8px 16px; border-radius: 999px; }
+@media (max-width: 620px) {
+  .area-map-strip { margin: 32px 0; }
+}

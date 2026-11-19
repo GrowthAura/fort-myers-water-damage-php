@@ -72,6 +72,13 @@ return [
             ]
         ],
         [
+            'type' => 'area-map',
+            'map' => 'cape-coral',
+            'caption' => 'Cape Coral and the Lee County service area',
+            'facts' => ['400+ miles of canals', 'ZIPs 33904-33993', 'Slab homes'],
+            'map_url' => 'https://www.google.com/maps?q=Cape+Coral,+FL',
+        ],
+        [
             'type' => 'details',
             'heading' => 'Cape Coral water damage',
             'sub' => 'What to know',
@@ -528,7 +535,7 @@ return [
                     'title' => 'Dry the structure',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the slab home, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',

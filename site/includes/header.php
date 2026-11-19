@@ -45,7 +45,7 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
      browser that already cached the file, the 2026-11-19 kinds-text
      and details-icon defects were exactly this (new HTML + old CSS).
      Bump the ?v= number on EVERY CSS change, or the fix stays local. -->
-<link rel="stylesheet" href="/assets/css/styles.css?v=2">
+<link rel="stylesheet" href="/assets/css/styles.css?v=5">
 <?php if (!empty($HEAD['ld_given'])): ?>
 <script type="application/ld+json"><?= $HEAD['ld_given'] ?></script>
 <?php endif; ?>
@@ -110,6 +110,7 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
       <?php endif; ?>
     </nav>
     <a class="btn btn-call header-call" href="tel:+12393563708"><span class="call-full"><?= phone_svg() ?> Call 239-356-3708</span><span class="call-short" aria-hidden="true">239-356-3708</span></a>
+    <a class="header-call-icon" href="tel:+12393563708" aria-label="Call 239-356-3708"><?= phone_svg() ?></a>
     <details class="mobile-menu">
       <summary aria-label="Menu"><span aria-hidden="true">&#9776;</span><span class="menu-label">Menu</span></summary>
       <div class="mobile-menu-panel">

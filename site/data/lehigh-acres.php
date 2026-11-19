@@ -663,7 +663,7 @@ return [
                     'title' => 'Dry the structure',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the wet drywall and carpet in the concrete block home, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',

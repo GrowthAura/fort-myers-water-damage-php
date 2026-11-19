@@ -5,6 +5,13 @@
 // site/data/manifest-kinds.php (separate file, lazy-required by functions.php).
 // 4 hero masters downscaled to 1600x1067 (lehigh-acres, north-fort-myers, estero,
 // bonita-springs) — 24-27% lighter, same JPEG quality; srcset updated to 1600w.
+// 10x round 2026-11-19 (Worker 3): 15 alts trimmed to <=125 chars; lehigh-acres +
+// north-fort-myers heroes re-encoded to 1440x960 (<=250 KB) with a 640w mobile variant;
+// insurance/terms/disclaimer heroes + sewage help swapped for topical photos;
+// help index 6 (property types, for /about/) + maps registry added.
+// 10x CLOSER 2026-11-20: $MEDIA['help']['about'] added (7 entries in About
+// order; idx 5 = about-floors-cabinets.jpg, the staged floors/cabinets
+// photo; the other 6 reuse the home help images).
 // Every image: GPS EXIF only (Fort Myers 26.6406,-81.8723, or the area's own
 // coordinates), no AI/XMP metadata. Missing slots render NO <img> (honestly empty).
 $MEDIA = array (
@@ -13,7 +20,7 @@ $MEDIA = array (
     'home' => 
     array (
       'src' => '/assets/img/hero-home.jpg',
-      'alt' => 'A restoration technician extracts standing water from a tiled living room floor in a bright Florida home, with palm trees visible through sliding glass doors',
+      'alt' => 'A restoration technician extracts standing water from a tiled living room floor in a bright Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-home-960w.jpg 960w, /assets/img/hero-home.jpg 1920w',
@@ -21,7 +28,7 @@ $MEDIA = array (
     'water-removal' => 
     array (
       'src' => '/assets/img/hero-water-removal.jpg',
-      'alt' => 'A submersible pump and extraction wand pull standing water from a tiled floor, with a discharge hose running toward the doorway and palm trees outside',
+      'alt' => 'A submersible pump and extraction wand pull standing water from a tiled floor in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-water-removal-960w.jpg 960w, /assets/img/hero-water-removal.jpg 1920w',
@@ -29,7 +36,7 @@ $MEDIA = array (
     'drying' => 
     array (
       'src' => '/assets/img/hero-drying.jpg',
-      'alt' => 'A commercial dehumidifier, air movers and a moisture meter dry damp walls and tile flooring in a Florida home, with palm trees outside the window',
+      'alt' => 'A commercial dehumidifier, air movers and a moisture meter dry damp walls and tile flooring in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-drying-960w.jpg 960w, /assets/img/hero-drying.jpg 1920w',
@@ -37,7 +44,7 @@ $MEDIA = array (
     'sewage-cleanup' => 
     array (
       'src' => '/assets/img/hero-sewage-cleanup.jpg',
-      'alt' => 'A technician in protective coveralls and a respirator vacuums dark water from a bathroom floor behind plastic containment sheeting',
+      'alt' => 'A technician in protective coveralls and a respirator vacuums dark water from a bathroom floor',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-sewage-cleanup-960w.jpg 960w, /assets/img/hero-sewage-cleanup.jpg 1920w',
@@ -45,7 +52,7 @@ $MEDIA = array (
     'ac-leak' => 
     array (
       'src' => '/assets/img/hero-ac-leak.jpg',
-      'alt' => 'Water drips from an air handler condensate drain into a puddle on a tile floor, with a bucket, towels and a vacuum hose nearby',
+      'alt' => 'Water drips from an air handler condensate drain into a puddle on a tile floor',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-ac-leak-960w.jpg 960w, /assets/img/hero-ac-leak.jpg 1920w',
@@ -61,7 +68,7 @@ $MEDIA = array (
     'condo-leak' => 
     array (
       'src' => '/assets/img/hero-condo-leak.jpg',
-      'alt' => 'Water runs down a shared condo wall from a leaking ceiling while a technician checks the wall with a moisture meter, with a balcony and palm trees behind',
+      'alt' => 'Water runs down a shared condo wall from a leaking ceiling while a technician checks it with a moisture meter',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-condo-leak-960w.jpg 960w, /assets/img/hero-condo-leak.jpg 1920w',
@@ -77,7 +84,7 @@ $MEDIA = array (
     'vacant-home' => 
     array (
       'src' => '/assets/img/hero-vacant-home.jpg',
-      'alt' => 'A technician enters a seasonal Florida home with covered furniture and damp, stained tile flooring, with palm trees outside the glass doors',
+      'alt' => 'A technician enters a seasonal Florida home with covered furniture and damp, stained tile flooring',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-vacant-home-960w.jpg 960w, /assets/img/hero-vacant-home.jpg 1920w',
@@ -93,7 +100,7 @@ $MEDIA = array (
     'mobile-home' => 
     array (
       'src' => '/assets/img/hero-mobile-home.jpg',
-      'alt' => 'A technician checks a damp wall of a manufactured home in a Florida park with a moisture meter, with palm trees around the home',
+      'alt' => 'A technician checks a damp wall of a manufactured home in a Florida park with a moisture meter',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-mobile-home-960w.jpg 960w, /assets/img/hero-mobile-home.jpg 1920w',
@@ -101,7 +108,7 @@ $MEDIA = array (
     'slab-leak' => 
     array (
       'src' => '/assets/img/hero-slab-leak.jpg',
-      'alt' => 'Gloved hands test a damp tile floor with a listening device and moisture meter beside broken tiles exposing a wet concrete slab',
+      'alt' => 'Gloved hands test a damp tile floor with a moisture meter beside broken tiles exposing a wet concrete slab',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-slab-leak-960w.jpg 960w, /assets/img/hero-slab-leak.jpg 1920w',
@@ -109,7 +116,7 @@ $MEDIA = array (
     'flood-cleanup' => 
     array (
       'src' => '/assets/img/hero-flood-cleanup.jpg',
-      'alt' => 'Technician clearing floodwater from a tiled living room floor in a Florida home, with drying fans and a water extractor beside sliding glass doors',
+      'alt' => 'Technician clearing floodwater from a tiled living room floor in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-flood-cleanup-960w.jpg 960w, /assets/img/hero-flood-cleanup.jpg 1920w',
@@ -173,7 +180,7 @@ $MEDIA = array (
     'insurance' => 
     array (
       'src' => '/assets/img/hero-insurance.jpg',
-      'alt' => 'Blank claim papers, a folder, a pen and a phone on a table by a window',
+      'alt' => 'A technician photographs a water-stained wall with a phone to document damage for an insurance claim in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-insurance-960w.jpg 960w, /assets/img/hero-insurance.jpg 1920w',
@@ -205,7 +212,7 @@ $MEDIA = array (
     'cape-coral' => 
     array (
       'src' => '/assets/img/hero-cape-coral.jpg',
-      'alt' => 'Canal-front homes with screened pool enclosures, private docks and palm trees along a residential canal in Cape Coral, Florida',
+      'alt' => 'Canal-front homes with screened pool enclosures and private docks along a canal in Cape Coral, Florida',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-cape-coral-960w.jpg 960w, /assets/img/hero-cape-coral.jpg 1920w',
@@ -213,15 +220,15 @@ $MEDIA = array (
     'lehigh-acres' => 
     array (
       'src' => '/assets/img/hero-lehigh-acres.jpg',
-      'alt' => 'Single-story concrete-block homes on large grassy lots along a quiet inland street with palm and oak trees in Lehigh Acres, Florida',
-      'width' => 1600,
-      'height' => 1067,
-      'srcset' => '/assets/img/hero-lehigh-acres-960w.jpg 960w, /assets/img/hero-lehigh-acres.jpg 1600w',
+      'alt' => 'Single-story concrete-block homes on large grassy lots along a quiet street in Lehigh Acres, Florida',
+      'width' => 1440,
+      'height' => 960,
+      'srcset' => '/assets/img/hero-lehigh-acres-640w.jpg 640w, /assets/img/hero-lehigh-acres-960w.jpg 960w, /assets/img/hero-lehigh-acres.jpg 1440w',
     ),
     'areas' => 
     array (
       'src' => '/assets/img/hero-areas.jpg',
-      'alt' => 'Historic brick riverfront buildings and royal palm trees along the Caloosahatchee River in downtown Fort Myers, Florida at sunset',
+      'alt' => 'Historic brick riverfront buildings and royal palm trees along the Caloosahatchee River in downtown Fort Myers',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-areas-960w.jpg 960w, /assets/img/hero-areas.jpg 1920w',
@@ -229,10 +236,10 @@ $MEDIA = array (
     'north-fort-myers' => 
     array (
       'src' => '/assets/img/hero-north-fort-myers.jpg',
-      'alt' => 'Manufactured home with carport beside the Caloosahatchee River, with a wooden dock, palm trees and live oaks in North Fort Myers, Florida',
-      'width' => 1600,
-      'height' => 1067,
-      'srcset' => '/assets/img/hero-north-fort-myers-960w.jpg 960w, /assets/img/hero-north-fort-myers.jpg 1600w',
+      'alt' => 'Manufactured home with carport beside the Caloosahatchee River in North Fort Myers, Florida',
+      'width' => 1440,
+      'height' => 960,
+      'srcset' => '/assets/img/hero-north-fort-myers-640w.jpg 640w, /assets/img/hero-north-fort-myers-960w.jpg 960w, /assets/img/hero-north-fort-myers.jpg 1440w',
     ),
     'fort-myers-beach' => 
     array (
@@ -269,7 +276,7 @@ $MEDIA = array (
     'terms' => 
     array (
       'src' => '/assets/img/hero-terms.jpg',
-      'alt' => 'Blank cream papers with a fountain pen and reading glasses on a wooden desk by a window',
+      'alt' => 'A homeowner and a technician review a written scope of work at a kitchen table in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-terms-960w.jpg 960w, /assets/img/hero-terms.jpg 1920w',
@@ -277,7 +284,7 @@ $MEDIA = array (
     'disclaimer' => 
     array (
       'src' => '/assets/img/hero-disclaimer.jpg',
-      'alt' => 'A small metal shield beside a stack of blank papers and a closed laptop on a light desk',
+      'alt' => 'A technician shows moisture meter readings to a homeowner beside a water-stained wall in a Florida home',
       'width' => 1920,
       'height' => 1280,
       'srcset' => '/assets/img/hero-disclaimer-960w.jpg 960w, /assets/img/hero-disclaimer.jpg 1920w',
@@ -290,7 +297,7 @@ $MEDIA = array (
       0 => 
       array (
         'src' => '/assets/img/help-emergency-water-removal.jpg',
-        'alt' => 'A wet-vacuum extracting standing water from a tiled floor in a Fort Myers home, with palm trees visible through the sliding glass door',
+        'alt' => 'A wet-vacuum extracting standing water from a tiled floor in a Fort Myers home',
         'width' => 474,
         'height' => 267,
       ),
@@ -304,7 +311,7 @@ $MEDIA = array (
       2 => 
       array (
         'src' => '/assets/img/help-sewage-cleanup.jpg',
-        'alt' => 'A cleaned bathroom with a toilet, bathtub, floor drain, mop bucket and cleaning supplies after a sewage backup cleanup',
+        'alt' => 'A technician in protective coveralls and a respirator vacuums dark contaminated water from a bathroom floor',
         'width' => 474,
         'height' => 267,
       ),
@@ -329,6 +336,82 @@ $MEDIA = array (
         'width' => 474,
         'height' => 267,
       ),
+      6 => 
+      array (
+        'src' => '/assets/img/help-property-types.jpg',
+        'alt' => 'A stucco home, a three-story condo building and a manufactured home with a carport on a palm-lined Fort Myers street',
+        'width' => 474,
+        'height' => 267,
+      ),
+    ),
+    'about' => 
+    array (
+      0 => 
+      array (
+        'src' => '/assets/img/help-emergency-water-removal.jpg',
+        'alt' => 'A wet-vacuum extracting standing water from a tiled floor in a Fort Myers home',
+        'width' => 474,
+        'height' => 267,
+      ),
+      1 => 
+      array (
+        'src' => '/assets/img/help-structural-drying.jpg',
+        'alt' => 'Air movers and a dehumidifier drying an opened wall cavity in a Fort Myers home, with a moisture meter on a tripod',
+        'width' => 474,
+        'height' => 267,
+      ),
+      2 => 
+      array (
+        'src' => '/assets/img/help-sewage-cleanup.jpg',
+        'alt' => 'A technician in protective coveralls and a respirator vacuums dark contaminated water from a bathroom floor',
+        'width' => 474,
+        'height' => 267,
+      ),
+      3 => 
+      array (
+        'src' => '/assets/img/help-flood-storm-cleanup.jpg',
+        'alt' => 'A flooded residential street lined with palm trees and stucco houses in Fort Myers after a storm, with sandbags at a driveway',
+        'width' => 474,
+        'height' => 267,
+      ),
+      4 => 
+      array (
+        'src' => '/assets/img/help-leaks-every-kind.jpg',
+        'alt' => 'A leaking air handler with water in its drip pan and a bucket catching drips, with a water heater in the garage behind it',
+        'width' => 474,
+        'height' => 267,
+      ),
+      5 => 
+      array (
+        'src' => '/assets/img/about-floors-cabinets.jpg',
+        'alt' => 'A swollen cabinet base and curled wet vinyl plank flooring checked with a moisture meter in a Fort Myers home',
+        'width' => 474,
+        'height' => 267,
+      ),
+      6 => 
+      array (
+        'src' => '/assets/img/help-property-types.jpg',
+        'alt' => 'A stucco home, a three-story condo building and a manufactured home with a carport on a palm-lined Fort Myers street',
+        'width' => 474,
+        'height' => 267,
+      ),
+    ),
+  ),
+  'maps' => 
+  array (
+    'cape-coral' => 
+    array (
+      'src' => '/assets/img/map-cape-coral.jpg',
+      'alt' => 'Map of Cape Coral and the Lee County service area, showing the Caloosahatchee River, Fort Myers and Lehigh Acres',
+      'width' => 1200,
+      'height' => 560,
+    ),
+    'fort-myers-beach' => 
+    array (
+      'src' => '/assets/img/map-fort-myers-beach.jpg',
+      'alt' => 'Map of Fort Myers Beach on Estero Island and the Lee County service area, showing Sanibel, Estero Bay and San Carlos Park',
+      'width' => 1200,
+      'height' => 560,
     ),
   ),
   'areas' => 

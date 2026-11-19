@@ -68,6 +68,13 @@ return [
             ]
         ],
         [
+            'type' => 'area-map',
+            'map' => 'fort-myers-beach',
+            'caption' => 'Fort Myers Beach and the Lee County service area',
+            'facts' => ['Estero Island', 'ZIP 33931', 'Elevated homes'],
+            'map_url' => 'https://www.google.com/maps?q=Fort+Myers+Beach,+FL',
+        ],
+        [
             'type' => 'details',
             'heading' => 'Water damage on Fort Myers Beach',
             'sub' => 'What to know',
@@ -608,7 +615,7 @@ return [
                     'title' => 'Dry and repair',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the wet drywall and flooring in the elevated home, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',

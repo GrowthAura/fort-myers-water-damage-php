@@ -184,6 +184,7 @@ return [
                 [
                     [
                         't' => 'Sewage backup cleanup',
+                        'href' => '/sewage-cleanup/'
                     ],
                     [
                         't' => ': toilet, tub, floor-drain and cast iron drain backups handled as contaminated water.'
@@ -191,10 +192,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
+                        't' => 'Flood and storm cleanup',
+                        'href' => '/flood-cleanup/'
                     ],
                     [
                         't' => ': rising water, storm surge and wind-driven rain.'
@@ -481,7 +480,6 @@ return [
                         ],
                         [
                             't' => 'sewage backup cleanup',
-                            'href' => '/sewage-cleanup/'
                         ],
                         [
                             't' => '.'
@@ -601,7 +599,6 @@ return [
                         ],
                         [
                             't' => 'storm cleanup',
-                            'href' => '/flood-cleanup/'
                         ],
                         [
                             't' => '.'

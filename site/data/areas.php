@@ -102,7 +102,7 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
+            'type' => 'h2',
             'text' => 'Lee County Service Areas and ZIP Codes'
         ],
         [
@@ -201,7 +201,7 @@ return [
                     ],
                     [
                         [
-                            't' => '33931'
+                            't' => '33931, 33932'
                         ]
                     ],
                     [
@@ -235,7 +235,7 @@ return [
                     ],
                     [
                         [
-                            't' => '33922, 33956, 33993'
+                            't' => '33922, 33956'
                         ]
                     ],
                     [
@@ -281,7 +281,7 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
+            'type' => 'h2',
             'text' => 'Fort Myers'
         ],
         [
@@ -397,7 +397,7 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
+            'type' => 'h2',
             'text' => 'Sanibel and Captiva'
         ],
         [
@@ -423,7 +423,7 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
+            'type' => 'h2',
             'text' => 'Pine Island and Matlacha'
         ],
         [
@@ -472,7 +472,7 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
+            'type' => 'h2',
             'text' => 'San Carlos Park, Gateway and Iona in Lee County'
         ],
         [

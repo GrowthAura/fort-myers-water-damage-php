@@ -645,7 +645,7 @@ return [
                     'title' => 'Dry and repair',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the wet condo drywall and carpet, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',
@@ -768,14 +768,14 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Read '
+                    't' => 'For the claim, read '
                 ],
                 [
                     't' => 'how insurance handles water damage in Florida',
                     'href' => '/insurance/'
                 ],
                 [
-                    't' => '. General pricing information: '
+                    't' => '. For typical costs, see the '
                 ],
                 [
                     't' => 'water damage pricing guide',

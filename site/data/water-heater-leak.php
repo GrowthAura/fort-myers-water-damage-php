@@ -543,7 +543,7 @@ return [
                     'title' => 'Dry the structure',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Dehumidifiers and air movers dry the garage and the wet lower drywall, with readings logged daily. See '
                         ],
                         [
                             't' => 'structural drying',

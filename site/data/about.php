@@ -77,6 +77,7 @@ return [
         ],
         [
             'type' => 'ul',
+            'variant' => 'help-cards',
             'items' => [
                 [
                     [
@@ -215,6 +216,10 @@ return [
                     't' => 'Fort Myers Water Damage Restoration Pros covers seven communities in Lee County, Florida. Each one has its own water risks, its own utility and its own permit office, and each has a local page with the details. The phone, 239-356-3708, is answered 24/7 for all of them.'
                 ]
             ]
+        ],
+        [
+            'type' => 'map',
+            'caption' => 'Map: Fort Myers and the Lee County service area'
         ],
         [
             'type' => 'h3',

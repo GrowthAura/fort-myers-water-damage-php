@@ -7,7 +7,7 @@
       <p class="footer-hours">Answered 24/7, including holidays and the days after a storm.</p>
       <a class="btn btn-call" href="tel:+12393563708"><?= phone_svg() ?> Call 239-356-3708</a>
       <?php if (!$isLocation): ?>
-      <iframe class="footer-map" title="Map: Fort Myers and the Lee County service area" src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" width="560" height="280" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <figure class="map-figure footer-map-figure"><figcaption class="map-poster">Map loading · Fort Myers &amp; Lee County</figcaption><iframe class="footer-map" title="Map: Fort Myers and the Lee County service area" src="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" width="560" height="280" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></figure>
       <a class="map-link" href="https://www.google.com/maps?q=Fort%20Myers%2C%20FL%2033901&z=12&output=embed" target="_blank" rel="noopener">View larger map</a>
       <?php endif; ?>
     </div>
@@ -31,9 +31,7 @@
       <?php endif; ?>
       <?php endforeach; ?>
     </nav>
-    <!-- No Areas column: Areas is header-only (fix round 2026-11-19,
-         owner order). The old "Areas We Serve" column (6 area links +
-         the hub link + the footer-zips line) was removed here. -->
+    <!-- Areas is header-only -->
   </div>
   <div class="footer-base">
     <div class="container footer-base-inner">
