@@ -22,7 +22,12 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/archivoblack-400.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
 <link rel="preload" href="/assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
-<link rel="stylesheet" href="/assets/css/styles.css">
+<!-- Stylesheet cache-bust: assets are served Cache-Control 1 year
+     immutable (out/_headers), so a CSS-only change NEVER reaches a
+     browser that already cached the file, the 2026-11-19 kinds-text
+     and details-icon defects were exactly this (new HTML + old CSS).
+     Bump the ?v= number on EVERY CSS change, or the fix stays local. -->
+<link rel="stylesheet" href="/assets/css/styles.css?v=2">
 <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "Service",
@@ -209,13 +214,13 @@
             <details class="nav-services">
         <summary>Areas</summary>
         <div class="nav-dropdown">
-                              <a href="/cape-coral/">Cape Coral</a>
+                              <a href="/areas/">Areas</a>
+                                        <a href="/cape-coral/">Cape Coral</a>
                                         <a href="/lehigh-acres/">Lehigh Acres</a>
                                         <a href="/north-fort-myers/">North Fort Myers</a>
                                         <a href="/fort-myers-beach/">Fort Myers Beach</a>
                                         <a href="/estero/">Estero</a>
                                         <a href="/bonita-springs/">Bonita Springs</a>
-                                        <a href="/areas/">All Service Areas</a>
                             </div>
       </details>
             <a href="/contact/">Contact</a>
@@ -235,13 +240,13 @@
                                 <a href="/burst-pipe/">Burst Pipe Water Damage</a>
                                 <a href="/cost/">Cost</a>
                 <span class="nav-group">Areas</span>
-                        <a href="/cape-coral/">Cape Coral</a>
+                        <a href="/areas/">Areas</a>
+                                <a href="/cape-coral/">Cape Coral</a>
                                 <a href="/lehigh-acres/">Lehigh Acres</a>
                                 <a href="/north-fort-myers/">North Fort Myers</a>
                                 <a href="/fort-myers-beach/">Fort Myers Beach</a>
                                 <a href="/estero/">Estero</a>
                                 <a href="/bonita-springs/">Bonita Springs</a>
-                                <a href="/areas/">All Service Areas</a>
                                 <a href="/contact/">Contact</a>
                 <a class="btn btn-call" href="tel:+12393563708"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg> Call 239-356-3708</a>
       </div>
@@ -267,16 +272,6 @@
                         <a href="/ac-leak/">AC Leak Water Damage</a>
                         <span class="nav-current" aria-current="page">Ceiling Leak Water Damage</span>
                         <a href="/burst-pipe/">Burst Pipe Water Damage</a>
-                        <a href="/slab-leak/">Slab Leak Water Damage</a>
-                        <a href="/water-heater-leak/">Water Heater Leak Cleanup</a>
-                        <a href="/condo-leak/">Condo Water Damage</a>
-                        <a href="/mobile-home/">Mobile Home Water Damage</a>
-                        <a href="/commercial/">Commercial Water Damage</a>
-                        <a href="/cast-iron-pipe/">Cast Iron Pipe Water Damage</a>
-                        <a href="/vacant-home/">Seasonal Home Water Damage</a>
-                        <a href="/appliance-leak/">Appliance Leak Water Damage</a>
-                        <a href="/floors/">Water Damaged Floors</a>
-                        <a href="/cabinets/">Water Damaged Kitchen Cabinets</a>
                 </nav>
     <nav class="footer-col" aria-label="Explore">
       <h3>Explore</h3>
@@ -290,17 +285,9 @@
                         <a href="/terms/">Terms of Service</a>
                         <a href="/disclaimer/">Disclaimer</a>
                 </nav>
-    <nav class="footer-col" aria-label="Areas we serve">
-      <h3>Areas We Serve</h3>
-                  <a href="/cape-coral/">Cape Coral</a>
-                        <a href="/lehigh-acres/">Lehigh Acres</a>
-                        <a href="/north-fort-myers/">North Fort Myers</a>
-                        <a href="/fort-myers-beach/">Fort Myers Beach</a>
-                        <a href="/estero/">Estero</a>
-                        <a href="/bonita-springs/">Bonita Springs</a>
-                        <a href="/areas/">All Service Areas</a>
-                  <p class="footer-zips">Fort Myers ZIPs 33901 to 33967 &middot; North Fort Myers 33903, 33917</p>
-    </nav>
+    <!-- No Areas column: Areas is header-only (fix round 2026-11-19,
+         owner order). The old "Areas We Serve" column (6 area links +
+         the hub link + the footer-zips line) was removed here. -->
   </div>
   <div class="footer-base">
     <div class="container footer-base-inner">
