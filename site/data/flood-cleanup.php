@@ -262,7 +262,6 @@ return [
                 ],
                 [
                     't' => 'sewage backup cleanup',
-                    'href' => '/sewage-cleanup/'
                 ],
                 [
                     't' => '.'
@@ -364,15 +363,8 @@ return [
                     'title' => 'Dry the structure',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run until framing and slab read dry. See '
+                            't' => 'Dehumidifiers and air movers run until framing and slab read dry.'
                         ],
-                        [
-                            't' => 'structural drying',
-                            'href' => '/drying/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -686,15 +678,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Drains backing up. If toilets and tubs gurgle or back up after the water goes down, the septic system or sewer line may be overloaded. See '
+                        't' => 'Drains backing up. If toilets and tubs gurgle or back up after the water goes down, the septic system or sewer line may be overloaded.'
                     ],
-                    [
-                        't' => 'sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -796,8 +781,7 @@ return [
                         't' => 'The 50% rule. In FEMA flood zones that start with A or V, Lee County building departments compare the repair total with the building\'s market value. At 50% or more, the building has to meet current flood rules, which can mean raising it. More on the 50% rule: '
                     ],
                     [
-                        't' => 'water damage restoration in Fort Myers',
-                        'href' => '/'
+                        't' => 'water damage restoration in Fort Myers'
                     ],
                     [
                         't' => '.'
@@ -1038,28 +1022,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Mobile home water damage',
-                        'href' => '/mobile-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Insurance and '
-                    ],
-                    [
-                        't' => 'water damage in Florida',
-                        'href' => '/insurance/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'flood damage restoration in Fort Myers',
                         'href' => '/'
                     ]
                 ]

@@ -145,7 +145,6 @@ return [
                 [
                     [
                         't' => 'Drying starts after emergency water removal',
-                        'href' => '/water-removal/'
                     ],
                     [
                         't' => ' and ends before repairs begin.'
@@ -269,7 +268,6 @@ return [
                         ],
                         [
                             't' => 'Standing water is extracted first through emergency water removal',
-                            'href' => '/water-removal/'
                         ],
                         [
                             't' => '.'
@@ -646,8 +644,7 @@ return [
                     't' => 'A higher class means more equipment and more days. Water category (clean, gray or black) is a separate measure of contamination. See clean, gray and '
                 ],
                 [
-                    't' => 'black water explained on the homepage',
-                    'href' => '/'
+                    't' => 'black water explained on the homepage'
                 ],
                 [
                     't' => '.'
@@ -982,8 +979,7 @@ return [
                         't' => 'If the home is in a flood zone, you have checked the 50% rule with your building department before '
                     ],
                     [
-                        't' => 'planning the rebuild',
-                        'href' => '/'
+                        't' => 'planning the rebuild'
                     ],
                     [
                         't' => '.'
@@ -1019,39 +1015,18 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'AC condensate overflows that soak ceilings, insulation and closet walls. See '
+                        't' => 'AC condensate overflows that soak ceilings, insulation and closet walls.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
-                        't' => 'Ceiling leaks where wet insulation keeps the drywall wet from above. See '
+                        't' => 'Ceiling leaks where wet insulation keeps the drywall wet from above.'
                     ],
-                    [
-                        't' => 'ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
-                        't' => 'Condo leaks that cross into the unit below and need drying in two homes at once. See '
+                        't' => 'Condo leaks that cross into the unit below and need drying in two homes at once.'
                     ],
-                    [
-                        't' => 'condo water damage',
-                        'href' => '/condo-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1067,15 +1042,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Homes left empty for the season. See '
+                        't' => 'Homes left empty for the season.'
                     ],
-                    [
-                        't' => 'water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -1255,37 +1223,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'What happens after you call',
-                        'href' => '/how-it-works/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration company',
                         'href' => '/'
                     ]
                 ]

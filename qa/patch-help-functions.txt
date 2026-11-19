@@ -1,0 +1,274 @@
+PROPOSAL ONLY -- do not apply by hand-editing shared files outside the coordinator flow.
+Files touched by the coordinator: site/data/homepage.php (one 'variant' line per block),
+site/includes/functions.php (one render branch per case), styles.css (the CSS snippet file).
+No other file changes. All OLD blocks below are verbatim from the files as read 2026-11-19.
+
+==================== TASK 3 -- HELP CARDS ====================
+
+--- 1) OLD -- site/data/homepage.php, the 'ul' block under H3 'What we help with' ---
+        [
+            'type' => 'ul',
+            'items' => [
+                [
+                    [
+                        't' => 'Emergency water removal',
+                        'href' => '/water-removal/'
+                    ],
+                    [
+                        't' => ': standing water, soaked carpet and pad, and wet contents moved out of harm\'s way.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Structural drying',
+                        'href' => '/drying/'
+                    ],
+                    [
+                        't' => ': dehumidifiers and air movers sized to the space, with moisture readings taken and logged until materials are back to normal.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Sewage backup cleanup',
+                        'href' => '/sewage-cleanup/'
+                    ],
+                    [
+                        't' => ': toilet, tub, floor-drain and cast iron drain backups handled as contaminated water.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Flood and '
+                    ],
+                    [
+                        't' => 'storm cleanup',
+                        'href' => '/flood-cleanup/'
+                    ],
+                    [
+                        't' => ': rising water, storm surge and wind-driven rain.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Leaks of every kind: '
+                    ],
+                    [
+                        't' => 'AC leaks',
+                        'href' => '/ac-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'burst pipes',
+                        'href' => '/burst-pipe/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'water heaters',
+                        'href' => '/water-heater-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'appliances',
+                        'href' => '/appliance-leak/'
+                    ],
+                    [
+                        't' => ' and '
+                    ],
+                    [
+                        't' => 'slab leaks',
+                        'href' => '/slab-leak/'
+                    ],
+                    [
+                        't' => '.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Every kind of property: single-family homes, '
+                    ],
+                    [
+                        't' => 'condos',
+                        'href' => '/condo-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'mobile homes',
+                        'href' => '/mobile-home/'
+                    ],
+                    [
+                        't' => ', vacation rentals and '
+                    ],
+                    [
+                        't' => 'businesses',
+                        'href' => '/commercial/'
+                    ],
+                    [
+                        't' => '.'
+                    ]
+                ]
+            ]
+        ],
+
+--- 1) NEW -- same block, ONE line added ('variant') ---
+        [
+            'type' => 'ul',
+            'variant' => 'help-cards',
+            'items' => [
+                [
+                    [
+                        't' => 'Emergency water removal',
+                        'href' => '/water-removal/'
+                    ],
+                    [
+                        't' => ': standing water, soaked carpet and pad, and wet contents moved out of harm\'s way.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Structural drying',
+                        'href' => '/drying/'
+                    ],
+                    [
+                        't' => ': dehumidifiers and air movers sized to the space, with moisture readings taken and logged until materials are back to normal.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Sewage backup cleanup',
+                        'href' => '/sewage-cleanup/'
+                    ],
+                    [
+                        't' => ': toilet, tub, floor-drain and cast iron drain backups handled as contaminated water.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Flood and '
+                    ],
+                    [
+                        't' => 'storm cleanup',
+                        'href' => '/flood-cleanup/'
+                    ],
+                    [
+                        't' => ': rising water, storm surge and wind-driven rain.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Leaks of every kind: '
+                    ],
+                    [
+                        't' => 'AC leaks',
+                        'href' => '/ac-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'burst pipes',
+                        'href' => '/burst-pipe/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'water heaters',
+                        'href' => '/water-heater-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'appliances',
+                        'href' => '/appliance-leak/'
+                    ],
+                    [
+                        't' => ' and '
+                    ],
+                    [
+                        't' => 'slab leaks',
+                        'href' => '/slab-leak/'
+                    ],
+                    [
+                        't' => '.'
+                    ]
+                ],
+                [
+                    [
+                        't' => 'Every kind of property: single-family homes, '
+                    ],
+                    [
+                        't' => 'condos',
+                        'href' => '/condo-leak/'
+                    ],
+                    [
+                        't' => ', '
+                    ],
+                    [
+                        't' => 'mobile homes',
+                        'href' => '/mobile-home/'
+                    ],
+                    [
+                        't' => ', vacation rentals and '
+                    ],
+                    [
+                        't' => 'businesses',
+                        'href' => '/commercial/'
+                    ],
+                    [
+                        't' => '.'
+                    ]
+                ]
+            ]
+        ],
+
+--- 2) OLD -- site/includes/functions.php, 'ul' case of render_block() ---
+        case 'ul': {
+            $items = '';
+            foreach ($b['items'] as $it) {
+                $items .= '<li>' . render_segments($it) . '</li>';
+            }
+            return '<ul>' . $items . '</ul>';
+        }
+
+--- 2) NEW -- 'ul' case with the 'help-cards' branch (plain <ul> path unchanged below it) ---
+        case 'ul': {
+            if (($b['variant'] ?? '') === 'help-cards') {
+                // "What we help with" (homepage only): the 6 items as cards,
+                // image first in each card. Images come from the manifest
+                // ($MEDIA['help']['home'], indexed in list order); a missing
+                // slot renders NO <img> (honestly empty, never a forced photo).
+                // Item text renders through render_segments() exactly as the
+                // plain <ul> did -- same anchors, same hrefs, zero word changes.
+                $imgs = $GLOBALS['MEDIA']['help']['home'] ?? [];
+                $cards = '';
+                foreach ($b['items'] as $k => $it) {
+                    $img = '';
+                    $m = $imgs[$k] ?? null;
+                    if (!empty($m['src']) && !empty($m['alt'])) {
+                        $img = '<img class="help-card-img" src="' . esc($m['src']) . '"'
+                            . ' alt="' . esc($m['alt']) . '" width="' . (int) $m['width'] . '" height="' . (int) $m['height'] . '"'
+                            . ' loading="lazy" decoding="async">';
+                    }
+                    $cards .= '<article class="kind-card help-card">' . $img
+                        . '<p>' . render_segments($it) . '</p></article>';
+                }
+                return '<div class="kinds-grid help-grid">' . $cards . '</div>';
+            }
+            $items = '';
+            foreach ($b['items'] as $it) {
+                $items .= '<li>' . render_segments($it) . '</li>';
+            }
+            return '<ul>' . $items . '</ul>';
+        }
+
+--- 3) CSS -- add qa/css-snippet-help.css to styles.css (image rules only; grid/card inherited from .kinds-grid/.kind-card) ---
+--- 4) DATA -- merge qa/manifest-help-E.php into site/data/media-manifest.php under the 'help' key ---

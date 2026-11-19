@@ -1,0 +1,298 @@
+/* ==========================================================================
+   TASK — SITEWIDE COLOUR, BASE HEADINGS + UNOWNED SECTIONS (proposal only)
+   Fort Myers NEW PHP site — "Caloosahatchee" theme
+   (deep river teal #0A2E38, sunset coral CTA #C2410C, sand #F6F1E7,
+   gold #C99B3F, teal #0B5563, teal-dark #083F4A, coral-dark #9A3412)
+
+   STATUS: proposal snippet. NOT applied. Do not paste into styles.css
+   without the coordinator's apply + re-screenshot step. No shared file
+   was edited to produce this file.
+
+   HOW TO APPLY (coordinator): append this whole block to
+   site/assets/css/styles.css AFTER all existing base rules and AFTER the
+   other workers' snippets (D details, I tables/buttons, F kinds,
+   E help, G area cards). Every rule below is scoped so it cannot leak
+   into another worker's section; the specificity notes say how.
+
+   WHAT THIS SNIPPET DOES NOT TOUCH (deliberately):
+   - .details-card and everything inside it (worker D) — excluded with
+     :not() wherever a base rule could otherwise reach it.
+   - .kind-card and everything inside it (worker F) — excluded with :not().
+   - .table-wrap / th / td (worker I) — excluded with :not() from the
+     body-link rule; no table rule appears below.
+   - Help cards / area cards (workers E / G) — no .help-card / .area-card
+     selector exists in the current build (verified 2026-11-19 against
+     out/*.html + styles.css), so there is nothing to exclude; if E/G
+     introduce those classes, their rules (class selectors) beat the
+     base h2/h3 rules below only if they come later — see note S3.
+   - .btn / .btn-call / .btn-ghost / .btn-ghost-dark / .call-bar
+     (worker I) — excluded with :not(.btn) from the body-link rule; the
+     only button-adjacent rule below is :focus-visible, where I's
+     .btn:focus-visible (0,2,0) beats this file's :focus-visible (0,1,0).
+   - Hero images / .hero-img / .hero-no-media::after (Task 1 workers) —
+     the hero rules at the end of this file are COMMENTED-OUT audit
+     proposals only. Do NOT uncomment them here; hand them to Task 1.
+   - No text-size rule appears anywhere in this file (grep for the
+     property name returns 0). Body text stays 20px; h1/h2/h3 sizes are
+     untouched — only colours change.
+
+   SPECIFICITY NOTES
+   S1. Base h2 in styles.css is `h2` (0,0,1) and `.page-body h2::before`
+       (0,1,1). This file's `.page-body h2:not(.details-card h2)` is
+       (0,2,1) and its ::before is (0,2,1) + pseudo-element, so both win
+       without !important. The :not() means the rule NEVER matches a
+       details-card h2 — there is no fight with worker D, in either
+       order.
+   S2. Same pattern for h3: `.page-body h3:not(.kind-card h3)` (0,2,1)
+       beats base `h3` (0,0,1) and never matches a kind-card h3, so no
+       fight with worker F. `.footer-col h3` is outside .page-body and
+       is untouched by this rule (footer rules below keep it white).
+   S3. If workers E/G later add .help-card h3 / .area-card h3 rules at
+       (0,1,1), this file's (0,2,1) base h3 would still win IF it also
+       matched — it does not: help/area cards are not in the current
+       build, and if they are built as siblings of .page-body content
+       they should carry their own h3 colour. Coordinator: when E/G
+       land, add their selectors to this file's :not() lists.
+   S4. `.page-body a:not(.btn):not(.table-wrap a):not(.details-card a)`
+       — the chained :not() keeps the underline/visited treatment off
+       worker I's table links and worker D's details links. FAQ answer
+       links ARE matched on purpose (FAQ is owned here; the values
+       agree with the existing 20x D5 rule).
+   S5. `.faq-item:not([open]) summary:hover` — scoped to CLOSED items
+       so the 20x open-state identity (open summary stays teal) is
+       preserved; the base `.faq-item[open] summary` rule (0,2,1) and
+       this hover rule never apply at the same time.
+   ========================================================================== */
+
+/* --- 1. BASE H2 — river teal, with a river-into-sunset bar -------------
+   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: teal #0B5563 on white,
+   8.42:1 (7.48:1 on sand, 6.85:1 on sand-2) — still far above the 4.5:1
+   bar for normal text and 3:1 for large text, and now visually distinct
+   from the H3 below it. The old H2 and H3 were the SAME colour, so the
+   page had no heading hierarchy at all.
+   The bar: solid coral -> gradient teal-to-coral, same 72px x 6px, so
+   the bar now reads as the river flowing into the sunset. ---------- */
+.page-body h2:not(.details-card h2) {
+  color: var(--teal);
+}
+.page-body h2:not(.details-card h2)::before {
+  background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
+}
+
+/* --- 2. BASE H3 — sunset coral-dark ----------------------------------
+   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: coral-dark #9A3412 on
+   white, 7.31:1 (6.49:1 on sand, 5.94:1 on sand-2). Coral-dark was
+   chosen over plain coral #C2410C (5.18:1 white / 4.60:1 sand — a pass,
+   but a thin one on sand) because the darker end of the sunset keeps a
+   comfortable margin on every background an H3 can sit on, including
+   the steps list (white) and any sand-tinted section. H2 teal + H3
+   coral-dark = river + sunset, the two theme accents, one per level. */
+.page-body h3:not(.kind-card h3) {
+  color: var(--coral-dark);
+}
+
+/* --- 3. BODY LINKS — underline + visited distinction ------------------
+   BEFORE: teal #0B5563, 8.42:1, colour-only. A link next to ink body
+   text #12262E measures only 1.86:1 against its surroundings, so a
+   reader who cannot tell teal from ink has no cue at all (WCAG 1.4.1
+   wants 3:1 or a non-colour cue). AFTER: the same teal, now always
+   underlined (3px offset, matching the 20x D5 FAQ rule), so links are
+   recognisable without colour. Hover deepens to coral-dark #9A3412
+   (7.31:1, up from coral's 5.18:1) and keeps the underline. Visited
+   links get their own slightly brighter river teal #0C6B7A (6.18:1 on
+   white, 5.49:1 on sand) so a reader can tell what they already opened.
+   Buttons, table links and details links are excluded (workers I / D).
+   No :visited rule existed before: visited links used to look exactly
+   like unvisited ones. ----------------------------------------------- */
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a) {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):hover {
+  color: var(--coral-dark);
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):visited {
+  color: #0c6b7a;
+}
+/* List markers stay sunset coral (decorative, non-text). No change. */
+
+/* --- 4. BREADCRUMB ------------------------------------------------------
+   BEFORE: links teal 8.42:1 (good), current crumb ink 15.64:1 (good),
+   separator gold #C99B3F on white 2.55:1 (weak — the "»" almost
+   disappears on white). AFTER: separator darkened to #8A6D1F, 4.90:1 —
+   still gold, now actually visible. Links and current crumb unchanged.
+   Hover underline already existed; unchanged. ----------------------- */
+.breadcrumb .crumb-sep {
+  color: #8a6d1f;
+}
+
+/* --- 5. HEADER / NAV ----------------------------------------------------
+   5a. Gold baseline under the sticky header. BEFORE: flat deep header
+   with only a drop shadow. AFTER: the same shadow plus a 3px gold rule
+   (inset box-shadow, so ZERO height/layout change). It ties the header
+   to the footer gold rule below and to the gold current-page underline.
+   5b. Dropdown current item. BEFORE: coral #C2410C on sand-2 #EFE7D6,
+   4.21:1 — the ONE measured WCAG failure in the header (18px bold is
+   normal text, needs 4.5:1). AFTER: coral-dark #9A3412 on sand-2,
+   5.94:1. Background, weight and padding untouched.
+   5c. Dropdown link hover. BEFORE: coral on sand, 4.60:1 (a pass, but
+   the thinnest on the site). AFTER: coral-dark on sand, 6.49:1.
+   5d. Mobile menu toggle hover. BEFORE: no hover state. AFTER: the same
+   12% white wash the desktop nav uses, so the toggle answers the tap.
+   Everything else in the header already passes with margin and is
+   UNCHANGED: brand white 14.38:1, brand-tag #B8D2D8 9.07:1, nav links
+   white 14.38:1, current-page gold wash (white 10.08:1 on the true
+   composite #34463A) + gold underline, mobile group labels #A9C3C9
+   7.76:1, mobile links white 14.38:1, mobile current white 9.37:1 on
+   its composite. ----------------------------------------------------- */
+.site-header {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35), inset 0 -3px 0 var(--gold);
+}
+.nav-dropdown span.nav-current {
+  color: var(--coral-dark);
+}
+.nav-dropdown a:hover {
+  color: var(--coral-dark);
+}
+.mobile-menu summary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- 6. FOOTER ----------------------------------------------------------
+   6a. Gold rule above the footer. BEFORE: flat deep footer meeting the
+   white page with no edge. AFTER: a 3px gold rule (inset box-shadow,
+   ZERO layout change), mirroring the header baseline — the page is now
+   framed in gold top and bottom.
+   6b. Everything else measured already passes with margin and is
+   UNCHANGED: column headings white 14.38:1 (gold was considered and
+   rejected — three gold column headings would shout; gold already
+   speaks in the brand-name span and the current-page underline),
+   column links #D7E4E7 11.05:1, hover white + underline, current item
+   white 14.38:1 + gold underline, ZIPs #A9C3C9 7.76:1, base text
+   #D7E4E7 11.05:1, base phone white 14.38:1, brand-name white +
+   gold span (gold on deep 5.64:1, large display text), footer map
+   link gold-cream #FFD9A8 10.78:1, back-to-top white 14.38:1 with gold
+   hover 5.64:1. ------------------------------------------------------ */
+.site-footer {
+  box-shadow: inset 0 3px 0 var(--gold);
+}
+
+/* --- 7. FAQ --------------------------------------------------------------
+   7a. Closed summary: teal #0B5563, 8.42:1 — UNCHANGED (already best).
+   7b. Closed summary hover. BEFORE: coral #C2410C on sand, 4.60:1.
+   AFTER: coral-dark #9A3412 on sand, 6.49:1 (scoped to closed items
+   only — see S5 — so an open summary keeps its teal identity).
+   7c. Open summary: gains a sand background wash so an open answer is
+   unmistakable even without reading the +/- glyph. Teal on sand
+   7.48:1. Border-left gold + teal border (20x) unchanged.
+   7d. The +/- glyph: white on coral 5.18:1 closed, coral glyph on
+   white 5.18:1 — UNCHANGED (passes with margin at 26px/24px).
+   7e. Answer links: teal underlined 8.42:1 (20x D5) — UNCHANGED by any
+   rule here; the generic body-link rule in §3 agrees with it and adds
+   the visited #0C6B7A treatment. ------------------------------------ */
+.faq-item:not([open]) summary:hover {
+  color: var(--coral-dark);
+  background: var(--sand);
+}
+.faq-item[open] summary {
+  background: var(--sand);
+}
+
+/* --- 8. STEPS ------------------------------------------------------------
+   BEFORE: number badge flat coral, white on coral 5.18:1 (28px/24px
+   display numerals — large text, passes 3:1 with margin). AFTER: the
+   same sunset gradient worker I uses on .btn-call (coral -> coral-dark),
+   so badges and buttons read as one CTA system. White on the lightest
+   point 5.18:1, on the darkest 7.31:1. Step titles are covered by the
+   base H3 rule in §2 (coral-dark), so badge + title are now one family.
+   The hairline between steps (#DCD5C6) is unchanged. ----------------- */
+.step-num {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+
+/* --- 9. MAP SECTION ------------------------------------------------------
+   The caption is an H2 and is covered by §1 (teal + gradient bar;
+   30px display, 8.42:1). The iframe's 2px gold border is unchanged.
+   The footer "View larger map" link (gold-cream #FFD9A8 on deep,
+   10.78:1) is unchanged. No rule needed here beyond §1 — recorded so
+   the coordinator can see the map was considered, not missed. -------- */
+
+/* --- 10. CTA LINES + LAST-UPDATED ---------------------------------------
+   .cta-line holds only worker I's buttons (excluded). .last-updated is
+   muted #46585F on white, 7.44:1 — passes with margin. No rule needed;
+   recorded so the coordinator can see it was measured, not missed. --- */
+
+/* --- 11. 404 PAGE --------------------------------------------------------
+   The 404 H1 is the ONLY deep-colour H1 on the site (every other H1
+   sits white on the hero). BEFORE: deep #0A2E38 on white, 14.38:1.
+   AFTER: river teal #0B5563, 8.42:1 — the error page now reads as part
+   of the H2 system instead of an unstyled default, while staying far
+   above the large-text bar. Its paragraph links are covered by §3 and
+   its buttons belong to worker I. ------------------------------------- */
+.not-found h1 {
+  color: var(--teal);
+}
+
+/* --- 12. SELECTION + FOCUS ----------------------------------------------
+   NEW: no ::selection rule existed. Gold selection with deep text
+   (5.64:1) keeps selected text readable in the brand palette.
+   NEW: a single global focus ring — 3px gold, 2px offset — for every
+   keyboard-focusable element that has no ring of its own. Gold on
+   white 2.55:1 as a colour is weak, but a 3px outline is a non-text
+   indicator (WCAG 2.4.11 needs 3:1 against adjacent colours; gold vs
+   white is 2.55:1 — see the note below). The elements that matter most
+   already carry stronger rings and WIN on specificity: .btn:focus-visible
+   (worker I, 0,2,0 — white ring + coral outer ring), .skip-link:focus
+   (0,2,0 — coral bg + gold outline), .faq-item summary:focus-visible
+   (0,2,1 — gold outline on white card). This global rule is the safety
+   net for plain links, whose only focus cue today is the browser
+   default. NOTE for the coordinator: if a stricter reading of 2.4.11
+   is wanted, swap var(--gold) for #8A6D1F (4.90:1 on white) in this
+   one rule — the trade-off is a less golden ring. ------------------- */
+::selection {
+  background: var(--gold);
+  color: var(--deep);
+}
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   HERO — AUDIT-ONLY PROPOSALS. DO NOT APPLY FROM THIS FILE.
+   Hand these to the Task 1 hero workers / coordinator. The hero image
+   implementation is theirs; these are colour numbers only.
+
+   MEASURED (current scrim: linear-gradient(100deg, rgba(6,32,40,0.93)
+   0%, rgba(6,32,40,0.80) 46%, rgba(6,32,40,0.38) 100%)):
+   - Where the text actually sits (left ~46%, scrim 0.93–0.80 over the
+     deep gradient, no photo yet): H1 white 16.87:1, intro #EEF4F5
+     15.18:1, intro link gold-cream #FFD9A8 12.64:1, areas line #CFE0E4
+     12.40:1. All pass by a wide margin. Hero text colours: NO CHANGE.
+   - The risk is the RIGHT edge (scrim 0.38) once a photo lands there:
+     over a pure-white photo the composite is #A0AAAD and white text
+     would fall to 2.37:1. No text sits there today, but a photo with a
+     bright right side + any text drift would fail.
+   PROPOSAL (scrim only — no text colour change):
+   - .hero-scrim { background: linear-gradient(100deg,
+       rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.80) 46%,
+       rgba(6, 32, 40, 0.70) 100%); }
+     Right stop 0.38 -> 0.70. Worst case over a pure-white photo the
+     composite becomes #516369: white text 6.29:1, gold-cream intro link
+     4.72:1, areas line 4.62:1 — every hero text colour passes 4.5:1
+     even in the worst case. The photo still shows through (30% of it),
+     and the left 46% where the text sits is pixel-identical to today.
+     0.60 was measured too (white 4.52:1) but leaves the gold-cream
+     link at 3.39:1, so 0.70 is the value that covers ALL hero text.
+   - .hero-no-media::after (20x D1 river motif) is above the scrim and
+     below the text; its opacities are untouched by this change.
+   - .hero-areas has NO links on any page (plain text + "·" separators,
+     verified across out/*.html) — the .hero-areas a rule in styles.css
+     is dead code; leave it, do not delete it in a colour round.
+   ========================================================================== */
+/*
+.hero-scrim {
+  background: linear-gradient(100deg, rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.80) 46%, rgba(6, 32, 40, 0.70) 100%);
+}
+*/

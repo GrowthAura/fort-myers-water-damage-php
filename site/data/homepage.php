@@ -161,6 +161,7 @@ return [
         ],
         [
             'type' => 'ul',
+            'variant' => 'help-cards',
             'items' => [
                 [
                     [
@@ -183,7 +184,6 @@ return [
                 [
                     [
                         't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
                     ],
                     [
                         't' => ': toilet, tub, floor-drain and cast iron drain backups handled as contaminated water.'
@@ -195,7 +195,6 @@ return [
                     ],
                     [
                         't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
                     ],
                     [
                         't' => ': rising water, storm surge and wind-driven rain.'
@@ -207,35 +206,30 @@ return [
                     ],
                     [
                         't' => 'AC leaks',
-                        'href' => '/ac-leak/'
                     ],
                     [
                         't' => ', '
                     ],
                     [
                         't' => 'burst pipes',
-                        'href' => '/burst-pipe/'
                     ],
                     [
                         't' => ', '
                     ],
                     [
                         't' => 'water heaters',
-                        'href' => '/water-heater-leak/'
                     ],
                     [
                         't' => ', '
                     ],
                     [
                         't' => 'appliances',
-                        'href' => '/appliance-leak/'
                     ],
                     [
                         't' => ' and '
                     ],
                     [
                         't' => 'slab leaks',
-                        'href' => '/slab-leak/'
                     ],
                     [
                         't' => '.'
@@ -247,14 +241,12 @@ return [
                     ],
                     [
                         't' => 'condos',
-                        'href' => '/condo-leak/'
                     ],
                     [
                         't' => ', '
                     ],
                     [
                         't' => 'mobile homes',
-                        'href' => '/mobile-home/'
                     ],
                     [
                         't' => ', vacation rentals and '
@@ -315,6 +307,7 @@ return [
         ],
         [
             'type' => 'p',
+            'variant' => 'about-buttons',
             'segs' => [
                 [
                     't' => 'More about who we are: '
@@ -858,30 +851,16 @@ return [
                     'title' => 'Water removal',
                     'body' => [
                         [
-                            't' => 'Standing water is extracted, and soaked carpet pad and anything that cannot be saved are removed. With contaminated water, affected materials come out under containment. See '
+                            't' => 'Standing water is extracted, and soaked carpet pad and anything that cannot be saved are removed. With contaminated water, affected materials come out under containment.'
                         ],
-                        [
-                            't' => 'emergency water removal',
-                            'href' => '/water-removal/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
                     'title' => 'Drying and daily monitoring',
                     'body' => [
                         [
-                            't' => 'Dehumidifiers and air movers run around the clock. Moisture readings are taken and logged as the job goes on, and equipment is adjusted until materials reach normal dry readings, not just until surfaces feel dry. See '
+                            't' => 'Dehumidifiers and air movers run around the clock. Moisture readings are taken and logged as the job goes on, and equipment is adjusted until materials reach normal dry readings, not just until surfaces feel dry.'
                         ],
-                        [
-                            't' => 'how structural drying works',
-                            'href' => '/drying/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -898,15 +877,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Most clean-water jobs take about 3 to 5 days to dry. Concrete slabs, hardwood, tile on slab and sewage jobs usually take longer. See '
+                    't' => 'Most clean-water jobs take about 3 to 5 days to dry. Concrete slabs, hardwood, tile on slab and sewage jobs usually take longer.'
                 ],
-                [
-                    't' => 'what happens after you call',
-                    'href' => '/how-it-works/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -1264,28 +1236,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'Once the line is open, everything the sewage touched is treated as Category 3. See '
-                ],
-                [
-                    't' => 'sewage backup cleanup',
-                    'href' => '/sewage-cleanup/'
-                ],
-                [
-                    't' => ' and '
-                ],
-                [
-                    't' => 'cast iron pipe water damage',
-                    'href' => '/cast-iron-pipe/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Why Water Damage Spreads Faster in Fort Myers and Lee County'
         ],
@@ -1455,14 +1405,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'Not sure which flood zone you are in? Look up your address on FEMA\'s Flood Map Service Center (msc.fema.gov) or ask your building department for the elevation certificate on file.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Do You Need a Restoration Company in Fort Myers, or Can You Handle It Yourself?'
         ],
@@ -1588,21 +1530,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See '
-                ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => ' for the full walkthrough.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Water Damage in Fort Myers Businesses and Vacation Rentals'
         ],
@@ -1619,15 +1546,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Businesses. Restaurants, medical and dental offices, retail stores and warehouses get drying plans built around opening hours, with equipment placed so parts of the space can stay open where it is safe. See '
+                        't' => 'Businesses. Restaurants, medical and dental offices, retail stores and warehouses get drying plans built around opening hours, with equipment placed so parts of the space can stay open where it is safe.'
                     ],
-                    [
-                        't' => 'commercial water damage',
-                        'href' => '/commercial/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1979,6 +1899,7 @@ return [
         ],
         [
             'type' => 'p',
+            'variant' => 'call-button',
             'segs' => [
                 [
                     't' => 'Not sure your street is covered? Call 239-356-3708 with your ZIP code.'
@@ -2031,15 +1952,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'North Fort Myers: manufactured-home communities and riverfront homes. See '
+                    't' => 'North Fort Myers: manufactured-home communities and riverfront homes.'
                 ],
-                [
-                    't' => 'North Fort Myers',
-                    'href' => '/north-fort-myers/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -2121,14 +2035,12 @@ return [
                         ],
                         [
                             't' => 'emergency water removal',
-                            'href' => '/water-removal/'
                         ],
                         [
                             't' => ', moisture mapping with meters and a thermal camera, '
                         ],
                         [
                             't' => 'structural drying',
-                            'href' => '/drying/'
                         ],
                         [
                             't' => ' with daily readings, cleaning and antimicrobial treatment where needed, and photos and moisture logs for your records and your insurer. The rebuild of drywall, flooring and cabinets comes after, and who does it is your choice.'
@@ -2171,29 +2083,8 @@ return [
                     'q' => 'What causes most water damage in Fort Myers homes?',
                     'a' => [
                         [
-                            't' => 'Clogged AC condensate lines are one of the most common causes, followed by split supply lines under sinks and toilets, failing water heaters, roof and window leaks in summer storms, appliance leaks and, in older homes, cracked cast iron drains under the slab. See '
+                            't' => 'Clogged AC condensate lines are one of the most common causes, followed by split supply lines under sinks and toilets, failing water heaters, roof and window leaks in summer storms, appliance leaks and, in older homes, cracked cast iron drains under the slab.'
                         ],
-                        [
-                            't' => 'AC leak water damage',
-                            'href' => '/ac-leak/'
-                        ],
-                        [
-                            't' => ', '
-                        ],
-                        [
-                            't' => 'ceiling leaks',
-                            'href' => '/ceiling-leak/'
-                        ],
-                        [
-                            't' => ' and '
-                        ],
-                        [
-                            't' => 'cast iron pipe damage',
-                            'href' => '/cast-iron-pipe/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -2236,28 +2127,24 @@ return [
                         ],
                         [
                             't' => 'townhomes',
-                            'href' => '/condo-leak/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'manufactured homes',
-                            'href' => '/mobile-home/'
                         ],
                         [
                             't' => ', vacation rentals, '
                         ],
                         [
                             't' => 'seasonal homes',
-                            'href' => '/vacant-home/'
                         ],
                         [
                             't' => ' and '
                         ],
                         [
                             't' => 'businesses',
-                            'href' => '/commercial/'
                         ],
                         [
                             't' => ' each hide water in different places, so each one gets a drying plan built around how it is put together.'
@@ -2268,15 +2155,8 @@ return [
                     'q' => 'What should I do before leaving my Fort Myers home for the summer?',
                     'a' => [
                         [
-                            't' => 'Shut off the main water valve and the water heater, leave the AC running to control humidity, and have someone walk the house regularly while you\'re away. A leak in an empty home can run for weeks before anyone sees it. See '
+                            't' => 'Shut off the main water valve and the water heater, leave the AC running to control humidity, and have someone walk the house regularly while you\'re away. A leak in an empty home can run for weeks before anyone sees it.'
                         ],
-                        [
-                            't' => 'the full checklist for seasonal homes',
-                            'href' => '/vacant-home/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [

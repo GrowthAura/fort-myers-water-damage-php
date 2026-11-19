@@ -326,15 +326,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'AC condensate overflows from a clogged drain line or failed condensate pump in an interior closet. See '
+                        't' => 'AC condensate overflows from a clogged drain line or failed condensate pump in an interior closet.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -804,15 +797,8 @@ return [
                     'title' => 'Open what can\'t dry',
                     'body' => [
                         [
-                            't' => 'Sagging ceiling drywall, soaked insulation and swollen cabinet bases are removed and photographed. See '
+                            't' => 'Sagging ceiling drywall, soaked insulation and swollen cabinet bases are removed and photographed.'
                         ],
-                        [
-                            't' => 'ceiling leak water damage',
-                            'href' => '/ceiling-leak/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1089,40 +1075,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Insurance and '
-                    ],
-                    [
-                        't' => 'water damage in Florida',
-                        'href' => '/insurance/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration services',
                         'href' => '/'
                     ]
                 ]

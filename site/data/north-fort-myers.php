@@ -227,15 +227,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Manufactured homes. Particle board or OSB decking, insulation in the floor system and a belly wrap underneath. Water soaks into the floor and gets trapped in the belly. See '
+                        't' => 'Manufactured homes. Particle board or OSB decking, insulation in the floor system and a belly wrap underneath. Water soaks into the floor and gets trapped in the belly.'
                     ],
-                    [
-                        't' => 'mobile home water damage',
-                        'href' => '/mobile-home/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -311,7 +304,6 @@ return [
                     [
                         [
                             't' => 'Mobile home water damage',
-                            'href' => '/mobile-home/'
                         ]
                     ]
                 ],
@@ -329,7 +321,6 @@ return [
                     [
                         [
                             't' => 'Water heater leak cleanup',
-                            'href' => '/water-heater-leak/'
                         ]
                     ]
                 ],
@@ -520,15 +511,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Drying usually means opening the belly, removing wet insulation and replacing damaged decking, not just running fans inside. See '
+                    't' => 'Drying usually means opening the belly, removing wet insulation and replacing damaged decking, not just running fans inside.'
                 ],
-                [
-                    't' => 'mobile home water damage',
-                    'href' => '/mobile-home/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -834,15 +818,13 @@ return [
                             't' => ', '
                         ],
                         [
-                            't' => 'Fort Myers',
-                            'href' => '/'
+                            't' => 'Fort Myers'
                         ],
                         [
                             't' => ' and '
                         ],
                         [
                             't' => 'all service areas',
-                            'href' => '/areas/'
                         ],
                         [
                             't' => '.'
@@ -872,28 +854,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Cape Coral',
-                        'href' => '/cape-coral/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage experts in Fort Myers, FL',
                         'href' => '/'
                     ]
                 ]

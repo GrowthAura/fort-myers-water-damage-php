@@ -1,0 +1,106 @@
+PROPOSAL ONLY -- do not apply by hand-editing shared files outside the coordinator flow.
+Files touched by the coordinator: site/data/homepage.php (one 'variant' line per block),
+site/includes/functions.php (one render branch per case), styles.css (the CSS snippet file).
+No other file changes. All OLD blocks below are verbatim from the files as read 2026-11-19.
+
+==================== TASK 4 -- ABOUT / HOW-IT-WORKS BUTTONS ====================
+
+--- 1) OLD -- site/data/homepage.php, the closing 'p' block (only occurrence of this text on the site) ---
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'More about who we are: '
+                ],
+                [
+                    't' => 'About us',
+                    'href' => '/about/'
+                ],
+                [
+                    't' => ' · '
+                ],
+                [
+                    't' => 'How it works',
+                    'href' => '/how-it-works/'
+                ]
+            ]
+        ],
+
+--- 1) NEW -- same block, ONE line added ('variant') ---
+        [
+            'type' => 'p',
+            'variant' => 'about-buttons',
+            'segs' => [
+                [
+                    't' => 'More about who we are: '
+                ],
+                [
+                    't' => 'About us',
+                    'href' => '/about/'
+                ],
+                [
+                    't' => ' · '
+                ],
+                [
+                    't' => 'How it works',
+                    'href' => '/how-it-works/'
+                ]
+            ]
+        ],
+
+--- 2) OLD -- site/includes/functions.php, 'p' case of render_block() ---
+        case 'p':
+            return '<p>' . render_segments($b['segs']) . '</p>';
+
+--- 2) NEW -- 'p' case with the 'about-buttons' branch (plain <p> path unchanged at the end) ---
+NOTE: the 'call-button' branch in this NEW block belongs to Task 8
+(qa/patch-call-button-homepage.txt); both branches live in the same 'p' case.
+If Task 8 is applied separately, keep only the 'about-buttons' branch here.
+        case 'p':
+            if (($b['variant'] ?? '') === 'about-buttons') {
+                // Homepage closing line (the only place this text appears):
+                // lead text + the two links as ghost buttons. The ' · '
+                // separator segment is dropped -- punctuation, not a word
+                // (recorded in qa/FINDINGS-help-cards.md). All other segments
+                // render exactly: same link texts, same hrefs.
+                $out = '';
+                foreach ($b['segs'] as $s) {
+                    if (($s['t'] ?? '') === ' · ') {
+                        continue;
+                    }
+                    if (!empty($s['href'])) {
+                        $out .= '<a class="btn btn-ghost-dark" href="' . esc($s['href']) . '">' . esc($s['t']) . '</a>';
+                    } else {
+                        $out .= esc($s['t']);
+                    }
+                }
+                return '<p class="about-buttons">' . clean_dashes_html($out) . '</p>';
+            }
+            if (($b['variant'] ?? '') === 'call-button') {
+                // "Not sure your street is covered? Call 239-356-3708 with
+                // your ZIP code." (homepage only): the phone number becomes
+                // a .btn-call button with the phone SVG (same markup as the
+                // hero call button; href tel:+12393563708, as hardcoded in
+                // the hero and cta-line cases); the rest stays as
+                // surrounding text. The trailing "Call " moves into the
+                // button label so the word "Call" appears once, not twice.
+                // Zero word changes: every word of the original sentence is
+                // present exactly once in the rendered line.
+                $text = '';
+                foreach ($b['segs'] as $s) {
+                    $text .= $s['t'];
+                }
+                $phone = '239-356-3708';
+                $pos = strpos($text, $phone);
+                $before = $pos === false ? $text : substr($text, 0, $pos);
+                $after = $pos === false ? '' : substr($text, $pos + strlen($phone));
+                if (substr($before, -5) === 'Call ') {
+                    $before = substr($before, 0, -5);
+                }
+                return '<p class="call-zip-line">' . clean_dashes_html(esc($before))
+                    . '<a class="btn btn-call" href="tel:+12393563708">' . phone_svg() . ' Call ' . esc($phone) . '</a>'
+                    . clean_dashes_html(esc($after)) . '</p>';
+            }
+            return '<p>' . render_segments($b['segs']) . '</p>';
+
+--- 3) CSS -- add qa/css-snippet-buttons.css to styles.css (spacing only; .btn/.btn-ghost-dark already give a 56px tap target, no height fix needed) ---

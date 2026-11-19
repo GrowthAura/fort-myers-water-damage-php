@@ -212,15 +212,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Call for water removal and drying. Standing water and hidden moisture in walls, under tile and in the slab need commercial equipment and moisture readings. See '
+                        't' => 'Call for water removal and drying. Standing water and hidden moisture in walls, under tile and in the slab need commercial equipment and moisture readings.'
                     ],
-                    [
-                        't' => 'emergency water removal',
-                        'href' => '/water-removal/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -374,7 +367,6 @@ return [
                     [
                         [
                             't' => 'Condo water damage',
-                            'href' => '/condo-leak/'
                         ]
                     ]
                 ],
@@ -646,7 +638,6 @@ return [
                 ],
                 [
                     't' => 'structural drying',
-                    'href' => '/drying/'
                 ],
                 [
                     't' => ' matter more here than in drier climates.'
@@ -1121,37 +1112,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage help',
                         'href' => '/'
                     ]
                 ]

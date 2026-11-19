@@ -519,15 +519,8 @@ return [
                     'title' => 'Extract the water',
                     'body' => [
                         [
-                            't' => 'Standing water is extracted from the slab, carpet and closet floor. See '
+                            't' => 'Standing water is extracted from the slab, carpet and closet floor.'
                         ],
-                        [
-                            't' => 'emergency water removal',
-                            'href' => '/water-removal/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -985,25 +978,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Mobile home water damage',
-                        'href' => '/mobile-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damaged floors',
-                        'href' => '/floors/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers emergency water damage restoration',
                         'href' => '/'
                     ]
                 ]

@@ -1,0 +1,19 @@
+/* About / How-it-works buttons — homepage only (Task 4).
+   The two links render as <a class="btn btn-ghost-dark">, i.e. the
+   existing .btn + .btn-ghost-dark rules already in styles.css.
+   TAP-TARGET MEASUREMENT (from styles.css, no new rule needed):
+   .btn { font-size: 20px; line-height: 1.2 (= 24px); padding: 16px 28px;
+   min-height: 56px; } -> rendered height = max(56px, 24 + 32) = 56px,
+   which is >= the 44px bar. .btn-ghost-dark adds only colours
+   (transparent bg, teal text/border; teal bg + white text on hover).
+   NO height fix is required. This snippet adds only the spacing that
+   keeps the buttons breathing inside the paragraph line when they wrap
+   on mobile. */
+
+/* The <p> keeps its normal block flow; the buttons are inline-flex
+   inside it, so on narrow screens they wrap below the lead text. */
+.about-buttons .btn {
+  margin: 4px 8px 4px 0;
+  vertical-align: middle;
+}
+.about-buttons .btn:last-child { margin-right: 0; }

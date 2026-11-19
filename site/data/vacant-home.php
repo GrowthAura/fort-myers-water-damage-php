@@ -221,15 +221,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'AC condensate overflow. The AC keeps running but the drain line clogs, and water spills into the closet, ceiling or floor for weeks. See '
+                        't' => 'AC condensate overflow. The AC keeps running but the drain line clogs, and water spills into the closet, ceiling or floor for weeks.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -274,15 +267,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Leaks from the unit above in condos, where your neighbor may also be away. See '
+                        't' => 'Leaks from the unit above in condos, where your neighbor may also be away.'
                     ],
-                    [
-                        't' => 'condo water damage',
-                        'href' => '/condo-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -1001,31 +987,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'emergency water removal in Fort Myers',
                         'href' => '/'
                     ]
                 ]

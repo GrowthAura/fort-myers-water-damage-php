@@ -1,0 +1,47 @@
+/* Task 7 — area-card grid for /areas/ (qa/css-snippet-areas.css, proposal).
+   Append to site/assets/css/styles.css. Mirrors the .kinds-grid / .kind-card
+   treatment (white card, coral top border, 12px radius, same shadow, same
+   breakpoints) with a full-bleed photo header on each card.
+   Slot math (container max 1240px, padding 24px -> content 1192px; grid gap 24px):
+     desktop 3-col : column (1192-48)/3 = 381px -> image 381x254 @3:2
+     2-col @1020px: column (972-24)/2  = 474px -> image 474x316 @3:2  (LARGEST slot)
+     mobile 390px : single column, content 350px -> image 350x233 @3:2
+   Files are served at exactly the largest slot, 474x316; the browser
+   downscales at desktop/mobile. aspect-ratio + object-fit: cover keep the
+   box exact at every width so no layout shift occurs. */
+
+/* --- Area cards --- */
+.area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
+.area-card {
+  background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--coral);
+  border-radius: 12px; padding: 0 0 28px; box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  overflow: hidden;
+}
+.area-card-img {
+  display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 0; margin: 0;
+}
+.area-card h3 { margin: 20px 0 0; padding: 0 28px; font-size: 23px; }
+.area-card p { margin: 12px 0 0; padding: 0 28px; }
+.area-card p:last-child { margin-bottom: 0; }
+
+/* Defer off-screen painting like .kinds-grid (coordinator: merge this selector
+   into the existing .faq-list / ol.steps / .table-wrap / .kinds-grid
+   content-visibility rule + the @media print rule instead of keeping a
+   duplicate rule, if preferred). */
+.area-grid {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+@media print {
+  .area-grid { content-visibility: visible; }
+}
+
+/* --- Responsive overrides - AFTER the base rules (cascade: same specificity,
+   later wins). Mirrors the .kinds-grid breakpoints exactly. --- */
+@media (max-width: 1020px) {
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .area-grid { grid-template-columns: 1fr; }
+}

@@ -945,15 +945,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Stop the water and make it safe. Use the '
+                        't' => 'Stop the water and make it safe.'
                     ],
-                    [
-                        't' => 'first-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1054,7 +1047,6 @@ return [
                 ],
                 [
                     't' => 'cast iron pipe water damage',
-                    'href' => '/cast-iron-pipe/'
                 ],
                 [
                     't' => ' and '
@@ -1128,45 +1120,24 @@ return [
                     'q' => 'Does homeowners insurance cover a burst pipe in Florida?',
                     'a' => [
                         [
-                            't' => 'Usually yes for the water damage the burst causes, such as wet drywall, flooring and cabinets. Repairing the pipe itself may not be covered. See '
+                            't' => 'Usually yes for the water damage the burst causes, such as wet drywall, flooring and cabinets. Repairing the pipe itself may not be covered.'
                         ],
-                        [
-                            't' => 'burst pipe water damage',
-                            'href' => '/burst-pipe/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
                     'q' => 'Does insurance cover AC leak water damage in Fort Myers?',
                     'a' => [
                         [
-                            't' => 'Often for sudden overflows that damage ceilings, walls and floors. The AC repair itself usually isn\'t covered, and leaks that ran for weeks may be excluded. See '
+                            't' => 'Often for sudden overflows that damage ceilings, walls and floors. The AC repair itself usually isn\'t covered, and leaks that ran for weeks may be excluded.'
                         ],
-                        [
-                            't' => 'AC leak water damage',
-                            'href' => '/ac-leak/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
                     'q' => 'Is a slab leak covered by homeowners insurance?',
                     'a' => [
                         [
-                            't' => 'The resulting damage to floors, walls and cabinets often is, when the leak was sudden. The pipe repair may not be, though some policies pay to break out the slab to reach it. See '
+                            't' => 'The resulting damage to floors, walls and cabinets often is, when the leak was sudden. The pipe repair may not be, though some policies pay to break out the slab to reach it.'
                         ],
-                        [
-                            't' => 'slab leak water damage',
-                            'href' => '/slab-leak/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1264,31 +1235,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'What happens after you call',
-                        'href' => '/how-it-works/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration professionals',
                         'href' => '/'
                     ]
                 ]

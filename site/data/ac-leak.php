@@ -173,15 +173,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Check the ceiling. If it sags or bulges, keep everyone out from underneath it. See '
+                        't' => 'Check the ceiling. If it sags or bulges, keep everyone out from underneath it.'
                     ],
-                    [
-                        't' => 'what to do about a leaking ceiling',
-                        'href' => '/ceiling-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -658,15 +651,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Drying with dehumidifiers and air movers, with readings logged daily. See '
+                        't' => 'Drying with dehumidifiers and air movers, with readings logged daily.'
                     ],
-                    [
-                        't' => 'how structural drying works',
-                        'href' => '/drying/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -783,21 +769,6 @@ return [
                     [
                         't' => 'Dry both units. Drying only the unit with the AC leaves wet drywall and insulation in the ceiling below.'
                     ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See '
-                ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
                 ]
             ]
         ],
@@ -1069,31 +1040,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage experts',
                         'href' => '/'
                     ]
                 ]

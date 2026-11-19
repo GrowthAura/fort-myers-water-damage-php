@@ -1,0 +1,313 @@
+TASK 7 — AREA PARAGRAPHS INTO IMAGE CARDS: patch proposal for the coordinator
+================================================================================
+Target page: /areas/  (site/data/areas.php), section under the H3
+'Lee County Service Areas and ZIP Codes' — the ZIP table stays EXACTLY as-is;
+the six H3 + paragraph pairs below it become two image-card grids.
+Scope guard: Fort Myers, Sanibel and Captiva, Pine Island and Matlacha, and
+San Carlos Park / Gateway / Iona H3 + paragraph pairs are NOT in this task and
+are NOT touched. No words change anywhere; the six paragraphs' segments are
+copied verbatim into the new blocks (emitted from the parsed data, not retyped).
+Order is preserved: grid 1 (4 cards) sits where Cape Coral..Fort Myers Beach
+sat; Sanibel + Pine Island prose stays between the grids; grid 2 (2 cards)
+sits where Estero..Bonita Springs sat. Two grids instead of one, so that no
+section moves. (Single-grid alternative would pull Estero/Bonita above
+Sanibel/Pine Island — a document-order change; not proposed.)
+Prerequisite: merge qa/manifest-areas-G.php into $MEDIA under key 'areas'
+(see that file). The render code looks the image up with media_for('areas',
+$slug); a missing entry renders the card with NO <img> (honestly empty),
+exactly like the hero behaviour.
+
+--------------------------------------------------------------------------------
+1) DATA — site/data/areas.php — GRID 1 (Cape Coral, Lehigh Acres,
+   North Fort Myers, Fort Myers Beach)
+--------------------------------------------------------------------------------
+--- OLD CODE (verbatim, site/data/areas.php lines 323-404) ---
+        [
+            'type' => 'h3',
+            'text' => 'Cape Coral'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'Mostly single-family slab homes, many built between 1970 and 1999, laced with canals. City water, sewer and a separate irrigation system serve most of the Cape, while parts of the north still run on wells and septic. Slab leaks, original cast iron drains in older Cape neighborhoods, canal surge and leaks in seasonal homes are the most common calls. Full guide: '
+                ],
+                [
+                    't' => 'water damage restoration in Cape Coral',
+                    'href' => '/cape-coral/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+        ],
+        [
+            'type' => 'h3',
+            'text' => 'Lehigh Acres'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'A large, younger community of concrete block homes, many built in the 2000s and later. Many homes use private wells and septic tanks, heavy summer rain can flood streets and low lots, and air conditioners run hard most of the year. Full guide: '
+                ],
+                [
+                    't' => 'water damage help in Lehigh Acres',
+                    'href' => '/lehigh-acres/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+        ],
+        [
+            'type' => 'h3',
+            'text' => 'North Fort Myers'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'North of the Caloosahatchee, North Fort Myers mixes riverfront homes, golf communities and many manufactured-home communities. Soft floors from water heater and supply line leaks, water trapped in the belly wrap, roof leaks and river flooding are the most common problems. Full guide: '
+                ],
+                [
+                    't' => 'water damage restoration in North Fort Myers',
+                    'href' => '/north-fort-myers/'
+                ],
+                [
+                    't' => '. See also '
+                ],
+                [
+                    't' => 'mobile home water damage',
+                    'href' => '/mobile-home/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+        ],
+        [
+            'type' => 'h3',
+            'text' => 'Fort Myers Beach'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'Fort Myers Beach on Estero Island sits right on the Gulf, and many homes and businesses there have been rebuilt, often elevated. Storm surge, condo and vacation rental leaks and sewage problems after storms are the main concerns. Full guide: '
+                ],
+                [
+                    't' => 'water damage help on Fort Myers Beach',
+                    'href' => '/fort-myers-beach/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+--- NEW CODE (paste in place of the old block above) ---
+        [
+            'type' => 'area-cards',
+            'items' => [
+                [
+                    'slug' => 'cape-coral',
+                    'title' => 'Cape Coral',
+                    'body' => [
+                        [
+                            't' => 'Mostly single-family slab homes, many built between 1970 and 1999, laced with canals. City water, sewer and a separate irrigation system serve most of the Cape, while parts of the north still run on wells and septic. Slab leaks, original cast iron drains in older Cape neighborhoods, canal surge and leaks in seasonal homes are the most common calls. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Cape Coral',
+                            'href' => '/cape-coral/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+                [
+                    'slug' => 'lehigh-acres',
+                    'title' => 'Lehigh Acres',
+                    'body' => [
+                        [
+                            't' => 'A large, younger community of concrete block homes, many built in the 2000s and later. Many homes use private wells and septic tanks, heavy summer rain can flood streets and low lots, and air conditioners run hard most of the year. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage help in Lehigh Acres',
+                            'href' => '/lehigh-acres/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+                [
+                    'slug' => 'north-fort-myers',
+                    'title' => 'North Fort Myers',
+                    'body' => [
+                        [
+                            't' => 'North of the Caloosahatchee, North Fort Myers mixes riverfront homes, golf communities and many manufactured-home communities. Soft floors from water heater and supply line leaks, water trapped in the belly wrap, roof leaks and river flooding are the most common problems. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in North Fort Myers',
+                            'href' => '/north-fort-myers/'
+                        ],
+                        [
+                            't' => '. See also '
+                        ],
+                        [
+                            't' => 'mobile home water damage',
+                            'href' => '/mobile-home/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+                [
+                    'slug' => 'fort-myers-beach',
+                    'title' => 'Fort Myers Beach',
+                    'body' => [
+                        [
+                            't' => 'Fort Myers Beach on Estero Island sits right on the Gulf, and many homes and businesses there have been rebuilt, often elevated. Storm surge, condo and vacation rental leaks and sewage problems after storms are the main concerns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage help on Fort Myers Beach',
+                            'href' => '/fort-myers-beach/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+            ]
+        ],
+
+--------------------------------------------------------------------------------
+2) DATA — site/data/areas.php — GRID 2 (Estero, Bonita Springs)
+--------------------------------------------------------------------------------
+--- OLD CODE (verbatim, site/data/areas.php lines 443-482) ---
+        ],
+        [
+            'type' => 'h3',
+            'text' => 'Estero'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'Gated communities, condos, coach homes and seasonal residents. The most common water damage is a leak from the unit above, an AC closet overflow, or a home found wet and musty when the owner returns. Full guide: '
+                ],
+                [
+                    't' => 'water damage restoration in Estero',
+                    'href' => '/estero/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+        ],
+        [
+            'type' => 'h3',
+            'text' => 'Bonita Springs'
+        ],
+        [
+            'type' => 'p',
+            'segs' => [
+                [
+                    't' => 'Condos along the coast and neighborhoods near the Imperial River. River and rain flooding, condo leaks and seasonal-home damage are the main concerns. Full guide: '
+                ],
+                [
+                    't' => 'water damage restoration in Bonita Springs',
+                    'href' => '/bonita-springs/'
+                ],
+                [
+                    't' => '.'
+                ]
+            ]
+        ],
+        [
+--- NEW CODE (paste in place of the old block above) ---
+        [
+            'type' => 'area-cards',
+            'items' => [
+                [
+                    'slug' => 'estero',
+                    'title' => 'Estero',
+                    'body' => [
+                        [
+                            't' => 'Gated communities, condos, coach homes and seasonal residents. The most common water damage is a leak from the unit above, an AC closet overflow, or a home found wet and musty when the owner returns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Estero',
+                            'href' => '/estero/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+                [
+                    'slug' => 'bonita-springs',
+                    'title' => 'Bonita Springs',
+                    'body' => [
+                        [
+                            't' => 'Condos along the coast and neighborhoods near the Imperial River. River and rain flooding, condo leaks and seasonal-home damage are the main concerns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Bonita Springs',
+                            'href' => '/bonita-springs/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
+                ],
+            ]
+        ],
+
+--------------------------------------------------------------------------------
+3) RENDER — site/includes/functions.php — new case, insert directly AFTER the
+   existing 'kinds' case (verbatim below, lines 279-286) and BEFORE 'table'.
+--------------------------------------------------------------------------------
+--- ANCHOR: existing 'kinds' case (verbatim, do not change) ---
+        case 'kinds': {
+            $cards = '';
+            foreach ($b['items'] as $k) {
+                $cards .= '<article class="kind-card"><h3>' . esc($k['title']) . '</h3>'
+                    . '<p>' . render_segments($k['body']) . '</p></article>';
+            }
+            return '<div class="kinds-grid">' . $cards . '</div>';
+        }
+--- NEW CODE (insert after the anchor above) ---
+        case 'area-cards': {
+            $cards = '';
+            foreach ($b['items'] as $a) {
+                $m = media_for('areas', $a['slug']);
+                $img = '';
+                if ($m) {
+                    $img = '<img class="area-card-img" src="' . esc($m['src']) . '"'
+                        . ' alt="' . esc($m['alt']) . '" width="' . (int) $m['width'] . '" height="' . (int) $m['height'] . '"'
+                        . ' loading="lazy" decoding="async">';
+                }
+                $cards .= '<article class="area-card">' . $img
+                    . '<h3>' . esc($a['title']) . '</h3>'
+                    . '<p>' . render_segments($a['body']) . '</p></article>';
+            }
+            return '<div class="area-grid">' . $cards . '</div>';
+        }
+
+--------------------------------------------------------------------------------
+4) CSS — see qa/css-snippet-areas.css (append to site/assets/css/styles.css;
+   responsive rules go AFTER the base rules, mirroring .kinds-grid).
+--------------------------------------------------------------------------------
+5) VERIFY AFTER APPLYING (coordinator): php -l on both files; /areas/ renders
+   6 cards with the 6 images; every link in section 6 of FINDINGS-areas-G.md
+   still present with identical anchor + href; 0 word changes (diff the six
+   paragraphs' plain text before/after); overflow 0 at 390px (single column),
+   768px and 1240px; screenshots desktop + mobile.
+--------------------------------------------------------------------------------
+NOTE — homepage section NOT touched: the homepage H2 'Water Damage Help Across
+Lee County' has the same six areas but Estero + Bonita Springs SHARE one
+paragraph, so a 6-card split there would need word changes. The same six
+manifest entries + CSS can dress it later once the owner decides how to split
+that shared paragraph. This patch covers /areas/ only.

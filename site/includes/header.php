@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php global $NAV_SERVICES, $NAV_AREAS, $SITE;
+<?php global $NAV_SERVICES, $NAV_SERVICES_MENU, $NAV_AREAS, $SITE;
 // 20x-fixes D-V2: which dropdown section (if any) the current page sits
 // in, so the closed Services/Areas summary can show the current-section
 // marker. Pages not in either dropdown (guides, legal, about, home)
@@ -56,13 +56,13 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
 <header class="site-header" id="site-header">
   <div class="container header-inner">
     <?php if ($currentSlug === '/'): ?>
-    <span class="brand" aria-current="page" aria-label="Fort Myers Water Damage Restoration Pros - home">
+    <span class="brand" aria-current="page" aria-label="Fort Myers Water Damage - home">
     <?php else: ?>
-    <a class="brand" href="/" aria-label="Fort Myers Water Damage Restoration Pros - home">
+    <a class="brand" href="/" aria-label="Fort Myers Water Damage - home">
     <?php endif; ?>
       <span class="brand-mark" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 3C17 3 7 13.5 7 20.5a10 10 0 0 0 20 0C27 13.5 17 3 17 3Z" fill="#E8590C"/><path d="M12 21a5 5 0 0 0 5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
-      <span class="brand-text"><span class="brand-name">Fort Myers Water Damage <span class="brand-city">Restoration Pros</span></span>
-      <span class="brand-tag">24/7 &middot; Lee County, FL</span></span>
+      <span class="brand-text"><span class="brand-name">Fort Myers Water Damage</span>
+      <span class="brand-tag">24/7 &middot; FL</span></span>
     <?php if ($currentSlug === '/'): ?>
     </span>
     <?php else: ?>
@@ -72,7 +72,7 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
       <details class="nav-services<?= $inServices ? ' nav-section-current' : '' ?>">
         <summary<?= $inServices ? ' aria-current="true"' : '' ?>>Services</summary>
         <div class="nav-dropdown">
-          <?php foreach ($NAV_SERVICES as $s): ?>
+          <?php foreach ($NAV_SERVICES_MENU as $s): ?>
           <?php if ($currentSlug === $s['href']): ?>
           <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
           <?php else: ?>
@@ -114,7 +114,7 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
         <a href="/">Home</a>
         <?php endif; ?>
         <span class="nav-group">Services</span>
-        <?php foreach ($NAV_SERVICES as $s): ?>
+        <?php foreach ($NAV_SERVICES_MENU as $s): ?>
         <?php if ($currentSlug === $s['href']): ?>
         <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
         <?php else: ?>

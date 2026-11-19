@@ -342,7 +342,6 @@ return [
                 ],
                 [
                     't' => 'appliance leak water damage',
-                    'href' => '/appliance-leak/'
                 ],
                 [
                     't' => '.'
@@ -542,15 +541,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'How the flooring meets the cabinets changes the size of the repair. Tile laid before the cabinets went in usually runs under them, so it can stay while the cabinets are dried, but replacing that tile can mean pulling cabinets. Vinyl plank is normally installed up to the cabinets, not under them, so it can usually be lifted without touching the cabinets, though water can still be trapped under the cabinet bases. See '
+                    't' => 'How the flooring meets the cabinets changes the size of the repair. Tile laid before the cabinets went in usually runs under them, so it can stay while the cabinets are dried, but replacing that tile can mean pulling cabinets. Vinyl plank is normally installed up to the cabinets, not under them, so it can usually be lifted without touching the cabinets, though water can still be trapped under the cabinet bases.'
                 ],
-                [
-                    't' => 'water damaged floors',
-                    'href' => '/floors/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -892,25 +884,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Burst pipe water damage',
-                        'href' => '/burst-pipe/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage cleanup in Fort Myers, FL',
                         'href' => '/'
                     ]
                 ]

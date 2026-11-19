@@ -1,0 +1,166 @@
+/* ==========================================================================
+   TASK 11 — TABLE + BUTTON COLOURING (proposal snippet, NOT yet applied)
+   Fort Myers NEW PHP site — "Caloosahatchee" theme
+   (deep river teal #0A2E38, sunset coral CTA #C2410C, sand #F6F1E7,
+   gold #C99B3F)
+
+   HOW TO APPLY (coordinator): paste this whole block into
+   site/assets/css/styles.css AFTER the existing "--- Tables ---" rules
+   (th / td / tbody tr:nth-child(even)) and AFTER the existing button
+   rules (.btn / .btn-call / .btn-ghost / .btn-ghost-dark), i.e. replace
+   those two rule groups with the versions below. Same selectors, same
+   specificity, later in the file = these win. No markup change, no new
+   classes, no word change.
+
+   WHAT THIS SNIPPET DOES NOT TOUCH (deliberately):
+   - .table-wrap overflow / border-radius / inset fade — untouched.
+   - .table-wrap.prices td:last-child { text-align: right } — untouched.
+   - The @media (min-width: 621px) desktop-only nowrap rule (20x D-V1) —
+     untouched. No white-space, padding, margin, width or font-size change
+     anywhere in this snippet EXCEPT the two flagged items below.
+   - .btn padding / min-height / border-radius / font-size — untouched.
+
+   FLAGGED MINIMAL NON-COLOUR ADJUSTMENTS (2 only):
+   F1. .table-wrap td + td / th + th gain a 1px vertical column separator.
+       Border only; table is width:100% with border-collapse: collapse, so
+       it compresses cell content by a hair and cannot add overflow
+       (.table-wrap already scrolls horizontally as a safety net).
+   F2. .table-wrap td:first-child becomes font-weight: 700 (label column).
+       Glyph widths grow slightly inside wrapping cells; table width is
+       fluid (100%) and .table-wrap scrolls, so no overflow is possible.
+   ========================================================================== */
+
+/* --- Tables: deep-river header, stronger zebra, gold price column --- */
+
+/* Header row: teal -> deep river teal, with a gold baseline (inset
+   box-shadow, so zero height change). White on deep = 14.38:1. */
+.table-wrap th {
+  background: var(--deep);
+  color: #fff;
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+/* Vertical column separators (F1): hairline sand line between columns,
+   so the eye can scan a row across without losing its place. */
+.table-wrap th + th,
+.table-wrap td + td {
+  border-left: 1px solid #e7dfcf;
+}
+
+/* Zebra: even rows sand -> deeper sand-2, so the stripe is actually
+   visible against white odd rows. Ink on sand-2 = 12.72:1. */
+.table-wrap tbody tr:nth-child(even) {
+  background: var(--sand-2);
+}
+
+/* First (label) column (F2): bold deep-teal labels, so each row reads as
+   label -> detail. Teal-dark on white = 11.54:1, on zebra = 9.38:1. */
+.table-wrap td:first-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+
+/* Row hover: warm sand wash, so the row under the pointer lifts out.
+   Ink on hover = 12.48:1. */
+.table-wrap tbody tr:hover {
+  background: #ede5d3;
+}
+
+/* --- Price column (.table-wrap.prices td:last-child): the money column
+   gets its own pale-gold tint + bold deep-teal figures, so prices scan
+   as a column instead of disappearing into the prose. Right-alignment
+   and the desktop-only nowrap rule are NOT touched here. --- */
+.table-wrap.prices td:last-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+  background: #fdf8ec;           /* odd rows: pale gold sand */
+}
+.table-wrap.prices tbody tr:nth-child(even) td:last-child {
+  background: #f4ead2;           /* even rows: deeper gold sand */
+}
+.table-wrap.prices tbody tr:hover td:last-child {
+  background: #efe0b9;           /* hovered row: richest gold sand */
+}
+/* Price-column header: gold text on the deep header, so the money
+   column is signalled before the first figure. Gold on deep = 5.64:1. */
+.table-wrap.prices th:last-child {
+  color: var(--gold);
+}
+
+/* --- Buttons: richer sunset coral + gold, same theme, same sizes --- */
+
+/* Primary call button: flat coral -> sunset gradient (coral at top,
+   coral-dark at the base) + a 3px gold baseline (inset shadow, zero
+   layout change) + a slightly warmer glow. White text on the lightest
+   point of the gradient (#C2410C) = 5.18:1; on the darkest (#9A3412)
+   = 7.31:1. */
+.btn-call {
+  background: linear-gradient(180deg, var(--coral) 0%, #a83a10 55%, var(--coral-dark) 100%);
+  box-shadow:
+    0 6px 18px rgba(194, 65, 12, 0.38),
+    inset 0 -3px 0 var(--gold);
+}
+.btn-call:hover {
+  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  color: #fff;
+  box-shadow:
+    0 8px 22px rgba(154, 52, 18, 0.45),
+    inset 0 -3px 0 var(--gold);
+}
+/* White on hover darkest point (#7C2D12) = 9.37:1. */
+
+/* Ghost button on dark hero/header: white border -> gold border over a
+   gold wash, so it reads as the secondary sunset action instead of a
+   plain outline. White on the composite wash over deep = 11.26:1.
+   Hover flips to solid gold with deep text (5.64:1) — the button
+   "lights up" instead of just getting paler. */
+.btn-ghost {
+  background: rgba(201, 155, 63, 0.16);
+  border-color: var(--gold);
+  color: #fff;
+}
+.btn-ghost:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--deep);
+}
+
+/* Ghost button on light backgrounds: transparent -> faint teal wash,
+   same teal text/border. Teal on the composite wash = 7.66:1
+   (8.42:1 on plain white). Hover fills with a teal gradient + the same
+   3px gold baseline as .btn-call. White on teal = 8.42:1, on
+   teal-dark = 11.54:1. */
+.btn-ghost-dark {
+  background: rgba(11, 85, 99, 0.06);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.btn-ghost-dark:hover {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border-color: var(--teal-dark);
+  color: #fff;
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+/* Sticky mobile call bar: same sunset gradient as .btn-call, so the
+   bar and the buttons read as one CTA system. White on lightest
+   point = 5.18:1. */
+.call-bar {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+.call-bar:hover {
+  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  color: #fff;
+}
+
+/* Focus-visible (NEW — no .btn focus style existed before): a white
+   ring + a coral outer ring, so the focus indicator is unmistakable on
+   BOTH light pages (coral ring on white = 5.18:1) and the dark hero /
+   header (white ring on deep = 14.38:1). Replaces the soft shadow
+   while focused; the shadow returns on blur. */
+.btn:focus-visible,
+.call-bar:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--coral);
+}

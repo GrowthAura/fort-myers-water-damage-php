@@ -1,0 +1,173 @@
+/* ==========================================================================
+   DETAILS CARD REDESIGN — Task 2 (Fort Myers PHP site)
+   --------------------------------------------------------------------------
+   APPLY (coordinator): delete the old "Details card" block in
+   site/assets/css/styles.css (base rules ~lines 226-240) AND the old
+   mobile details rules inside @media (max-width: 620px) (~lines 463-464),
+   then paste this whole file in their place:
+     - the base block goes where the old base block was (AFTER the
+       .page-body h2 rules, so .details-card h2::before still beats the
+       the old accent .page-body h2::before rule — same cascade position as before);
+     - the @media (max-width: 620px) block goes inside the existing
+       @media (max-width: 620px) block, AFTER the other rules there.
+   No other file, selector or variable is touched. Every variable used
+   (--sand, --line, --deep, --teal, --teal-dark, --ink, --gold) already
+   exists in :root. The only new colour is --details-tint, scoped to
+   .details-card itself so :root needs no edit.
+   No sunset-accent colour is used anywhere in this file: neither the
+   old accent variable nor its hex values appear below, rules or
+   comments alike. Verified by grep (see FINDINGS-details-card.md).
+   ========================================================================== */
+
+/* --- Details card (base) --- */
+.details-card {
+  --details-tint: #E0EBED; /* pale river-teal tint for the icon discs */
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--deep); /* was the 6px sunset accent — now deep river teal */
+  border-radius: 16px;
+  padding: 40px 44px;
+  margin: 48px 0;
+  box-shadow: 0 10px 30px rgba(10, 46, 56, 0.10);
+  display: flex;
+  flex-direction: column;
+}
+
+/* H2 — best stylish, design freedom used: deep river teal, Archivo Black
+   (inherited), with the DETAILS eyebrow lifted above it and a short gold
+   rule as the only gold accent. Contrast deep #0A2E38 on sand = 12.77:1. */
+.details-card h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--deep);
+}
+.details-card h2::before { display: none; } /* kills the old accent bar from .page-body h2::before */
+
+/* Eyebrow — visually FIRST (flex order), DOM stays h2-then-sub so screen
+   readers and SEO still meet the heading first. Teal-dark #083F4A on
+   sand = 10.25:1. The gold bar is decorative only (gold on sand is 2.26:1
+   and is never used for text). */
+.details-sub {
+  order: -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin: 0 0 12px;
+}
+.details-sub::before {
+  content: "";
+  flex: none;
+  width: 44px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Row list — hairline above, one hairline under each row. */
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 12px 28px;
+  padding: 16px 14px;
+  margin: 0 -14px; /* hover wash runs edge-to-edge inside the card padding */
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.detail-row:hover,
+.detail-row:focus-within { background: #fff; }
+
+/* Label cell: icon disc + label text. Teal-dark #083F4A on sand = 10.25:1. */
+.detail-row dt {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin: 0;
+}
+.detail-label { padding-top: 5px; } /* optically centres 1-line labels on the 40px disc */
+
+/* Icon disc: pale teal circle, teal stroke icon. Teal #0B5563 on the
+   tint = 6.93:1; on hover the disc fills deep teal and the icon turns
+   white (14.38:1). Icons are decorative (aria-hidden) so they carry no
+   meaning alone — the label text always says what the row is. */
+.detail-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--details-tint);
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.detail-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.detail-row:hover .detail-icon,
+.detail-row:focus-within .detail-icon {
+  background: var(--deep);
+  color: #fff;
+}
+
+/* Value cell: ink #12262E on sand = 13.90:1. */
+.detail-row dd {
+  margin: 0;
+  padding-top: 5px; /* value text aligns with label text */
+  color: var(--ink);
+}
+
+/* Links inside the card (the Phone rows render tel: links): teal, and the
+   hover colour is teal-dark — this override is REQUIRED because the base
+   `a:hover` rule is the sunset accent sitewide. Focus ring is teal, never gold
+   (gold on sand is only 2.26:1 and would be a weak focus indicator). */
+.details-card a { color: var(--teal); }
+.details-card a:hover {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.details-card a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-row,
+  .detail-icon { transition: none; }
+}
+
+/* --- Details card (mobile, inside the existing @media (max-width: 620px)) --- */
+@media (max-width: 620px) {
+  .details-card { padding: 28px 22px; border-left-width: 5px; border-radius: 14px; }
+  .details-sub { font-size: 14px; letter-spacing: 0.16em; margin-bottom: 10px; }
+  .details-sub::before { width: 36px; }
+  .details-grid { margin-top: 22px; }
+  /* Single column: icon + label on top, value below, value text aligned
+     with the label text (54px = 40px disc + 14px gap), never under the icon. */
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 10px;
+    margin: 0 -10px;
+  }
+  .detail-row dd { padding-top: 0; padding-left: 54px; }
+}

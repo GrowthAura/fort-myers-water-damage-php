@@ -1,0 +1,163 @@
+TASK 12 — MENU = 7 SERVICES ONLY — PROPOSAL PATCH (apply only, do NOT edit shared files yet)
+Site: ~/workspace/fort-myers-php/site/  |  Date: 2026-11-19
+Owner order: "menu ma just 7 services add kro, jo bach jaye wo footer ma add kro"
+Mechanism chosen: keep $NAV_SERVICES as the FULL service list (footer iterates it),
+add $NAV_SERVICES_MENU with the chosen 7 (header desktop dropdown + mobile menu
+iterate it). No 'menu' flag — a separate explicit array is cleaner, order is visible,
+and the footer can never silently lose a service if a flag is mistyped.
+Areas dropdown ($NAV_AREAS) is NOT touched anywhere in this patch.
+
+KEY FACT the coordinator must know: the true service inventory is 17 pages, not 12.
+$NAV_SERVICES today holds only 12. Five live service pages (all @type Service schema)
+have NO header/footer navigation at all today: /cast-iron-pipe/, /vacant-home/,
+/appliance-leak/, /floors/, /cabinets/. This patch adds all 5 to $NAV_SERVICES
+(footer = 17), so the "footer carries ALL services, nothing dropped" requirement is
+met against the REAL inventory, not just the 12 that happened to be listed.
+New labels for those 5 are PROPOSED only (no nav label existed to preserve) — derived
+from each page's own title/H1 minus geography; owner may correct them. See
+FINDINGS-menu-7.md §4. No existing label or href is changed.
+
+CHOSEN 7 (header menu, in display order = first 7 of the full list):
+  1. Emergency Water Removal      /water-removal/
+  2. Structural Drying            /drying/
+  3. Sewage Backup Cleanup        /sewage-cleanup/
+  4. Flood & Storm Cleanup        /flood-cleanup/
+  5. AC Leak Water Damage         /ac-leak/
+  6. Ceiling Leak Water Damage    /ceiling-leak/
+  7. Burst Pipe Water Damage      /burst-pipe/
+Footer-only (10): Slab Leak, Water Heater Leak, Condo, Mobile Home, Commercial
+  + Cast Iron Pipe, Seasonal Home, Appliance Leak, Water Damaged Floors,
+  Water Damaged Kitchen Cabinets. Footer total = 17.
+
+================================================================================
+FILE 1: site/data/pages.php
+================================================================================
+--- OLD (verbatim, lines 64-80) ---
+// Header Services dropdown (12) — mirrors the published site's nav.
+$NAV_SERVICES = [
+    ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
+    ['label' => 'Structural Drying', 'href' => '/drying/'],
+    ['label' => 'Sewage Backup Cleanup', 'href' => '/sewage-cleanup/'],
+    ['label' => 'Flood & Storm Cleanup', 'href' => '/flood-cleanup/'],
+    ['label' => 'AC Leak Water Damage', 'href' => '/ac-leak/'],
+    ['label' => 'Ceiling Leak Water Damage', 'href' => '/ceiling-leak/'],
+    ['label' => 'Burst Pipe Water Damage', 'href' => '/burst-pipe/'],
+    ['label' => 'Slab Leak Water Damage', 'href' => '/slab-leak/'],
+    ['label' => 'Water Heater Leak Cleanup', 'href' => '/water-heater-leak/'],
+    ['label' => 'Condo Water Damage', 'href' => '/condo-leak/'],
+    ['label' => 'Mobile Home Water Damage', 'href' => '/mobile-home/'],
+    ['label' => 'Commercial Water Damage', 'href' => '/commercial/'],
+];
+
+--- NEW ---
+// Full service list (17) — footer Services column iterates this, so the
+// footer carries EVERY service page. Five of these (cast-iron-pipe,
+// vacant-home, appliance-leak, floors, cabinets) previously had no nav
+// entry at all; their labels below are proposed from each page's own
+// title/H1 (owner may correct). Existing 12 entries unchanged, same order.
+$NAV_SERVICES = [
+    ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
+    ['label' => 'Structural Drying', 'href' => '/drying/'],
+    ['label' => 'Sewage Backup Cleanup', 'href' => '/sewage-cleanup/'],
+    ['label' => 'Flood & Storm Cleanup', 'href' => '/flood-cleanup/'],
+    ['label' => 'AC Leak Water Damage', 'href' => '/ac-leak/'],
+    ['label' => 'Ceiling Leak Water Damage', 'href' => '/ceiling-leak/'],
+    ['label' => 'Burst Pipe Water Damage', 'href' => '/burst-pipe/'],
+    ['label' => 'Slab Leak Water Damage', 'href' => '/slab-leak/'],
+    ['label' => 'Water Heater Leak Cleanup', 'href' => '/water-heater-leak/'],
+    ['label' => 'Condo Water Damage', 'href' => '/condo-leak/'],
+    ['label' => 'Mobile Home Water Damage', 'href' => '/mobile-home/'],
+    ['label' => 'Commercial Water Damage', 'href' => '/commercial/'],
+    ['label' => 'Cast Iron Pipe Water Damage', 'href' => '/cast-iron-pipe/'],
+    ['label' => 'Seasonal Home Water Damage', 'href' => '/vacant-home/'],
+    ['label' => 'Appliance Leak Water Damage', 'href' => '/appliance-leak/'],
+    ['label' => 'Water Damaged Floors', 'href' => '/floors/'],
+    ['label' => 'Water Damaged Kitchen Cabinets', 'href' => '/cabinets/'],
+];
+
+// Header menu services (7) — the ONLY services in the header Services
+// dropdown (desktop) and the mobile-menu Services list. Owner order
+// 2026-11-19: menu = 7 services, the rest go in the footer. These are the
+// first 7 of $NAV_SERVICES, in the same order; footer still lists all 17.
+$NAV_SERVICES_MENU = [
+    ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
+    ['label' => 'Structural Drying', 'href' => '/drying/'],
+    ['label' => 'Sewage Backup Cleanup', 'href' => '/sewage-cleanup/'],
+    ['label' => 'Flood & Storm Cleanup', 'href' => '/flood-cleanup/'],
+    ['label' => 'AC Leak Water Damage', 'href' => '/ac-leak/'],
+    ['label' => 'Ceiling Leak Water Damage', 'href' => '/ceiling-leak/'],
+    ['label' => 'Burst Pipe Water Damage', 'href' => '/burst-pipe/'],
+];
+
+($NAV_AREAS, $FOOTER_EXPLORE, $FOOTER_AREAS unchanged — no edit.)
+
+================================================================================
+FILE 2: site/includes/header.php
+================================================================================
+CHANGE A — globals line (line 2). The menu array must be in scope.
+--- OLD (verbatim, line 2) ---
+<?php global $NAV_SERVICES, $NAV_AREAS, $SITE;
+--- NEW ---
+<?php global $NAV_SERVICES, $NAV_SERVICES_MENU, $NAV_AREAS, $SITE;
+
+CHANGE B — current-section marker loop (lines 7-9). NO CHANGE.
+The $inServices loop MUST keep iterating the FULL $NAV_SERVICES, so that a
+footer-only service page (e.g. /slab-leak/) still marks the Services dropdown
+as the current section. Do not switch this loop to $NAV_SERVICES_MENU.
+--- OLD = NEW (verbatim, leave as-is) ---
+foreach ($NAV_SERVICES as $s) { if ($currentSlug === $s['href']) { $inServices = true; break; } }
+
+CHANGE C — desktop Services dropdown loop (line 75).
+--- OLD (verbatim, line 75) ---
+          <?php foreach ($NAV_SERVICES as $s): ?>
+--- NEW ---
+          <?php foreach ($NAV_SERVICES_MENU as $s): ?>
+(Context: inside <details class="nav-services"> … <div class="nav-dropdown">.
+The Areas dropdown loop at line 92 still iterates $NAV_AREAS — untouched.)
+
+CHANGE D — mobile-menu Services loop (line 117).
+--- OLD (verbatim, line 117) ---
+        <?php foreach ($NAV_SERVICES as $s): ?>
+--- NEW ---
+        <?php foreach ($NAV_SERVICES_MENU as $s): ?>
+(Context: inside <div class="mobile-menu-panel">, under <span class="nav-group">Services</span>.
+The mobile Areas loop at line 130 still iterates $NAV_AREAS — untouched.
+Cost / Contact top-level links in the mobile menu are untouched.)
+
+After header.php: $NAV_SERVICES is used in header.php ONLY in the line-8 marker
+loop (full list, correct) — no other occurrence remains in the render loops.
+
+================================================================================
+FILE 3: site/includes/footer.php
+================================================================================
+NO CODE CHANGE to footer.php. The footer Services loop (line 16) already
+iterates $NAV_SERVICES, which after the pages.php change IS the full 17-service
+list. The footer therefore gains the 5 previously unlisted services + keeps the
+5 dropped from the header menu, with zero edits to footer.php itself.
+--- OLD = NEW (verbatim, leave as-is, lines 1 and 16) ---
+<?php global $NAV_SERVICES, $FOOTER_EXPLORE, $FOOTER_AREAS, $SITE; ?>
+      <?php foreach ($NAV_SERVICES as $s): ?>
+($FOOTER_EXPLORE and $FOOTER_AREAS loops unchanged.)
+
+================================================================================
+SCOPE CHECK — $NAV_SERVICES usage across site/ (grep, 2026-11-19)
+================================================================================
+  site/data/pages.php:65    definition (changed above)
+  site/includes/header.php:2   globals (Change A)
+  site/includes/header.php:8   $inServices marker loop (NO change, full list)
+  site/includes/header.php:75  desktop Services dropdown (Change C → MENU)
+  site/includes/header.php:117 mobile-menu Services list (Change D → MENU)
+  site/includes/footer.php:1   globals (no change)
+  site/includes/footer.php:16  footer Services loop (no change, now 17 via data)
+No other file in site/ references $NAV_SERVICES (no sitemap/generator use).
+No styles.css / main.js change needed: no new classes, no new markup structure;
+the dropdown/panel render 7 items instead of 12 with the existing CSS.
+
+EXPECTED COUNTS AFTER APPLYING (verification plan in FINDINGS-menu-7.md §6):
+  Desktop header Services dropdown (.nav-dropdown under details.nav-services): 7 items
+  Mobile menu Services list (.mobile-menu-panel, under "Services" group):      7 items
+  Footer Services column (nav[aria-label="Services"]):                          17 items
+  Header Areas dropdown: 7 (unchanged) | Mobile Areas list: 7 (unchanged)
+  Footer Explore: 9 (unchanged) | Footer Areas: 7 (unchanged)
+  Union (header 7 ∪ footer 17) = 17 = every @type Service page. Nothing dropped.
+  Every service page reachable from header or footer: 17/17.

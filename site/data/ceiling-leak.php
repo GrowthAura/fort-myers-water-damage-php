@@ -458,18 +458,10 @@ return [
                 ],
                 [
                     't' => 'read AC leak water damage',
-                    'href' => '/ac-leak/'
-                ],
-                [
-                    't' => '. In a condo, see '
-                ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
                 ],
                 [
                     't' => '.'
-                ]
+                ],
             ]
         ],
         [
@@ -919,21 +911,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See '
-                ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Does Insurance Cover a Leaking Ceiling in Florida?'
         ],
@@ -1006,15 +983,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Have the AC condensate line cleared at every service and the float switch tested. See '
+                        't' => 'Have the AC condensate line cleared at every service and the float switch tested.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1198,34 +1168,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage repair in Fort Myers',
                         'href' => '/'
                     ]
                 ]

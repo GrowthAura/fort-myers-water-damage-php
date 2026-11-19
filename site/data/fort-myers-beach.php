@@ -227,15 +227,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Storm surge. Estero Island sits low between the Gulf and Estero Bay, so water can come from the beach side and the back bay. Porous materials surge touches usually have to go. See flood and '
+                        't' => 'Storm surge. Estero Island sits low between the Gulf and Estero Bay, so water can come from the beach side and the back bay. Porous materials surge touches usually have to go.'
                     ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -249,15 +242,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condos. Mid-rise and high-rise buildings mean a leak can travel to several units below. See '
+                        't' => 'Condos. Mid-rise and high-rise buildings mean a leak can travel to several units below.'
                     ],
-                    [
-                        't' => 'condo water damage',
-                        'href' => '/condo-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -307,7 +293,6 @@ return [
                         ],
                         [
                             't' => 'storm cleanup',
-                            'href' => '/flood-cleanup/'
                         ]
                     ]
                 ],
@@ -361,7 +346,6 @@ return [
                     [
                         [
                             't' => 'Condo water damage',
-                            'href' => '/condo-leak/'
                         ]
                     ]
                 ],
@@ -487,15 +471,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'In island condos, a leak in one unit can reach several floors below. Florida Statute 718.111(11) generally puts the building and common elements on the association\'s policy and the finishes inside each unit on the owner\'s HO-6. Ask the association how the building\'s flood policy treats ground-level areas, and report every leak to management right away. See '
+                    't' => 'In island condos, a leak in one unit can reach several floors below. Florida Statute 718.111(11) generally puts the building and common elements on the association\'s policy and the finishes inside each unit on the owner\'s HO-6. Ask the association how the building\'s flood policy treats ground-level areas, and report every leak to management right away.'
                 ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -820,15 +797,8 @@ return [
                     'q' => 'Who handles a sewer backup on Fort Myers Beach?',
                     'a' => [
                         [
-                            't' => 'Lee County runs the public sewer, so a backup in the main line goes to Lee County Utilities. Drain lines inside your home are yours. Either way, sewage inside is Category 3 and needs cleanup. See '
+                            't' => 'Lee County runs the public sewer, so a backup in the main line goes to Lee County Utilities. Drain lines inside your home are yours. Either way, sewage inside is Category 3 and needs cleanup.'
                         ],
-                        [
-                            't' => 'sewage backup cleanup',
-                            'href' => '/sewage-cleanup/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -869,8 +839,7 @@ return [
                             't' => ', '
                         ],
                         [
-                            't' => 'Fort Myers',
-                            'href' => '/'
+                            't' => 'Fort Myers'
                         ],
                         [
                             't' => ' and '
@@ -910,28 +879,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial and '
-                    ],
-                    [
-                        't' => 'vacation rental water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'emergency water damage restoration in Fort Myers',
                         'href' => '/'
                     ]
                 ]

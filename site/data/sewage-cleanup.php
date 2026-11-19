@@ -271,15 +271,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Cast iron drains. Many homes built before about 1975 have cast iron drain lines that corrode, scale and crack under the slab. See '
+                        't' => 'Cast iron drains. Many homes built before about 1975 have cast iron drain lines that corrode, scale and crack under the slab.'
                     ],
-                    [
-                        't' => 'cast iron pipe water damage',
-                        'href' => '/cast-iron-pipe/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -787,15 +780,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'In condo buildings, a blockage in a shared drain stack can push sewage into lower units, often the ground floor. Report it to building management immediately so everyone stops using water. Who pays depends on where the blockage was and your condo documents: a shared line is often the association\'s responsibility, while a line serving only your unit is often yours. See '
+                    't' => 'In condo buildings, a blockage in a shared drain stack can push sewage into lower units, often the ground floor. Report it to building management immediately so everyone stops using water. Who pays depends on where the blockage was and your condo documents: a shared line is often the association\'s responsibility, while a line serving only your unit is often yours.'
                 ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -1054,14 +1040,12 @@ return [
                         ],
                         [
                             't' => 'Lehigh Acres',
-                            'href' => '/lehigh-acres/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'North Fort Myers',
-                            'href' => '/north-fort-myers/'
                         ],
                         [
                             't' => ', '
@@ -1112,34 +1096,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'emergency water damage cleanup in Fort Myers',
                         'href' => '/'
                     ]
                 ]

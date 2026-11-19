@@ -326,7 +326,6 @@ return [
                     [
                         [
                             't' => 'Slab leak water damage',
-                            'href' => '/slab-leak/'
                         ]
                     ]
                 ],
@@ -344,7 +343,6 @@ return [
                     [
                         [
                             't' => 'Cast iron pipe water damage',
-                            'href' => '/cast-iron-pipe/'
                         ]
                     ]
                 ],
@@ -576,27 +574,13 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Cast iron drains that corrode and crack under the slab, leaking wastewater under floors. Signs include slow drains, sewer smells and damp, cracked tile. See '
+                        't' => 'Cast iron drains that corrode and crack under the slab, leaking wastewater under floors. Signs include slow drains, sewer smells and damp, cracked tile.'
                     ],
-                    [
-                        't' => 'cast iron pipe water damage',
-                        'href' => '/cast-iron-pipe/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
-                        't' => 'Older copper supply lines that develop pinholes, causing slab leaks and wet walls. See '
+                        't' => 'Older copper supply lines that develop pinholes, causing slab leaks and wet walls.'
                     ],
-                    [
-                        't' => 'slab leak water damage',
-                        'href' => '/slab-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -637,21 +621,6 @@ return [
                     [
                         't' => 'Paper trail. Photos, moisture readings and drying logs support both the permit review and the flood claim.'
                     ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See flood and '
-                ],
-                [
-                    't' => 'storm cleanup',
-                    'href' => '/flood-cleanup/'
-                ],
-                [
-                    't' => '.'
                 ]
             ]
         ],
@@ -967,31 +936,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial and '
-                    ],
-                    [
-                        't' => 'vacation rental water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage restoration in Fort Myers, Florida',
                         'href' => '/'
                     ]
                 ]

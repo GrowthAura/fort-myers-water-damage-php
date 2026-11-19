@@ -255,14 +255,12 @@ return [
                 ],
                 [
                     't' => 'Privacy Policy',
-                    'href' => '/privacy-policy/'
                 ],
                 [
                     't' => ' · '
                 ],
                 [
                     't' => 'Disclaimer',
-                    'href' => '/disclaimer/'
                 ],
                 [
                     't' => ' · '

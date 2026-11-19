@@ -750,21 +750,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See flood and '
-                ],
-                [
-                    't' => 'storm cleanup',
-                    'href' => '/flood-cleanup/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Insurance for Manufactured Homes in Fort Myers'
         ],
@@ -781,15 +766,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Sudden leaks, such as a burst supply line or a failed water heater, are often covered for the resulting damage. See '
+                        't' => 'Sudden leaks, such as a burst supply line or a failed water heater, are often covered for the resulting damage.'
                     ],
-                    [
-                        't' => 'burst pipe water damage',
-                        'href' => '/burst-pipe/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1003,7 +981,6 @@ return [
                         ],
                         [
                             't' => 'mobile homes in North Fort Myers',
-                            'href' => '/north-fort-myers/'
                         ],
                         [
                             't' => ', Fort Myers, Pine Island, '
@@ -1061,28 +1038,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Lee County service areas',
-                        'href' => '/areas/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage restoration company in Fort Myers',
                         'href' => '/'
                     ]
                 ]

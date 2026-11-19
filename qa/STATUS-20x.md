@@ -2,7 +2,13 @@
 Updated: 2026-11-19 ~17:20 PKT. Deadline: ~21:20 PKT tonight. Report every 30 min; report immediately if finished early.
 
 ## Current phase
-FIX WORKER DONE (~17:47 PKT, findings: qa/FINDINGS-20x-fixes.md) — all 4 fixes applied + self-verified. FINAL independent verifier RUNNING now (spawned ~17:48 PKT). Nothing is deployed yet — live site is still the pre-10x build.
+DEPLOYED LIVE ~18:05 PKT — final verifier READY (0 defects), both branches pushed, Actions run success, live verified by coordinator curl. DONE — final report delivered to parent. Live site is now the 20x build.
+
+## Deploy record
+- main 3284e20 (36 files: source + findings/audits/probes/fonts-orig), cloudflare-pages bad30b5 (75 files: full export incl. llms-full.txt). Author GrowthAura <noorullahchhachher2@gmail.com>. Push via transient askpass (deleted after use); remote clean https; no credential.helper; worktree removed; tree clean. Remote HEADs match local.
+- GitHub Actions run 44529885884 (cloudflare-pages, bad30b5): completed success. Auto-deploy proven.
+- Live verified: home 200 byte-identical to local (md5 55a4d365), sitemap 200 (31 locs), robots 200 (22 UA lines), llms 200, llms-full.txt 200, HIW 200, bogus 404, live CSS 15,868 B minified with `.hero a{text-decoration:none}`, live /water-removal/ BreadcrumbList 2 items both with item, live /cost/ 0 self-links + nav-current spans present, tabindex="-1" + skip link + "View larger map" on live home.
+- One catch during deploy (fixed same round): first rsync without -a deleted the workflow file from the worktree (rsync --delete needs -r); restored from branch HEAD before committing — deploy trigger intact.
 
 ## Fix worker results (self-verified)
 - D-V2: 53 → 0 self-linking nav items (verifier counted 51; worker found 2 more its census excluded — brand href="/" + mobile-menu "Home" on homepage). Non-link spans total 71. Closed Services/Areas summary carries gold section marker on the 19 dropdown pages (computed-style verified).

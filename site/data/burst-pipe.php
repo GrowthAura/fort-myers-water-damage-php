@@ -303,15 +303,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Lines under the slab. A break below the floor is a slab leak. See '
+                        't' => 'Lines under the slab. A break below the floor is a slab leak.'
                     ],
-                    [
-                        't' => 'slab leak water damage',
-                        'href' => '/slab-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -816,15 +809,8 @@ return [
                     'title' => 'Water extraction',
                     'body' => [
                         [
-                            't' => 'Standing water and water held in carpet are removed. See '
+                            't' => 'Standing water and water held in carpet are removed.'
                         ],
-                        [
-                            't' => 'emergency water removal',
-                            'href' => '/water-removal/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -991,15 +977,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Turn off the main water when you leave for more than a few days. See '
+                        't' => 'Turn off the main water when you leave for more than a few days.'
                     ],
-                    [
-                        't' => 'water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -1070,15 +1049,8 @@ return [
                     'q' => 'Can a burst pipe in the attic damage my ceiling?',
                     'a' => [
                         [
-                            't' => 'Yes. A split attic line soaks insulation and ceiling drywall, which can sag or fall. Turn off power to that room and stay out from under a bulging ceiling. See '
+                            't' => 'Yes. A split attic line soaks insulation and ceiling drywall, which can sag or fall. Turn off power to that room and stay out from under a bulging ceiling.'
                         ],
-                        [
-                            't' => 'ceiling leak water damage',
-                            'href' => '/ceiling-leak/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1162,31 +1134,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damaged floors',
-                        'href' => '/floors/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage cleanup',
                         'href' => '/'
                     ]
                 ]

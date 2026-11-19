@@ -392,15 +392,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Concrete is porous. When water gets under flooring, the slab soaks it up and releases it slowly. Vinyl plank, laminate and many underlayments act like a lid, so the slab can\'t breathe and stays wet for weeks. That\'s why lifting the flooring is often the fastest way to dry the house, even when the planks look fine. Under-slab leaks are a different problem, because the water comes from below. See '
+                    't' => 'Concrete is porous. When water gets under flooring, the slab soaks it up and releases it slowly. Vinyl plank, laminate and many underlayments act like a lid, so the slab can\'t breathe and stays wet for weeks. That\'s why lifting the flooring is often the fastest way to dry the house, even when the planks look fine. Under-slab leaks are a different problem, because the water comes from below.'
                 ],
-                [
-                    't' => 'slab leak water damage',
-                    'href' => '/slab-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -808,25 +801,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Appliance leak water damage',
-                        'href' => '/appliance-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration',
                         'href' => '/'
                     ]
                 ]

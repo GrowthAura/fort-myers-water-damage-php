@@ -321,86 +321,79 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
-            'text' => 'Cape Coral'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
+            'type' => 'area-cards',
+            'items' => [
                 [
-                    't' => 'Mostly single-family slab homes, many built between 1970 and 1999, laced with canals. City water, sewer and a separate irrigation system serve most of the Cape, while parts of the north still run on wells and septic. Slab leaks, original cast iron drains in older Cape neighborhoods, canal surge and leaks in seasonal homes are the most common calls. Full guide: '
+                    'slug' => 'cape-coral',
+                    'title' => 'Cape Coral',
+                    'body' => [
+                        [
+                            't' => 'Mostly single-family slab homes, many built between 1970 and 1999, laced with canals. City water, sewer and a separate irrigation system serve most of the Cape, while parts of the north still run on wells and septic. Slab leaks, original cast iron drains in older Cape neighborhoods, canal surge and leaks in seasonal homes are the most common calls. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Cape Coral',
+                            'href' => '/cape-coral/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
                 [
-                    't' => 'water damage restoration in Cape Coral',
-                    'href' => '/cape-coral/'
+                    'slug' => 'lehigh-acres',
+                    'title' => 'Lehigh Acres',
+                    'body' => [
+                        [
+                            't' => 'A large, younger community of concrete block homes, many built in the 2000s and later. Many homes use private wells and septic tanks, heavy summer rain can flood streets and low lots, and air conditioners run hard most of the year. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage help in Lehigh Acres',
+                            'href' => '/lehigh-acres/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
                 [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
-            'type' => 'h3',
-            'text' => 'Lehigh Acres'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'A large, younger community of concrete block homes, many built in the 2000s and later. Many homes use private wells and septic tanks, heavy summer rain can flood streets and low lots, and air conditioners run hard most of the year. Full guide: '
+                    'slug' => 'north-fort-myers',
+                    'title' => 'North Fort Myers',
+                    'body' => [
+                        [
+                            't' => 'North of the Caloosahatchee, North Fort Myers mixes riverfront homes, golf communities and many manufactured-home communities. Soft floors from water heater and supply line leaks, water trapped in the belly wrap, roof leaks and river flooding are the most common problems. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in North Fort Myers',
+                            'href' => '/north-fort-myers/'
+                        ],
+                        [
+                            't' => '. See also '
+                        ],
+                        [
+                            't' => 'mobile home water damage',
+                            'href' => '/mobile-home/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
                 [
-                    't' => 'water damage help in Lehigh Acres',
-                    'href' => '/lehigh-acres/'
+                    'slug' => 'fort-myers-beach',
+                    'title' => 'Fort Myers Beach',
+                    'body' => [
+                        [
+                            't' => 'Fort Myers Beach on Estero Island sits right on the Gulf, and many homes and businesses there have been rebuilt, often elevated. Storm surge, condo and vacation rental leaks and sewage problems after storms are the main concerns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage help on Fort Myers Beach',
+                            'href' => '/fort-myers-beach/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
-            'type' => 'h3',
-            'text' => 'North Fort Myers'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'North of the Caloosahatchee, North Fort Myers mixes riverfront homes, golf communities and many manufactured-home communities. Soft floors from water heater and supply line leaks, water trapped in the belly wrap, roof leaks and river flooding are the most common problems. Full guide: '
-                ],
-                [
-                    't' => 'water damage restoration in North Fort Myers',
-                    'href' => '/north-fort-myers/'
-                ],
-                [
-                    't' => '. See also '
-                ],
-                [
-                    't' => 'mobile home water damage',
-                    'href' => '/mobile-home/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
-            'type' => 'h3',
-            'text' => 'Fort Myers Beach'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'Fort Myers Beach on Estero Island sits right on the Gulf, and many homes and businesses there have been rebuilt, often elevated. Storm surge, condo and vacation rental leaks and sewage problems after storms are the main concerns. Full guide: '
-                ],
-                [
-                    't' => 'water damage help on Fort Myers Beach',
-                    'href' => '/fort-myers-beach/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -442,41 +435,40 @@ return [
             ]
         ],
         [
-            'type' => 'h3',
-            'text' => 'Estero'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
+            'type' => 'area-cards',
+            'items' => [
                 [
-                    't' => 'Gated communities, condos, coach homes and seasonal residents. The most common water damage is a leak from the unit above, an AC closet overflow, or a home found wet and musty when the owner returns. Full guide: '
+                    'slug' => 'estero',
+                    'title' => 'Estero',
+                    'body' => [
+                        [
+                            't' => 'Gated communities, condos, coach homes and seasonal residents. The most common water damage is a leak from the unit above, an AC closet overflow, or a home found wet and musty when the owner returns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Estero',
+                            'href' => '/estero/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
                 [
-                    't' => 'water damage restoration in Estero',
-                    'href' => '/estero/'
+                    'slug' => 'bonita-springs',
+                    'title' => 'Bonita Springs',
+                    'body' => [
+                        [
+                            't' => 'Condos along the coast and neighborhoods near the Imperial River. River and rain flooding, condo leaks and seasonal-home damage are the main concerns. Full guide: '
+                        ],
+                        [
+                            't' => 'water damage restoration in Bonita Springs',
+                            'href' => '/bonita-springs/'
+                        ],
+                        [
+                            't' => '.'
+                        ],
+                    ]
                 ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
-            'type' => 'h3',
-            'text' => 'Bonita Springs'
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'Condos along the coast and neighborhoods near the Imperial River. River and rain flooding, condo leaks and seasonal-home damage are the main concerns. Full guide: '
-                ],
-                [
-                    't' => 'water damage restoration in Bonita Springs',
-                    'href' => '/bonita-springs/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -935,7 +927,6 @@ return [
                 ],
                 [
                     't' => 'How it works',
-                    'href' => '/how-it-works/'
                 ],
                 [
                     't' => ' · '

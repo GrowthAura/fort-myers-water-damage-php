@@ -61,7 +61,11 @@ $LOCATION_PAGES = [
     '/fort-myers-beach/', '/estero/', '/bonita-springs/', '/areas/',
 ];
 
-// Header Services dropdown (12) — mirrors the published site's nav.
+// Full service list (17) — footer Services column iterates this, so the
+// footer carries EVERY service page. Five of these (cast-iron-pipe,
+// vacant-home, appliance-leak, floors, cabinets) previously had no nav
+// entry at all; their labels below are proposed from each page's own
+// title/H1 (owner may correct). Existing 12 entries unchanged, same order.
 $NAV_SERVICES = [
     ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
     ['label' => 'Structural Drying', 'href' => '/drying/'],
@@ -75,6 +79,25 @@ $NAV_SERVICES = [
     ['label' => 'Condo Water Damage', 'href' => '/condo-leak/'],
     ['label' => 'Mobile Home Water Damage', 'href' => '/mobile-home/'],
     ['label' => 'Commercial Water Damage', 'href' => '/commercial/'],
+    ['label' => 'Cast Iron Pipe Water Damage', 'href' => '/cast-iron-pipe/'],
+    ['label' => 'Seasonal Home Water Damage', 'href' => '/vacant-home/'],
+    ['label' => 'Appliance Leak Water Damage', 'href' => '/appliance-leak/'],
+    ['label' => 'Water Damaged Floors', 'href' => '/floors/'],
+    ['label' => 'Water Damaged Kitchen Cabinets', 'href' => '/cabinets/'],
+];
+
+// Header menu services (7) — the ONLY services in the header Services
+// dropdown (desktop) and the mobile-menu Services list. Owner order
+// 2026-11-19: menu = 7 services, the rest go in the footer. These are the
+// first 7 of $NAV_SERVICES, in the same order; footer still lists all 17.
+$NAV_SERVICES_MENU = [
+    ['label' => 'Emergency Water Removal', 'href' => '/water-removal/'],
+    ['label' => 'Structural Drying', 'href' => '/drying/'],
+    ['label' => 'Sewage Backup Cleanup', 'href' => '/sewage-cleanup/'],
+    ['label' => 'Flood & Storm Cleanup', 'href' => '/flood-cleanup/'],
+    ['label' => 'AC Leak Water Damage', 'href' => '/ac-leak/'],
+    ['label' => 'Ceiling Leak Water Damage', 'href' => '/ceiling-leak/'],
+    ['label' => 'Burst Pipe Water Damage', 'href' => '/burst-pipe/'],
 ];
 
 // Header Areas dropdown (7) — mirrors the published site's nav, minus the

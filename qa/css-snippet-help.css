@@ -1,0 +1,31 @@
+/* "What we help with" cards — homepage only (Task 3).
+   The render branch outputs <div class="kinds-grid help-grid"> with
+   <article class="kind-card help-card"> per item, so the grid, the card
+   chrome (coral top border, radius, shadow) and the 3/2/1-column
+   breakpoints are inherited from the existing .kinds-grid / .kind-card
+   rules. This snippet adds ONLY the card-top image treatment.
+   Slot (measured from styles.css): container 1240px, padding 24px;
+   3 cols gap 24 -> card 381px; 2 cols (<=1020px) -> card 474px (largest
+   slot); 1 col (<=620px, container padding 20px) -> card 350px at 390px
+   viewport, 280px at 320px. Image file is 474x267 (16:9) — exact for
+   the largest slot; downscaled by the browser at the smaller slots. */
+
+/* Image first in the card, full-bleed across the top of the card.
+   .kind-card padding is 28px, so the image breaks out of the padding
+   with negative margins; the coral top border stays above it. */
+.help-card { overflow: hidden; }
+.help-card-img {
+  display: block;
+  width: calc(100% + 56px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: -28px -28px 20px;
+  border-radius: 0;
+}
+.help-card p { margin-bottom: 0; }
+
+/* 390px single column (inherited 1fr from .kinds-grid at <=620px):
+   card 350px wide, image renders 350x197 — layout holds, no overflow.
+   At 320px: card 280px, image 280x158. No extra rule needed. */

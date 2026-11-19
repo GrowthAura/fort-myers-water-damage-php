@@ -268,21 +268,6 @@ return [
                                 ]
                             ]
                         ],
-                        [
-                            'type' => 'p',
-                            'segs' => [
-                                [
-                                    't' => 'The full list: '
-                                ],
-                                [
-                                    't' => 'first-hour water damage checklist',
-                                    'href' => '/first-hour-checklist/'
-                                ],
-                                [
-                                    't' => '.'
-                                ]
-                            ]
-                        ]
                     ]
                 ],
                 [
@@ -380,15 +365,8 @@ return [
                             'type' => 'p',
                             'segs' => [
                                 [
-                                    't' => 'Standing water is pulled out with truck-mounted or portable extractors. Extraction removes far more water than drying ever could, which shortens drying and limits damage. See '
+                                    't' => 'Standing water is pulled out with truck-mounted or portable extractors. Extraction removes far more water than drying ever could, which shortens drying and limits damage.'
                                 ],
-                                [
-                                    't' => 'emergency water removal',
-                                    'href' => '/water-removal/'
-                                ],
-                                [
-                                    't' => '.'
-                                ]
                             ]
                         ]
                     ]
@@ -1052,25 +1030,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'How insurance handles water damage in Florida',
-                        'href' => '/insurance/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Contact',
-                        'href' => '/contact/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage help in Fort Myers, FL',
                         'href' => '/'
                     ]
                 ]

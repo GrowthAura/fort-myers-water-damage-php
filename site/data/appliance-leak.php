@@ -453,15 +453,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Particle board swells. Most cabinet bases are particle board, and once it swells it doesn\'t go back. See '
+                        't' => 'Particle board swells. Most cabinet bases are particle board, and once it swells it doesn\'t go back.'
                     ],
-                    [
-                        't' => 'water damaged kitchen cabinets',
-                        'href' => '/cabinets/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -634,15 +627,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Tile that\'s still bonded can usually stay while the slab and grout dry. Vinyl plank and laminate often have to be lifted, because they hold water against the concrete. See '
+                    't' => 'Tile that\'s still bonded can usually stay while the slab and grout dry. Vinyl plank and laminate often have to be lifted, because they hold water against the concrete.'
                 ],
-                [
-                    't' => 'water damaged floors',
-                    'href' => '/floors/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -653,15 +639,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Under Florida Statute 718.111(11), the association\'s policy generally leaves appliances, water heaters, water filters, built-in cabinets, countertops and floor, wall and ceiling coverings inside a unit to the owner\'s HO-6 policy. If a washer hose or ice maker line in one unit damages another, who pays often depends on the cause and whether the appliance was kept up, and your declaration can change parts of the default. Report it to building management and your insurer the same day. See '
+                    't' => 'Under Florida Statute 718.111(11), the association\'s policy generally leaves appliances, water heaters, water filters, built-in cabinets, countertops and floor, wall and ceiling coverings inside a unit to the owner\'s HO-6 policy. If a washer hose or ice maker line in one unit damages another, who pays often depends on the cause and whether the appliance was kept up, and your declaration can change parts of the default. Report it to building management and your insurer the same day.'
                 ],
-                [
-                    't' => 'condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -937,25 +916,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Burst pipe water damage',
-                        'href' => '/burst-pipe/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage restoration experts in Fort Myers',
                         'href' => '/'
                     ]
                 ]

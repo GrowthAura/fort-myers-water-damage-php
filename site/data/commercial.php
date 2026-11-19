@@ -360,7 +360,6 @@ return [
                         ],
                         [
                             't' => 'emergency water removal',
-                            'href' => '/water-removal/'
                         ],
                         [
                             't' => '.'
@@ -394,15 +393,8 @@ return [
                     'title' => 'Drying',
                     'body' => [
                         [
-                            't' => 'Commercial dehumidifiers and air movers run with readings logged daily. See '
+                            't' => 'Commercial dehumidifiers and air movers run with readings logged daily.'
                         ],
-                        [
-                            't' => 'structural drying',
-                            'href' => '/drying/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -486,21 +478,6 @@ return [
                     [
                         't' => 'Find the cause: grease trap and floor drain backups, ice machine and dishwasher leaks, walk-in cooler drains and roof leaks over kitchens are the usual ones.'
                     ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See '
-                ],
-                [
-                    't' => 'sewage backup cleanup',
-                    'href' => '/sewage-cleanup/'
-                ],
-                [
-                    't' => '.'
                 ]
             ]
         ],
@@ -917,25 +894,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Condo water damage',
-                        'href' => '/condo-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'commercial water damage restoration in Fort Myers',
                         'href' => '/'
                     ]
                 ]

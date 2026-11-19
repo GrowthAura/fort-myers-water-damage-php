@@ -217,15 +217,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'The Imperial River. It runs through the middle of Bonita Springs, fed by creeks and canals such as Leitner Creek and the Kehl Canal, and can rise into nearby yards, garages and homes. River water is floodwater, Category 3. See flood and '
+                        't' => 'The Imperial River. It runs through the middle of Bonita Springs, fed by creeks and canals such as Leitner Creek and the Kehl Canal, and can rise into nearby yards, garages and homes. River water is floodwater, Category 3.'
                     ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -234,15 +227,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'Coastal condos. Condos near Bonita Beach mean leaks between units. See '
+                        't' => 'Coastal condos. Condos near Bonita Beach mean leaks between units.'
                     ],
-                    [
-                        't' => 'condo water damage',
-                        'href' => '/condo-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -316,7 +302,6 @@ return [
                         ],
                         [
                             't' => 'storm cleanup',
-                            'href' => '/flood-cleanup/'
                         ]
                     ]
                 ],
@@ -334,7 +319,6 @@ return [
                     [
                         [
                             't' => 'Condo water damage',
-                            'href' => '/condo-leak/'
                         ]
                     ]
                 ],
@@ -352,7 +336,6 @@ return [
                     [
                         [
                             't' => 'Water damage in vacant homes',
-                            'href' => '/vacant-home/'
                         ]
                     ]
                 ],
@@ -898,8 +881,7 @@ return [
                     't' => ', '
                 ],
                 [
-                    't' => 'Fort Myers',
-                    'href' => '/'
+                    't' => 'Fort Myers'
                 ],
                 [
                     't' => ' and '
@@ -937,28 +919,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial and '
-                    ],
-                    [
-                        't' => 'vacation rental water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Estero',
-                        'href' => '/estero/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration pros',
                         'href' => '/'
                     ]
                 ]

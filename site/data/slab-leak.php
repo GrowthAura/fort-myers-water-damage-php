@@ -328,7 +328,6 @@ return [
                 ],
                 [
                     't' => 'burst pipe water damage',
-                    'href' => '/burst-pipe/'
                 ],
                 [
                     't' => '.'
@@ -630,7 +629,6 @@ return [
                 ],
                 [
                     't' => 'water damaged floors',
-                    'href' => '/floors/'
                 ],
                 [
                     't' => ' and '
@@ -938,14 +936,12 @@ return [
                         ],
                         [
                             't' => 'Cape Coral',
-                            'href' => '/cape-coral/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'Lehigh Acres',
-                            'href' => '/lehigh-acres/'
                         ],
                         [
                             't' => ', '
@@ -989,25 +985,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Cast iron pipe water damage',
-                        'href' => '/cast-iron-pipe/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage repair experts',
                         'href' => '/'
                     ]
                 ]

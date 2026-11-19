@@ -94,6 +94,83 @@ strong { font-weight: 700; }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.2); color: #fff; }
 .btn-ghost-dark { background: transparent; color: var(--teal); border-color: var(--teal); }
 .btn-ghost-dark:hover { background: var(--teal); color: #fff; }
+/* --- Buttons: richer sunset coral + gold, same theme, same sizes --- */
+
+/* Primary call button: flat coral -> sunset gradient (coral at top,
+   coral-dark at the base) + a 3px gold baseline (inset shadow, zero
+   layout change) + a slightly warmer glow. White text on the lightest
+   point of the gradient (#C2410C) = 5.18:1; on the darkest (#9A3412)
+   = 7.31:1. */
+.btn-call {
+  background: linear-gradient(180deg, var(--coral) 0%, #a83a10 55%, var(--coral-dark) 100%);
+  box-shadow:
+    0 6px 18px rgba(194, 65, 12, 0.38),
+    inset 0 -3px 0 var(--gold);
+}
+.btn-call:hover {
+  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  color: #fff;
+  box-shadow:
+    0 8px 22px rgba(154, 52, 18, 0.45),
+    inset 0 -3px 0 var(--gold);
+}
+/* White on hover darkest point (#7C2D12) = 9.37:1. */
+
+/* Ghost button on dark hero/header: white border -> gold border over a
+   gold wash, so it reads as the secondary sunset action instead of a
+   plain outline. White on the composite wash over deep = 11.26:1.
+   Hover flips to solid gold with deep text (5.64:1) — the button
+   "lights up" instead of just getting paler. */
+.btn-ghost {
+  background: rgba(201, 155, 63, 0.16);
+  border-color: var(--gold);
+  color: #fff;
+}
+.btn-ghost:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--deep);
+}
+
+/* Ghost button on light backgrounds: transparent -> faint teal wash,
+   same teal text/border. Teal on the composite wash = 7.66:1
+   (8.42:1 on plain white). Hover fills with a teal gradient + the same
+   3px gold baseline as .btn-call. White on teal = 8.42:1, on
+   teal-dark = 11.54:1. */
+.btn-ghost-dark {
+  background: rgba(11, 85, 99, 0.06);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+.btn-ghost-dark:hover {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border-color: var(--teal-dark);
+  color: #fff;
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+/* Sticky mobile call bar: same sunset gradient as .btn-call, so the
+   bar and the buttons read as one CTA system. White on lightest
+   point = 5.18:1. */
+.call-bar {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+.call-bar:hover {
+  background: linear-gradient(180deg, var(--coral-dark) 0%, #7c2d12 100%);
+  color: #fff;
+}
+
+/* Focus-visible (NEW — no .btn focus style existed before): a white
+   ring + a coral outer ring, so the focus indicator is unmistakable on
+   BOTH light pages (coral ring on white = 5.18:1) and the dark hero /
+   header (white ring on deep = 14.38:1). Replaces the soft shadow
+   while focused; the shadow returns on blur. */
+.btn:focus-visible,
+.call-bar:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--coral);
+}
 
 /* --- Header: most important for ranking + crawling --- */
 .site-header {
@@ -184,7 +261,7 @@ strong { font-weight: 700; }
 }
 .hero-scrim {
   position: absolute; inset: 0;
-  background: linear-gradient(100deg, rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.8) 46%, rgba(6, 32, 40, 0.38) 100%);
+  background: linear-gradient(100deg, rgba(6, 32, 40, 0.93) 0%, rgba(6, 32, 40, 0.8) 46%, rgba(6, 32, 40, 0.70) 100%);
 }
 .hero-inner { position: relative; z-index: 2; padding-top: 84px; padding-bottom: 84px; max-width: 1240px; }
 .hero-inner h1 { color: #fff; max-width: 960px; margin-bottom: 0.45em; }
@@ -222,28 +299,347 @@ strong { font-weight: 700; }
 .page-body > p, .page-body > ul, .page-body > ol { max-width: 1100px; }
 .page-body section { margin: 56px 0; }
 
-/* --- Details card --- */
+/* ==========================================================================
+   DETAILS CARD REDESIGN — Task 2 (Fort Myers PHP site)
+   --------------------------------------------------------------------------
+   APPLY (coordinator): delete the old "Details card" block in
+   site/assets/css/styles.css (base rules ~lines 226-240) AND the old
+   mobile details rules inside @media (max-width: 620px) (~lines 463-464),
+   then paste this whole file in their place:
+     - the base block goes where the old base block was (AFTER the
+       .page-body h2 rules, so .details-card h2::before still beats the
+       the old accent .page-body h2::before rule — same cascade position as before);
+     - the @media (max-width: 620px) block goes inside the existing
+       @media (max-width: 620px) block, AFTER the other rules there.
+   No other file, selector or variable is touched. Every variable used
+   (--sand, --line, --deep, --teal, --teal-dark, --ink, --gold) already
+   exists in :root. The only new colour is --details-tint, scoped to
+   .details-card itself so :root needs no edit.
+   No sunset-accent colour is used anywhere in this file: neither the
+   old accent variable nor its hex values appear below, rules or
+   comments alike. Verified by grep (see FINDINGS-details-card.md).
+   ========================================================================== */
+
+/* --- Details card (base) --- */
 .details-card {
-  background: var(--sand); border: 1px solid var(--line); border-left: 6px solid var(--coral);
-  border-radius: 14px; padding: 36px 40px; margin: 48px 0;
+  --details-tint: #E0EBED; /* pale river-teal tint for the icon discs */
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--deep); /* was the 6px sunset accent — now deep river teal */
+  border-radius: 16px;
+  padding: 40px 44px;
+  margin: 48px 0;
+  box-shadow: 0 10px 30px rgba(10, 46, 56, 0.10);
+  display: flex;
+  flex-direction: column;
 }
-.details-card h2 { margin-top: 0; }
-.details-card h2::before { display: none; }
-.details-sub { font-size: 16px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
-.details-grid { display: grid; grid-template-columns: 240px 1fr; gap: 18px 28px; margin: 0; }
-.detail-row { display: contents; }
-.detail-row dt { font-weight: 700; color: var(--teal-dark); }
-.detail-row dd { margin: 0; }
+
+/* H2 — best stylish, design freedom used: deep river teal, Archivo Black
+   (inherited), with the DETAILS eyebrow lifted above it and a short gold
+   rule as the only gold accent. Contrast deep #0A2E38 on sand = 12.77:1. */
+.details-card h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--deep);
+}
+.details-card h2::before { display: none; } /* kills the old accent bar from .page-body h2::before */
+
+/* Eyebrow — visually FIRST (flex order), DOM stays h2-then-sub so screen
+   readers and SEO still meet the heading first. Teal-dark #083F4A on
+   sand = 10.25:1. The gold bar is decorative only (gold on sand is 2.26:1
+   and is never used for text). */
+.details-sub {
+  order: -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin: 0 0 12px;
+}
+.details-sub::before {
+  content: "";
+  flex: none;
+  width: 44px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Row list — hairline above, one hairline under each row. */
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 12px 28px;
+  padding: 16px 14px;
+  margin: 0 -14px; /* hover wash runs edge-to-edge inside the card padding */
+  border-bottom: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+}
+.detail-row:hover,
+.detail-row:focus-within { background: #fff; }
+
+/* Label cell: icon disc + label text. Teal-dark #083F4A on sand = 10.25:1. */
+.detail-row dt {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin: 0;
+}
+.detail-label { padding-top: 5px; } /* optically centres 1-line labels on the 40px disc */
+
+/* Icon disc: pale teal circle, teal stroke icon. Teal #0B5563 on the
+   tint = 6.93:1; on hover the disc fills deep teal and the icon turns
+   white (14.38:1). Icons are decorative (aria-hidden) so they carry no
+   meaning alone — the label text always says what the row is. */
+.detail-icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--details-tint);
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.detail-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.detail-row:hover .detail-icon,
+.detail-row:focus-within .detail-icon {
+  background: var(--deep);
+  color: #fff;
+}
+
+/* Value cell: ink #12262E on sand = 13.90:1. */
+.detail-row dd {
+  margin: 0;
+  padding-top: 5px; /* value text aligns with label text */
+  color: var(--ink);
+}
+
+/* Links inside the card (the Phone rows render tel: links): teal, and the
+   hover colour is teal-dark — this override is REQUIRED because the base
+   `a:hover` rule is the sunset accent sitewide. Focus ring is teal, never gold
+   (gold on sand is only 2.26:1 and would be a weak focus indicator). */
+.details-card a { color: var(--teal); }
+.details-card a:hover {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.details-card a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-row,
+  .detail-icon { transition: none; }
+}
+
+/* ==========================================================================
+   TASK 5 — kinds-grid card backgrounds (homepage only)
+   Proposal only: the coordinator merges this into site/assets/css/styles.css,
+   replacing the existing .kind-card rules (styles.css ~239-246). Nothing
+   else in the stylesheet changes. The kinds grid renders ONLY on the
+   homepage; these rules affect no other page.
+   --------------------------------------------------------------------------
+   STRUCTURE: the functions.php patch adds class "has-photo" ONLY to cards
+   that have a manifest image. Photo rules live under .kind-card.has-photo;
+   a card with no photo keeps the old white card exactly (dark text on
+   white), so a missing image can never strand light text on a dark card.
+   READABILITY — the old card was dark text (#12262e ink / #0a2e38 deep) on
+   a white card. Text now sits ON a photo, so photo cards flip to light
+   text on a dark scrim. The scrim is a real overlay element (.kind-scrim,
+   added by the functions.php patch) so the photo stays a photo
+   underneath: the gradient lets 14-26% of the image show through,
+   strongest at the bottom of the card.
+   Overlay: linear-gradient(180deg, rgba(7,38,47,0.86) 0%,
+   rgba(7,38,47,0.78) 55%, rgba(7,38,47,0.74) 100%).
+   Text: h3 #ffffff, p #f4f8f8, links #ffd9a8 (the light gold already used
+   for links on dark hero backgrounds in this theme).
+   Worst-case contrast (overlay blended over a PURE WHITE image pixel —
+   brighter than any pixel in any of the 13 masters; computed with
+   qa/contrast-kinds.py, WCAG 2.x formula):
+     h3 #ffffff  top 10.30:1 | mid 7.83:1 | bottom 6.83:1
+     p  #f4f8f8  top  9.63:1 | mid 7.32:1 | bottom 6.38:1
+     a  #ffd9a8  top  7.72:1 | mid 5.87:1 | bottom 5.12:1
+   All >= 4.5:1 at every point of the card. Measured per-card worst case
+   (brightest pixel of each master under the weakest, bottom, alpha):
+   link 5.12:1 (10 cards) to 5.98:1 (flood-storm); h3 6.83:1 to 7.97:1;
+   p 6.38:1 to 7.45:1. Full table in qa/FINDINGS-kinds-cards.md.
+   An earlier draft (bottom alpha 0.68) FAILED the link at 4.19:1 and was
+   rejected; the bottom alpha was raised to 0.74 to clear 4.5:1.
+   ========================================================================== */
 
 /* --- Kind cards --- */
 .kinds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
 .kind-card {
-  background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--coral);
-  border-radius: 12px; padding: 28px; box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  position: relative;
+  overflow: hidden; /* keeps the scrim inside the rounded corners */
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--coral);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
 }
 .kind-card h3 { margin-top: 0; font-size: 23px; }
 .kind-card p { margin-bottom: 0; }
 .kind-card p:last-child { margin-bottom: 0; }
+
+/* --- Photo cards only (class added by the functions.php patch) --- */
+.kind-card.has-photo {
+  background-color: var(--deep); /* fallback while the photo loads */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f4f8f8;
+}
+/* Scrim: dark teal gradient over the photo, under the text. */
+.kind-card.has-photo .kind-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(7, 38, 47, 0.86) 0%, rgba(7, 38, 47, 0.78) 55%, rgba(7, 38, 47, 0.74) 100%);
+  pointer-events: none;
+}
+/* Text sits above the scrim. */
+.kind-card.has-photo h3,
+.kind-card.has-photo p { position: relative; z-index: 1; }
+.kind-card.has-photo h3 { color: #ffffff; }
+.kind-card.has-photo p { color: #f4f8f8; }
+/* Links: light gold on the dark scrim (worst case 5.12:1), underlined so
+   they read as links against the near-white body text. Hover #ffe9c9 is
+   lighter than #ffd9a8, so its ratio is higher than 5.12:1. */
+.kind-card.has-photo a { color: #ffd9a8; text-decoration: underline; }
+.kind-card.has-photo a:hover { color: #ffe9c9; }
+.kind-card.has-photo a:focus-visible { outline: 2px solid #ffd9a8; outline-offset: 2px; }
+
+/* --- Mobile (390px): grid is 1 column at <=820px (existing rule kept) --- */
+@media (max-width: 820px) {
+  .kind-card { padding: 24px 22px; }
+  .kind-card.has-photo {
+    /* Taller slot (350x466) crops the sides of the 760x864 master under
+       cover; centre keeps the subject. No other change needed. */
+    background-position: center;
+  }
+  .kind-card h3 { font-size: 22px; }
+}
+
+/* --- Print: photos do not print; photo cards revert to the plain card --- */
+@media print {
+  .kind-card.has-photo {
+    background-image: none !important;
+    background-color: #ffffff;
+    color: var(--ink);
+  }
+  .kind-card.has-photo .kind-scrim { display: none; }
+  .kind-card.has-photo h3 { color: var(--deep); }
+  .kind-card.has-photo p { color: var(--ink); }
+  .kind-card.has-photo a { color: var(--teal); }
+}
+
+/* "What we help with" cards — homepage only (Task 3).
+   The render branch outputs <div class="kinds-grid help-grid"> with
+   <article class="kind-card help-card"> per item, so the grid, the card
+   chrome (coral top border, radius, shadow) and the 3/2/1-column
+   breakpoints are inherited from the existing .kinds-grid / .kind-card
+   rules. This snippet adds ONLY the card-top image treatment.
+   Slot (measured from styles.css): container 1240px, padding 24px;
+   3 cols gap 24 -> card 381px; 2 cols (<=1020px) -> card 474px (largest
+   slot); 1 col (<=620px, container padding 20px) -> card 350px at 390px
+   viewport, 280px at 320px. Image file is 474x267 (16:9) — exact for
+   the largest slot; downscaled by the browser at the smaller slots. */
+
+/* Image first in the card, full-bleed across the top of the card.
+   .kind-card padding is 28px, so the image breaks out of the padding
+   with negative margins; the coral top border stays above it. */
+.help-card { overflow: hidden; }
+.help-card-img {
+  display: block;
+  width: calc(100% + 56px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin: -28px -28px 20px;
+  border-radius: 0;
+}
+.help-card p { margin-bottom: 0; }
+
+/* 390px single column (inherited 1fr from .kinds-grid at <=620px):
+   card 350px wide, image renders 350x197 — layout holds, no overflow.
+   At 320px: card 280px, image 280x158. No extra rule needed. */
+
+/* About / How-it-works buttons — homepage only (Task 4).
+   The two links render as <a class="btn btn-ghost-dark">, i.e. the
+   existing .btn + .btn-ghost-dark rules already in styles.css.
+   TAP-TARGET MEASUREMENT (from styles.css, no new rule needed):
+   .btn { font-size: 20px; line-height: 1.2 (= 24px); padding: 16px 28px;
+   min-height: 56px; } -> rendered height = max(56px, 24 + 32) = 56px,
+   which is >= the 44px bar. .btn-ghost-dark adds only colours
+   (transparent bg, teal text/border; teal bg + white text on hover).
+   NO height fix is required. This snippet adds only the spacing that
+   keeps the buttons breathing inside the paragraph line when they wrap
+   on mobile. */
+
+/* The <p> keeps its normal block flow; the buttons are inline-flex
+   inside it, so on narrow screens they wrap below the lead text. */
+.about-buttons .btn {
+  margin: 4px 8px 4px 0;
+  vertical-align: middle;
+}
+.about-buttons .btn:last-child { margin-right: 0; }
+
+/* The <p> keeps normal block flow; the button sits inline in the sentence. */
+.call-zip-line .btn { margin: 4px 8px; vertical-align: middle; }
+
+/* Task 7 — area-card grid for /areas/ (qa/css-snippet-areas.css, proposal).
+   Append to site/assets/css/styles.css. Mirrors the .kinds-grid / .kind-card
+   treatment (white card, coral top border, 12px radius, same shadow, same
+   breakpoints) with a full-bleed photo header on each card.
+   Slot math (container max 1240px, padding 24px -> content 1192px; grid gap 24px):
+     desktop 3-col : column (1192-48)/3 = 381px -> image 381x254 @3:2
+     2-col @1020px: column (972-24)/2  = 474px -> image 474x316 @3:2  (LARGEST slot)
+     mobile 390px : single column, content 350px -> image 350x233 @3:2
+   Files are served at exactly the largest slot, 474x316; the browser
+   downscales at desktop/mobile. aspect-ratio + object-fit: cover keep the
+   box exact at every width so no layout shift occurs. */
+
+/* --- Area cards --- */
+.area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0 8px; }
+.area-card {
+  background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--coral);
+  border-radius: 12px; padding: 0 0 28px; box-shadow: 0 4px 16px rgba(10, 46, 56, 0.06);
+  overflow: hidden;
+}
+.area-card-img {
+  display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 0; margin: 0;
+}
+.area-card h3 { margin: 20px 0 0; padding: 0 28px; font-size: 23px; }
+.area-card p { margin: 12px 0 0; padding: 0 28px; }
+.area-card p:last-child { margin-bottom: 0; }
 
 /* --- Tables --- */
 /* 10x fix D-07: right-edge fade so a horizontally scrolling table signals
@@ -270,6 +666,62 @@ th {
 }
 td { padding: 15px 18px; border-top: 1px solid var(--line); vertical-align: top; }
 tbody tr:nth-child(even) { background: var(--sand); }
+/* --- Tables: deep-river header, stronger zebra, gold price column --- */
+
+/* Header row: teal -> deep river teal, with a gold baseline (inset
+   box-shadow, so zero height change). White on deep = 14.38:1. */
+.table-wrap th {
+  background: var(--deep);
+  color: #fff;
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+/* Vertical column separators (F1): hairline sand line between columns,
+   so the eye can scan a row across without losing its place. */
+.table-wrap th + th,
+.table-wrap td + td {
+  border-left: 1px solid #e7dfcf;
+}
+
+/* Zebra: even rows sand -> deeper sand-2, so the stripe is actually
+   visible against white odd rows. Ink on sand-2 = 12.72:1. */
+.table-wrap tbody tr:nth-child(even) {
+  background: var(--sand-2);
+}
+
+/* First (label) column (F2): bold deep-teal labels, so each row reads as
+   label -> detail. Teal-dark on white = 11.54:1, on zebra = 9.38:1. */
+.table-wrap td:first-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+
+/* Row hover: warm sand wash, so the row under the pointer lifts out.
+   Ink on hover = 12.48:1. */
+.table-wrap tbody tr:hover {
+  background: #ede5d3;
+}
+
+/* --- Price column (.table-wrap.prices td:last-child): the money column
+   gets its own pale-gold tint + bold deep-teal figures, so prices scan
+   as a column instead of disappearing into the prose. Right-alignment
+   and the desktop-only nowrap rule are NOT touched here. --- */
+.table-wrap.prices td:last-child {
+  font-weight: 700;
+  color: var(--teal-dark);
+  background: #fdf8ec;           /* odd rows: pale gold sand */
+}
+.table-wrap.prices tbody tr:nth-child(even) td:last-child {
+  background: #f4ead2;           /* even rows: deeper gold sand */
+}
+.table-wrap.prices tbody tr:hover td:last-child {
+  background: #efe0b9;           /* hovered row: richest gold sand */
+}
+/* Price-column header: gold text on the deep header, so the money
+   column is signalled before the first figure. Gold on deep = 5.64:1. */
+.table-wrap.prices th:last-child {
+  color: var(--gold);
+}
 
 /* --- Steps --- */
 .steps { list-style: none; padding: 0; margin: 32px 0; counter-reset: step; }
@@ -398,6 +850,7 @@ tbody tr:nth-child(even) { background: var(--sand); }
 }
 @media (max-width: 1020px) {
   .kinds-grid { grid-template-columns: repeat(2, 1fr); }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
   .header-inner { gap: 16px; }
   .site-nav > a, .site-nav summary { padding: 12px 10px; font-size: 17px; }
@@ -460,10 +913,21 @@ tbody tr:nth-child(even) { background: var(--sand); }
   .hero-inner-page .hero-inner { padding-top: 32px; padding-bottom: 32px; }
   .page-body { padding-bottom: 120px; }
   .page-body > h2 { margin-top: 56px; }
-  .details-card { padding: 28px 22px; }
-  .details-grid { grid-template-columns: 1fr; gap: 6px; }
-  .detail-row dt { margin-top: 12px; }
+  .details-card { padding: 28px 22px; border-left-width: 5px; border-radius: 14px; }
+  .details-sub { font-size: 14px; letter-spacing: 0.16em; margin-bottom: 10px; }
+  .details-sub::before { width: 36px; }
+  .details-grid { margin-top: 22px; }
+  /* Single column: icon + label on top, value below, value text aligned
+     with the label text (54px = 40px disc + 14px gap), never under the icon. */
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 10px;
+    margin: 0 -10px;
+  }
+  .detail-row dd { padding-top: 0; padding-left: 54px; }
   .kinds-grid { grid-template-columns: 1fr; }
+  .area-grid { grid-template-columns: 1fr; }
   .table-wrap { margin-left: -20px; margin-right: -20px; border-radius: 0; border-left: 0; border-right: 0; }
   table { font-size: 18px; }
   th, td { padding: 13px 14px; }
@@ -493,7 +957,8 @@ tbody tr:nth-child(even) { background: var(--sand); }
 .faq-list,
 ol.steps,
 .table-wrap,
-.kinds-grid {
+.kinds-grid,
+.area-grid {
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
 }
@@ -502,7 +967,275 @@ ol.steps,
   .faq-list,
   ol.steps,
   .table-wrap,
-  .kinds-grid {
+  .kinds-grid,
+  .area-grid {
     content-visibility: visible;
   }
 }
+
+/* ==========================================================================
+   TASK — SITEWIDE COLOUR, BASE HEADINGS + UNOWNED SECTIONS (proposal only)
+   Fort Myers NEW PHP site — "Caloosahatchee" theme
+   (deep river teal #0A2E38, sunset coral CTA #C2410C, sand #F6F1E7,
+   gold #C99B3F, teal #0B5563, teal-dark #083F4A, coral-dark #9A3412)
+
+   STATUS: proposal snippet. NOT applied. Do not paste into styles.css
+   without the coordinator's apply + re-screenshot step. No shared file
+   was edited to produce this file.
+
+   HOW TO APPLY (coordinator): append this whole block to
+   site/assets/css/styles.css AFTER all existing base rules and AFTER the
+   other workers' snippets (D details, I tables/buttons, F kinds,
+   E help, G area cards). Every rule below is scoped so it cannot leak
+   into another worker's section; the specificity notes say how.
+
+   WHAT THIS SNIPPET DOES NOT TOUCH (deliberately):
+   - .details-card and everything inside it (worker D) — excluded with
+     :not() wherever a base rule could otherwise reach it.
+   - .kind-card and everything inside it (worker F) — excluded with :not().
+   - .table-wrap / th / td (worker I) — excluded with :not() from the
+     body-link rule; no table rule appears below.
+   - Help cards / area cards (workers E / G) — no .help-card / .area-card
+     selector exists in the current build (verified 2026-11-19 against
+     out/*.html + styles.css), so there is nothing to exclude; if E/G
+     introduce those classes, their rules (class selectors) beat the
+     base h2/h3 rules below only if they come later — see note S3.
+   - .btn / .btn-call / .btn-ghost / .btn-ghost-dark / .call-bar
+     (worker I) — excluded with :not(.btn) from the body-link rule; the
+     only button-adjacent rule below is :focus-visible, where I's
+     .btn:focus-visible (0,2,0) beats this file's :focus-visible (0,1,0).
+   - Hero images / .hero-img / .hero-no-media::after (Task 1 workers) —
+     the hero rules at the end of this file are COMMENTED-OUT audit
+     proposals only. Do NOT uncomment them here; hand them to Task 1.
+   - No text-size rule appears anywhere in this file (grep for the
+     property name returns 0). Body text stays 20px; h1/h2/h3 sizes are
+     untouched — only colours change.
+
+   SPECIFICITY NOTES
+   S1. Base h2 in styles.css is `h2` (0,0,1) and `.page-body h2::before`
+       (0,1,1). This file's `.page-body h2:not(.details-card h2)` is
+       (0,2,1) and its ::before is (0,2,1) + pseudo-element, so both win
+       without !important. The :not() means the rule NEVER matches a
+       details-card h2 — there is no fight with worker D, in either
+       order.
+   S2. Same pattern for h3: `.page-body h3:not(.kind-card h3)` (0,2,1)
+       beats base `h3` (0,0,1) and never matches a kind-card h3, so no
+       fight with worker F. `.footer-col h3` is outside .page-body and
+       is untouched by this rule (footer rules below keep it white).
+   S3. If workers E/G later add .help-card h3 / .area-card h3 rules at
+       (0,1,1), this file's (0,2,1) base h3 would still win IF it also
+       matched — it does not: help/area cards are not in the current
+       build, and if they are built as siblings of .page-body content
+       they should carry their own h3 colour. Coordinator: when E/G
+       land, add their selectors to this file's :not() lists.
+   S4. `.page-body a:not(.btn):not(.table-wrap a):not(.details-card a)`
+       — the chained :not() keeps the underline/visited treatment off
+       worker I's table links and worker D's details links. FAQ answer
+       links ARE matched on purpose (FAQ is owned here; the values
+       agree with the existing 20x D5 rule).
+   S5. `.faq-item:not([open]) summary:hover` — scoped to CLOSED items
+       so the 20x open-state identity (open summary stays teal) is
+       preserved; the base `.faq-item[open] summary` rule (0,2,1) and
+       this hover rule never apply at the same time.
+   ========================================================================== */
+
+/* --- 1. BASE H2 — river teal, with a river-into-sunset bar -------------
+   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: teal #0B5563 on white,
+   8.42:1 (7.48:1 on sand, 6.85:1 on sand-2) — still far above the 4.5:1
+   bar for normal text and 3:1 for large text, and now visually distinct
+   from the H3 below it. The old H2 and H3 were the SAME colour, so the
+   page had no heading hierarchy at all.
+   The bar: solid coral -> gradient teal-to-coral, same 72px x 6px, so
+   the bar now reads as the river flowing into the sunset. ---------- */
+.page-body h2:not(.details-card h2) {
+  color: var(--teal);
+}
+.page-body h2:not(.details-card h2)::before {
+  background: linear-gradient(90deg, var(--teal) 0%, var(--coral) 100%);
+}
+
+/* --- 2. BASE H3 — sunset coral-dark ----------------------------------
+   BEFORE: deep #0A2E38 on white, 14.38:1. AFTER: coral-dark #9A3412 on
+   white, 7.31:1 (6.49:1 on sand, 5.94:1 on sand-2). Coral-dark was
+   chosen over plain coral #C2410C (5.18:1 white / 4.60:1 sand — a pass,
+   but a thin one on sand) because the darker end of the sunset keeps a
+   comfortable margin on every background an H3 can sit on, including
+   the steps list (white) and any sand-tinted section. H2 teal + H3
+   coral-dark = river + sunset, the two theme accents, one per level. */
+.page-body h3:not(.kind-card h3) {
+  color: var(--coral-dark);
+}
+
+/* --- 3. BODY LINKS — underline + visited distinction ------------------
+   BEFORE: teal #0B5563, 8.42:1, colour-only. A link next to ink body
+   text #12262E measures only 1.86:1 against its surroundings, so a
+   reader who cannot tell teal from ink has no cue at all (WCAG 1.4.1
+   wants 3:1 or a non-colour cue). AFTER: the same teal, now always
+   underlined (3px offset, matching the 20x D5 FAQ rule), so links are
+   recognisable without colour. Hover deepens to coral-dark #9A3412
+   (7.31:1, up from coral's 5.18:1) and keeps the underline. Visited
+   links get their own slightly brighter river teal #0C6B7A (6.18:1 on
+   white, 5.49:1 on sand) so a reader can tell what they already opened.
+   Buttons, table links and details links are excluded (workers I / D).
+   No :visited rule existed before: visited links used to look exactly
+   like unvisited ones. ----------------------------------------------- */
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a) {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):hover {
+  color: var(--coral-dark);
+}
+.page-body a:not(.btn):not(.table-wrap a):not(.details-card a):not(.kind-card.has-photo a):visited {
+  color: #0c6b7a;
+}
+/* List markers stay sunset coral (decorative, non-text). No change. */
+
+/* --- 4. BREADCRUMB ------------------------------------------------------
+   BEFORE: links teal 8.42:1 (good), current crumb ink 15.64:1 (good),
+   separator gold #C99B3F on white 2.55:1 (weak — the "»" almost
+   disappears on white). AFTER: separator darkened to #8A6D1F, 4.90:1 —
+   still gold, now actually visible. Links and current crumb unchanged.
+   Hover underline already existed; unchanged. ----------------------- */
+.breadcrumb .crumb-sep {
+  color: #8a6d1f;
+}
+
+/* --- 5. HEADER / NAV ----------------------------------------------------
+   5a. Gold baseline under the sticky header. BEFORE: flat deep header
+   with only a drop shadow. AFTER: the same shadow plus a 3px gold rule
+   (inset box-shadow, so ZERO height/layout change). It ties the header
+   to the footer gold rule below and to the gold current-page underline.
+   5b. Dropdown current item. BEFORE: coral #C2410C on sand-2 #EFE7D6,
+   4.21:1 — the ONE measured WCAG failure in the header (18px bold is
+   normal text, needs 4.5:1). AFTER: coral-dark #9A3412 on sand-2,
+   5.94:1. Background, weight and padding untouched.
+   5c. Dropdown link hover. BEFORE: coral on sand, 4.60:1 (a pass, but
+   the thinnest on the site). AFTER: coral-dark on sand, 6.49:1.
+   5d. Mobile menu toggle hover. BEFORE: no hover state. AFTER: the same
+   12% white wash the desktop nav uses, so the toggle answers the tap.
+   Everything else in the header already passes with margin and is
+   UNCHANGED: brand white 14.38:1, brand-tag #B8D2D8 9.07:1, nav links
+   white 14.38:1, current-page gold wash (white 10.08:1 on the true
+   composite #34463A) + gold underline, mobile group labels #A9C3C9
+   7.76:1, mobile links white 14.38:1, mobile current white 9.37:1 on
+   its composite. ----------------------------------------------------- */
+.site-header {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35), inset 0 -3px 0 var(--gold);
+}
+.nav-dropdown span.nav-current {
+  color: var(--coral-dark);
+}
+.nav-dropdown a:hover {
+  color: var(--coral-dark);
+}
+.mobile-menu summary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- 6. FOOTER ----------------------------------------------------------
+   6a. Gold rule above the footer. BEFORE: flat deep footer meeting the
+   white page with no edge. AFTER: a 3px gold rule (inset box-shadow,
+   ZERO layout change), mirroring the header baseline — the page is now
+   framed in gold top and bottom.
+   6b. Everything else measured already passes with margin and is
+   UNCHANGED: column headings white 14.38:1 (gold was considered and
+   rejected — three gold column headings would shout; gold already
+   speaks in the brand-name span and the current-page underline),
+   column links #D7E4E7 11.05:1, hover white + underline, current item
+   white 14.38:1 + gold underline, ZIPs #A9C3C9 7.76:1, base text
+   #D7E4E7 11.05:1, base phone white 14.38:1, brand-name white +
+   gold span (gold on deep 5.64:1, large display text), footer map
+   link gold-cream #FFD9A8 10.78:1, back-to-top white 14.38:1 with gold
+   hover 5.64:1. ------------------------------------------------------ */
+.site-footer {
+  box-shadow: inset 0 3px 0 var(--gold);
+}
+
+/* --- 7. FAQ --------------------------------------------------------------
+   7a. Closed summary: teal #0B5563, 8.42:1 — UNCHANGED (already best).
+   7b. Closed summary hover. BEFORE: coral #C2410C on sand, 4.60:1.
+   AFTER: coral-dark #9A3412 on sand, 6.49:1 (scoped to closed items
+   only — see S5 — so an open summary keeps its teal identity).
+   7c. Open summary: gains a sand background wash so an open answer is
+   unmistakable even without reading the +/- glyph. Teal on sand
+   7.48:1. Border-left gold + teal border (20x) unchanged.
+   7d. The +/- glyph: white on coral 5.18:1 closed, coral glyph on
+   white 5.18:1 — UNCHANGED (passes with margin at 26px/24px).
+   7e. Answer links: teal underlined 8.42:1 (20x D5) — UNCHANGED by any
+   rule here; the generic body-link rule in §3 agrees with it and adds
+   the visited #0C6B7A treatment. ------------------------------------ */
+.faq-item:not([open]) summary:hover {
+  color: var(--coral-dark);
+  background: var(--sand);
+}
+.faq-item[open] summary {
+  background: var(--sand);
+}
+
+/* --- 8. STEPS ------------------------------------------------------------
+   BEFORE: number badge flat coral, white on coral 5.18:1 (28px/24px
+   display numerals — large text, passes 3:1 with margin). AFTER: the
+   same sunset gradient worker I uses on .btn-call (coral -> coral-dark),
+   so badges and buttons read as one CTA system. White on the lightest
+   point 5.18:1, on the darkest 7.31:1. Step titles are covered by the
+   base H3 rule in §2 (coral-dark), so badge + title are now one family.
+   The hairline between steps (#DCD5C6) is unchanged. ----------------- */
+.step-num {
+  background: linear-gradient(180deg, var(--coral) 0%, var(--coral-dark) 100%);
+}
+
+/* --- 9. MAP SECTION ------------------------------------------------------
+   The caption is an H2 and is covered by §1 (teal + gradient bar;
+   30px display, 8.42:1). The iframe's 2px gold border is unchanged.
+   The footer "View larger map" link (gold-cream #FFD9A8 on deep,
+   10.78:1) is unchanged. No rule needed here beyond §1 — recorded so
+   the coordinator can see the map was considered, not missed. -------- */
+
+/* --- 10. CTA LINES + LAST-UPDATED ---------------------------------------
+   .cta-line holds only worker I's buttons (excluded). .last-updated is
+   muted #46585F on white, 7.44:1 — passes with margin. No rule needed;
+   recorded so the coordinator can see it was measured, not missed. --- */
+
+/* --- 11. 404 PAGE --------------------------------------------------------
+   The 404 H1 is the ONLY deep-colour H1 on the site (every other H1
+   sits white on the hero). BEFORE: deep #0A2E38 on white, 14.38:1.
+   AFTER: river teal #0B5563, 8.42:1 — the error page now reads as part
+   of the H2 system instead of an unstyled default, while staying far
+   above the large-text bar. Its paragraph links are covered by §3 and
+   its buttons belong to worker I. ------------------------------------- */
+.not-found h1 {
+  color: var(--teal);
+}
+
+/* --- 12. SELECTION + FOCUS ----------------------------------------------
+   NEW: no ::selection rule existed. Gold selection with deep text
+   (5.64:1) keeps selected text readable in the brand palette.
+   NEW: a single global focus ring — 3px gold, 2px offset — for every
+   keyboard-focusable element that has no ring of its own. Gold on
+   white 2.55:1 as a colour is weak, but a 3px outline is a non-text
+   indicator (WCAG 2.4.11 needs 3:1 against adjacent colours; gold vs
+   white is 2.55:1 — see the note below). The elements that matter most
+   already carry stronger rings and WIN on specificity: .btn:focus-visible
+   (worker I, 0,2,0 — white ring + coral outer ring), .skip-link:focus
+   (0,2,0 — coral bg + gold outline), .faq-item summary:focus-visible
+   (0,2,1 — gold outline on white card). This global rule is the safety
+   net for plain links, whose only focus cue today is the browser
+   default. NOTE for the coordinator: if a stricter reading of 2.4.11
+   is wanted, swap var(--gold) for #8A6D1F (4.90:1 on white) in this
+   one rule — the trade-off is a less golden ring. ------------------- */
+::selection {
+  background: var(--gold);
+  color: var(--deep);
+}
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #8a6d1f;
+}
+/* Coordinator note: the outer dark-gold ring (#8A6D1F, 4.90:1 on white) is
+   the WCAG 2.4.11-compliant indicator on light backgrounds; the gold
+   outline carries it on dark backgrounds. Stronger rings on .btn,
+   .skip-link, FAQ summaries, details links and photo-card links win on
+   specificity and are untouched. */

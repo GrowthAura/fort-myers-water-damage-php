@@ -221,15 +221,8 @@ return [
             'items' => [
                 [
                     [
-                        't' => 'Condos and attached homes. A failed water heater, AC drain or washer in one unit can reach the unit below or next door. See '
+                        't' => 'Condos and attached homes. A failed water heater, AC drain or washer in one unit can reach the unit below or next door.'
                     ],
-                    [
-                        't' => 'condo water damage',
-                        'href' => '/condo-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -245,15 +238,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'AC closets. Air handlers in interior closets are common. See '
+                        't' => 'AC closets. Air handlers in interior closets are common.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -312,7 +298,6 @@ return [
                     [
                         [
                             't' => 'Condo water damage',
-                            'href' => '/condo-leak/'
                         ]
                     ]
                 ],
@@ -330,7 +315,6 @@ return [
                     [
                         [
                             't' => 'AC leak water damage',
-                            'href' => '/ac-leak/'
                         ]
                     ]
                 ],
@@ -348,7 +332,6 @@ return [
                     [
                         [
                             't' => 'Water damage in vacant homes',
-                            'href' => '/vacant-home/'
                         ]
                     ]
                 ],
@@ -405,7 +388,6 @@ return [
                         ],
                         [
                             't' => 'storm cleanup',
-                            'href' => '/flood-cleanup/'
                         ]
                     ]
                 ]
@@ -843,8 +825,7 @@ return [
                             't' => ', '
                         ],
                         [
-                            't' => 'Fort Myers',
-                            'href' => '/'
+                            't' => 'Fort Myers'
                         ],
                         [
                             't' => ' and '
@@ -881,28 +862,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Commercial and '
-                    ],
-                    [
-                        't' => 'vacation rental water damage',
-                        'href' => '/commercial/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Bonita Springs',
-                        'href' => '/bonita-springs/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage specialists',
                         'href' => '/'
                     ]
                 ]

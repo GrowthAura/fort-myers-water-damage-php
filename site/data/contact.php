@@ -503,42 +503,36 @@ return [
                         ],
                         [
                             't' => 'Cape Coral',
-                            'href' => '/cape-coral/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'Lehigh Acres',
-                            'href' => '/lehigh-acres/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'North Fort Myers',
-                            'href' => '/north-fort-myers/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'Fort Myers Beach',
-                            'href' => '/fort-myers-beach/'
                         ],
                         [
                             't' => ', '
                         ],
                         [
                             't' => 'Estero',
-                            'href' => '/estero/'
                         ],
                         [
                             't' => ' and '
                         ],
                         [
                             't' => 'Bonita Springs',
-                            'href' => '/bonita-springs/'
                         ],
                         [
                             't' => ' are covered. If you\'re nearby and not sure, call and ask.'
@@ -593,7 +587,6 @@ return [
                 ],
                 [
                     't' => 'How it works',
-                    'href' => '/how-it-works/'
                 ]
             ]
         ],

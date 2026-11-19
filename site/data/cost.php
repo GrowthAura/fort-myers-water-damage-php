@@ -914,27 +914,13 @@ return [
                 ],
                 [
                     [
-                        't' => 'Cast iron drain failure under a 1970s slab home. Sewage cleanup in the bathroom and hallway often lands around $7,000 to $20,000 or more, before the plumbing repair, the trench through the slab and new flooring. See '
+                        't' => 'Cast iron drain failure under a 1970s slab home. Sewage cleanup in the bathroom and hallway often lands around $7,000 to $20,000 or more, before the plumbing repair, the trench through the slab and new flooring.'
                     ],
-                    [
-                        't' => 'cast iron pipe water damage',
-                        'href' => '/cast-iron-pipe/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
-                        't' => 'Supply line that ran for three weeks in an empty seasonal home. Several rooms, wet walls and often mold, which frequently puts drying in the $8,000 to $15,000 range, with mold removal and rebuilding on top. See '
+                        't' => 'Supply line that ran for three weeks in an empty seasonal home. Several rooms, wet walls and often mold, which frequently puts drying in the $8,000 to $15,000 range, with mold removal and rebuilding on top.'
                     ],
-                    [
-                        't' => 'water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ],
                 [
                     [
@@ -1294,15 +1280,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'In Fort Myers heat and humidity, each step can come sooner. Use the '
+                    't' => 'In Fort Myers heat and humidity, each step can come sooner.'
                 ],
-                [
-                    't' => 'first-hour checklist',
-                    'href' => '/first-hour-checklist/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -1397,21 +1376,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'Read '
-                ],
-                [
-                    't' => 'how insurance handles water damage in Florida',
-                    'href' => '/insurance/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Lee County\'s 50% Rule and Your Repair Total'
         ],
@@ -1450,8 +1414,7 @@ return [
                     't' => 'A clear, itemized scope shows the building department exactly what is being repaired. Ask the department that issues your permit before you plan the rebuild. More on the 50% rule: '
                 ],
                 [
-                    't' => 'water damage restoration in Fort Myers',
-                    'href' => '/'
+                    't' => 'water damage restoration in Fort Myers'
                 ],
                 [
                     't' => '.'
@@ -1557,15 +1520,8 @@ return [
                     'q' => 'Are condo water damage jobs more expensive in Fort Myers?',
                     'a' => [
                         [
-                            't' => 'Often, yes. South Florida cost guides put condo and high-rise losses about 20% to 40% higher than a house with the same damage, because water reaches more than one unit and building access, elevators and work hours add time. See '
+                            't' => 'Often, yes. South Florida cost guides put condo and high-rise losses about 20% to 40% higher than a house with the same damage, because water reaches more than one unit and building access, elevators and work hours add time.'
                         ],
-                        [
-                            't' => 'condo water damage',
-                            'href' => '/condo-leak/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1680,37 +1636,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Emergency water removal',
-                        'href' => '/water-removal/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Burst pipe water damage',
-                        'href' => '/burst-pipe/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Slab leak water damage',
-                        'href' => '/slab-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'What happens after you call',
-                        'href' => '/how-it-works/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration team',
                         'href' => '/'
                     ]
                 ]

@@ -125,7 +125,6 @@ return [
                     ],
                     [
                         't' => 'Structural drying',
-                        'href' => '/drying/'
                     ],
                     [
                         't' => ' removes the water that has already soaked into drywall, slab, baseboards and cabinets.'
@@ -321,7 +320,6 @@ return [
                         ],
                         [
                             't' => 'From here the job becomes structural drying',
-                            'href' => '/drying/'
                         ],
                         [
                             't' => ', which runs until the materials reach normal dry readings.'
@@ -968,7 +966,6 @@ return [
                     [
                         [
                             't' => 'Sewage backup cleanup',
-                            'href' => '/sewage-cleanup/'
                         ]
                     ]
                 ],
@@ -1020,7 +1017,6 @@ return [
                         ],
                         [
                             't' => 'storm cleanup',
-                            'href' => '/flood-cleanup/'
                         ]
                     ]
                 ]
@@ -1062,15 +1058,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Upper-floor units usually need portable equipment, and the water may already be in the unit below. Tell building management right away so a shared riser or the unit above can be shut off, and photograph both units. Read '
+                    't' => 'Upper-floor units usually need portable equipment, and the water may already be in the unit below. Tell building management right away so a shared riser or the unit above can be shut off, and photograph both units.'
                 ],
-                [
-                    't' => 'more about condo water damage',
-                    'href' => '/condo-leak/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -1155,21 +1144,6 @@ return [
                     [
                         't' => 'Keep children and pets out of rooms that took in floodwater.'
                     ]
-                ]
-            ]
-        ],
-        [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See flood and '
-                ],
-                [
-                    't' => 'storm cleanup',
-                    'href' => '/flood-cleanup/'
-                ],
-                [
-                    't' => '.'
                 ]
             ]
         ],
@@ -1264,15 +1238,8 @@ return [
                     'q' => 'Is water removal the same as water mitigation?',
                     'a' => [
                         [
-                            't' => 'Water removal is the first part of mitigation. Mitigation is the whole job of stopping further damage: extracting water, removing what can\'t be saved and drying the structure. Learn how water mitigation and '
+                            't' => 'Water removal is the first part of mitigation. Mitigation is the whole job of stopping further damage: extracting water, removing what can\'t be saved and drying the structure.'
                         ],
-                        [
-                            't' => 'structural drying work',
-                            'href' => '/drying/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1438,37 +1405,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Ceiling leak water damage',
-                        'href' => '/ceiling-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage in vacant homes',
-                        'href' => '/vacant-home/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'What happens after you call',
-                        'href' => '/how-it-works/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'All Lee County service areas',
-                        'href' => '/areas/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'water damage restoration in Fort Myers, FL',
                         'href' => '/'
                     ]
                 ]

@@ -1,0 +1,80 @@
+TASK 5 — patch proposal for site/includes/functions.php ('kinds' case only)
+===========================================================================
+COORDINATOR STEPS (no other file is touched by this patch):
+  1. Copy qa/manifest-kinds-F.php to site/data/manifest-kinds.php
+     (same content; the qa copy stays as the record).
+  2. Apply the OLD -> NEW replacement below, exactly once, in
+     site/includes/functions.php (the 'kinds' case, ~lines 279-286).
+  3. Merge qa/css-snippet-kinds.css into site/assets/css/styles.css
+     (replaces the existing .kind-card rules only).
+  4. Re-export + screenshot the homepage at 1440px and 390px and check
+     text contrast on the real render (the numbers in
+     qa/FINDINGS-kinds-cards.md are computed, not screenshotted).
+
+WHAT CHANGES: each <article> gains an inline background-image style (from
+the manifest entry for that card's index) and one empty overlay element
+<div class="kind-scrim" aria-hidden="true"></div>. NOTHING ELSE CHANGES:
+zero word changes, every title/body/link byte-identical, same element order,
+same classes. Cards with no manifest entry (missing file, missing index)
+render with NO background image and NO scrim — honestly empty, exactly as
+today (the old white card + the new CSS fallback background-color only
+applies when the photo exists; without a photo the card keeps its old
+white look via the print-style fallback — see note below).
+
+NOTE ON THE NO-PHOTO FALLBACK: the NEW code below adds class
+"kind-card has-photo" ONLY when a manifest entry with a src exists, and
+plain "kind-card" otherwise. The CSS snippet scopes every photo rule
+(dark background-color, light text, scrim, gold links) under
+.kind-card.has-photo, so a card with no photo keeps the old white card
+exactly (dark text on white) and can never strand light text on a dark
+card. The dark background-color on .has-photo is only a load fallback
+while the photo downloads.
+
+--- OLD CODE (verbatim from site/includes/functions.php, lines 279-286) ---
+        case 'kinds': {
+            $cards = '';
+            foreach ($b['items'] as $k) {
+                $cards .= '<article class="kind-card"><h3>' . esc($k['title']) . '</h3>'
+                    . '<p>' . render_segments($k['body']) . '</p></article>';
+            }
+            return '<div class="kinds-grid">' . $cards . '</div>';
+        }
+
+--- NEW CODE (exact replacement) ---
+        case 'kinds': {
+            $cards = '';
+            // Task 5: card backgrounds from qa/manifest-kinds-F.php (copied
+            // to site/data/manifest-kinds.php by the coordinator). Indexed
+            // by card order; a missing entry renders the card with no photo.
+            $kindsMedia = $GLOBALS['KINDS_MEDIA'] ?? null;
+            if ($kindsMedia === null) {
+                $kindsFile = __DIR__ . '/../data/manifest-kinds.php';
+                $kindsMedia = is_file($kindsFile) ? require $kindsFile : [];
+                $GLOBALS['KINDS_MEDIA'] = $kindsMedia;
+            }
+            $ki = 0;
+            foreach ($b['items'] as $k) {
+                $km = $kindsMedia['kinds']['home'][$ki] ?? null;
+                $cls = 'kind-card';
+                $style = '';
+                $scrim = '';
+                if (!empty($km['src'])) {
+                    $cls .= ' has-photo';
+                    $style = ' style="background-image:url(' . esc($km['src']) . ')"';
+                    $scrim = '<div class="kind-scrim" aria-hidden="true"></div>';
+                }
+                $cards .= '<article class="' . $cls . '"' . $style . '>' . $scrim . '<h3>' . esc($k['title']) . '</h3>'
+                    . '<p>' . render_segments($k['body']) . '</p></article>';
+                $ki++;
+            }
+            return '<div class="kinds-grid">' . $cards . '</div>';
+        }
+
+--- END ---
+Verification after applying (coordinator): homepage word-diff 0 vs the
+data file; 13 <article class="kind-card has-photo"> each with a distinct
+kinds-*.jpg background-image; 13 .kind-scrim divs; all 13 card links
+unchanged (/ac-leak/, /ceiling-leak/, /condo-leak/, /sewage-cleanup/,
+/cast-iron-pipe/, /burst-pipe/, /water-heater-leak/, /appliance-leak/,
+/slab-leak/, /vacant-home/, /mobile-home/, /flood-cleanup/, /floors/ +
+/cabinets/); no other block type affected.

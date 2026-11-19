@@ -803,21 +803,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'For more on wastewater cleanup, see '
-                ],
-                [
-                    't' => 'sewage backup cleanup',
-                    'href' => '/sewage-cleanup/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Living Through Cast Iron Repairs in Your Fort Myers Home'
         ],
@@ -911,15 +896,8 @@ return [
             'type' => 'p',
             'segs' => [
                 [
-                    't' => 'Older homes are the ones most likely to carry a limited water damage endorsement, and cast iron claims are where it matters most, because reaching the pipe often means opening tile and slab. Some endorsements cap water damage and tear-out together at a fixed amount; others cap the water damage but say nothing about tear-out. Before demolition starts, ask your agent or adjuster which wording your policy has, and keep a copy of the endorsement in your claim file. See '
+                    't' => 'Older homes are the ones most likely to carry a limited water damage endorsement, and cast iron claims are where it matters most, because reaching the pipe often means opening tile and slab. Some endorsements cap water damage and tear-out together at a fixed amount; others cap the water damage but say nothing about tear-out. Before demolition starts, ask your agent or adjuster which wording your policy has, and keep a copy of the endorsement in your claim file.'
                 ],
-                [
-                    't' => 'what a limited water damage endorsement does',
-                    'href' => '/insurance/'
-                ],
-                [
-                    't' => '.'
-                ]
             ]
         ],
         [
@@ -1094,31 +1072,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'First-hour water damage checklist',
-                        'href' => '/first-hour-checklist/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Slab leak water damage',
-                        'href' => '/slab-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damaged floors',
-                        'href' => '/floors/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Structural drying',
-                        'href' => '/drying/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => '24/7 water damage help in Fort Myers',
                         'href' => '/'
                     ]
                 ]

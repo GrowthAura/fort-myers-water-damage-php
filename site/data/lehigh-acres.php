@@ -251,15 +251,8 @@ return [
                 ],
                 [
                     [
-                        't' => 'AC that rarely rests. Inland Lehigh Acres runs hot, and clogged condensate lines are a top cause of indoor water damage. See '
+                        't' => 'AC that rarely rests. Inland Lehigh Acres runs hot, and clogged condensate lines are a top cause of indoor water damage.'
                     ],
-                    [
-                        't' => 'AC leak water damage',
-                        'href' => '/ac-leak/'
-                    ],
-                    [
-                        't' => '.'
-                    ]
                 ]
             ]
         ],
@@ -428,7 +421,6 @@ return [
                     [
                         [
                             't' => 'AC leak water damage',
-                            'href' => '/ac-leak/'
                         ]
                     ]
                 ],
@@ -446,7 +438,6 @@ return [
                     [
                         [
                             't' => 'Burst pipe water damage',
-                            'href' => '/burst-pipe/'
                         ]
                     ]
                 ],
@@ -600,21 +591,6 @@ return [
             ]
         ],
         [
-            'type' => 'p',
-            'segs' => [
-                [
-                    't' => 'See flood and '
-                ],
-                [
-                    't' => 'storm cleanup',
-                    'href' => '/flood-cleanup/'
-                ],
-                [
-                    't' => '.'
-                ]
-            ]
-        ],
-        [
             'type' => 'h2',
             'text' => 'Lehigh Acres Rental Homes: Landlords and Tenants'
         ],
@@ -661,7 +637,6 @@ return [
                         ],
                         [
                             't' => 'emergency water removal',
-                            'href' => '/water-removal/'
                         ],
                         [
                             't' => '.'
@@ -885,15 +860,8 @@ return [
                     'q' => 'My septic is backing up after heavy rain. What now?',
                     'a' => [
                         [
-                            't' => 'Stop using water, keep people and pets away from the overflow and photograph it. Don\'t have the tank pumped while the ground is still flooded. Call a septic company, and treat anything the backup touched as sewage. See '
+                            't' => 'Stop using water, keep people and pets away from the overflow and photograph it. Don\'t have the tank pumped while the ground is still flooded. Call a septic company, and treat anything the backup touched as sewage.'
                         ],
-                        [
-                            't' => 'sewage backup cleanup',
-                            'href' => '/sewage-cleanup/'
-                        ],
-                        [
-                            't' => '.'
-                        ]
                     ]
                 ],
                 [
@@ -1002,28 +970,7 @@ return [
                 ],
                 [
                     [
-                        't' => 'Water heater leak cleanup',
-                        'href' => '/water-heater-leak/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Sewage backup cleanup',
-                        'href' => '/sewage-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Flood and '
-                    ],
-                    [
-                        't' => 'storm cleanup',
-                        'href' => '/flood-cleanup/'
-                    ]
-                ],
-                [
-                    [
-                        't' => 'Water damage restoration in Fort Myers',
+                        't' => 'Fort Myers water damage restoration service',
                         'href' => '/'
                     ]
                 ]
