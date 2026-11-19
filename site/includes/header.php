@@ -45,7 +45,7 @@ foreach ($NAV_AREAS as $s) { if ($currentSlug === $s['href']) { $inAreas = true;
      browser that already cached the file, the 2026-11-19 kinds-text
      and details-icon defects were exactly this (new HTML + old CSS).
      Bump the ?v= number on EVERY CSS change, or the fix stays local. -->
-<link rel="stylesheet" href="/assets/css/styles.css?v=5">
+<link rel="stylesheet" href="/assets/css/styles.css?v=6">
 <?php if (!empty($HEAD['ld_given'])): ?>
 <script type="application/ld+json"><?= $HEAD['ld_given'] ?></script>
 <?php endif; ?>

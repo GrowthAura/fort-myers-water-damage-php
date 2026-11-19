@@ -1,4 +1,4 @@
-<?php global $NAV_SERVICES_MENU, $FOOTER_EXPLORE, $SITE; ?>
+<?php global $NAV_SERVICES_MENU, $NAV_AREAS, $FOOTER_EXPLORE, $SITE; ?>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -31,7 +31,17 @@
       <?php endif; ?>
       <?php endforeach; ?>
     </nav>
-    <!-- Areas is header-only -->
+    <nav class="footer-col" aria-label="Areas we serve">
+      <h3>Areas We Serve</h3>
+      <?php foreach ($NAV_AREAS as $s): ?>
+      <?php if ($currentSlug === $s['href']): ?>
+      <span class="nav-current" aria-current="page"><?= esc($s['label']) ?></span>
+      <?php else: ?>
+      <a href="<?= esc($s['href']) ?>"><?= esc($s['label']) ?></a>
+      <?php endif; ?>
+      <?php endforeach; ?>
+      <p class="footer-zips">Fort Myers ZIPs 33901 to 33967 &middot; North Fort Myers 33903, 33917</p>
+    </nav>
   </div>
   <div class="footer-base">
     <div class="container footer-base-inner">
