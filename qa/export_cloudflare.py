@@ -30,7 +30,10 @@ SITE = os.path.join(BUILD, "site")
 BASE = "https://fortmyerswaterdamagerestoration.us"
 PORT = 8132
 
-STATIC_FILES = ["robots.txt", "llms.txt", "sitemap.xml", "favicon.svg",
+STATIC_FILES = ["robots.txt", "llms.txt", "sitemap.xml",
+                "sitemap-pages.xml", "sitemap-services.xml",
+                "sitemap-guides.xml", "sitemap-areas.xml",
+                "favicon.svg",
                 "5aacacd72541e41a25cbc83799292d44.txt"]  # last: IndexNow key file
 
 # Legal pages are noindex + OUT of the sitemap, but they are real routes:
@@ -86,7 +89,21 @@ def main():
             raise SystemExit("PHP server did not come up")
 
         sitemap = fetch("/sitemap.xml").decode("utf-8")
-        locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+        if "<sitemapindex" in sitemap:
+            # Hierarchy (2026-11-25): /sitemap.xml is an index; the page
+            # locs live in the child sitemaps it lists.
+            child_locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+            assert child_locs, "sitemap index has no children"
+            locs = []
+            for child in child_locs:
+                assert child.startswith(BASE), f"child sitemap outside base: {child}"
+                child_xml = fetch(child[len(BASE):]).decode("utf-8")
+                child_page_locs = re.findall(r"<loc>([^<]+)</loc>", child_xml)
+                assert child_page_locs, f"child sitemap empty: {child}"
+                locs.extend(child_page_locs)
+            print(f"sitemap index children: {len(child_locs)}")
+        else:
+            locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
         assert locs, "sitemap has no locs"
         print(f"sitemap locs: {len(locs)}")
 

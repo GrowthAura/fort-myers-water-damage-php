@@ -82,7 +82,7 @@ $MIME = [
     'txt' => 'text/plain', 'xml' => 'application/xml',
 ];
 $isStatic = str_starts_with($path, '/assets/') ||
-    in_array($path, ['/favicon.ico', '/favicon.svg', '/robots.txt', '/sitemap.xml', '/llms.txt', '/5aacacd72541e41a25cbc83799292d44.txt'], true); // last: IndexNow key file (public by design, Bing fetches it)
+    in_array($path, ['/favicon.ico', '/favicon.svg', '/robots.txt', '/sitemap.xml', '/sitemap-pages.xml', '/sitemap-services.xml', '/sitemap-guides.xml', '/sitemap-areas.xml', '/llms.txt', '/5aacacd72541e41a25cbc83799292d44.txt'], true); // last: IndexNow key file (public by design, Bing fetches it)
 if ($isStatic) {
     $file = $ROOT . $path;
     if (is_file($file)) {
